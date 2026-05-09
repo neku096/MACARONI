@@ -3093,6 +3093,10 @@ p {
     letter-spacing: 0;
   }
 
+  html[lang="ja"] .text-page #terms-title .no-break {
+    white-space: nowrap;
+  }
+
   .text-page .text-panel h2 {
     margin-top: 30px;
     font-size: clamp(20px, 6vw, 24px);
@@ -3151,5 +3155,20 @@ p {
     margin-top: 6px;
     padding: 6px 10px;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  html[lang="ja"] .text-page #terms-title {
+    overflow-wrap: normal;
+    word-break: keep-all;
+    line-break: strict;
+    font-size: clamp(24px, 6.7vw, 31px);
+    letter-spacing: 0;
+    line-height: 1.12;
+  }
+
+  html[lang="ja"] .text-page #terms-title .no-break {
+    white-space: nowrap;
   }
 }
