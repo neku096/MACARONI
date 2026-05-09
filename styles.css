@@ -1935,9 +1935,12 @@ p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px 18px;
+  justify-items: center;
 }
 
 .pose-card {
+  width: 100%;
+  max-width: 460px;
   overflow: hidden;
   border-radius: 8px;
   background: transparent;
@@ -1947,10 +1950,12 @@ p {
 .pose-preview {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
   background: #fff0f6;
 }
 
@@ -3055,5 +3060,13 @@ p {
     height: auto;
     min-height: 0;
     align-self: flex-start;
+  }
+
+  .pose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pose-card {
+    max-width: 320px;
   }
 }
