@@ -2402,7 +2402,7 @@ p {
     scroll-snap-type: inline proximity;
     scrollbar-width: none;
     font-size: 15px;
-    order: 2;
+    order: 3;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -2419,7 +2419,7 @@ p {
   }
 
   .language-switch {
-    order: 3;
+    order: 2;
     margin-left: 0;
     margin-right: 0;
   }
@@ -3113,6 +3113,10 @@ p {
     white-space: nowrap;
   }
 
+  html[lang="en"] .text-page #terms-title .no-break {
+    white-space: nowrap;
+  }
+
   .text-page .text-panel h2 {
     margin-top: 30px;
     font-size: clamp(20px, 6vw, 24px);
@@ -3185,6 +3189,10 @@ p {
   }
 
   html[lang="ja"] .text-page #terms-title .no-break {
+    white-space: nowrap;
+  }
+
+  html[lang="en"] .text-page #terms-title .no-break {
     white-space: nowrap;
   }
 }
