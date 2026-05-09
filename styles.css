@@ -3031,6 +3031,28 @@ p {
     line-height: 1.35;
   }
 
+  .footer-brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-brand img {
+    width: clamp(112px, 34vw, 146px);
+  }
+
+  .footer-brand span {
+    min-width: 0;
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .booth-list-page .list-page-intro h1 {
+    font-size: clamp(24px, 6.3vw, 30px);
+    line-height: 1.24;
+  }
+
   .product-slider {
     gap: 14px;
     padding-inline: 0;
@@ -3040,10 +3062,18 @@ p {
     gap: 14px;
   }
 
+  .sales-band-top .product-slide {
+    align-items: stretch;
+  }
+
   .product-card {
     width: clamp(150px, 42vw, 174px);
     flex: 0 0 clamp(150px, 42vw, 174px);
     min-height: 0;
+  }
+
+  .sales-band-top .product-card {
+    height: clamp(286px, 77vw, 318px);
   }
 
   .product-cover {

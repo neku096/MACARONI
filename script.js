@@ -56,6 +56,7 @@ const textTranslations = {
   "VRChat・Unity向けR18無料3Dポーズ素材 | マカロニ": "R18 Free 3D Pose Materials for VRChat and Unity | Macaroni",
   "VRChat対応アバター別 無料3Dポーズ素材一覧": "Free 3D Pose Materials by VRChat Avatar",
   "対応キャラ別 無料3Dポーズ素材": "Free 3D Pose Materials by Avatar",
+  "無料3Dポーズ素材": "Free 3D Pose Materials",
   "VRChat・Unity向けの無料ポーズ素材を、対応アバターごとに探せます。":
     "Find free VRChat and Unity pose materials by supported avatar.",
   "VRChat対応アバター別 無料3Dポーズ素材一覧 | マカロニ": "Free 3D Pose Materials by VRChat Avatar | Macaroni",
