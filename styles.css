@@ -3062,33 +3062,33 @@ p {
     align-self: flex-start;
   }
 
-  .pose-grid {
+  .catalog-section .pose-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px 12px;
     align-items: start;
   }
 
-  .pose-card {
+  .catalog-section .pose-card {
     max-width: none;
     min-width: 0;
   }
 
-  .pose-card > div {
+  .catalog-section .pose-card > div {
     padding: 8px 0 0;
   }
 
-  .pose-card .tag {
+  .catalog-section .pose-card .tag {
     margin-bottom: 3px;
     font-size: 10px;
   }
 
-  .pose-card h3 {
+  .catalog-section .pose-card h3 {
     margin-bottom: 6px;
     font-size: 13px;
     line-height: 1.4;
   }
 
-  .pose-card .button {
+  .catalog-section .pose-card .button {
     min-height: 32px;
     margin-top: 6px;
     padding: 6px 10px;
