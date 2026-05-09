@@ -2706,6 +2706,61 @@ p {
     min-height: 132px;
   }
 
+  .tips-list-page .text-panel {
+    padding: 14px;
+  }
+
+  .tips-list-page .text-panel h1 {
+    font-size: 34px;
+  }
+
+  .tips-list-page .tips-column-layout {
+    margin-top: 18px;
+  }
+
+  .tips-list-page .tips-list-column {
+    gap: 10px;
+  }
+
+  .tips-list-page .tip-list-card {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .tips-list-page .tip-list-image {
+    width: 92px;
+    min-height: 0;
+  }
+
+  .tips-list-page .tip-list-body strong {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 4px;
+  }
+
+  .tips-list-page .tip-list-body span {
+    font-size: 12px;
+    line-height: 1.45;
+    margin-top: 3px;
+  }
+
+  .tips-list-page .tip-list-body small {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .tips-list-page .tip-card-meta {
+    font-size: 11px;
+  }
+
   .article-visual {
     grid-template-columns: 1fr;
   }
