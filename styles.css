@@ -3081,7 +3081,7 @@ p {
 
   .text-page .text-panel h1 {
     margin-bottom: 14px;
-    font-size: clamp(30px, 9vw, 40px);
+    font-size: clamp(27px, 7.4vw, 34px);
     line-height: 1.22;
   }
 
