@@ -3085,6 +3085,14 @@ p {
     line-height: 1.22;
   }
 
+  html[lang="ja"] .text-page #terms-title {
+    overflow-wrap: normal;
+    word-break: keep-all;
+    line-break: strict;
+    font-size: clamp(24px, 6.7vw, 31px);
+    letter-spacing: 0;
+  }
+
   .text-page .text-panel h2 {
     margin-top: 30px;
     font-size: clamp(20px, 6vw, 24px);
