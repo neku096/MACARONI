@@ -606,6 +606,11 @@ const setupSlider = (slider) => {
       return;
     }
 
+    if (event.pointerType === "touch") {
+      window.clearInterval(autoSlideTimer);
+      return;
+    }
+
     event.preventDefault();
     isDragging = true;
     hasDragged = false;
@@ -690,6 +695,8 @@ const setupSlider = (slider) => {
 
   slider.addEventListener("pointerup", stopDragging);
   slider.addEventListener("pointercancel", stopDragging);
+  slider.addEventListener("touchend", restartAutoSlide, { passive: true });
+  slider.addEventListener("touchcancel", restartAutoSlide, { passive: true });
   slider.addEventListener("lostpointercapture", () => {
     isDragging = false;
     slider.classList.remove("is-dragging");

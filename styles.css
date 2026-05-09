@@ -2581,6 +2581,8 @@ p {
     align-items: flex-start;
     gap: 18px;
     padding-inline: 0;
+    scroll-snap-type: inline proximity;
+    touch-action: pan-x pan-y;
   }
 
   .product-slide {
@@ -2596,6 +2598,7 @@ p {
     width: clamp(150px, 42vw, 174px);
     flex: 0 0 clamp(150px, 42vw, 174px);
     height: auto;
+    scroll-snap-align: start;
   }
 
   .product-cover {
@@ -2605,6 +2608,31 @@ p {
 
   .slider-dots {
     margin-top: 10px;
+  }
+
+  .site-footer {
+    gap: 14px;
+  }
+
+  .footer-links {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .footer-pill {
+    min-height: 40px;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .footer-pill-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
   }
 
   .free-panel,
