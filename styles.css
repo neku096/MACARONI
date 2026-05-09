@@ -2577,15 +2577,29 @@ p {
   }
 
   .product-slider {
+    display: flex;
+    align-items: flex-start;
     gap: 18px;
     padding-inline: 0;
   }
 
   .product-slide {
+    display: flex;
+    width: max-content;
+    max-width: none;
+    flex: 0 0 auto;
+    align-items: flex-start;
     gap: 14px;
   }
 
+  .product-card {
+    width: clamp(150px, 42vw, 174px);
+    flex: 0 0 clamp(150px, 42vw, 174px);
+    height: auto;
+  }
+
   .product-cover {
+    height: clamp(150px, 42vw, 174px);
     max-height: none;
   }
 
