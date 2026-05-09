@@ -3001,3 +3001,44 @@ p {
     font-size: clamp(12px, 2.8vw, 14px);
   }
 }
+
+@media (max-width: 560px) {
+  .product-slider {
+    gap: 14px;
+    padding-inline: 0;
+  }
+
+  .product-slide {
+    gap: 14px;
+  }
+
+  .product-card {
+    width: clamp(150px, 42vw, 174px);
+    flex: 0 0 clamp(150px, 42vw, 174px);
+    min-height: 0;
+  }
+
+  .product-cover {
+    height: clamp(150px, 42vw, 174px);
+    max-height: none;
+  }
+
+  .product-card strong {
+    min-height: 4.5em;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .material-slider {
+    grid-auto-columns: minmax(156px, 48vw);
+    gap: 14px;
+  }
+
+  .thumb.has-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .standing-thumb img {
+    padding: 8px;
+  }
+}
