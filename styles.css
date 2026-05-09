@@ -3062,9 +3062,13 @@ p {
     align-self: flex-start;
   }
 
+  .character-list-section {
+    padding-inline: 20px;
+  }
+
   .character-list-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 34px 18px;
+    gap: 36px 22px;
   }
 
   .catalog-section .pose-grid {
