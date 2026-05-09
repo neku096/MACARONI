@@ -1903,7 +1903,7 @@ p {
   max-width: 100%;
   height: auto;
   min-height: 0;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   align-self: flex-start;
   border: 1px solid var(--line);
   border-radius: 8px;
