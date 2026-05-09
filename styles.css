@@ -2595,15 +2595,29 @@ p {
   }
 
   .product-card {
+    display: flex;
     width: clamp(150px, 42vw, 174px);
     flex: 0 0 clamp(150px, 42vw, 174px);
-    height: auto;
+    height: clamp(270px, 72vw, 310px);
+    flex-direction: column;
     scroll-snap-align: start;
   }
 
   .product-cover {
+    flex: 0 0 auto;
     height: clamp(150px, 42vw, 174px);
     max-height: none;
+  }
+
+  .product-card strong {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .product-card small {
+    margin-top: auto;
   }
 
   .slider-dots {
@@ -2693,6 +2707,10 @@ p {
 
   .booth-filter-panel {
     padding: 14px;
+  }
+
+  .booth-filter-status {
+    text-align: right;
   }
 
   .booth-filter-tabs,
