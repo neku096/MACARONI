@@ -2850,3 +2850,154 @@ p {
     margin-right: 0;
   }
 }
+
+@media (max-width: 1023px) {
+  .site-header {
+    gap: clamp(14px, 3vw, 24px);
+    padding: 14px clamp(16px, 4vw, 40px);
+  }
+
+  .section,
+  .sub-hero,
+  .character-hero {
+    padding-inline: clamp(18px, 5vw, 48px);
+  }
+
+  .section-heading {
+    gap: 16px;
+  }
+
+  .brand-logo {
+    width: clamp(130px, 28vw, 188px);
+  }
+
+  .brand-subtitle {
+    font-size: clamp(13px, 2.2vw, 16px);
+  }
+
+  .nav {
+    gap: clamp(8px, 2vw, 18px);
+  }
+
+  .nav a {
+    padding: 7px 12px;
+  }
+
+  .sales-band-top {
+    padding-top: clamp(16px, 4vw, 28px);
+    padding-bottom: clamp(18px, 4vw, 34px);
+  }
+
+  .product-slider {
+    display: flex;
+    grid-template-columns: none;
+    align-items: flex-start;
+    gap: 18px;
+    overflow-x: auto;
+    padding-inline: 0;
+    scroll-snap-type: inline mandatory;
+    touch-action: pan-x pan-y;
+  }
+
+  .product-slide {
+    display: flex;
+    width: max-content;
+    max-width: none;
+    flex: 0 0 auto;
+    grid-template-columns: none;
+    align-items: flex-start;
+    gap: 18px;
+    scroll-snap-align: start;
+  }
+
+  .product-card {
+    display: flex;
+    width: clamp(270px, 78vw, 340px);
+    flex: 0 0 clamp(270px, 78vw, 340px);
+    height: auto;
+    min-height: clamp(400px, 106vw, 486px);
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+
+  .product-cover {
+    height: clamp(270px, 78vw, 340px);
+    max-height: none;
+    flex: 0 0 auto;
+  }
+
+  .product-card strong {
+    display: -webkit-box;
+    overflow: hidden;
+    min-height: 4.65em;
+    font-size: clamp(16px, 4vw, 19px);
+    line-height: 1.55;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .product-card small {
+    min-height: 0;
+    margin-top: auto;
+  }
+
+  .material-slider {
+    grid-auto-columns: clamp(230px, 74vw, 320px);
+    grid-template-rows: none;
+    gap: 18px;
+  }
+
+  .character-list-grid,
+  .booth-list-grid,
+  .pose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 4vw, 32px);
+  }
+
+  .character-list-card {
+    min-height: clamp(280px, 62vw, 420px);
+  }
+
+  .booth-filter-panel {
+    gap: 14px;
+  }
+
+  .booth-filter-status {
+    text-align: right;
+  }
+
+  .tips-list-page .tip-list-card {
+    grid-template-columns: clamp(92px, 24vw, 148px) minmax(0, 1fr);
+    gap: clamp(12px, 3vw, 20px);
+    min-height: 0;
+  }
+
+  .tips-list-page .tip-list-image {
+    width: clamp(92px, 24vw, 148px);
+    min-height: 0;
+  }
+
+  .tips-list-page .tip-list-body strong {
+    font-size: clamp(16px, 3.4vw, 24px);
+  }
+
+  .site-footer {
+    gap: clamp(14px, 4vw, 32px);
+  }
+
+  .footer-links {
+    position: static;
+    display: grid;
+    width: min(100%, 480px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-left: 0;
+  }
+
+  .footer-pill {
+    justify-content: center;
+    gap: 8px;
+    padding: 7px;
+    font-size: clamp(12px, 2.8vw, 14px);
+  }
+}
