@@ -1862,9 +1862,9 @@ p {
 
 .character-hero {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 420px);
+  grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 460px);
   gap: clamp(28px, 5vw, 70px);
-  align-items: center;
+  align-items: flex-start;
   padding: clamp(34px, 6vw, 72px) clamp(18px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
   background: #fff0f6;
@@ -1899,11 +1899,18 @@ p {
 }
 
 .character-main-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: min(460px, 34vw);
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
+  align-self: flex-start;
   border: 1px solid var(--line);
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
+  justify-self: center;
+  overflow: hidden;
   box-shadow: var(--shadow);
 }
 
@@ -3040,5 +3047,13 @@ p {
 
   .standing-thumb img {
     padding: 8px;
+  }
+
+  .character-main-image {
+    width: min(100%, 320px);
+    max-width: 320px;
+    height: auto;
+    min-height: 0;
+    align-self: flex-start;
   }
 }
