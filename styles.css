@@ -3071,6 +3071,47 @@ p {
     gap: 36px 22px;
   }
 
+  .text-page .text-section {
+    padding-inline: 16px;
+  }
+
+  .text-page .text-panel {
+    padding: 22px 18px;
+  }
+
+  .text-page .text-panel h1 {
+    margin-bottom: 14px;
+    font-size: clamp(30px, 9vw, 40px);
+    line-height: 1.22;
+  }
+
+  .text-page .text-panel h2 {
+    margin-top: 30px;
+    font-size: clamp(20px, 6vw, 24px);
+    line-height: 1.35;
+  }
+
+  .text-page .text-panel p,
+  .text-page .text-panel li {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  .text-page .text-panel ul,
+  .text-page .text-panel ol {
+    gap: 12px;
+    padding-left: 1.35em;
+  }
+
+  .text-page .text-actions {
+    display: grid;
+    gap: 10px;
+  }
+
+  .text-page .text-actions .button {
+    width: 100%;
+  }
+
   .catalog-section .pose-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px 12px;
