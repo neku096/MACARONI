@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>VRChat and Unity Pose Material Tips | Macaroni</title>
+    <meta name="description" content="Article-style tips for using free 3D pose materials in VRChat, Unity, and 3D game production.">
+    <meta name="author" content="Macaroni">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Macaroni">
+    <meta property="og:title" content="VRChat and Unity Pose Material Tips | Macaroni">
+    <meta property="og:description" content="Article-style tips for using free 3D pose materials in VRChat, Unity, and 3D game production.">
+    <meta property="og:image" content="../images/macaroni-logo-source.webp">
+    <meta property="og:image:alt" content="Macaroni VRChat and Unity pose material tips">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VRChat and Unity Pose Material Tips | Macaroni">
+    <meta name="twitter:description" content="Article-style tips for using free 3D pose materials in VRChat, Unity, and 3D game production.">
+    <meta name="twitter:image" content="../images/macaroni-logo-source.webp">
+    <meta name="twitter:image:alt" content="Macaroni VRChat and Unity pose material tips">
+    <script type="application/ld+json" class="seo-schema">
+{
+      "@context": "https://schema.org",
+      "inLanguage": "en",
+      "isFamilyFriendly": false,
+      "creator": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "@type": "CollectionPage",
+      "name": "VRChat and Unity Pose Material Tips",
+      "description": "Article-style tips for using free 3D pose materials in VRChat, Unity, and 3D game production.",
+      "about": [
+            "VRChat",
+            "Unity",
+            "3D pose materials",
+            "Avatar customization"
+      ],
+      "isAccessibleForFree": true,
+      "hasPart": [
+            {
+                  "@type": "Article",
+                  "name": "How to Play anim Files in Unity",
+                  "url": "tips-anim-import.html"
+            },
+            {
+                  "@type": "Article",
+                  "name": "Playing anim files during game development",
+                  "url": "tips-commercial-use.html"
+            },
+            {
+                  "@type": "Article",
+                  "name": "Required Prefabs for setup",
+                  "url": "tips-prefab-setup.html"
+            },
+            {
+                  "@type": "Article",
+                  "name": "Fixing broken facial expressions on edited avatars",
+                  "url": "tips-face-emote-fix.html"
+            }
+      ]
+}
+    </script>
+    <link rel="alternate" hreflang="ja" href="../ja/tips.html">
+    <link rel="alternate" hreflang="en" href="tips.html">
+    <link rel="alternate" hreflang="x-default" href="../ja/tips.html">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
+      <div class="age-panel">
+        <p class="eyebrow">Age Verification</p>
+        <h1>This site is intended for adults 18+</h1>
+        <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
+        <div class="age-actions">
+          <button class="button primary" id="enterSite" type="button">I am 18 or older</button>
+          <a class="button ghost" href="https://www.google.com/">Leave</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Back to top">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 Free 3D Pose Materials</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="characters.html">Characters</a>
+        <a href="booth.html">BOOTH Works</a>
+        <a href="tips.html" aria-current="page">Tips</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <a class="language-option" href="../ja/tips.html" aria-pressed="false">JP</a>
+        <a class="language-option" href="tips.html" aria-pressed="true">EN</a>
+      </div>
+    </header>
+
+    <main class="text-page tips-list-page">
+      <section class="section text-section" aria-labelledby="tips-title">
+        <div class="text-panel">
+          <p class="eyebrow">VRChat / Unity Tips</p>
+          <h1 id="tips-title">Tips</h1>
+          <p>Tips for the common places where VRChat avatar pose setup, Unity animation files, and game production usage can get stuck.</p>
+
+          <div class="tips-column-layout tips-list-only" data-tips-list data-page-size="5">
+            <div class="tips-list-column" aria-label="Tips article list">
+              <a class="tip-list-card" href="tips-anim-import.html">
+                <span class="tip-list-image"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 148px" width="600" height="600" decoding="async"></span>
+                <span class="tip-list-body">
+                  <span class="tip-card-meta">UNITY / 2026.05.08</span>
+                  <strong>How to Play anim Files in Unity</strong>
+                  <span>Animator Controller, Drag and Drop, and Animation tab</span>
+                  <small>How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.</small>
+                </span>
+              </a>
+              <a class="tip-list-card" href="tips-commercial-use.html">
+                <span class="tip-list-image"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 148px" width="600" height="600" decoding="async"></span>
+                <span class="tip-list-body">
+                  <span class="tip-card-meta">GAME USE / 2026.05.09</span>
+                  <strong>Playing anim files during game development</strong>
+                  <span>Calling an Animator State from a script</span>
+                  <small>Create a MonoBehaviour Script, attach it to an empty object, assign the target Animator and State name, then check the pose in Unity's Game view.</small>
+                </span>
+              </a>
+              <a class="tip-list-card" href="tips-prefab-setup.html">
+                <span class="tip-list-image"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 148px" width="600" height="600" decoding="async"></span>
+                <span class="tip-list-body">
+                  <span class="tip-card-meta">PREFAB / 2026.05.08</span>
+                  <strong>About Required Prefabs</strong>
+                  <span>Required Prefabs for setup</span>
+                  <small>Notes for adding both SexyPose_XXX and MAMST_Controller to the avatar Hierarchy.</small>
+                </span>
+              </a>
+              <a class="tip-list-card" href="tips-face-emote-fix.html">
+                <span class="tip-list-image"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Unity Animation tab previewing facial expression clips" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 148px" width="600" height="600" decoding="async"></span>
+                <span class="tip-list-body">
+                  <span class="tip-card-meta">FACE EMOTE / 2026.05.09</span>
+                  <strong>Fixing broken facial expressions on edited avatars</strong>
+                  <span>Match BlendShape values to the edited face</span>
+                  <small>When a facial anim breaks the eyes or mouth, re-record the needed BlendShape values in the Animation tab.</small>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="tips-pagination" data-tips-pagination aria-label="Tips page navigation">
+            <button class="tips-page-arrow" type="button" data-tips-prev aria-label="Previous tips page">‹</button>
+            <span class="tips-page-status" data-tips-status aria-live="polite">1 / 1</span>
+            <button class="tips-page-arrow" type="button" data-tips-next aria-label="Next tips page">›</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Back to top">
+        <img src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 Free 3D Pose Materials | Macaroni</span>
+      </a>
+      <div class="footer-links">
+        <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a class="footer-pill" href="https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">D</span>
+          <span>DLsite</span>
+        </a>
+        <a class="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">X</span>
+          <span>X</span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=10"></script>
+  </body>
+</html>

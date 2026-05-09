@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.psd
+*.clip
+*.zip
+*.7z
+*.rar
+config.toml
+node_modules/
+dist-private/
+_snapshots/
+image-backup-*/

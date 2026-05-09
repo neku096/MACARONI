@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Playing anim files during game development | Macaroni Tips</title>
+    <meta name="description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
+    <meta name="author" content="Macaroni">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Macaroni">
+    <meta property="og:title" content="Playing anim files during game development | Macaroni Tips">
+    <meta property="og:description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
+    <meta property="og:image" content="../images/tips/game-use-step-03.webp">
+    <meta property="og:image:alt" content="Playing anim files during game development - Macaroni Tips">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Playing anim files during game development | Macaroni Tips">
+    <meta name="twitter:description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
+    <meta name="twitter:image" content="../images/tips/game-use-step-03.webp">
+    <meta name="twitter:image:alt" content="Playing anim files during game development - Macaroni Tips">
+    <script type="application/ld+json" class="seo-schema">
+{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "inLanguage": "en",
+      "isFamilyFriendly": false,
+      "headline": "Playing anim files during game development",
+      "description": "A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.",
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-09",
+      "image": "../images/tips/game-use-step-03.webp",
+      "author": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "isAccessibleForFree": true,
+      "citation": [
+            "https://docs.unity3d.com/Manual/class-AnimatorController.html",
+            "https://docs.unity3d.com/ScriptReference/Animator.Play.html",
+            "https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html"
+      ]
+}
+    </script>
+    <link rel="alternate" hreflang="ja" href="../ja/tips-commercial-use.html">
+    <link rel="alternate" hreflang="en" href="tips-commercial-use.html">
+    <link rel="alternate" hreflang="x-default" href="../ja/tips-commercial-use.html">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
+      <div class="age-panel">
+        <p class="eyebrow">Age Verification</p>
+        <h1>This site is intended for adults 18+</h1>
+        <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
+        <div class="age-actions">
+          <button class="button primary" id="enterSite" type="button">I am 18 or older</button>
+          <a class="button ghost" href="https://www.google.com/">Leave</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Back to top">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 Free 3D Pose Materials</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="characters.html">Characters</a>
+        <a href="booth.html">BOOTH Works</a>
+        <a href="tips.html" aria-current="page">Tips</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <a class="language-option" href="../ja/tips-commercial-use.html" aria-pressed="false">JP</a>
+        <a class="language-option" href="tips-commercial-use.html" aria-pressed="true">EN</a>
+      </div>
+    </header>
+
+    <main class="text-page tip-article-page">
+      <section class="section article-section" aria-labelledby="article-title">
+        <div class="article-shell">
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="tips.html">Tips</a>
+            <span aria-hidden="true">›</span>
+            <span>Playing anim files during game development</span>
+          </nav>
+
+          <article class="blog-article">
+            <header class="article-header">
+              <p class="tag">GAME USE</p>
+              <h1 id="article-title">Playing anim files during game development</h1>
+              <div class="article-meta-row">
+                <time datetime="2026-05-09">2026.05.09</time>
+                <span>Macaroni Tips</span>
+              </div>
+              <p class="article-lead">This guide shows how to test a downloaded anim pose in Unity's Game view.</p>
+            </header>
+
+            <div class="article-visual">
+              <span class="article-visual-image"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <div>
+                <strong>Call an anim State in Game view</strong>
+                <p>Register the anim clip as a State in an Animator Controller first, then call that State from a MonoBehaviour Script. This keeps the test small and easy to debug.</p>
+              </div>
+            </div>
+
+            <nav class="article-toc" aria-label="Article contents">
+              <p>Contents</p>
+              <a href="#before">Before you start</a>
+              <span class="article-toc-label">Steps</span>
+              <ol>
+                <li><a href="#script">Create the script</a></li>
+                <li><a href="#empty">Attach it to an empty object</a></li>
+                <li><a href="#inspector">Assign the Animator and State name</a></li>
+                <li><a href="#play">Press Play and check Game view</a></li>
+              </ol>
+              <a href="#trouble">If it does not work</a>
+              <a href="#references">References</a>
+            </nav>
+
+            <section class="article-body-section" id="before">
+              <h2>Before you start</h2>
+              <p>This article starts from the point where your anim file is already registered in an Animator Controller. If you are not sure where to put the Controller or the anim clip, read <a href="tips-anim-import.html">Basic checks when importing anim files into Unity</a> first.</p>
+              <ul class="article-summary-list">
+                <li>The anim clip is registered as a State in an Animator Controller</li>
+                <li>The avatar or target object has an Animator component</li>
+                <li>You have a test Scene ready for checking the pose in Game view</li>
+              </ul>
+            </section>
+
+            <section class="article-body-section" id="script">
+              <h2>1. Create the script</h2>
+              <p>Right-click an empty area in Assets and choose <strong>Create → Scripting → MonoBehaviour Script</strong>. Some Unity versions may show this as a C# Script.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/game-use-step-01-800.webp?v=1" alt="Unity screen showing Create, Scripting, and MonoBehaviour Script from the Assets context menu" srcset="../images/tips/game-use-step-01-600.webp?v=1 600w, ../images/tips/game-use-step-01-800.webp?v=1 800w, ../images/tips/game-use-step-01.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>In this example the script is named <code>PlayAnimExample</code>. Any clear name is fine as long as you can tell it is for testing animation playback.</p>
+              <pre class="article-code-block"><code>using UnityEngine;
+
+public class PlayAnimExample : MonoBehaviour
+{
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
+    [Header("Animation State Name")]
+    [SerializeField] private string animationStateName = "Milltina_Free_01";
+
+    private void Start()
+    {
+        PlayAnimation();
+    }
+
+    public void PlayAnimation()
+    {
+        if (animator == null)
+        {
+            Debug.LogError("Animator is not assigned.");
+            return;
+        }
+
+        animator.Play(animationStateName, 0, 0f);
+    }
+}</code></pre>
+              <div class="article-note">
+                <p><code>animator.Play(animationStateName, 0, 0f);</code> plays the named State on layer 0 from the beginning. For pose checks, starting from the first frame is usually the easiest behavior to read.</p>
+              </div>
+            </section>
+
+            <section class="article-body-section" id="empty">
+              <h2>2. Attach it to an empty object</h2>
+              <p>In the Hierarchy, press <strong>Control + Shift + N</strong> to create an empty GameObject. A name like <code>Script</code> or <code>PlayAnimExample</code> is fine.</p>
+              <p>Drag the script onto that empty object. Keeping test logic on a separate object makes it easy to remove or replace later, instead of mixing temporary code into the avatar itself.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/game-use-step-02-800.webp?v=1" alt="Unity screen showing an empty object in the Hierarchy with the script dragged onto it" srcset="../images/tips/game-use-step-02-600.webp?v=1 600w, ../images/tips/game-use-step-02-800.webp?v=1 800w, ../images/tips/game-use-step-02.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+            </section>
+
+            <section class="article-body-section" id="inspector">
+              <h2>3. Assign the Animator and State name</h2>
+              <p>Select the empty object and look at the script fields in the Inspector. Drag the target avatar's Animator into the <strong>Animator</strong> field.</p>
+              <p>Then enter the Animator State name into <strong>Animation State Name</strong>. In the example, the State name is <code>Milltina_Free_01</code>. By default, the anim file name often becomes the State name, but if the State has been renamed, use the State name visible in the Animator window.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/game-use-step-03-800.webp?v=1" alt="Unity screen showing the Play button and Game view pose playback" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <div class="article-warning">
+                <p>If one character is different, the State will not play. When in doubt, copy the State name from Animator and paste it into the Inspector field.</p>
+              </div>
+            </section>
+
+            <section class="article-body-section" id="play">
+              <h2>4. Press Play and check Game view</h2>
+              <p>Press the Play button at the top of Unity. Check the result in Game view, not only Scene view.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/game-use-step-04-800.webp?v=1" alt="Unity Inspector showing the Animator field and animation State name field" srcset="../images/tips/game-use-step-04-600.webp?v=1 600w, ../images/tips/game-use-step-04-800.webp?v=1 800w, ../images/tips/game-use-step-04.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>This sample calls <code>PlayAnimation()</code> from <code>Start()</code>, so the pose plays as soon as Play Mode begins. Later, you can call the same method from a UI button, click event, trigger area, or another gameplay script.</p>
+            </section>
+
+            <section class="article-body-section" id="trouble">
+              <h2>If it does not work</h2>
+              <h3>The pose does not change</h3>
+              <p>The Animator field may be empty, or it may point to the wrong object. Assign the Animator that controls the full avatar or target object.</p>
+              <h3>The Console shows an error</h3>
+              <p>If you see <code>Animator is not assigned.</code>, the Inspector field has not been filled in yet. Assign the Animator first.</p>
+              <h3>The State name does not play</h3>
+              <p>Check that the State name in the Animator Controller matches the text in the Inspector. If the State is on another layer, update the layer index in the script as well.</p>
+              <h3>How to expand this for an actual game</h3>
+              <p>First confirm that the script can play one State cleanly. After that, connect <code>PlayAnimation()</code> to the gameplay trigger you actually need: a button, a collider, a dialogue event, or a stage sequence.</p>
+            </section>
+
+            <section class="article-body-section" id="references">
+              <h2>References</h2>
+              <ul>
+                <li><a href="https://docs.unity3d.com/Manual/class-AnimatorController.html" target="_blank" rel="noopener noreferrer">Unity Manual: Animator Controller</a></li>
+                <li><a href="https://docs.unity3d.com/ScriptReference/Animator.Play.html" target="_blank" rel="noopener noreferrer">Unity Scripting API: Animator.Play</a></li>
+                <li><a href="https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html" target="_blank" rel="noopener noreferrer">Unity Manual: Creating and Using Scripts</a></li>
+              </ul>
+            </section>
+
+            <nav class="article-next-prev" aria-label="Previous and next Tips articles">
+              <a class="article-nav-card article-nav-card-prev" href="tips-anim-import.html">
+                <span class="article-nav-label">PREV</span>
+                <span class="article-nav-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">Basic checks when importing anim files into Unity</span>
+              </a>
+              <a class="article-nav-card article-nav-card-next" href="tips-prefab-setup.html">
+                <span class="article-nav-label">NEXT</span>
+                <span class="article-nav-title">Required Prefabs for setup</span>
+                <span class="article-nav-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+              </a>
+            </nav>
+
+            <section class="article-related" aria-labelledby="related-tips-title">
+              <h2 id="related-tips-title">Related articles</h2>
+              <div class="article-related-list">
+              <a class="article-related-item" href="tips-anim-import.html">
+                <span class="article-related-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Basic checks when importing anim files into Unity</strong>
+                  <small>UNITY / 2026.05.08</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-prefab-setup.html">
+                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Required Prefabs for setup</strong>
+                  <small>PREFAB / 2026.05.08</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-face-emote-fix.html">
+                <span class="article-related-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Unity Animation tab previewing facial expression clips" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Fixing broken facial expressions on edited avatars</strong>
+                  <small>FACE EMOTE / 2026.05.09</small>
+                </span>
+              </a>
+              </div>
+            </section>
+
+            <div class="text-actions article-actions">
+              <a class="button secondary" href="tips.html">Back to Tips</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Back to top">
+        <img src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 Free 3D Pose Materials | Macaroni</span>
+      </a>
+      <div class="footer-links">
+        <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a class="footer-pill" href="https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">D</span>
+          <span>DLsite</span>
+        </a>
+        <a class="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">X</span>
+          <span>X</span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=10"></script>
+  </body>
+</html>

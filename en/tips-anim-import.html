@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Basic checks when importing anim files into Unity | Macaroni Tips</title>
+    <meta name="description" content="How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.">
+    <meta name="author" content="Macaroni">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Macaroni">
+    <meta property="og:title" content="Basic checks when importing anim files into Unity | Macaroni Tips">
+    <meta property="og:description" content="How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.">
+    <meta property="og:image" content="../images/tips/anim-step-03.webp">
+    <meta property="og:image:alt" content="Basic checks when importing anim files into Unity - Macaroni Tips">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Basic checks when importing anim files into Unity | Macaroni Tips">
+    <meta name="twitter:description" content="How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.">
+    <meta name="twitter:image" content="../images/tips/anim-step-03.webp">
+    <meta name="twitter:image:alt" content="Basic checks when importing anim files into Unity - Macaroni Tips">
+    <script type="application/ld+json" class="seo-schema">
+{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "inLanguage": "en",
+      "isFamilyFriendly": false,
+      "headline": "Basic checks when importing anim files into Unity",
+      "description": "How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.",
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "author": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "isAccessibleForFree": true
+}
+    </script>
+    <link rel="alternate" hreflang="ja" href="../ja/tips-anim-import.html">
+    <link rel="alternate" hreflang="en" href="tips-anim-import.html">
+    <link rel="alternate" hreflang="x-default" href="../ja/tips-anim-import.html">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
+      <div class="age-panel">
+        <p class="eyebrow">Age Verification</p>
+        <h1>This site is intended for adults 18+</h1>
+        <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
+        <div class="age-actions">
+          <button class="button primary" id="enterSite" type="button">I am 18 or older</button>
+          <a class="button ghost" href="https://www.google.com/">Leave</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Back to top">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 Free 3D Pose Materials</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="characters.html">Characters</a>
+        <a href="booth.html">BOOTH Works</a>
+        <a href="tips.html" aria-current="page">Tips</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <a class="language-option" href="../ja/tips-anim-import.html" aria-pressed="false">JP</a>
+        <a class="language-option" href="tips-anim-import.html" aria-pressed="true">EN</a>
+      </div>
+    </header>
+
+    <main class="text-page tip-article-page">
+      <section class="section article-section" aria-labelledby="article-title">
+        <div class="article-shell">
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="tips.html">Tips</a>
+            <span aria-hidden="true">›</span>
+            <span>Basic checks when importing anim files into Unity</span>
+          </nav>
+
+          <article class="blog-article">
+            <header class="article-header">
+              <p class="tag">UNITY</p>
+              <h1 id="article-title">Basic checks when importing anim files into Unity</h1>
+              <div class="article-meta-row">
+                <time datetime="2026-05-08">2026.05.08</time>
+                <span>Macaroni Tips</span>
+              </div>
+              <p class="article-lead">How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.</p>
+            </header>
+
+            <div class="article-visual">
+              <span class="article-visual-image"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <div>
+                <strong>Basic checks when importing anim files into Unity</strong>
+                <p>How to play anim files in Unity by creating an Animator Controller, assigning it to the target object, dragging the anim clip into Animator, and checking it in the Animation tab.</p>
+              </div>
+            </div>
+
+            <nav class="article-toc" aria-label="Article contents">
+              <p>Contents</p>
+              <a href="#summary">What this article covers</a>
+              <a href="#prepare">What to prepare first</a>
+              <span class="article-toc-label">Steps</span>
+              <ol>
+                <li><a href="#controller">Assign an Animator Controller to the object</a></li>
+                <li><a href="#animator-dnd">Drag the anim file into Animator</a></li>
+                <li><a href="#animation-tab">Check and manage clips in the Animation tab</a></li>
+              </ol>
+              <a href="#practical-note">Common places to get stuck</a>
+            </nav>
+
+            <section class="article-body-section" id="summary">
+              <h2>What this article covers</h2>
+              <ul class="article-summary-list">
+                <li>The shortest path to playing an anim file in Unity</li>
+                <li>How to assign an Animator Controller to the target object</li>
+                <li>How to drag an anim clip into Animator and manage it as a State</li>
+                <li>What to check in the Animation tab</li>
+              </ul>
+            </section>
+
+            <section class="article-body-section" id="prepare">
+              <h2>What to prepare first</h2>
+              <ul>
+                <li>An FBX or a setup-ready HumanPrefab</li>
+                <li>The downloaded <code>.anim</code> file</li>
+              </ul>
+              <p>A <code>.anim</code> file does not play by itself. In Unity, it is treated as an Animation Clip. To check it on an avatar, register it in an Animator Controller and assign that Controller to the avatar's Animator.</p>
+              <p class="article-note">For real work, testing with a duplicated avatar or a separate test scene is safer than editing the main prefab immediately. It also makes it easier to tell whether the issue is the animation setup or the original avatar setup.</p>
+            </section>
+
+            <section class="article-body-section" id="controller">
+              <h2>1. Assign an Animator Controller to the object</h2>
+              <ol>
+                <li>Select the avatar or object you want to animate in the Hierarchy.</li>
+                <li>Check the <code>Animator</code> component in the Inspector. If it is missing, add it with <code>Add Component</code>.</li>
+                <li>Drag the <code>Animator Controller</code> you created into the <code>Controller</code> field in the Animator component.</li>
+                <li>Now the object will follow the animation flow defined inside that Controller.</li>
+              </ol>
+              <p>If no Controller is assigned, Unity has no playback flow for the anim file. When something does not move, checking the <code>Controller</code> field first is usually the fastest starting point.</p>
+            </section>
+
+            <section class="article-body-section" id="animator-dnd">
+              <h2>2. Drag the anim file into Animator</h2>
+              <ol>
+                <li>Open the Animator window from <code>Window &gt; Animation &gt; Animator</code>.</li>
+                <li>Make sure the Animator Controller assigned to the target object is open.</li>
+                <li>Drag the <code>.anim</code> file from the Project window into the Animator window.</li>
+                <li>Unity creates a State from that Animation Clip.</li>
+                <li>Right-click the State you want to play first and choose <code>Set as Layer Default State</code>.</li>
+                <li>Press Play in Unity and check whether the target object animates.</li>
+              </ol>
+              <p class="article-note">In practice, if the clip does not play after dragging it in, the issue is often that the wrong Controller is open, the Controller is not assigned to the object, or the new State is not the default State.</p>
+            </section>
+
+            <section class="article-body-section" id="animation-tab">
+              <h2>3. Check and manage clips in the Animation tab</h2>
+              <p>Animator controls which animation plays and how States transition. The Animation tab is where you inspect the selected object's Animation Clip, timeline, keys, and curves.</p>
+              <ol>
+                <li>Open it from <code>Window &gt; Animation &gt; Animation</code>.</li>
+                <li>Select the target object in the Hierarchy.</li>
+                <li>Choose the <code>.anim</code> clip from the clip selector at the top of the Animation tab.</li>
+                <li>Use the play button or timeline to check the pose or motion.</li>
+                <li>If needed, inspect keys and curves while adjusting the clip.</li>
+              </ol>
+              <p class="article-warning">If the red Record button in the Animation tab is on, Unity may add unintended keyframes while you edit. When you only want to inspect a clip, check that recording is off first.</p>
+            </section>
+
+            <section class="article-body-section" id="practical-note">
+              <h2>Common places to get stuck</h2>
+              <ul>
+                <li>You selected a child object instead of the avatar root, so the Animator component is not visible.</li>
+                <li>The Animator window is still showing another Controller.</li>
+                <li>The anim State is not the default State, so Play Mode enters another State.</li>
+                <li>The clip expects a Humanoid avatar, but the model's bone or Avatar settings do not match.</li>
+                <li>For VRChat avatars, adding it directly into existing FX or Gesture Controllers can make troubleshooting harder.</li>
+              </ul>
+              <p>A simple test flow is recommended first: create one test Controller, assign it to the target object's Animator, drag the anim into Animator, set it as the default State, and press Play. If it moves there, the anim file itself is playable in Unity.</p>
+            </section>
+
+            <nav class="article-next-prev" aria-label="Previous and next Tips articles">
+              <a class="article-nav-card article-nav-card-prev" href="tips-face-emote-fix.html">
+                <span class="article-nav-label">PREV</span>
+                <span class="article-nav-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Unity Animation tab previewing facial expression clips" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">Fixing broken facial expressions on edited avatars</span>
+              </a>
+              <a class="article-nav-card article-nav-card-next" href="tips-commercial-use.html">
+                <span class="article-nav-label">NEXT</span>
+                <span class="article-nav-title">Playing anim files during game development</span>
+                <span class="article-nav-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+              </a>
+            </nav>
+
+            <section class="article-related" aria-labelledby="related-tips-title">
+              <h2 id="related-tips-title">Related articles</h2>
+              <div class="article-related-list">
+              <a class="article-related-item" href="tips-commercial-use.html">
+                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Playing anim files during game development</strong>
+                  <small>GAME USE / 2026.05.09</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-prefab-setup.html">
+                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Required Prefabs for setup</strong>
+                  <small>PREFAB / 2026.05.08</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-face-emote-fix.html">
+                <span class="article-related-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Unity Animation tab previewing facial expression clips" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Fixing broken facial expressions on edited avatars</strong>
+                  <small>FACE EMOTE / 2026.05.09</small>
+                </span>
+              </a>
+              </div>
+            </section>
+
+            <div class="text-actions article-actions">
+              <a class="button secondary" href="tips.html">Back to Tips</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Back to top">
+        <img src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 Free 3D Pose Materials | Macaroni</span>
+      </a>
+      <div class="footer-links">
+        <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a class="footer-pill" href="https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">D</span>
+          <span>DLsite</span>
+        </a>
+        <a class="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">X</span>
+          <span>X</span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=10"></script>
+  </body>
+</html>

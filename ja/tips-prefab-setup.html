@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>導入に必要なPrefabについて | マカロニTIPS</title>
+    <meta name="description" content="SexyPose_○○○ と MAMST_Controller の2つをHierarchyへ入れる時の注意点です。">
+    <meta name="author" content="マカロニ">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="マカロニ">
+    <meta property="og:title" content="導入に必要なPrefabについて | マカロニTIPS">
+    <meta property="og:description" content="SexyPose_○○○ と MAMST_Controller の2つをHierarchyへ入れる時の注意点です。">
+    <meta property="og:image" content="../images/tips/prefab-required.webp?v=2">
+    <meta property="og:image:alt" content="導入に必要なPrefabについて - マカロニTIPS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="導入に必要なPrefabについて | マカロニTIPS">
+    <meta name="twitter:description" content="SexyPose_○○○ と MAMST_Controller の2つをHierarchyへ入れる時の注意点です。">
+    <meta name="twitter:image" content="../images/tips/prefab-required.webp?v=2">
+    <meta name="twitter:image:alt" content="導入に必要なPrefabについて - マカロニTIPS">
+    <script type="application/ld+json" class="seo-schema">
+{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "inLanguage": "ja",
+      "isFamilyFriendly": false,
+      "headline": "導入に必要なPrefabについて",
+      "description": "SexyPose_○○○ と MAMST_Controller の2つをHierarchyへ入れる時の注意点です。",
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "author": {
+            "@type": "Organization",
+            "name": "マカロニ"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "マカロニ"
+      },
+      "isAccessibleForFree": true
+}
+    </script>
+    <link rel="alternate" hreflang="ja" href="tips-prefab-setup.html">
+    <link rel="alternate" hreflang="en" href="../en/tips-prefab-setup.html">
+    <link rel="alternate" hreflang="x-default" href="tips-prefab-setup.html">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
+      <div class="age-panel">
+        <p class="eyebrow">Age Verification</p>
+        <h1>このサイトは18歳以上向けです</h1>
+        <p>R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
+        <div class="age-actions">
+          <button class="button primary" id="enterSite" type="button">18歳以上です</button>
+          <a class="button ghost" href="https://www.google.com/">退場する</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="トップへ">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 ３Dポーズ素材無料配布サイト</span>
+      </a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="characters.html">対応キャラ</a>
+        <a href="booth.html">BOOTH作品一覧</a>
+        <a href="tips.html" aria-current="page">TIPS</a>
+        <a href="terms.html">利用規約</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <a class="language-option" href="tips-prefab-setup.html" aria-pressed="true">JP</a>
+        <a class="language-option" href="../en/tips-prefab-setup.html" aria-pressed="false">EN</a>
+      </div>
+    </header>
+
+    <main class="text-page tip-article-page">
+      <section class="section article-section" aria-labelledby="article-title">
+        <div class="article-shell">
+          <nav class="article-breadcrumb" aria-label="パンくずリスト">
+            <a href="index.html">ホーム</a>
+            <span aria-hidden="true">›</span>
+            <a href="tips.html">TIPS</a>
+            <span aria-hidden="true">›</span>
+            <span>導入に必要なPrefabについて</span>
+          </nav>
+
+          <article class="blog-article">
+            <header class="article-header">
+              <p class="tag">PREFAB</p>
+              <h1 id="article-title">導入に必要なPrefabについて</h1>
+              <div class="article-meta-row">
+                <time datetime="2026-05-08">2026.05.08</time>
+                <span>マカロニTIPS</span>
+              </div>
+              <p class="article-lead">SexyPose_○○○ と MAMST_Controller をアバターのHierarchyへ追加する時の確認ポイントです。</p>
+            </header>
+
+            <div class="article-visual">
+              <span class="article-visual-image"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <div>
+                <strong>導入に必要なPrefabについて</strong>
+                <p>追加するPrefabの種類と、MAMST_Controllerを重複させないための確認手順をまとめます。</p>
+              </div>
+            </div>
+
+            <div class="article-warning">
+              <p>このページは、マカロニのBOOTH商品フォルダに含まれるPrefabをUnityへ導入する方向けの手順です。手元に対象の商品フォルダがない場合は、Prefab名や配置手順が一致しないことがあります。</p>
+            </div>
+
+            <nav class="article-toc" aria-label="記事目次">
+              <p>Contents</p>
+              <a href="#summary">この記事で確認すること</a>
+              <span class="article-toc-label">作業手順</span>
+              <ol>
+                <li><a href="#required">追加するPrefab</a></li>
+                <li><a href="#controller">MAMST_Controllerは重複させない</a></li>
+                <li><a href="#before">導入前にHierarchyを確認する</a></li>
+              </ol>
+            </nav>
+
+            <section class="article-body-section" id="summary">
+              <h2>この記事で確認すること</h2>
+              <ul class="article-summary-list">
+                  <li>必要なPrefabは2つ</li>
+                  <li>MAMST_Controllerは1つだけ</li>
+                  <li>導入済みなら追加しない</li>
+              </ul>
+            </section>
+
+              <section class="article-body-section" id="required">
+                <h2>1. 追加するPrefab</h2>
+<p>商品フォルダ内のポーズ機能を使うには、次の2つのPrefabをアバターのHierarchyに追加します。</p>
+            <ul class="prefab-list">
+              <li><code>SexyPose_○○○</code></li>
+              <li><code>MAMST_Controller</code></li>
+            </ul>
+            <p>どちらか一方だけでは正常に動作しません。</p>
+            <figure class="article-image-frame">
+              <img src="../images/tips/prefab-required-800.webp?v=2" alt="MAMST_ControllerとSexyPose PrefabをアバターのHierarchyへ追加した例" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+            </figure>
+              </section>
+
+              <section class="article-body-section" id="controller">
+                <h2>2. MAMST_Controllerは重複させない</h2>
+<ul>
+              <li><code>MAMST_Controller</code> はHierarchy内に1つのみ配置してください。</li>
+              <li>マカロニの他のギミック・ポーズ商品を併用する場合も、共通で1つのみ使用します。</li>
+              <li>複数配置すると、View機能使用時にバグが発生したり、正常に動作しない場合があります。</li>
+              <li>すでに <code>MAMST_Controller</code> が導入済みの場合は、新たに追加する必要はありません。</li>
+            </ul>
+            <figure class="article-image-frame">
+              <img src="../images/tips/mamst-controller-note-800.webp?v=2" alt="MAMST_Controllerを重複配置しない注意例" srcset="../images/tips/mamst-controller-note-600.webp?v=2 600w, ../images/tips/mamst-controller-note-800.webp?v=2 800w, ../images/tips/mamst-controller-note.webp?v=2 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+            </figure>
+              </section>
+
+              <section class="article-body-section" id="before">
+                <h2>3. 導入前にHierarchyを確認する</h2>
+<p>Prefabを追加する前に、Hierarchy内に <code>MAMST_Controller</code> がすでに存在するか確認してください。複数の商品を入れる時も、先に確認しておくと重複配置を避けやすいです。</p>
+              </section>
+
+            <nav class="article-next-prev" aria-label="前後のTIPS記事">
+              <a class="article-nav-card article-nav-card-prev" href="tips-commercial-use.html">
+                <span class="article-nav-label">PREV</span>
+                <span class="article-nav-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">ゲーム開発時にanimを再生する手順</span>
+              </a>
+              <a class="article-nav-card article-nav-card-next" href="tips-face-emote-fix.html">
+                <span class="article-nav-label">NEXT</span>
+                <span class="article-nav-title">改変済みアバターの表情破綻を直す手順</span>
+                <span class="article-nav-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+              </a>
+            </nav>
+
+            <section class="article-related" aria-labelledby="related-tips-title">
+              <h2 id="related-tips-title">関連記事</h2>
+              <div class="article-related-list">
+              <a class="article-related-item" href="tips-anim-import.html">
+                <span class="article-related-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Unityでanimファイルを入れる時の基本</strong>
+                  <small>UNITY / 2026.05.08</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-commercial-use.html">
+                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>ゲーム開発時にanimを再生する手順</strong>
+                  <small>GAME USE / 2026.05.09</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-face-emote-fix.html">
+                <span class="article-related-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>改変済みアバターの表情破綻を直す手順</strong>
+                  <small>FACE EMOTE / 2026.05.09</small>
+                </span>
+              </a>
+              </div>
+            </section>
+
+            <div class="text-actions article-actions">
+              <a class="button secondary" href="tips.html">TIPS一覧へ戻る</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="トップへ">
+        <img src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 ３Dポーズ素材無料配布サイト | マカロニ</span>
+      </a>
+      <div class="footer-links">
+        <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a class="footer-pill" href="https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">D</span>
+          <span>DLsite</span>
+        </a>
+        <a class="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">X</span>
+          <span>X</span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=10"></script>
+  </body>
+</html>

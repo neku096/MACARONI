@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Fixing broken facial expressions on edited avatars | Macaroni Tips</title>
+    <meta name="description" content="How to fix broken facial expressions on edited avatars by re-recording BlendShape values in Unity's Animation tab.">
+    <meta name="author" content="Macaroni">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="theme-color" content="#07070b">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Macaroni">
+    <meta property="og:title" content="Fixing broken facial expressions on edited avatars | Macaroni Tips">
+    <meta property="og:description" content="How to fix broken facial expressions on edited avatars by re-recording BlendShape values in Unity's Animation tab.">
+    <meta property="og:image" content="../images/tips/face-fix-step-04.webp">
+    <meta property="og:image:alt" content="Fixing broken facial expressions on edited avatars - Macaroni Tips">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fixing broken facial expressions on edited avatars | Macaroni Tips">
+    <meta name="twitter:description" content="How to fix broken facial expressions on edited avatars by re-recording BlendShape values in Unity's Animation tab.">
+    <meta name="twitter:image" content="../images/tips/face-fix-step-04.webp">
+    <meta name="twitter:image:alt" content="Fixing broken facial expressions on edited avatars - Macaroni Tips">
+    <script type="application/ld+json" class="seo-schema">
+{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "inLanguage": "en",
+      "isFamilyFriendly": false,
+      "headline": "Fixing broken facial expressions on edited avatars",
+      "description": "How to fix broken facial expressions on edited avatars by re-recording BlendShape values in Unity's Animation tab.",
+      "datePublished": "2026-05-09",
+      "dateModified": "2026-05-09",
+      "image": "../images/tips/face-fix-step-04.webp",
+      "author": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "publisher": {
+            "@type": "Organization",
+            "name": "Macaroni"
+      },
+      "isAccessibleForFree": true,
+      "citation": [
+            "https://docs.unity3d.com/ja/2018.3/Manual/BlendShapes.html",
+            "https://docs.unity3d.com/es/2018.4/Manual/animeditor-AnimatingAGameObject.html",
+            "https://docs.unity3d.com/ru/2019.4/Manual/animeditor-AnimationCurves.html"
+      ]
+}
+    </script>
+    <link rel="alternate" hreflang="ja" href="../ja/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="en" href="tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="x-default" href="../ja/tips-face-emote-fix.html">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
+      <div class="age-panel">
+        <p class="eyebrow">Age Verification</p>
+        <h1>This site is intended for adults 18+</h1>
+        <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
+        <div class="age-actions">
+          <button class="button primary" id="enterSite" type="button">I am 18 or older</button>
+          <a class="button ghost" href="https://www.google.com/">Leave</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Back to top">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 Free 3D Pose Materials</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="characters.html">Characters</a>
+        <a href="booth.html">BOOTH Works</a>
+        <a href="tips.html" aria-current="page">Tips</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <a class="language-option" href="../ja/tips-face-emote-fix.html" aria-pressed="false">JP</a>
+        <a class="language-option" href="tips-face-emote-fix.html" aria-pressed="true">EN</a>
+      </div>
+    </header>
+
+    <main class="text-page tip-article-page">
+      <section class="section article-section" aria-labelledby="article-title">
+        <div class="article-shell">
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="tips.html">Tips</a>
+            <span aria-hidden="true">›</span>
+            <span>Fixing broken facial expressions on edited avatars</span>
+          </nav>
+
+          <article class="blog-article">
+            <header class="article-header">
+              <p class="tag">FACE EMOTE</p>
+              <h1 id="article-title">Fixing broken facial expressions on edited avatars</h1>
+              <div class="article-meta-row">
+                <time datetime="2026-05-09">2026.05.09</time>
+                <span>Macaroni Tips</span>
+              </div>
+              <p class="article-lead">If an edited avatar's eyes, mouth, or default face breaks after applying facial anim clips, re-record the BlendShape values in the Animation tab so the clips match the current face.</p>
+            </header>
+
+            <div class="article-visual">
+              <span class="article-visual-image"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Unity Animation tab previewing facial expression clips" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <div>
+                <strong>Adjust expression clips for the edited face</strong>
+                <p>Most expression issues come from anim clips containing BlendShape values that no longer match the modified avatar. Fix only the keys that are causing the visible break.</p>
+              </div>
+            </div>
+
+            <nav class="article-toc" aria-label="Article contents">
+              <p>Contents</p>
+              <a href="#before">Before you start</a>
+              <span class="article-toc-label">Steps</span>
+              <ol>
+                <li><a href="#add-fx">Add the expression FX to the avatar</a></li>
+                <li><a href="#default-face">Open DefaultFace</a></li>
+                <li><a href="#record">Select Body or Face and enable Record</a></li>
+                <li><a href="#value">Enter BlendShape values and record them to DefaultFace</a></li>
+                <li><a href="#preview">Stop Record and check with Preview</a></li>
+                <li><a href="#adjust">Adjust broken values while watching Scene view</a></li>
+              </ol>
+              <a href="#trouble">Common pitfalls</a>
+              <a href="#references">References</a>
+            </nav>
+
+            <section class="article-body-section" id="before">
+              <h2>Before you start</h2>
+              <p>This is for avatars whose face has already been edited, where the provided facial anim clips no longer match the current face. If basic anim editing is still confusing, read <a href="tips-anim-import.html">Basic checks when importing anim files into Unity</a> first.</p>
+              <p>BlendShape sliders live on the Skinned Mesh Renderer. Unity's documentation describes 0 as no influence and 100 as full influence, which is exactly why expression clips can break after face edits: the old numbers are still being animated.</p>
+              <ul class="article-summary-list">
+                <li>Duplicate the original expression clips before editing if possible</li>
+                <li>The face mesh may be named Body, Face, Head, or something avatar-specific</li>
+                <li>Turn Record off after editing so you do not accidentally key unrelated values</li>
+              </ul>
+            </section>
+
+            <section class="article-body-section" id="add-fx">
+              <h2>1. Add the expression FX to the avatar</h2>
+              <p>Drag the expression FX or anim asset from a path like <strong>SexyPose → Anim → ○○_FX</strong> onto the avatar in the Hierarchy. Folder and file names vary by product, so use the screenshot as an example.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-01-800.webp?v=1" alt="Unity screen dragging expression FX from the Anim folder onto the avatar" srcset="../images/tips/face-fix-step-01-600.webp?v=1 600w, ../images/tips/face-fix-step-01-800.webp?v=1 800w, ../images/tips/face-fix-step-01.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+            </section>
+
+            <section class="article-body-section" id="default-face">
+              <h2>2. Open DefaultFace</h2>
+              <p>First, get to the baseline expression clip you want to edit. Select the avatar object in the Hierarchy, double-click the anim file in Assets, and open the Animation tab.</p>
+              <p>In the Animation tab, use the clip dropdown under Preview and choose <strong>DefaultFace</strong>. Do not press Record yet here. This step is only about making sure DefaultFace is the active clip.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-02-800.webp?v=1" alt="Unity Animation tab with DefaultFace selected from the clip dropdown" srcset="../images/tips/face-fix-step-02-600.webp?v=1 600w, ../images/tips/face-fix-step-02-800.webp?v=1 800w, ../images/tips/face-fix-step-02.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>DefaultFace is the baseline the face returns to. If this baseline no longer matches the edited avatar, every expression can look slightly wrong.</p>
+            </section>
+
+            <section class="article-body-section" id="record">
+              <h2>3. Select Body or Face and enable Record</h2>
+              <p>After DefaultFace is selected, choose the object that contains the facial BlendShapes. In the screenshot it is <strong>Body</strong>, but some avatars use Face, Head, Body_001, or another name.</p>
+              <p>Once the face mesh is selected, press the red Record button in the Animation tab. From here, changed BlendShape values will be recorded as keys into DefaultFace.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-03-800.webp?v=1" alt="Unity Animation tab with Body selected and Record enabled" srcset="../images/tips/face-fix-step-03-600.webp?v=1 600w, ../images/tips/face-fix-step-03-800.webp?v=1 800w, ../images/tips/face-fix-step-03.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>You select Body or Face so the BlendShape sliders appear in the Inspector. If the avatar root is selected, the face sliders may not be visible.</p>
+            </section>
+
+            <section class="article-body-section" id="value">
+              <h2>4. Enter BlendShape values and record them to DefaultFace</h2>
+              <p>When an edited avatar's expression breaks, the old anim values usually no longer fit the current face. In the Inspector, find the relevant BlendShape and manually type a value that looks right for the edited avatar.</p>
+              <p>Because Record is on, the value you type becomes a key in DefaultFace. The goal is to save a new baseline face that matches the modified avatar.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-04-800.webp?v=1" alt="Unity Inspector editing a BlendShape value and recording it into DefaultFace" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>Small passes are easier. Adjust the eyes first, then mouth, then brows or cheeks. If you change everything at once, it becomes hard to tell which value caused the problem.</p>
+            </section>
+
+            <section class="article-body-section" id="preview">
+              <h2>5. Stop Record and check with Preview</h2>
+              <p>After all needed keys are recorded, stop Record first. Then select expression clips one by one from the Animation tab and use Preview to check whether anything still breaks.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-05-800.webp?v=1" alt="Unity Animation tab previewing facial expression clips after Record is turned off" srcset="../images/tips/face-fix-step-05-600.webp?v=1 600w, ../images/tips/face-fix-step-05-800.webp?v=1 800w, ../images/tips/face-fix-step-05.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <div class="article-warning">
+                <p>If Record stays on while you touch unrelated values, those values may also be recorded into the clip. Turn it off as soon as this pass is done.</p>
+              </div>
+            </section>
+
+            <section class="article-body-section" id="adjust">
+              <h2>6. Adjust broken values while watching Scene view</h2>
+              <p>If you find a broken expression during Preview, slide the vertical line in the Animation timeline and check which BlendShape is active at that moment. Adjust the value while watching the face in Scene view.</p>
+              <p>In the screenshot, the eyes are the broken part, so the eye-related key such as <code>eye_close</code> is being checked and adjusted. Match the visible issue to the key name: eyes for eye keys, mouth for mouth keys, brows for brow keys.</p>
+              <figure class="article-image-frame">
+                <img src="../images/tips/face-fix-step-06-800.webp?v=1" alt="Unity Animation timeline adjusted while checking eye BlendShape values in Scene view" srcset="../images/tips/face-fix-step-06-600.webp?v=1 600w, ../images/tips/face-fix-step-06-800.webp?v=1 800w, ../images/tips/face-fix-step-06.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+              </figure>
+              <p>If one expression still looks off, do not turn Record back on for this pass. Adjust the relevant BlendShape value directly while watching the Scene view. Start by removing the obvious breakage, then fine-tune the small expression differences afterward.</p>
+            </section>
+
+            <section class="article-body-section" id="trouble">
+              <h2>Common pitfalls</h2>
+              <h3>You cannot find the BlendShape sliders</h3>
+              <p>You may be selecting the wrong object. Look for the object with a Skinned Mesh Renderer and visible BlendShape sliders.</p>
+              <h3>The value does not stay after editing</h3>
+              <p>Check that the correct avatar is selected in the Hierarchy and that the target clip is selected in the Animation tab.</p>
+              <h3>Another expression breaks after fixing one</h3>
+              <p>Several clips may use the same BlendShape. Preview DefaultFace and the commonly used expression clips together.</p>
+            </section>
+
+            <section class="article-body-section" id="references">
+              <h2>References</h2>
+              <ul>
+                <li><a href="https://docs.unity3d.com/ja/2018.3/Manual/BlendShapes.html" target="_blank" rel="noopener noreferrer">Unity Manual: BlendShapes</a></li>
+                <li><a href="https://docs.unity3d.com/es/2018.4/Manual/animeditor-AnimatingAGameObject.html" target="_blank" rel="noopener noreferrer">Unity Manual: Animating a GameObject</a></li>
+                <li><a href="https://docs.unity3d.com/ru/2019.4/Manual/animeditor-AnimationCurves.html" target="_blank" rel="noopener noreferrer">Unity Manual: Using Animation Curves</a></li>
+              </ul>
+            </section>
+
+            <nav class="article-next-prev" aria-label="Previous and next Tips articles">
+              <a class="article-nav-card article-nav-card-prev" href="tips-prefab-setup.html">
+                <span class="article-nav-label">PREV</span>
+                <span class="article-nav-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">Required Prefabs for setup</span>
+              </a>
+              <a class="article-nav-card article-nav-card-next" href="tips-anim-import.html">
+                <span class="article-nav-label">NEXT</span>
+                <span class="article-nav-title">Basic checks when importing anim files into Unity</span>
+                <span class="article-nav-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+              </a>
+            </nav>
+
+            <section class="article-related" aria-labelledby="related-tips-title">
+              <h2 id="related-tips-title">Related articles</h2>
+              <div class="article-related-list">
+              <a class="article-related-item" href="tips-anim-import.html">
+                <span class="article-related-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity screen showing how to create an Animator Controller" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Basic checks when importing anim files into Unity</strong>
+                  <small>UNITY / 2026.05.08</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-commercial-use.html">
+                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Playing anim files during game development</strong>
+                  <small>GAME USE / 2026.05.09</small>
+                </span>
+              </a>
+              <a class="article-related-item" href="tips-prefab-setup.html">
+                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity screen showing required prefabs added to the Hierarchy" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-copy">
+                  <strong>Required Prefabs for setup</strong>
+                  <small>PREFAB / 2026.05.08</small>
+                </span>
+              </a>
+              </div>
+            </section>
+
+            <div class="text-actions article-actions">
+              <a class="button secondary" href="tips.html">Back to Tips</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="index.html" aria-label="Back to top">
+        <img src="../images/macaroni-logo.webp" alt="Macaroni" width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 Free 3D Pose Materials | Macaroni</span>
+      </a>
+      <div class="footer-links">
+        <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a class="footer-pill" href="https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">D</span>
+          <span>DLsite</span>
+        </a>
+        <a class="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span class="footer-pill-icon" aria-hidden="true">X</span>
+          <span>X</span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=10"></script>
+  </body>
+</html>
