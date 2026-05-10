@@ -489,44 +489,35 @@ document.querySelectorAll("a[download][href]").forEach(setupSaveDialogDownload);
 const setupSlider = (slider) => {
   const cardSelector = slider.dataset.cardSelector || ".product-card";
   const cards = [...slider.querySelectorAll(cardSelector)];
+  const slideItems = slider.classList.contains("product-slider") ? [...slider.querySelectorAll(".product-card")] : cards;
   const dots = slider.parentElement.querySelector("[data-slider-dots]");
   const rows = Math.max(1, Number.parseInt(slider.dataset.sliderRows || "1", 10));
   const isLooping = slider.dataset.loop === "true";
+  const slideStep = 2;
 
-  if (!cards.length) {
+  if (!cards.length || !slideItems.length) {
     return;
   }
 
   const getEffectiveRows = () => {
-    if (rows === 1 || cards.length < 2) {
+    if (rows === 1 || slideItems.length < 2) {
       return rows;
     }
 
-    const firstLeft = cards[0].getBoundingClientRect().left;
-    const rowCount = cards.filter((card) => Math.abs(card.getBoundingClientRect().left - firstLeft) < 2).length;
+    const firstLeft = slideItems[0].getBoundingClientRect().left;
+    const rowCount = slideItems.filter((card) => Math.abs(card.getBoundingClientRect().left - firstLeft) < 2).length;
     return Math.max(1, rowCount || rows);
   };
 
   const getSnapPositions = () => {
     const effectiveRows = getEffectiveRows();
     const sliderLeft = slider.getBoundingClientRect().left;
-    return cards
+    return slideItems
       .filter((_, index) => index % effectiveRows === 0)
       .map((card) => card.getBoundingClientRect().left - sliderLeft + slider.scrollLeft);
   };
 
-  const getGap = () => {
-    const sliderStyles = getComputedStyle(slider);
-    const gap = Number.parseFloat(sliderStyles.columnGap || sliderStyles.gap);
-    return Number.isNaN(gap) ? 24 : gap;
-  };
-
-  const getCardDistance = () => {
-    const positions = getSnapPositions();
-    return positions.length > 1 ? positions[1] - positions[0] : cards[0].getBoundingClientRect().width + getGap();
-  };
-
-  const getSlideCount = () => getSnapPositions().length;
+  const getStepCount = () => Math.ceil(getSnapPositions().length / slideStep);
 
   const getCurrentIndex = () => {
     const positions = getSnapPositions();
@@ -545,7 +536,19 @@ const setupSlider = (slider) => {
     const positions = getSnapPositions();
     const lastIndex = positions.length - 1;
     const targetIndex = Math.max(0, Math.min(index, lastIndex));
+    const previousSnapType = slider.style.scrollSnapType;
+
+    if (slider.classList.contains("product-slider")) {
+      slider.style.scrollSnapType = "none";
+    }
+
     slider.scrollTo({ left: positions[targetIndex], behavior });
+
+    if (slider.classList.contains("product-slider")) {
+      window.setTimeout(() => {
+        slider.style.scrollSnapType = previousSnapType;
+      }, behavior === "smooth" ? 520 : 0);
+    }
   };
 
   const fastScrollToStart = () => {
@@ -571,7 +574,7 @@ const setupSlider = (slider) => {
 
   const slideByCard = (direction) => {
     const currentIndex = getCurrentIndex();
-    const lastIndex = getSlideCount() - 1;
+    const lastIndex = getSnapPositions().length - 1;
     const endThreshold = slider.scrollWidth - slider.clientWidth - 4;
 
     if (direction > 0 && (currentIndex >= lastIndex || slider.scrollLeft >= endThreshold)) {
@@ -579,7 +582,7 @@ const setupSlider = (slider) => {
       return;
     }
 
-    scrollToIndex(currentIndex + direction);
+    scrollToIndex(currentIndex + direction * slideStep);
   };
 
   let isDragging = false;
@@ -612,7 +615,7 @@ const setupSlider = (slider) => {
       return;
     }
 
-    const index = getCurrentIndex();
+    const index = Math.floor(getCurrentIndex() / slideStep);
     const dotButtons = [...dots.querySelectorAll(".slider-dot")];
     dotButtons.forEach((dot, dotIndex) => {
       dot.classList.toggle("is-active", dotIndex === Math.min(index, dotButtons.length - 1));
@@ -624,7 +627,7 @@ const setupSlider = (slider) => {
       return;
     }
 
-    const dotCount = getSlideCount();
+    const dotCount = getStepCount();
 
     if (dots.childElementCount === dotCount) {
       updateActiveDot();
@@ -638,7 +641,7 @@ const setupSlider = (slider) => {
       dot.type = "button";
       dot.setAttribute("aria-label", `${index + 1}列目へ`);
       dot.addEventListener("click", () => {
-        scrollToIndex(index);
+        scrollToIndex(index * slideStep);
         restartAutoSlide();
       });
       dots.append(dot);
