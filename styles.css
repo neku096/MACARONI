@@ -3348,7 +3348,7 @@ p {
     justify-content: flex-start;
     overflow-x: auto;
     overflow-y: visible;
-    padding: 3px 0 12px;
+    padding: 3px 24px 12px 0;
     scroll-padding-right: 24px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -3436,21 +3436,6 @@ p {
 
   .character-list-card .character-list-image {
     transform: translateY(-8px);
-  }
-}
-
-@media (max-width: 430px) {
-  .nav {
-    gap: 6px;
-  }
-
-  .nav::after {
-    flex-basis: 0;
-  }
-
-  .nav a {
-    padding: 7px 9px;
-    font-size: 14px;
   }
 }
 
