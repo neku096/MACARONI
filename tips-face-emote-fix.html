@@ -8,19 +8,24 @@
     <title>改変済みアバターの表情破綻を直す手順 | マカロニTIPS</title>
     <meta name="description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
     <meta name="author" content="マカロニ">
-    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#07070b">
     <meta property="og:type" content="article">
+    <meta property="og:url" content="https://neku096.github.io/MACARONI/tips-face-emote-fix.html">
     <meta property="og:site_name" content="マカロニ">
+    <meta property="og:locale" content="ja_JP">
     <meta property="og:title" content="改変済みアバターの表情破綻を直す手順 | マカロニTIPS">
     <meta property="og:description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
-    <meta property="og:image" content="images/tips/face-fix-step-04.webp">
-    <meta property="og:image:alt" content="改変済みアバターの表情破綻を直す手順 - マカロニTIPS">
+    <meta property="og:image" content="https://neku096.github.io/MACARONI/images/ogp-macaroni.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="改変済みアバターの表情破綻を直す手順 | マカロニTIPS">
     <meta name="twitter:description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
-    <meta name="twitter:image" content="images/tips/face-fix-step-04.webp">
-    <meta name="twitter:image:alt" content="改変済みアバターの表情破綻を直す手順 - マカロニTIPS">
+    <meta name="twitter:image" content="https://neku096.github.io/MACARONI/images/ogp-macaroni.jpg">
+    <meta name="twitter:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
     <script type="application/ld+json" class="seo-schema">
 {
       "@context": "https://schema.org",
@@ -48,16 +53,18 @@
       ]
 }
     </script>
-    <link rel="alternate" hreflang="ja" href="ja/tips-face-emote-fix.html">
-    <link rel="alternate" hreflang="en" href="en/tips-face-emote-fix.html">
-    <link rel="alternate" hreflang="x-default" href="ja/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="ja" href="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
+    <link rel="canonical" href="https://neku096.github.io/MACARONI/tips-face-emote-fix.html">
+
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
         <p class="eyebrow">Age Verification</p>
-        <h1>このサイトは18歳以上向けです</h1>
+        <h2>このサイトは18歳以上向けです</h2>
         <p>R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
         <div class="age-actions">
           <button class="button primary" id="enterSite" type="button">18歳以上です</button>
@@ -77,9 +84,17 @@
         <a href="tips.html" aria-current="page">TIPS</a>
         <a href="terms.html">利用規約</a>
       </nav>
+      <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Language">
         <a class="language-option" href="ja/tips-face-emote-fix.html" aria-pressed="true">JP</a>
         <a class="language-option" href="en/tips-face-emote-fix.html" aria-pressed="false">EN</a>
+      </div>
+      <button class="share-button" type="button" data-share-button aria-label="このページを共有" title="このページを共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .13.88L8.91 8.42a3 3 0 1 0 0 7.16l6.22 3.54A3 3 0 1 0 16 17.4l-6.22-3.54a3.06 3.06 0 0 0 0-3.72L16 6.6A3 3 0 0 0 18 8Z"></path>
+        </svg>
+        <span>共有</span>
+      </button>
       </div>
     </header>
 
@@ -106,7 +121,7 @@
             </header>
 
             <div class="article-visual">
-              <span class="article-visual-image"><img src="images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="images/tips/face-fix-step-04-600.webp?v=1 600w, images/tips/face-fix-step-04-800.webp?v=1 800w, images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <span class="article-visual-image"><img src="images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="images/tips/face-fix-step-04-600.webp?v=1 600w, images/tips/face-fix-step-04-800.webp?v=1 800w, images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
               <div>
                 <strong>改変後の顔に合わせて表情animを直す</strong>
                 <p>表情破綻は、animの表情値と改変後のBlendShape値が合っていない時に起きやすいです。元clipを見ながら、必要なシェイプキーだけを少しずつ直します。</p>
@@ -290,6 +305,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=17"></script>
   </body>
 </html>

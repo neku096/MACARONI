@@ -6,21 +6,26 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
     <title>Playing anim files during game development | Macaroni Tips</title>
-    <meta name="description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
+    <meta name="description" content="A practical Unity workflow for testing anim poses in Game view by assigning an Animator and State name with a small MonoBehaviour script.">
     <meta name="author" content="Macaroni">
-    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#07070b">
     <meta property="og:type" content="article">
+    <meta property="og:url" content="https://neku096.github.io/MACARONI/en/tips-commercial-use.html">
     <meta property="og:site_name" content="Macaroni">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Playing anim files during game development | Macaroni Tips">
-    <meta property="og:description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
-    <meta property="og:image" content="../images/tips/game-use-step-03.webp">
-    <meta property="og:image:alt" content="Playing anim files during game development - Macaroni Tips">
+    <meta property="og:description" content="A practical Unity workflow for testing anim poses in Game view by assigning an Animator and State name with a small MonoBehaviour script.">
+    <meta property="og:image" content="https://neku096.github.io/MACARONI/images/ogp-macaroni.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Macaroni logo for VRChat and Unity R18 free 3D pose materials">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Playing anim files during game development | Macaroni Tips">
-    <meta name="twitter:description" content="A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.">
-    <meta name="twitter:image" content="../images/tips/game-use-step-03.webp">
-    <meta name="twitter:image:alt" content="Playing anim files during game development - Macaroni Tips">
+    <meta name="twitter:description" content="A practical Unity workflow for testing anim poses in Game view by assigning an Animator and State name with a small MonoBehaviour script.">
+    <meta name="twitter:image" content="https://neku096.github.io/MACARONI/images/ogp-macaroni.jpg">
+    <meta name="twitter:image:alt" content="Macaroni logo for VRChat and Unity R18 free 3D pose materials">
     <script type="application/ld+json" class="seo-schema">
 {
       "@context": "https://schema.org",
@@ -28,7 +33,7 @@
       "inLanguage": "en",
       "isFamilyFriendly": false,
       "headline": "Playing anim files during game development",
-      "description": "A practical Unity workflow for testing anim poses in Game view by creating a MonoBehaviour Script, attaching it to an empty GameObject, and assigning the target Animator and State name.",
+      "description": "A practical Unity workflow for testing anim poses in Game view by assigning an Animator and State name with a small MonoBehaviour script.",
       "datePublished": "2026-05-08",
       "dateModified": "2026-05-09",
       "image": "../images/tips/game-use-step-03.webp",
@@ -48,16 +53,18 @@
       ]
 }
     </script>
-    <link rel="alternate" hreflang="ja" href="../ja/tips-commercial-use.html">
-    <link rel="alternate" hreflang="en" href="tips-commercial-use.html">
-    <link rel="alternate" hreflang="x-default" href="../ja/tips-commercial-use.html">
+    <link rel="alternate" hreflang="ja" href="https://neku096.github.io/MACARONI/ja/tips-commercial-use.html">
+    <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/tips-commercial-use.html">
+    <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/tips-commercial-use.html">
+    <link rel="canonical" href="https://neku096.github.io/MACARONI/en/tips-commercial-use.html">
+
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
         <p class="eyebrow">Age Verification</p>
-        <h1>This site is intended for adults 18+</h1>
+        <h2>This site is intended for adults 18+</h2>
         <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
           <button class="button primary" id="enterSite" type="button">I am 18 or older</button>
@@ -77,9 +84,17 @@
         <a href="tips.html" aria-current="page">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
+      <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Language">
         <a class="language-option" href="../ja/tips-commercial-use.html" aria-pressed="false">JP</a>
         <a class="language-option" href="tips-commercial-use.html" aria-pressed="true">EN</a>
+      </div>
+      <button class="share-button" type="button" data-share-button aria-label="Share this page" title="Share this page">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .13.88L8.91 8.42a3 3 0 1 0 0 7.16l6.22 3.54A3 3 0 1 0 16 17.4l-6.22-3.54a3.06 3.06 0 0 0 0-3.72L16 6.6A3 3 0 0 0 18 8Z"></path>
+        </svg>
+        <span>Share</span>
+      </button>
       </div>
     </header>
 
@@ -106,7 +121,7 @@
             </header>
 
             <div class="article-visual">
-              <span class="article-visual-image"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async"></span>
+              <span class="article-visual-image"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity Game view showing an anim pose played during game testing" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
               <div>
                 <strong>Call an anim State in Game view</strong>
                 <p>Register the anim clip as a State in an Animator Controller first, then call that State from a MonoBehaviour Script. This keeps the test small and easy to debug.</p>
@@ -295,6 +310,6 @@ public class PlayAnimExample : MonoBehaviour
       </div>
     </footer>
 
-    <script src="../script.js?v=13"></script>
+    <script src="../script.js?v=17"></script>
   </body>
 </html>
