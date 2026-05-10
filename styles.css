@@ -3664,6 +3664,33 @@ p {
   }
 }
 
+@media (max-width: 600px) {
+  .site-footer {
+    padding-inline: 12px;
+  }
+
+  .footer-links {
+    width: 100%;
+    gap: 8px;
+    padding-inline: 0;
+  }
+
+  .footer-pill {
+    min-width: 0;
+    min-height: 40px;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .footer-pill-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 767px) {
   html[lang="ja"] .text-page #terms-title {
     overflow-wrap: normal;
