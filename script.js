@@ -499,6 +499,10 @@ const setupSlider = (slider) => {
     return;
   }
 
+  if (slider.classList.contains("product-slider")) {
+    slider.style.scrollSnapType = "none";
+  }
+
   const getEffectiveRows = () => {
     if (rows === 1 || slideItems.length < 2) {
       return rows;
@@ -536,19 +540,7 @@ const setupSlider = (slider) => {
     const positions = getSnapPositions();
     const lastIndex = positions.length - 1;
     const targetIndex = Math.max(0, Math.min(index, lastIndex));
-    const previousSnapType = slider.style.scrollSnapType;
-
-    if (slider.classList.contains("product-slider")) {
-      slider.style.scrollSnapType = "none";
-    }
-
     slider.scrollTo({ left: positions[targetIndex], behavior });
-
-    if (slider.classList.contains("product-slider")) {
-      window.setTimeout(() => {
-        slider.style.scrollSnapType = previousSnapType;
-      }, behavior === "smooth" ? 520 : 0);
-    }
   };
 
   const fastScrollToStart = () => {
