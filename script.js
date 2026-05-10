@@ -497,16 +497,56 @@ const setupSlider = (slider) => {
     return;
   }
 
+  const getEffectiveRows = () => {
+    if (rows === 1 || cards.length < 2) {
+      return rows;
+    }
+
+    const firstLeft = cards[0].getBoundingClientRect().left;
+    const rowCount = cards.filter((card) => Math.abs(card.getBoundingClientRect().left - firstLeft) < 2).length;
+    return Math.max(1, rowCount || rows);
+  };
+
+  const getSnapPositions = () => {
+    const effectiveRows = getEffectiveRows();
+    const sliderLeft = slider.getBoundingClientRect().left;
+    return cards
+      .filter((_, index) => index % effectiveRows === 0)
+      .map((card) => card.getBoundingClientRect().left - sliderLeft + slider.scrollLeft);
+  };
+
   const getGap = () => {
-    const gap = Number.parseFloat(getComputedStyle(slider).columnGap);
+    const sliderStyles = getComputedStyle(slider);
+    const gap = Number.parseFloat(sliderStyles.columnGap || sliderStyles.gap);
     return Number.isNaN(gap) ? 24 : gap;
   };
 
-  const getCardDistance = () => cards[0].getBoundingClientRect().width + getGap();
+  const getCardDistance = () => {
+    const positions = getSnapPositions();
+    return positions.length > 1 ? positions[1] - positions[0] : cards[0].getBoundingClientRect().width + getGap();
+  };
 
-  const getSlideCount = () => Math.ceil(cards.length / rows);
+  const getSlideCount = () => getSnapPositions().length;
 
-  const getCurrentIndex = () => Math.round(slider.scrollLeft / getCardDistance());
+  const getCurrentIndex = () => {
+    const positions = getSnapPositions();
+    if (!positions.length) {
+      return 0;
+    }
+
+    return positions.reduce((closestIndex, position, index) => {
+      const closestDistance = Math.abs(positions[closestIndex] - slider.scrollLeft);
+      const distance = Math.abs(position - slider.scrollLeft);
+      return distance < closestDistance ? index : closestIndex;
+    }, 0);
+  };
+
+  const scrollToIndex = (index, behavior = "smooth") => {
+    const positions = getSnapPositions();
+    const lastIndex = positions.length - 1;
+    const targetIndex = Math.max(0, Math.min(index, lastIndex));
+    slider.scrollTo({ left: positions[targetIndex], behavior });
+  };
 
   const fastScrollToStart = () => {
     const start = slider.scrollLeft;
@@ -530,12 +570,16 @@ const setupSlider = (slider) => {
   };
 
   const slideByCard = (direction) => {
-    if (isLooping && direction > 0 && getCurrentIndex() >= getSlideCount() - 1) {
+    const currentIndex = getCurrentIndex();
+    const lastIndex = getSlideCount() - 1;
+    const endThreshold = slider.scrollWidth - slider.clientWidth - 4;
+
+    if (direction > 0 && (currentIndex >= lastIndex || slider.scrollLeft >= endThreshold)) {
       fastScrollToStart();
       return;
     }
 
-    slider.scrollBy({ left: getCardDistance() * direction, behavior: "smooth" });
+    scrollToIndex(currentIndex + direction);
   };
 
   let isDragging = false;
@@ -575,22 +619,35 @@ const setupSlider = (slider) => {
     });
   };
 
-  if (dots) {
+  const renderDots = () => {
+    if (!dots) {
+      return;
+    }
+
     const dotCount = getSlideCount();
+
+    if (dots.childElementCount === dotCount) {
+      updateActiveDot();
+      return;
+    }
+
+    dots.textContent = "";
     Array.from({ length: dotCount }).forEach((_, index) => {
       const dot = document.createElement("button");
       dot.className = "slider-dot";
       dot.type = "button";
       dot.setAttribute("aria-label", `${index + 1}列目へ`);
       dot.addEventListener("click", () => {
-        slider.scrollTo({ left: getCardDistance() * index, behavior: "smooth" });
+        scrollToIndex(index);
         restartAutoSlide();
       });
       dots.append(dot);
     });
 
     updateActiveDot();
-  }
+  };
+
+  renderDots();
 
   slider.addEventListener("scroll", () => {
     updateActiveDot();
@@ -707,6 +764,7 @@ const setupSlider = (slider) => {
 
   slider.addEventListener("mouseenter", () => window.clearInterval(autoSlideTimer));
   slider.addEventListener("mouseleave", restartAutoSlide);
+  window.addEventListener("resize", renderDots);
 };
 
 const setupTipsPagination = () => {

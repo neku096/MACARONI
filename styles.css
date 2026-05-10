@@ -2592,6 +2592,7 @@ p {
   .product-slider {
     align-items: start;
     grid-auto-columns: 100%;
+    grid-template-columns: none;
   }
 
   .product-slide {
@@ -2625,6 +2626,7 @@ p {
 
   .material-slider {
     grid-auto-columns: minmax(280px, 88%);
+    grid-template-columns: none;
   }
 
   .character-list-grid {
@@ -2747,6 +2749,7 @@ p {
 
   .material-slider {
     grid-auto-columns: minmax(170px, 52%);
+    grid-template-columns: none;
     grid-template-rows: none;
     gap: 14px;
   }
@@ -3031,6 +3034,7 @@ p {
 
   .material-slider {
     grid-auto-columns: clamp(230px, 74vw, 320px);
+    grid-template-columns: none;
     grid-template-rows: none;
     gap: 18px;
   }
@@ -3276,6 +3280,7 @@ p {
 
   .material-slider {
     grid-auto-columns: minmax(156px, 48vw);
+    grid-template-columns: none;
     gap: 14px;
   }
 
