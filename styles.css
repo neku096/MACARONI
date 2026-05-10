@@ -983,7 +983,7 @@ p {
   gap: clamp(18px, 4vw, 30px);
   align-items: start;
   margin: 0 auto;
-  padding-top: clamp(32px, 6vw, 64px);
+  padding-top: clamp(20px, 4vw, 42px);
   padding-bottom: clamp(32px, 5vw, 62px);
 }
 
@@ -994,8 +994,8 @@ p {
 
 .links-profile-icon {
   display: block;
-  width: clamp(94px, 24vw, 128px);
-  height: clamp(94px, 24vw, 128px);
+  width: clamp(106px, 25vw, 142px);
+  height: clamp(106px, 25vw, 142px);
   margin: 0 auto 12px;
   border: 4px solid rgba(255, 255, 255, 0.94);
   border-radius: 50%;
@@ -2803,8 +2803,8 @@ p {
   }
 
   .links-profile-icon {
-    width: clamp(92px, 26vw, 122px);
-    height: clamp(92px, 26vw, 122px);
+    width: clamp(104px, 28vw, 132px);
+    height: clamp(104px, 28vw, 132px);
   }
 
   .links-mini-grid {
@@ -2847,13 +2847,13 @@ p {
 
   .links-hero {
     gap: 26px;
-    padding-top: 34px;
+    padding-top: 20px;
     padding-bottom: 26px;
   }
 
   .links-profile-icon {
-    width: 98px;
-    height: 98px;
+    width: 108px;
+    height: 108px;
   }
 
   .link-card {
@@ -3436,6 +3436,21 @@ p {
 
   .character-list-card .character-list-image {
     transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 430px) {
+  .nav {
+    gap: 6px;
+  }
+
+  .nav::after {
+    flex-basis: 0;
+  }
+
+  .nav a {
+    padding: 7px 9px;
+    font-size: 14px;
   }
 }
 
