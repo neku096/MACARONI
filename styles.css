@@ -3726,3 +3726,34 @@ p {
     transition: none;
   }
 }
+
+@media (max-width: 640px) {
+  .footer-link-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-link-button {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-link-button .footer-pill-icon,
+  .footer-link-button span:first-child {
+    margin-right: 4px !important;
+  }
+}
