@@ -2802,7 +2802,6 @@ p {
     text-align: right;
   }
 
-  .booth-filter-tabs,
   .booth-sort-tabs {
     gap: 8px;
   }
@@ -3128,7 +3127,6 @@ p {
     display: none;
   }
 
-  .booth-filter-tabs,
   .booth-sort-tabs {
     display: flex;
     max-width: 100%;
@@ -3141,21 +3139,33 @@ p {
     -webkit-overflow-scrolling: touch;
   }
 
-  .booth-filter-tabs::-webkit-scrollbar,
   .booth-sort-tabs::-webkit-scrollbar {
     display: none;
   }
 
-  .booth-filter-button,
   .booth-sort-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .booth-filter-tabs {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .booth-filter-button {
     flex: 0 0 auto;
     white-space: nowrap;
   }
 
   .character-author-panel {
     max-width: 100%;
-    align-items: center;
-    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    grid-template-columns: 1fr;
     gap: 10px;
     overflow: visible;
     padding: 12px;
@@ -3164,23 +3174,10 @@ p {
   .character-author-tabs {
     display: flex;
     min-width: 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 10px;
-    overflow-x: auto;
-    overflow-y: visible;
-    padding: 3px 0 10px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .character-author-tabs::after {
-    display: block;
-    flex: 0 0 16px;
-    content: "";
-  }
-
-  .character-author-tabs::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
+    padding: 0;
   }
 
   .character-author-button {
@@ -3189,7 +3186,7 @@ p {
   }
 
   .character-author-status {
-    align-self: center;
+    align-self: end;
     justify-self: end;
     text-align: right;
     white-space: nowrap;
