@@ -953,8 +953,54 @@ const setupCharacterPagination = () => {
   });
 };
 
+const setupCardReveal = () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const revealSelectors = [
+    ".material-card",
+    ".character-list-card",
+    ".pose-card",
+    ".product-card",
+    ".booth-list-card",
+  ].join(",");
+  const cards = [...document.querySelectorAll(revealSelectors)];
+
+  if (!cards.length || reduceMotion.matches || !("IntersectionObserver" in window)) {
+    return;
+  }
+
+  const finishReveal = (card) => {
+    card.classList.add("is-visible");
+    window.setTimeout(() => {
+      card.classList.remove("js-reveal-card", "is-visible");
+    }, 700);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        finishReveal(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.12,
+    }
+  );
+
+  cards.forEach((card) => {
+    card.classList.add("js-reveal-card");
+    observer.observe(card);
+  });
+};
+
 document.querySelectorAll("[data-slider]").forEach(setupSlider);
 setupTipsPagination();
 setupBoothFilters();
 setupCharacterPagination();
+setupCardReveal();
 setupLanguageSwitcher();

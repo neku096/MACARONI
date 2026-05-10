@@ -443,6 +443,17 @@ p {
   scroll-snap-align: start;
 }
 
+.js-reveal-card {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js-reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .material-slider.is-dragging .material-card {
   pointer-events: none;
 }
@@ -3232,5 +3243,14 @@ p {
 
   html[lang="en"] .text-page #terms-title .no-break {
     white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal-card,
+  .js-reveal-card.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
