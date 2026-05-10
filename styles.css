@@ -3029,6 +3029,55 @@ p {
   }
 }
 
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+    width: auto;
+    max-width: calc(100vw - 32px);
+    flex-wrap: nowrap;
+    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booth-filter-tabs,
+  .booth-sort-tabs {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .booth-filter-tabs::-webkit-scrollbar,
+  .booth-sort-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booth-filter-button,
+  .booth-sort-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 560px) {
   .brand {
     flex-direction: row;
