@@ -51,6 +51,7 @@ const textTranslations = {
   "R18 ３Dポーズ素材無料配布サイト": "R18 Free 3D Pose Materials",
   "R18 ３Dポーズ素材無料配布サイト | マカロニ": "R18 Free 3D Pose Materials | Macaroni",
   対応キャラ: "Characters",
+  BOOTH作品: "BOOTH Works",
   BOOTH作品一覧: "BOOTH Works",
   "VRChat・Unity向けR18無料3Dポーズ素材": "R18 Free 3D Pose Materials for VRChat and Unity",
   "VRChat・Unity向けR18無料3Dポーズ素材 | マカロニ": "R18 Free 3D Pose Materials for VRChat and Unity | Macaroni",
@@ -902,21 +903,32 @@ const setupCharacterPagination = () => {
   document.querySelectorAll("[data-character-list]").forEach((list) => {
     const section = list.closest(".character-list-section") || document;
     const cards = [...list.querySelectorAll(".character-list-card")];
+    const authorPanel = section.querySelector("[data-character-author-filter]");
+    const authorButtons = authorPanel ? [...authorPanel.querySelectorAll("[data-character-author-button]")] : [];
+    const authorStatus = authorPanel ? authorPanel.querySelector("[data-character-author-status]") : null;
     const pagination = section.querySelector("[data-character-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-character-page-button]")] : [];
     const pageStatus = pagination ? pagination.querySelector("[data-character-page-status]") : null;
     const pageSize = Number(list.dataset.pageSize || 0);
+    const suffix = authorPanel?.dataset.countSuffix || " characters";
+    const singularSuffix = authorPanel?.dataset.countSingularSuffix || suffix;
+    let activeAuthor = "all";
     let currentPage = 1;
 
-    if (!cards.length || !pagination || pageSize <= 0) {
+    if (!cards.length) {
       return;
     }
 
+    cards.forEach((card, index) => {
+      card.dataset.originalIndex = String(index);
+    });
+
     const render = () => {
-      const pageCount = Math.ceil(cards.length / pageSize);
+      const matchingCards = cards.filter((card) => activeAuthor === "all" || card.dataset.characterAuthor === activeAuthor);
+      const pageCount = pageSize > 0 ? Math.max(1, Math.ceil(matchingCards.length / pageSize)) : 1;
       currentPage = Math.min(Math.max(currentPage, 1), pageCount);
       const firstCardIndex = (currentPage - 1) * pageSize;
-      const visibleCards = new Set(cards.slice(firstCardIndex, firstCardIndex + pageSize));
+      const visibleCards = new Set(pageSize > 0 ? matchingCards.slice(firstCardIndex, firstCardIndex + pageSize) : matchingCards);
 
       cards.forEach((card) => {
         const isVisible = visibleCards.has(card);
@@ -925,7 +937,24 @@ const setupCharacterPagination = () => {
         card.setAttribute("aria-hidden", isVisible ? "false" : "true");
       });
 
-      pagination.hidden = pageCount <= 1;
+      matchingCards.forEach((card) => list.appendChild(card));
+      cards
+        .filter((card) => !matchingCards.includes(card))
+        .forEach((card) => list.appendChild(card));
+
+      authorButtons.forEach((button) => {
+        const isActive = button.dataset.characterAuthorButton === activeAuthor;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (authorStatus) {
+        authorStatus.textContent = `${matchingCards.length}${matchingCards.length === 1 ? singularSuffix : suffix}`;
+      }
+
+      if (pagination) {
+        pagination.hidden = pageCount <= 1;
+      }
 
       if (pageStatus) {
         pageStatus.textContent = pageCount > 1 ? `${currentPage} / ${pageCount}` : "";
@@ -939,6 +968,14 @@ const setupCharacterPagination = () => {
           || (!isPrev && currentPage >= pageCount);
       });
     };
+
+    authorButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeAuthor = button.dataset.characterAuthorButton || "all";
+        currentPage = 1;
+        render();
+      });
+    });
 
     pageButtons.forEach((button) => {
       button.addEventListener("click", () => {
