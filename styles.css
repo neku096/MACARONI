@@ -3669,25 +3669,33 @@ p {
     padding-inline: 12px;
   }
 
-  .footer-links {
-    width: 100%;
-    gap: 8px;
+  .site-footer .footer-links {
+    display: flex;
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: 100%;
+    align-self: center;
+    justify-content: center;
+    gap: 6px;
     padding-inline: 0;
   }
 
-  .footer-pill {
+  .site-footer .footer-links .footer-pill {
+    width: auto;
+    flex: 0 1 auto;
     min-width: 0;
-    min-height: 40px;
+    min-height: 38px;
     justify-content: center;
     gap: 5px;
-    padding: 6px 14px;
+    padding: 6px 9px;
     font-size: 12px;
   }
 
-  .footer-pill-icon {
-    width: 26px;
-    height: 26px;
-    font-size: 13px;
+  .site-footer .footer-links .footer-pill-icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    font-size: 12px;
   }
 }
 
