@@ -3365,6 +3365,15 @@ p {
     white-space: nowrap;
   }
 
+  .nav a[href="booth.html"] {
+    font-size: 0;
+  }
+
+  .nav a[href="booth.html"]::before {
+    content: "BOOTH";
+    font-size: 15px;
+  }
+
   .nav::-webkit-scrollbar {
     display: none;
   }
