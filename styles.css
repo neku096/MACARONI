@@ -3191,6 +3191,10 @@ p {
     text-align: right;
     white-space: nowrap;
   }
+
+  .character-list-card .character-list-image {
+    transform: translateY(-8px);
+  }
 }
 
 @media (max-width: 560px) {
