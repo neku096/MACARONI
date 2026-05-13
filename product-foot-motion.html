@@ -60,7 +60,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">このサイトは18歳以上向けです</h2>
         <p id="ageGateDescription">R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
         <div class="age-actions">
@@ -77,7 +76,7 @@
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-current="page">BOOTH作品</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH作品</a>
         <a href="tips.html">使い方</a>
         <a href="terms.html">利用規約</a>
       </nav>
@@ -112,7 +111,11 @@
         </div>
 
         <aside class="product-summary" aria-label="商品情報">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="作品カテゴリ">
+            <a href="booth.html" aria-label="BOOTH">BOOTH作品一覧</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=universal">汎用</a>
+          </nav>
           <h1 id="product-title">足○キモーション</h1>
           <p class="product-lead">足○キモーションは、BOOTH商品「【汎用】足○キモーション6種類(音付)」の情報をもとにしたR18モーション素材のLPです。商品画像、価格、購入導線を確認しやすいように整理し、詳細はBOOTHの商品ページで確認できる構成にしています。</p>
           <dl class="product-specs">
@@ -162,7 +165,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">商品詳細</h2>
             <p>このページでは、BOOTH公開情報から確認できる範囲で「【汎用】足○キモーション6種類(音付)」を紹介しています。内容は6種類の足○キモーションと音付きです。</p>
             <p>VRChatやUnityでのアバター撮影、動画制作、3Dシーン作成に使うモーション素材として検討しやすいよう、商品画像と基本情報をまとめています。</p>
@@ -170,7 +172,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>導入方法</h2>
             <ol>
               <li>BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</li>
@@ -183,7 +184,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>同梱内容</h2>
             <ul>
               <li>6種類の足○キモーションと音付き</li>
@@ -193,7 +193,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>改変済みアバターでも使えますか？</h3>
             <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>
@@ -206,16 +205,38 @@
       </section>
 
 
+      <section class="section product-tag-section" aria-label="この商品のタグ">
+        <p class="booth-subtag-heading">通常タグ</p>
+        <div class="product-tag-list">
+          <a class="product-tag" href="booth.html?tag=universal">汎用</a>
+        </div>
+        <p class="booth-subtag-heading">サブタグ</p>
+        <div class="product-tag-list"></div>
+      </section>
 
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">関連商品</h2>
           </div>
           <a class="button secondary" href="booth.html">BOOTH作品一覧へ</a>
         </div>
         <div class="product-related-grid">
+          <a class="product-card" href="product-sexy-motion-vol1.html">
+            <img class="product-cover" src="images/linksamune/SEXY1-600.webp" alt="セクシーモーション vol.1の商品サムネイル" srcset="images/linksamune/SEXY1-600.webp 600w, images/linksamune/SEXY1-800.webp 800w, images/linksamune/SEXY1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>セクシーモーション vol.1</strong>
+            <small>関連する汎用モーション素材</small>
+          </a>
+          <a class="product-card" href="product-sexy-attack-motion-vol1.html">
+            <img class="product-cover" src="images/linksamune/SEXYA1-600.webp" alt="セクシーアタックモーション vol.1の商品サムネイル" srcset="images/linksamune/SEXYA1-600.webp 600w, images/linksamune/SEXYA1-800.webp 800w, images/linksamune/SEXYA1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>セクシーアタックモーション vol.1</strong>
+            <small>関連する汎用モーション素材</small>
+          </a>
+          <a class="product-card" href="product-sexy-motion-attack-vol2.html">
+            <img class="product-cover" src="images/linksamune/SEXY2-600.webp" alt="SexyMotion / Attack vol.2の商品サムネイル" srcset="images/linksamune/SEXY2-600.webp 600w, images/linksamune/SEXY2-800.webp 800w, images/linksamune/SEXY2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>SexyMotion / Attack vol.2</strong>
+            <small>関連する汎用モーション素材</small>
+          </a>
           <a class="product-card" href="product-hand-motion.html">
             <img class="product-cover" src="images/linksamune/HJB-600.webp" alt="手○キモーションの商品サムネイル" srcset="images/linksamune/HJB-600.webp 600w, images/linksamune/HJB-800.webp 800w, images/linksamune/HJB.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
             <strong>手○キモーション</strong>
@@ -224,11 +245,6 @@
           <a class="product-card" href="product-bj-motion.html">
             <img class="product-cover" src="images/linksamune/BJM-600.webp" alt="フ〇ラモーションの商品サムネイル" srcset="images/linksamune/BJM-600.webp 600w, images/linksamune/BJM-800.webp 800w, images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
             <strong>フ〇ラモーション</strong>
-            <small>関連する汎用モーション素材</small>
-          </a>
-          <a class="product-card" href="product-sexy-motion-vol1.html">
-            <img class="product-cover" src="images/linksamune/SEXY1-600.webp" alt="セクシーモーション vol.1の商品サムネイル" srcset="images/linksamune/SEXY1-600.webp 600w, images/linksamune/SEXY1-800.webp 800w, images/linksamune/SEXY1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>セクシーモーション vol.1</strong>
             <small>関連する汎用モーション素材</small>
           </a>
         </div>

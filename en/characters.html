@@ -164,7 +164,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2>This site is intended for adults 18+</h2>
         <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
@@ -181,7 +180,7 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="characters.html" aria-current="page">Characters</a>
-        <a href="booth.html">BOOTH Works</a>
+        <a href="booth.html" aria-label="BOOTH">BOOTH Works</a>
         <a href="tips.html">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
@@ -202,12 +201,21 @@
     <main class="character-list-page">
       <section class="section character-list-section" aria-label="Supported characters">
         <div class="list-page-intro">
-          <p class="eyebrow">Supported Avatars</p>
           <h1>Supported Avatars<br>Free 3D Pose Materials</h1>
           <p>Find free VRChat and Unity pose materials by supported avatar.</p>
         </div>
         <div class="character-author-panel" data-character-author-filter data-count-suffix=" characters" data-count-singular-suffix=" character">
-          <div class="character-author-tabs" role="group" aria-label="Filter by creator">
+          <p class="character-author-heading">Creator</p>
+          <div class="character-search-panel">
+            <label class="character-search-label" for="character-search">Search by character name</label>
+            <input class="character-search-input" id="character-search" type="search" data-character-search placeholder="Search by character name" autocomplete="off">
+          </div>
+          <div class="character-author-mobile-controls">
+            <span class="character-author-mobile-label">Creator</span>
+            <button class="character-author-toggle" type="button" data-character-author-toggle aria-expanded="false" aria-controls="character-author-options">All</button>
+          </div>
+          <p class="character-author-current" data-character-author-current data-current-prefix="Creator: ">Creator: All</p>
+          <div class="character-author-tabs" id="character-author-options" data-character-author-options role="group" aria-label="Filter by creator">
             <button class="character-author-button is-active" type="button" data-character-author-button="all" aria-pressed="true">All</button>
             <button class="character-author-button" type="button" data-character-author-button="kyubihome" aria-pressed="false">Kyubi Closet</button>
             <button class="character-author-button" type="button" data-character-author-button="komado" aria-pressed="false">Komado</button>
@@ -396,6 +404,6 @@
       </div>
     </footer>
 
-    <script src="../characters.js?v=5"></script>
+    <script src="../characters.js?v=6"></script>
   </body>
 </html>

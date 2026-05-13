@@ -961,6 +961,9 @@ const setupBoothFilters = () => {
     const subtagButtons = subtagPanel
       ? [...subtagPanel.querySelectorAll("[data-booth-subtag-button]")]
       : [];
+    const subtagToggle = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-toggle]") : null;
+    const subtagPicker = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-picker]") : null;
+    const subtagSearch = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-search]") : null;
     const sortButtons = [...section.querySelectorAll("[data-booth-sort-button]")];
     const pagination = section.querySelector("[data-booth-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-booth-page-button]")] : [];
@@ -991,6 +994,51 @@ const setupBoothFilters = () => {
 
     const getOriginalIndex = (card) => Number(card.dataset.originalIndex || 0);
     const getPopularity = (card) => Number(card.dataset.popularity || 0);
+    const compactSubtagQuery = window.matchMedia("(max-width: 640px)");
+    const getSubtagLabel = (subtag) => {
+      const button = subtagButtons.find((item) => item.dataset.boothSubtagButton === subtag
+        && !item.hasAttribute("data-booth-subtag-primary"))
+        || subtagButtons.find((item) => item.dataset.boothSubtagButton === subtag);
+
+      return button?.textContent?.trim() || subtag;
+    };
+    const updateSubtagToggleLabel = () => {
+      if (!subtagToggle) {
+        return;
+      }
+
+      const defaultLabel = subtagToggle.dataset.defaultLabel || subtagToggle.textContent.trim();
+      subtagToggle.textContent = activeSubtag === "all" ? defaultLabel : getSubtagLabel(activeSubtag);
+      subtagToggle.classList.toggle("is-selected", activeSubtag !== "all");
+    };
+    const setSubtagPickerOpen = (isOpen, shouldFocus = false) => {
+      if (!subtagToggle || !subtagPicker) {
+        return;
+      }
+
+      subtagPicker.classList.toggle("is-open", isOpen);
+      subtagToggle.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen && shouldFocus && subtagSearch) {
+        window.requestAnimationFrame(() => subtagSearch.focus());
+      }
+    };
+    const filterSubtagOptions = () => {
+      if (!subtagSearch) {
+        return;
+      }
+
+      const queryText = subtagSearch.value.trim().normalize("NFKC").toLocaleLowerCase();
+      subtagButtons.forEach((button) => {
+        if (button.hasAttribute("data-booth-subtag-primary")) {
+          return;
+        }
+
+        const label = button.textContent.trim().normalize("NFKC").toLocaleLowerCase();
+        const isMatching = !queryText || label.includes(queryText);
+        button.hidden = !isMatching;
+      });
+    };
 
     const render = () => {
       const matchingCards = [];
@@ -1051,6 +1099,8 @@ const setupBoothFilters = () => {
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-pressed", String(isActive));
       });
+
+      updateSubtagToggleLabel();
 
       if (status) {
         const matchingCount = sortedMatchingCards.length;
@@ -1117,8 +1167,28 @@ const setupBoothFilters = () => {
         currentPage = 1;
         syncFilterUrl();
         render();
+
+        if (compactSubtagQuery.matches) {
+          if (subtagSearch) {
+            subtagSearch.value = "";
+            filterSubtagOptions();
+          }
+
+          setSubtagPickerOpen(false);
+        }
       });
     });
+
+    if (subtagToggle) {
+      subtagToggle.addEventListener("click", () => {
+        const isOpen = subtagToggle.getAttribute("aria-expanded") === "true";
+        setSubtagPickerOpen(!isOpen, !isOpen);
+      });
+    }
+
+    if (subtagSearch) {
+      subtagSearch.addEventListener("input", filterSubtagOptions);
+    }
 
     sortButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -1205,12 +1275,11 @@ const setupProductGallery = () => {
   }
 
   let currentIndex = 0;
-  let inlineStartIndex = 0;
   let visibleThumbs = [];
   const inlineThumbs = gallery.querySelector("[data-gallery-inline-thumbs]");
   const inlinePrev = gallery.querySelector("[data-gallery-inline-prev]");
   const inlineNext = gallery.querySelector("[data-gallery-inline-next]");
-  const visibleThumbCount = 5;
+  const mainTrigger = gallery.querySelector("[data-gallery-open]");
   const isEnglish = document.documentElement.lang === "en";
   const productName = document.querySelector("#product-title")?.textContent?.trim() || (isEnglish ? "Product" : "商品");
   const closeText = isEnglish ? "Close" : "閉じる";
@@ -1245,6 +1314,7 @@ const setupProductGallery = () => {
   const modalThumbs = modal.querySelector("[data-gallery-modal-thumbs]");
   const closeButton = modal.querySelector("[data-gallery-close]");
   const stage = modal.querySelector("[data-gallery-stage]");
+  mainImage.draggable = false;
 
   const renderInlineThumbs = () => {
     if (!inlineThumbs) {
@@ -1254,9 +1324,7 @@ const setupProductGallery = () => {
 
     inlineThumbs.textContent = "";
 
-    for (let offset = 0; offset < Math.min(visibleThumbCount, images.length); offset += 1) {
-      const index = (inlineStartIndex + offset) % images.length;
-      const image = images[index];
+    images.forEach((image, index) => {
       const button = document.createElement("button");
       button.className = "product-thumbnail";
       button.type = "button";
@@ -1264,20 +1332,19 @@ const setupProductGallery = () => {
       button.dataset.galleryThumb = "";
       button.setAttribute("aria-label", isEnglish ? `${productName} product image ${index + 1}` : `${productName} 商品画像 ${index + 1}枚目`);
       button.innerHTML = `<img src="${image.thumb}" alt="${image.alt}" width="96" height="96" loading="${index === 0 ? "eager" : "lazy"}" decoding="async">`;
-      button.addEventListener("click", () => setImage(index));
       inlineThumbs.append(button);
-    }
+    });
 
     visibleThumbs = [...inlineThumbs.querySelectorAll("[data-gallery-thumb]")];
   };
 
-  const syncInlineWindow = () => {
-    const distance = (currentIndex - inlineStartIndex + images.length) % images.length;
-
-    if (distance >= visibleThumbCount) {
-      inlineStartIndex = currentIndex;
-      renderInlineThumbs();
+  const scrollActiveInlineThumb = () => {
+    if (!inlineThumbs) {
+      return;
     }
+
+    const activeThumb = visibleThumbs.find((button) => Number(button.dataset.galleryIndex) === currentIndex);
+    activeThumb?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   };
 
   const setImage = (index, updateMain = true) => {
@@ -1299,12 +1366,12 @@ const setupProductGallery = () => {
       modalCount.textContent = `${currentIndex + 1} / ${images.length}`;
     }
 
-    syncInlineWindow();
-
     visibleThumbs.forEach((button) => {
       const isActive = Number(button.dataset.galleryIndex) === currentIndex;
       button.classList.toggle("is-active", isActive);
     });
+
+    scrollActiveInlineThumb();
 
     modalThumbs?.querySelectorAll("[data-gallery-modal-thumb]").forEach((button) => {
       const isActive = Number(button.dataset.galleryIndex) === currentIndex;
@@ -1314,9 +1381,7 @@ const setupProductGallery = () => {
   };
 
   const shiftInlineImage = (direction) => {
-    inlineStartIndex = (inlineStartIndex + direction + images.length) % images.length;
-    renderInlineThumbs();
-    setImage(inlineStartIndex);
+    setImage(currentIndex + direction);
   };
 
   images.forEach((image, index) => {
@@ -1343,19 +1408,214 @@ const setupProductGallery = () => {
     document.body.classList.remove("product-lightbox-open");
   };
 
-  visibleThumbs.forEach((button) => {
-    const index = Number(button.dataset.galleryIndex) || 0;
+  let mainPointerId = null;
+  let mainStartX = 0;
+  let mainStartY = 0;
+  let mainSuppressClick = false;
+  let mainSuppressTimer = null;
 
-    button.addEventListener("click", () => {
+  const suppressNextMainClick = () => {
+    mainSuppressClick = true;
+    window.clearTimeout(mainSuppressTimer);
+    mainSuppressTimer = window.setTimeout(() => {
+      mainSuppressClick = false;
+    }, 300);
+  };
+
+  const resetMainDrag = (event) => {
+    mainTrigger?.classList.remove("is-dragging");
+
+    if (mainTrigger?.hasPointerCapture(event.pointerId)) {
+      mainTrigger.releasePointerCapture(event.pointerId);
+    }
+
+    mainPointerId = null;
+  };
+
+  const finishMainDrag = (event) => {
+    if (mainPointerId !== event.pointerId) {
+      return;
+    }
+
+    const movedX = event.clientX - mainStartX;
+    const movedY = event.clientY - mainStartY;
+    const isHorizontalSlide = Math.abs(movedX) >= 48 && Math.abs(movedX) > Math.abs(movedY) * 1.15;
+    resetMainDrag(event);
+
+    if (!isHorizontalSlide) {
+      return;
+    }
+
+    suppressNextMainClick();
+    setImage(currentIndex + (movedX < 0 ? 1 : -1));
+  };
+
+  mainTrigger?.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || event.isPrimary === false) {
+      return;
+    }
+
+    mainPointerId = event.pointerId;
+    mainStartX = event.clientX;
+    mainStartY = event.clientY;
+    mainTrigger.setPointerCapture(event.pointerId);
+  });
+
+  mainTrigger?.addEventListener("pointermove", (event) => {
+    if (mainPointerId !== event.pointerId) {
+      return;
+    }
+
+    const movedX = event.clientX - mainStartX;
+    const movedY = event.clientY - mainStartY;
+
+    if (Math.abs(movedX) > 8 && Math.abs(movedX) > Math.abs(movedY) * 1.15) {
+      mainTrigger.classList.add("is-dragging");
+      event.preventDefault();
+    }
+  });
+
+  mainTrigger?.addEventListener("pointerup", finishMainDrag);
+  mainTrigger?.addEventListener("pointercancel", resetMainDrag);
+  mainTrigger?.addEventListener("lostpointercapture", () => {
+    mainTrigger.classList.remove("is-dragging");
+    mainPointerId = null;
+  });
+
+  let thumbPointerId = null;
+  let thumbStartX = 0;
+  let thumbStartScrollLeft = 0;
+  let thumbHasDragged = false;
+  let thumbPressTarget = null;
+  let thumbSuppressClick = false;
+  let thumbSuppressTimer = null;
+
+  const getInlineThumbIndex = (target) => {
+    const button = target.closest("[data-gallery-thumb]");
+
+    if (!button || !inlineThumbs?.contains(button)) {
+      return null;
+    }
+
+    return Number(button.dataset.galleryIndex);
+  };
+
+  const suppressNextThumbClick = () => {
+    thumbSuppressClick = true;
+    window.clearTimeout(thumbSuppressTimer);
+    thumbSuppressTimer = window.setTimeout(() => {
+      thumbSuppressClick = false;
+    }, 300);
+  };
+
+  const resetThumbDrag = (event) => {
+    inlineThumbs?.classList.remove("is-dragging");
+
+    if (inlineThumbs?.hasPointerCapture(event.pointerId)) {
+      inlineThumbs.releasePointerCapture(event.pointerId);
+    }
+
+    thumbPointerId = null;
+    thumbPressTarget = null;
+  };
+
+  inlineThumbs?.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || event.pointerType === "touch" || event.isPrimary === false) {
+      return;
+    }
+
+    thumbPointerId = event.pointerId;
+    thumbStartX = event.clientX;
+    thumbStartScrollLeft = inlineThumbs.scrollLeft;
+    thumbHasDragged = false;
+    thumbPressTarget = event.target.closest("[data-gallery-thumb]");
+    inlineThumbs.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
+
+  inlineThumbs?.addEventListener("pointermove", (event) => {
+    if (thumbPointerId !== event.pointerId) {
+      return;
+    }
+
+    const movedX = event.clientX - thumbStartX;
+
+    if (Math.abs(movedX) < 8) {
+      return;
+    }
+
+    thumbHasDragged = true;
+    inlineThumbs.classList.add("is-dragging");
+    inlineThumbs.scrollLeft = thumbStartScrollLeft - movedX;
+    event.preventDefault();
+  });
+
+  inlineThumbs?.addEventListener("pointerup", (event) => {
+    if (thumbPointerId !== event.pointerId) {
+      return;
+    }
+
+    const pressedThumb = thumbPressTarget;
+    const shouldSelect = !thumbHasDragged && pressedThumb;
+
+    if (thumbHasDragged || shouldSelect) {
+      suppressNextThumbClick();
+    }
+
+    resetThumbDrag(event);
+
+    if (shouldSelect) {
+      const index = getInlineThumbIndex(pressedThumb);
+
+      if (Number.isFinite(index)) {
+        setImage(index);
+      }
+    }
+  });
+
+  inlineThumbs?.addEventListener("pointercancel", resetThumbDrag);
+  inlineThumbs?.addEventListener("lostpointercapture", () => {
+    inlineThumbs.classList.remove("is-dragging");
+    thumbPointerId = null;
+  });
+
+  inlineThumbs?.addEventListener(
+    "click",
+    (event) => {
+      if (!thumbSuppressClick) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      thumbSuppressClick = false;
+      window.clearTimeout(thumbSuppressTimer);
+    },
+    true
+  );
+
+  inlineThumbs?.addEventListener("click", (event) => {
+    const index = getInlineThumbIndex(event.target);
+
+    if (Number.isFinite(index)) {
       setImage(index);
-    });
+    }
   });
 
   inlinePrev?.addEventListener("click", () => shiftInlineImage(-1));
   inlineNext?.addEventListener("click", () => shiftInlineImage(1));
 
   document.querySelectorAll("[data-gallery-open]").forEach((button) => {
-    button.addEventListener("click", openModal);
+    button.addEventListener("click", (event) => {
+      if (button === mainTrigger && mainSuppressClick) {
+        event.preventDefault();
+        mainSuppressClick = false;
+        window.clearTimeout(mainSuppressTimer);
+        return;
+      }
+
+      openModal();
+    });
   });
 
   modal.querySelector("[data-gallery-prev]")?.addEventListener("click", () => setImage(currentIndex - 1, false));

@@ -60,7 +60,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">このサイトは18歳以上向けです</h2>
         <p id="ageGateDescription">R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
         <div class="age-actions">
@@ -77,7 +76,7 @@
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-current="page">BOOTH作品</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH作品</a>
         <a href="tips.html">使い方</a>
         <a href="terms.html">利用規約</a>
       </nav>
@@ -112,7 +111,35 @@
         </div>
 
         <aside class="product-summary" aria-label="商品情報">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="作品カテゴリ">
+            <a href="booth.html" aria-label="BOOTH">BOOTH作品一覧</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=solo">一人用</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=solo&subtag=character-ichigo">イチゴ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-eku">エク</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-sio">しお</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-shinano">しなの</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-chocolat">ショコラ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-selestia">セレスティア</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-manuka">マヌカ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-milltina">ミルティナ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-milfy">ミルフィ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-moe">萌</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-lumina">ルミナ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=solo&subtag=character-rurune">ルルネ</a>
+          </nav>
           <h1 id="product-title">一人エッチモーション vol.4</h1>
           <p class="product-lead">一人エッチモーション vol.4は、表情、音、パーティクル、玩具ギミックまで含めて一人用R18シーンを作れるVRChat・Unity向けモーション素材です。Modular Avatar対応Prefabで導入し、アバター撮影や動画制作で動きと雰囲気をまとめて見せたい時に使いやすい内容にしています。</p>
           <dl class="product-specs">
@@ -149,7 +176,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">商品詳細</h2>
             <p>「一人エッチモーション vol.4」は、好きなアバターで一人用のR18シーンを作りたい方向けのモーション素材です。</p>
             <p>動きだけで終わらず、表情の変化、音、パーティクル、玩具の存在感まで合わせて、撮影や動画制作で使いやすいシーンとしてまとめています。</p>
@@ -157,7 +183,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>導入方法</h2>
             <ol>
               <li>Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</li>
@@ -171,7 +196,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>同梱内容</h2>
             <ul>
               <li>一人用R18モーション</li>
@@ -183,7 +207,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>改変済みアバターでも使えますか？</h3>
             <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、胸、腰、衣装、スケールなどの改変量によっては、位置、接触感、表情の調整が必要です。</p>
@@ -200,12 +223,12 @@
       </section>
 
 
-      <section class="section product-tag-section" aria-label="この商品のキャラサブタグ">
-        <div class="section-heading">
-          <span>Sub Tags</span>
-          <h2>キャラサブタグ</h2>
-          <p>この商品の対応アバター一覧に基づくキャラで、BOOTH作品ページを絞り込めます。</p>
+      <section class="section product-tag-section" aria-label="この商品のタグ">
+        <p class="booth-subtag-heading">通常タグ</p>
+        <div class="product-tag-list">
+          <a class="product-tag-chip" href="booth.html?tag=solo">一人用</a>
         </div>
+        <p class="booth-subtag-heading">サブタグ</p>
         <div class="product-tag-list">
           <a class="product-tag-chip" href="booth.html?subtag=character-ichigo">イチゴ</a>
           <a class="product-tag-chip" href="booth.html?subtag=character-eku">エク</a>
@@ -225,7 +248,6 @@
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">関連商品</h2>
           </div>
           <a class="button secondary" href="booth.html">BOOTH作品一覧へ</a>

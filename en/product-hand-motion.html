@@ -60,7 +60,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">This site is intended for adults 18+</h2>
         <p id="ageGateDescription">This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
@@ -77,7 +76,7 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="characters.html">Characters</a>
-        <a href="booth.html" aria-current="page">BOOTH Works</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH Works</a>
         <a href="tips.html">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
@@ -112,7 +111,11 @@
         </div>
 
         <aside class="product-summary" aria-label="Product information">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="Product category">
+            <a href="booth.html" aria-label="BOOTH">BOOTH Works</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=universal">Universal</a>
+          </nav>
           <h1 id="product-title">Hand Motion</h1>
           <p class="product-lead">Hand Motion is an R18 motion asset based on the BOOTH product “【汎用】手○キモーション15種類(音付)”. It is presented here as a compact landing page for users who want to check the product image gallery, price range, and purchase link before opening BOOTH.</p>
           <dl class="product-specs">
@@ -172,7 +175,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">Product Details</h2>
             <p>This page summarizes the BOOTH product information that can be confirmed from the public listing: 15 hand motion variations with sound.</p>
             <p>The asset is intended for VRChat and Unity workflows. For exact supported avatars, included files, setup details, and current notices, please use the BOOTH product page as the source of truth.</p>
@@ -180,7 +182,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>Setup</h2>
             <ol>
               <li>Prepare the Unity and VRChat project environment required by the BOOTH product page.</li>
@@ -193,7 +194,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>Included Files</h2>
             <ul>
               <li>15 hand motion variations with sound</li>
@@ -203,7 +203,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>Can I use it with a modified avatar?</h3>
             <p>It may work depending on the base avatar and modifications, but body shape, outfit, scale, and contact positions may require adjustment.</p>
@@ -216,21 +215,23 @@
       </section>
 
 
+      <section class="section product-tag-section" aria-label="Tags for this product">
+        <p class="booth-subtag-heading">Product Tags</p>
+        <div class="product-tag-list">
+          <a class="product-tag" href="booth.html?tag=universal">Universal</a>
+        </div>
+        <p class="booth-subtag-heading">Character Tags</p>
+        <div class="product-tag-list"></div>
+      </section>
 
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">Related Products</h2>
           </div>
           <a class="button secondary" href="booth.html">View BOOTH Works</a>
         </div>
         <div class="product-related-grid">
-          <a class="product-card" href="product-bj-motion.html">
-            <img class="product-cover" src="../images/linksamune/BJM-600.webp" alt="BJ Motion product thumbnail" srcset="../images/linksamune/BJM-600.webp 600w, ../images/linksamune/BJM-800.webp 800w, ../images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>BJ Motion</strong>
-            <small>Related motion asset</small>
-          </a>
           <a class="product-card" href="product-sexy-motion-vol1.html">
             <img class="product-cover" src="../images/linksamune/SEXY1-600.webp" alt="Sexy Motion vol.1 product thumbnail" srcset="../images/linksamune/SEXY1-600.webp 600w, ../images/linksamune/SEXY1-800.webp 800w, ../images/linksamune/SEXY1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
             <strong>Sexy Motion vol.1</strong>
@@ -239,6 +240,21 @@
           <a class="product-card" href="product-sexy-attack-motion-vol1.html">
             <img class="product-cover" src="../images/linksamune/SEXYA1-600.webp" alt="Sexy Attack Motion vol.1 product thumbnail" srcset="../images/linksamune/SEXYA1-600.webp 600w, ../images/linksamune/SEXYA1-800.webp 800w, ../images/linksamune/SEXYA1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
             <strong>Sexy Attack Motion vol.1</strong>
+            <small>Related motion asset</small>
+          </a>
+          <a class="product-card" href="product-sexy-motion-attack-vol2.html">
+            <img class="product-cover" src="../images/linksamune/SEXY2-600.webp" alt="SexyMotion / Attack vol.2 product thumbnail" srcset="../images/linksamune/SEXY2-600.webp 600w, ../images/linksamune/SEXY2-800.webp 800w, ../images/linksamune/SEXY2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>SexyMotion / Attack vol.2</strong>
+            <small>Related motion asset</small>
+          </a>
+          <a class="product-card" href="product-foot-motion.html">
+            <img class="product-cover" src="../images/linksamune/FJB-600.webp" alt="Foot Motion product thumbnail" srcset="../images/linksamune/FJB-600.webp 600w, ../images/linksamune/FJB-800.webp 800w, ../images/linksamune/FJB.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Foot Motion</strong>
+            <small>Related motion asset</small>
+          </a>
+          <a class="product-card" href="product-bj-motion.html">
+            <img class="product-cover" src="../images/linksamune/BJM-600.webp" alt="BJ Motion product thumbnail" srcset="../images/linksamune/BJM-600.webp 600w, ../images/linksamune/BJM-800.webp 800w, ../images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>BJ Motion</strong>
             <small>Related motion asset</small>
           </a>
         </div>

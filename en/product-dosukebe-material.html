@@ -59,7 +59,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">This site is intended for adults 18+</h2>
         <p id="ageGateDescription">This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
@@ -76,7 +75,7 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="characters.html">Characters</a>
-        <a href="booth.html" aria-current="page">BOOTH Works</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH Works</a>
         <a href="tips.html">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
@@ -111,7 +110,9 @@
         </div>
 
         <aside class="product-summary" aria-label="Product information">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="Product category">
+            <a href="booth.html" aria-label="BOOTH">BOOTH Works</a>
+          </nav>
           <h1 id="product-title">Dosukebe Material</h1>
           <p class="product-lead">Dosukebe Material is an R18 skin material intended for use in VRChat. The BOOTH page describes it as a realistic, glossy skin material made with Substance Designer and distributed in a liltoon preset format.</p>
           <dl class="product-specs">
@@ -149,7 +150,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">Product Details</h2>
             <p>Dosukebe Material is a skin material intended for use in VRChat. The BOOTH description presents it as a realistic and glossy skin material.</p>
             <p>The setup is described as a liltoon preset workflow: select the avatar's current skin material, then choose <code>DosukebeSkin</code> from the skin presets in liltoon settings.</p>
@@ -157,7 +157,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>Setup</h2>
             <ol>
               <li>Prepare a Unity 2022 project with liltoon installed.</li>
@@ -170,7 +169,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>Included Files</h2>
             <ul>
               <li>Asset unitypackage</li>
@@ -181,7 +179,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>Which Unity environment is supported?</h3>
             <p>The BOOTH description states that only Unity 2022 is supported.</p>
@@ -202,7 +199,6 @@
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">Related Products</h2>
           </div>
           <a class="button secondary" href="booth.html">View BOOTH Works</a>

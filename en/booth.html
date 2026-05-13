@@ -199,7 +199,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2>This site is intended for adults 18+</h2>
         <p>This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
@@ -216,7 +215,7 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="characters.html">Characters</a>
-        <a href="booth.html" aria-current="page">BOOTH Works</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH Works</a>
         <a href="tips.html">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
@@ -237,7 +236,6 @@
     <main class="booth-list-page">
       <section class="section booth-list-section" aria-label="BOOTH Works">
         <div class="list-page-intro">
-          <p class="eyebrow">BOOTH Works</p>
           <h1>R18 3D Pose and Motion Assets<br class="mobile-heading-break">for VRChat and Unity</h1>
           <p>Browse sexy poses, solo motions, universal motions, and material assets quickly from BOOTH thumbnails.</p>
         </div>
@@ -246,15 +244,49 @@
           <button class="booth-sort-button" type="button" data-booth-sort-button="popular" aria-pressed="false">Popular</button>
         </div>
         <div class="booth-filter-panel" data-booth-filter data-count-suffix=" works" data-count-singular-suffix=" work" data-page-size="12">
+          <p class="booth-filter-heading">Type</p>
           <div class="booth-filter-tabs" role="group" aria-label="BOOTH work tag filter">
             <button class="booth-filter-button is-active" type="button" data-booth-filter-button="all" aria-pressed="true">All</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="pose" aria-pressed="false">Poses</button>
-            <button class="booth-filter-button" type="button" data-booth-filter-button="motion" aria-pressed="false">Motions</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="universal" aria-pressed="false">Universal</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="solo" aria-pressed="false">Solo</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="material" aria-pressed="false">Materials</button>
           </div>
           <span class="booth-filter-status" data-booth-filter-status aria-live="polite"></span>
+        </div>
+        <div class="booth-subtag-panel" id="booth-subtags" data-booth-subtag-filter>
+          <p class="booth-subtag-heading">Supported Avatars</p>
+          <div class="booth-subtag-mobile-controls">
+            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" data-booth-subtag-primary aria-pressed="true">All</button>
+            <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="Choose Avatar" aria-expanded="false" aria-controls="booth-subtag-options">Choose Avatar</button>
+          </div>
+          <div class="booth-subtag-picker" id="booth-subtag-options" data-booth-subtag-picker>
+            <label class="booth-subtag-search-label" for="booth-subtag-search">Search by avatar name</label>
+            <input class="booth-subtag-search" id="booth-subtag-search" type="search" data-booth-subtag-search placeholder="Search by avatar name" autocomplete="off">
+            <div class="booth-subtag-tabs" role="group" aria-label="Supported avatar filters">
+            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">All</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">Airi</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" aria-pressed="false">Chocolat</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" aria-pressed="false">Eku</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" aria-pressed="false">ICHIGO</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" aria-pressed="false">KUMALY</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" aria-pressed="false">Lasyusha</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" aria-pressed="false">LUMINA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" aria-pressed="false">Mafuyu</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" aria-pressed="false">MANUKA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" aria-pressed="false">Mayo</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" aria-pressed="false">Milfy</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" aria-pressed="false">Milltina</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" aria-pressed="false">Moe</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" aria-pressed="false">Plum</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" aria-pressed="false">Ramune</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" aria-pressed="false">Ririka</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" aria-pressed="false">Rurune</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" aria-pressed="false">SELESTIA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" aria-pressed="false">Shinano</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" aria-pressed="false">Sio</button>
+            </div>
+          </div>
         </div>
         <div class="booth-list-grid" data-booth-list>
           <a class="booth-list-thumb" data-booth-tags="pose expression" data-booth-subtags="character-kumaly" data-popularity="115" href="product-sexy-pose-kumaly.html">
@@ -302,7 +334,7 @@
           <a class="booth-list-thumb" data-booth-tags="universal motion" data-booth-subtags="" data-popularity="404" href="product-hand-motion.html">
             <img src="../images/linksamune/HJB-600.webp" alt="15 Universal Hand Motion Animations for VRChat / Unity" srcset="../images/linksamune/HJB-600.webp 600w, ../images/linksamune/HJB-800.webp 800w, ../images/linksamune/HJB.webp 1000w" sizes="(max-width: 720px) 46vw, (max-width: 1200px) 30vw, 420px" width="600" height="600" loading="lazy" decoding="async">
           </a>
-          <a class="booth-list-thumb" data-booth-tags="universal motion" data-booth-subtags="character-airi character-eku character-ichigo character-kumaly character-lumina character-lasyusha character-manuka character-milltina character-moe character-ramune character-rurune character-selestia character-shinano" data-popularity="375" href="product-bj-motion.html">
+          <a class="booth-list-thumb" data-booth-tags="universal motion" data-booth-subtags="character-airi character-eku character-ichigo character-lumina character-lasyusha character-manuka character-mayo character-milltina character-moe character-plum character-ramune character-rurune character-shinano" data-popularity="375" href="product-bj-motion.html">
             <img src="../images/linksamune/BJM-600.webp" alt="Oral Motion for 13 Avatars for VRChat / Unity" srcset="../images/linksamune/BJM-600.webp 600w, ../images/linksamune/BJM-800.webp 800w, ../images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 46vw, (max-width: 1200px) 30vw, 420px" width="600" height="600" loading="lazy" decoding="async">
           </a>
           <a class="booth-list-thumb" data-booth-tags="solo motion" data-booth-subtags="character-airi character-chocolat character-eku character-ichigo character-kumaly character-lumina character-lasyusha character-manuka character-mafuyu character-mayo character-milfy character-milltina character-moe character-plum character-ramune character-ririka character-rurune character-selestia character-shinano character-sio" data-popularity="884" href="product-solo-motion-vol1.html">
@@ -327,32 +359,6 @@
           <button class="booth-page-button" type="button" data-booth-page-button="next">Next</button>
         </nav>
 
-        <div class="booth-subtag-panel" id="booth-subtags" data-booth-subtag-filter>
-          <p class="booth-subtag-heading">Character Tags</p>
-          <div class="booth-subtag-tabs" role="group" aria-label="Character sub tag filters">
-            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">All Character Tags</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">Airi</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" aria-pressed="false">Chocolat</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" aria-pressed="false">Eku</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" aria-pressed="false">ICHIGO</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" aria-pressed="false">KUMALY</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" aria-pressed="false">Lasyusha</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" aria-pressed="false">LUMINA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" aria-pressed="false">Mafuyu</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" aria-pressed="false">MANUKA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" aria-pressed="false">Mayo</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" aria-pressed="false">Milfy</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" aria-pressed="false">Milltina</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" aria-pressed="false">Moe</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" aria-pressed="false">Plum</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" aria-pressed="false">Ramune</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" aria-pressed="false">Ririka</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" aria-pressed="false">Rurune</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" aria-pressed="false">SELESTIA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" aria-pressed="false">Shinano</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" aria-pressed="false">Sio</button>
-          </div>
-        </div>
       </section>
     </main>
 

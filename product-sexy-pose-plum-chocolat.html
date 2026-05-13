@@ -59,7 +59,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">このサイトは18歳以上向けです</h2>
         <p id="ageGateDescription">R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
         <div class="age-actions">
@@ -76,7 +75,7 @@
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-current="page">BOOTH作品</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH作品</a>
         <a href="tips.html">使い方</a>
         <a href="terms.html">利用規約</a>
       </nav>
@@ -111,7 +110,15 @@
         </div>
 
         <aside class="product-summary" aria-label="商品情報">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="作品カテゴリ">
+            <a href="booth.html" aria-label="BOOTH">BOOTH作品一覧</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=pose">ポーズ</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=pose&subtag=character-chocolat">ショコラ</a>
+            <span aria-hidden="true">/</span>
+            <a href="booth.html?tag=pose&subtag=character-plum">プラム</a>
+          </nav>
           <h1 id="product-title">【プラム・ショコラ用】セクシーポーズ15種＋表情5種</h1>
           <p class="product-lead">プラム・ショコラ用 セクシーポーズ15種＋表情5種は、プラム・ショコラで使えるR18ポーズ・表情素材です。セクシーポーズ15種と表情5種をまとめ、VRChat向けアバター撮影やUnityでの動画制作、サムネイル制作に使いやすい内容にしています。</p>
           <dl class="product-specs">
@@ -216,7 +223,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">商品詳細</h2>
             <p>この商品は、プラム・ショコラ向けに作成したR18ポーズ素材です。</p>
             <p>ポーズの見え方と表情の組み合わせを確認しやすく、静止画撮影、動画制作、アバター改変後のチェック、BOOTH用サムネイル制作などに使いやすい構成です。</p>
@@ -224,7 +230,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>導入方法</h2>
             <ol>
               <li>Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</li>
@@ -237,7 +242,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>同梱内容</h2>
             <ul>
               <li>R18セクシーポーズ 15種</li>
@@ -248,7 +252,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>改変済みアバターでも使えますか？</h3>
             <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、ボーン変更などの改変量によっては調整が必要です。</p>
@@ -263,37 +266,50 @@
       </section>
 
 
-      <section class="section product-tag-section" aria-label="この商品のキャラサブタグ">
-        <p class="booth-subtag-heading">キャラサブタグ</p>
+      <section class="section product-tag-section" aria-label="この商品のタグ">
+        <p class="booth-subtag-heading">通常タグ</p>
         <div class="product-tag-list">
-          <a class="product-tag" href="booth.html?subtag=character-chocolat#booth-subtags">ショコラ</a>
-          <a class="product-tag" href="booth.html?subtag=character-plum#booth-subtags">プラム</a>
+          <a class="product-tag" href="booth.html?tag=pose">ポーズ</a>
+        </div>
+        <p class="booth-subtag-heading">サブタグ</p>
+        <div class="product-tag-list">
+          <a class="product-tag" href="booth.html?subtag=character-chocolat">ショコラ</a>
+          <a class="product-tag" href="booth.html?subtag=character-plum">プラム</a>
         </div>
       </section>
 
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">関連商品</h2>
           </div>
           <a class="button secondary" href="booth.html">BOOTH作品一覧へ</a>
         </div>
         <div class="product-related-grid">
-          <a class="product-card" href="product-sexy-pose-kumaly.html">
-            <img class="product-cover" src="images/linksamune/KM1-600.webp" alt="クマリ用 セクシーポーズ15種＋表情5種の商品サムネイル" srcset="images/linksamune/KM1-600.webp 600w, images/linksamune/KM1-800.webp 800w, images/linksamune/KM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>クマリ用 セクシーポーズ15種＋表情5種</strong>
-            <small>クマリ向けのセクシーポーズ素材</small>
+          <a class="product-card" href="product-bj-motion.html">
+            <img class="product-cover" src="images/linksamune/BJM-600.webp" alt="フ〇ラモーションの商品サムネイル" srcset="images/linksamune/BJM-600.webp 600w, images/linksamune/BJM-800.webp 800w, images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>【13アバター対応】フ〇ラモーション</strong>
+            <small>汎用舌モデル付きのR18モーション素材</small>
           </a>
-          <a class="product-card" href="product-sexy-pose-ramune.html">
-            <img class="product-cover" src="images/linksamune/RM-600.webp" alt="ラムネ用 セクシーポーズ15種＋表情5種の商品サムネイル" srcset="images/linksamune/RM-600.webp 600w, images/linksamune/RM-800.webp 800w, images/linksamune/RM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>ラムネ用 セクシーポーズ15種＋表情5種</strong>
-            <small>ラムネ向けのセクシーポーズ素材</small>
+          <a class="product-card" href="product-solo-motion-vol1.html">
+            <img class="product-cover" src="images/linksamune/MBM1-600.webp" alt="一人エッチモーション vol.1の商品サムネイル" srcset="images/linksamune/MBM1-600.webp 600w, images/linksamune/MBM1-800.webp 800w, images/linksamune/MBM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>一人エッチモーション vol.1</strong>
+            <small>プラム・ショコラ対応の一人用R18モーション</small>
           </a>
-          <a class="product-card" href="product-sexy-pose-eku.html">
-            <img class="product-cover" src="images/linksamune/EK-600.webp" alt="エク用 セクシーポーズ15種＋表情5種の商品サムネイル" srcset="images/linksamune/EK-600.webp 600w, images/linksamune/EK-800.webp 800w, images/linksamune/EK.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>エク用 セクシーポーズ15種＋表情5種</strong>
-            <small>エク向けのセクシーポーズ素材</small>
+          <a class="product-card" href="product-solo-motion-vol2.html">
+            <img class="product-cover" src="images/linksamune/MBM2-600.webp" alt="一人エッチモーション vol.2の商品サムネイル" srcset="images/linksamune/MBM2-600.webp 600w, images/linksamune/MBM2-800.webp 800w, images/linksamune/MBM2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>一人エッチモーション vol.2</strong>
+            <small>ショコラ対応の一人用R18モーション</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol3.html">
+            <img class="product-cover" src="images/linksamune/MBM3-600.webp" alt="一人エッチモーション vol.3の商品サムネイル" srcset="images/linksamune/MBM3-600.webp 600w, images/linksamune/MBM3-800.webp 800w, images/linksamune/MBM3.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>一人エッチモーション vol.3</strong>
+            <small>ショコラ対応の一人用R18モーション</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol4.html">
+            <img class="product-cover" src="images/linksamune/MBM4-600.webp" alt="一人エッチモーション vol.4の商品サムネイル" srcset="images/linksamune/MBM4-600.webp 600w, images/linksamune/MBM4-800.webp 800w, images/linksamune/MBM4.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>一人エッチモーション vol.4</strong>
+            <small>ショコラ対応の一人用R18モーション</small>
           </a>
         </div>
       </section>

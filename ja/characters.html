@@ -164,7 +164,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2>このサイトは18歳以上向けです</h2>
         <p>R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
         <div class="age-actions">
@@ -181,7 +180,7 @@
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <a href="characters.html" aria-current="page">対応キャラ</a>
-        <a href="booth.html">BOOTH作品</a>
+        <a href="booth.html" aria-label="BOOTH">BOOTH作品</a>
         <a href="tips.html">使い方</a>
         <a href="terms.html">利用規約</a>
       </nav>
@@ -202,12 +201,21 @@
     <main class="character-list-page">
       <section class="section character-list-section" aria-label="対応キャラ一覧">
         <div class="list-page-intro">
-          <p class="eyebrow">Supported Avatars</p>
           <h1>対応キャラ<br>無料3Dポーズ素材</h1>
           <p>VRChat・Unity向けの無料ポーズ素材を、対応アバターごとに探せます。</p>
         </div>
         <div class="character-author-panel" data-character-author-filter data-count-suffix="件" data-count-singular-suffix="件">
-          <div class="character-author-tabs" role="group" aria-label="作者で絞り込み">
+          <p class="character-author-heading">作者</p>
+          <div class="character-search-panel">
+            <label class="character-search-label" for="character-search">キャラ名で検索</label>
+            <input class="character-search-input" id="character-search" type="search" data-character-search placeholder="キャラ名で検索" autocomplete="off">
+          </div>
+          <div class="character-author-mobile-controls">
+            <span class="character-author-mobile-label">作者</span>
+            <button class="character-author-toggle" type="button" data-character-author-toggle aria-expanded="false" aria-controls="character-author-options">すべて</button>
+          </div>
+          <p class="character-author-current" data-character-author-current data-current-prefix="作者: ">作者: すべて</p>
+          <div class="character-author-tabs" id="character-author-options" data-character-author-options role="group" aria-label="作者で絞り込み">
             <button class="character-author-button is-active" type="button" data-character-author-button="all" aria-pressed="true">すべて</button>
             <button class="character-author-button" type="button" data-character-author-button="kyubihome" aria-pressed="false">キュビクローゼット</button>
             <button class="character-author-button" type="button" data-character-author-button="komado" aria-pressed="false">こまど</button>
@@ -396,6 +404,6 @@
       </div>
     </footer>
 
-    <script src="../characters.js?v=5"></script>
+    <script src="../characters.js?v=6"></script>
   </body>
 </html>

@@ -60,7 +60,6 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">
       <div class="age-panel">
-        <p class="eyebrow">Age Verification</p>
         <h2 id="ageGateTitle">This site is intended for adults 18+</h2>
         <p id="ageGateDescription">This site contains information about adult works and materials. Please enter only if you are 18 or older.</p>
         <div class="age-actions">
@@ -77,7 +76,7 @@
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="characters.html">Characters</a>
-        <a href="booth.html" aria-current="page">BOOTH Works</a>
+        <a href="booth.html" aria-current="page" aria-label="BOOTH">BOOTH Works</a>
         <a href="tips.html">Tips</a>
         <a href="terms.html">Terms</a>
       </nav>
@@ -112,7 +111,13 @@
         </div>
 
         <aside class="product-summary" aria-label="Product information">
-          <p class="eyebrow">BOOTH Product LP</p>
+          <nav class="product-summary-breadcrumb" aria-label="Product category">
+            <a href="booth.html" aria-label="BOOTH">BOOTH Works</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=pose">Poses</a>
+            <span aria-hidden="true">›</span>
+            <a href="booth.html?tag=pose&subtag=character-milltina">Milltina</a>
+          </nav>
           <h1 id="product-title">Sexy Pose for Milltina</h1>
           <p class="product-lead">Sexy Pose for Milltina is an R18 pose and motion asset tailored for Milltina. It is organized for VRChat avatar photography and Unity video production, with Modular Avatar prefab setup so the included poses and expressions can be checked quickly in your avatar project.</p>
           <dl class="product-specs">
@@ -182,7 +187,6 @@
       <section class="section product-detail-section" aria-labelledby="product-detail-title">
         <div class="product-detail-grid">
           <article class="product-detail-block">
-            <p class="eyebrow">Detail</p>
             <h2 id="product-detail-title">Product Details</h2>
             <p>This product is an avatar-specific R18 pose and motion asset built for checking poses, expressions, and scene composition in Unity or VRChat-related production.</p>
             <p>The set is intended for users who want a compact avatar-specific product page before moving to BOOTH, so the latest supported files, variations, and usage notes should be checked on the BOOTH product page before purchase.</p>
@@ -190,7 +194,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Setup</p>
             <h2>Setup</h2>
             <ol>
               <li>Prepare a Unity 2022 project with Modular Avatar installed.</li>
@@ -203,7 +206,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">Package</p>
             <h2>Included Files</h2>
             <ul>
               <li>15 sexy poses and 7 facial expressions</li>
@@ -214,7 +216,6 @@
           </article>
 
           <article class="product-detail-block">
-            <p class="eyebrow">FAQ</p>
             <h2>FAQ</h2>
             <h3>Can I use it with a modified avatar?</h3>
             <p>It may work if the avatar is based on the supported model. Body shape, outfit, scale, and other modifications may require position or expression adjustments.</p>
@@ -229,36 +230,49 @@
       </section>
 
 
-      <section class="section product-tag-section" aria-label="Character tags for this product">
+      <section class="section product-tag-section" aria-label="Tags for this product">
+        <p class="booth-subtag-heading">Product Tags</p>
+        <div class="product-tag-list">
+          <a class="product-tag" href="booth.html?tag=pose">Poses</a>
+        </div>
         <p class="booth-subtag-heading">Character Tags</p>
         <div class="product-tag-list">
-          <a class="product-tag" href="booth.html?subtag=character-milltina#booth-subtags">Milltina</a>
+          <a class="product-tag" href="booth.html?subtag=character-milltina">Milltina</a>
         </div>
       </section>
 
       <section class="section product-related-section" aria-labelledby="related-products-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Related</p>
             <h2 id="related-products-title">Related Products</h2>
           </div>
           <a class="button secondary" href="booth.html">View BOOTH Works</a>
         </div>
         <div class="product-related-grid">
-          <a class="product-card" href="product-sexy-pose-lumina.html">
-            <img class="product-cover" src="../images/linksamune/LM-600.webp" alt="Sexy Pose for Lumina product thumbnail" srcset="../images/linksamune/LM-600.webp 600w, ../images/linksamune/LM-800.webp 800w, ../images/linksamune/LM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>Sexy Pose for Lumina</strong>
-            <small>Another avatar-specific sexy pose set</small>
+          <a class="product-card" href="product-bj-motion.html">
+            <img class="product-cover" src="../images/linksamune/BJM-600.webp" alt="BJ Motion product thumbnail" srcset="../images/linksamune/BJM-600.webp 600w, ../images/linksamune/BJM-800.webp 800w, ../images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>BJ Motion for 13 avatars</strong>
+            <small>R18 motion asset for supported avatars</small>
           </a>
-          <a class="product-card" href="product-sexy-pose-ichigo.html">
-            <img class="product-cover" src="../images/linksamune/IC-600.webp" alt="Sexy Pose for Ichigo product thumbnail" srcset="../images/linksamune/IC-600.webp 600w, ../images/linksamune/IC-800.webp 800w, ../images/linksamune/IC.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>Sexy Pose for Ichigo</strong>
-            <small>Another avatar-specific sexy pose set</small>
+          <a class="product-card" href="product-solo-motion-vol1.html">
+            <img class="product-cover" src="../images/linksamune/MBM1-600.webp" alt="Solo Motion vol.1 product thumbnail" srcset="../images/linksamune/MBM1-600.webp 600w, ../images/linksamune/MBM1-800.webp 800w, ../images/linksamune/MBM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.1</strong>
+            <small>Solo R18 motion for supported avatars</small>
           </a>
-          <a class="product-card" href="product-sexy-pose-shinano.html">
-            <img class="product-cover" src="../images/linksamune/SH-600.webp" alt="Sexy Pose for Shinano product thumbnail" srcset="../images/linksamune/SH-600.webp 600w, ../images/linksamune/SH-800.webp 800w, ../images/linksamune/SH.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-            <strong>Sexy Pose for Shinano</strong>
-            <small>Another avatar-specific sexy pose set</small>
+          <a class="product-card" href="product-solo-motion-vol2.html">
+            <img class="product-cover" src="../images/linksamune/MBM2-600.webp" alt="Solo Motion vol.2 product thumbnail" srcset="../images/linksamune/MBM2-600.webp 600w, ../images/linksamune/MBM2-800.webp 800w, ../images/linksamune/MBM2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.2</strong>
+            <small>Solo R18 motion for supported avatars</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol3.html">
+            <img class="product-cover" src="../images/linksamune/MBM3-600.webp" alt="Solo Motion vol.3 product thumbnail" srcset="../images/linksamune/MBM3-600.webp 600w, ../images/linksamune/MBM3-800.webp 800w, ../images/linksamune/MBM3.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.3</strong>
+            <small>Solo R18 motion for supported avatars</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol4.html">
+            <img class="product-cover" src="../images/linksamune/MBM4-600.webp" alt="Solo Motion vol.4 product thumbnail" srcset="../images/linksamune/MBM4-600.webp 600w, ../images/linksamune/MBM4-800.webp 800w, ../images/linksamune/MBM4.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.4</strong>
+            <small>Solo R18 motion for supported avatars</small>
           </a>
         </div>
       </section>

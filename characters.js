@@ -120,12 +120,17 @@ const setupCharacterPagination = () => {
     const authorPanel = section.querySelector("[data-character-author-filter]");
     const authorButtons = authorPanel ? [...authorPanel.querySelectorAll("[data-character-author-button]")] : [];
     const authorStatus = authorPanel ? authorPanel.querySelector("[data-character-author-status]") : null;
+    const authorToggle = authorPanel ? authorPanel.querySelector("[data-character-author-toggle]") : null;
+    const authorOptions = authorPanel ? authorPanel.querySelector("[data-character-author-options]") : null;
+    const authorCurrent = authorPanel ? authorPanel.querySelector("[data-character-author-current]") : null;
+    const searchInput = authorPanel ? authorPanel.querySelector("[data-character-search]") : null;
     const pagination = section.querySelector("[data-character-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-character-page-button]")] : [];
     const pageStatus = pagination ? pagination.querySelector("[data-character-page-status]") : null;
     const pageSize = Number(list.dataset.pageSize || 0);
     const suffix = authorPanel?.dataset.countSuffix || " characters";
     const singularSuffix = authorPanel?.dataset.countSingularSuffix || suffix;
+    const compactAuthorQuery = window.matchMedia("(max-width: 640px)");
     let activeAuthor = "all";
     let currentPage = 1;
 
@@ -133,8 +138,50 @@ const setupCharacterPagination = () => {
       return;
     }
 
+    const normalizeText = (value) => value.trim().normalize("NFKC").toLocaleLowerCase();
+    const getAuthorLabel = (author) => {
+      const button = authorButtons.find((item) => item.dataset.characterAuthorButton === author);
+
+      return button?.textContent?.trim() || author;
+    };
+    const setAuthorOptionsOpen = (isOpen) => {
+      if (!authorToggle || !authorOptions) {
+        return;
+      }
+
+      authorOptions.classList.toggle("is-open", isOpen);
+      authorToggle.setAttribute("aria-expanded", String(isOpen));
+    };
+    const updateAuthorSummary = () => {
+      const authorLabel = getAuthorLabel(activeAuthor);
+
+      if (authorToggle) {
+        authorToggle.textContent = authorLabel;
+        authorToggle.classList.toggle("is-selected", activeAuthor !== "all");
+      }
+
+      if (authorCurrent) {
+        const prefix = authorCurrent.dataset.currentPrefix || "";
+        authorCurrent.textContent = `${prefix}${authorLabel}`;
+      }
+    };
+    const getCardSearchText = (card) => normalizeText([
+      card.querySelector(".character-list-name")?.textContent || "",
+      card.querySelector(".character-list-subname")?.textContent || "",
+    ].join(" "));
+
+    cards.forEach((card) => {
+      card.dataset.characterSearchText = getCardSearchText(card);
+    });
+
     const render = () => {
-      const matchingCards = cards.filter((card) => activeAuthor === "all" || card.dataset.characterAuthor === activeAuthor);
+      const searchText = searchInput ? normalizeText(searchInput.value) : "";
+      const matchingCards = cards.filter((card) => {
+        const isMatchingAuthor = activeAuthor === "all" || card.dataset.characterAuthor === activeAuthor;
+        const isMatchingSearch = !searchText || (card.dataset.characterSearchText || "").includes(searchText);
+
+        return isMatchingAuthor && isMatchingSearch;
+      });
       const pageCount = pageSize > 0 ? Math.max(1, Math.ceil(matchingCards.length / pageSize)) : 1;
       currentPage = Math.min(Math.max(currentPage, 1), pageCount);
       const firstCardIndex = (currentPage - 1) * pageSize;
@@ -162,6 +209,8 @@ const setupCharacterPagination = () => {
         authorStatus.textContent = `${matchingCards.length}${matchingCards.length === 1 ? singularSuffix : suffix}`;
       }
 
+      updateAuthorSummary();
+
       if (pagination) {
         pagination.hidden = pageCount <= 1;
       }
@@ -184,8 +233,26 @@ const setupCharacterPagination = () => {
         activeAuthor = button.dataset.characterAuthorButton || "all";
         currentPage = 1;
         render();
+
+        if (compactAuthorQuery.matches) {
+          setAuthorOptionsOpen(false);
+        }
       });
     });
+
+    if (authorToggle) {
+      authorToggle.addEventListener("click", () => {
+        const isOpen = authorToggle.getAttribute("aria-expanded") === "true";
+        setAuthorOptionsOpen(!isOpen);
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        currentPage = 1;
+        render();
+      });
+    }
 
     pageButtons.forEach((button) => {
       button.addEventListener("click", () => {
