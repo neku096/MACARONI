@@ -1,14 +1,51 @@
 const gate = document.querySelector("#ageGate");
 const enterButton = document.querySelector("#enterSite");
+const focusableSelector = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 if (gate && localStorage.getItem("ageConfirmed") === "true") {
   gate.classList.add("is-hidden");
+  gate.setAttribute("aria-hidden", "true");
+} else if (gate) {
+  gate.setAttribute("aria-hidden", "false");
+  document.body.classList.add("age-gate-open");
+
+  requestAnimationFrame(() => {
+    enterButton?.focus();
+  });
+
+  gate.addEventListener("keydown", (event) => {
+    if (event.key !== "Tab") {
+      return;
+    }
+
+    const focusableElements = [...gate.querySelectorAll(focusableSelector)].filter((element) => !element.hasAttribute("disabled"));
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (!firstElement || !lastElement) {
+      event.preventDefault();
+      return;
+    }
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+      return;
+    }
+
+    if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  });
 }
 
 if (enterButton && gate) {
   enterButton.addEventListener("click", () => {
     localStorage.setItem("ageConfirmed", "true");
     gate.classList.add("is-hidden");
+    gate.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("age-gate-open");
   });
 }
 
@@ -920,6 +957,10 @@ const setupBoothFilters = () => {
     const list = section.querySelector("[data-booth-list]");
     const cards = [...section.querySelectorAll("[data-booth-tags]")];
     const filterButtons = [...filterPanel.querySelectorAll("[data-booth-filter-button]")];
+    const subtagPanel = section.querySelector("[data-booth-subtag-filter]");
+    const subtagButtons = subtagPanel
+      ? [...subtagPanel.querySelectorAll("[data-booth-subtag-button]")]
+      : [];
     const sortButtons = [...section.querySelectorAll("[data-booth-sort-button]")];
     const pagination = section.querySelector("[data-booth-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-booth-page-button]")] : [];
@@ -928,7 +969,15 @@ const setupBoothFilters = () => {
     const suffix = filterPanel.dataset.countSuffix || " items";
     const singularSuffix = filterPanel.dataset.countSingularSuffix || suffix;
     const pageSize = Number(filterPanel.dataset.pageSize || 0);
-    let activeTag = "all";
+    const query = new URLSearchParams(window.location.search);
+    const requestedTag = query.get("tag");
+    const requestedSubtag = query.get("subtag");
+    const hasTag = (tag) => tag === "all"
+      || filterButtons.some((button) => button.dataset.boothFilterButton === tag);
+    const hasSubtag = (subtag) => subtag === "all"
+      || subtagButtons.some((button) => button.dataset.boothSubtagButton === subtag);
+    let activeTag = requestedTag && hasTag(requestedTag) ? requestedTag : "all";
+    let activeSubtag = requestedSubtag && hasSubtag(requestedSubtag) ? requestedSubtag : "all";
     let activeSort = "default";
     let currentPage = 1;
 
@@ -947,8 +996,11 @@ const setupBoothFilters = () => {
       const matchingCards = [];
 
       cards.forEach((card) => {
-        const tags = card.dataset.boothTags.split(/\s+/);
-        const isMatching = activeTag === "all" || tags.includes(activeTag);
+        const tags = (card.dataset.boothTags || "").split(/\s+/);
+        const subtags = (card.dataset.boothSubtags || "").split(/\s+/);
+        const isMatchingTag = activeTag === "all" || tags.includes(activeTag);
+        const isMatchingSubtag = activeSubtag === "all" || subtags.includes(activeSubtag);
+        const isMatching = isMatchingTag && isMatchingSubtag;
 
         if (isMatching) {
           matchingCards.push(card);
@@ -994,6 +1046,12 @@ const setupBoothFilters = () => {
         button.setAttribute("aria-pressed", String(isActive));
       });
 
+      subtagButtons.forEach((button) => {
+        const isActive = button.dataset.boothSubtagButton === activeSubtag;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
       if (status) {
         const matchingCount = sortedMatchingCards.length;
         status.textContent = `${matchingCount}${matchingCount === 1 ? singularSuffix : suffix}`;
@@ -1026,10 +1084,38 @@ const setupBoothFilters = () => {
       }
     };
 
+    const syncFilterUrl = () => {
+      const url = new URL(window.location.href);
+
+      if (activeTag === "all") {
+        url.searchParams.delete("tag");
+      } else {
+        url.searchParams.set("tag", activeTag);
+      }
+
+      if (activeSubtag === "all") {
+        url.searchParams.delete("subtag");
+      } else {
+        url.searchParams.set("subtag", activeSubtag);
+      }
+
+      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         activeTag = button.dataset.boothFilterButton || "all";
         currentPage = 1;
+        syncFilterUrl();
+        render();
+      });
+    });
+
+    subtagButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeSubtag = button.dataset.boothSubtagButton || "all";
+        currentPage = 1;
+        syncFilterUrl();
         render();
       });
     });
@@ -1098,9 +1184,272 @@ const setupCardReveal = () => {
   });
 };
 
+const setupProductGallery = () => {
+  const gallery = document.querySelector("[data-product-gallery]");
+  const dataElement = document.querySelector("#product-gallery-data");
+  const mainImage = document.querySelector("[data-product-main-image]");
+
+  if (!gallery || !dataElement || !mainImage) {
+    return;
+  }
+
+  let images = [];
+  try {
+    images = JSON.parse(dataElement.textContent || "[]");
+  } catch (error) {
+    return;
+  }
+
+  if (!images.length) {
+    return;
+  }
+
+  let currentIndex = 0;
+  let inlineStartIndex = 0;
+  let visibleThumbs = [];
+  const inlineThumbs = gallery.querySelector("[data-gallery-inline-thumbs]");
+  const inlinePrev = gallery.querySelector("[data-gallery-inline-prev]");
+  const inlineNext = gallery.querySelector("[data-gallery-inline-next]");
+  const visibleThumbCount = 5;
+  const isEnglish = document.documentElement.lang === "en";
+  const productName = document.querySelector("#product-title")?.textContent?.trim() || (isEnglish ? "Product" : "商品");
+  const closeText = isEnglish ? "Close" : "閉じる";
+  const previousText = isEnglish ? "Previous image" : "前の画像";
+  const nextText = isEnglish ? "Next image" : "次の画像";
+  const modal = document.createElement("div");
+  modal.className = "product-lightbox";
+  modal.hidden = true;
+  modal.tabIndex = -1;
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-label", "商品画像ギャラリー");
+  modal.innerHTML = `
+    <div class="product-lightbox-stage">
+      <div class="product-lightbox-image-wrap" data-gallery-stage>
+        <button class="product-lightbox-close" type="button" data-gallery-close aria-label="${closeText}">×</button>
+        <button class="product-lightbox-nav" type="button" data-gallery-prev aria-label="${previousText}">‹</button>
+        <img class="product-lightbox-image" data-gallery-modal-image alt="">
+        <button class="product-lightbox-nav" type="button" data-gallery-next aria-label="${nextText}">›</button>
+      </div>
+    </div>
+    <aside class="product-lightbox-side">
+      <p class="product-lightbox-title">${productName}</p>
+      <p class="product-lightbox-count" data-gallery-count></p>
+      <div class="product-lightbox-thumbs" data-gallery-modal-thumbs></div>
+    </aside>
+  `;
+  document.body.append(modal);
+
+  const modalImage = modal.querySelector("[data-gallery-modal-image]");
+  const modalCount = modal.querySelector("[data-gallery-count]");
+  const modalThumbs = modal.querySelector("[data-gallery-modal-thumbs]");
+  const closeButton = modal.querySelector("[data-gallery-close]");
+  const stage = modal.querySelector("[data-gallery-stage]");
+
+  const renderInlineThumbs = () => {
+    if (!inlineThumbs) {
+      visibleThumbs = [...gallery.querySelectorAll("[data-gallery-thumb]")];
+      return;
+    }
+
+    inlineThumbs.textContent = "";
+
+    for (let offset = 0; offset < Math.min(visibleThumbCount, images.length); offset += 1) {
+      const index = (inlineStartIndex + offset) % images.length;
+      const image = images[index];
+      const button = document.createElement("button");
+      button.className = "product-thumbnail";
+      button.type = "button";
+      button.dataset.galleryIndex = String(index);
+      button.dataset.galleryThumb = "";
+      button.setAttribute("aria-label", isEnglish ? `${productName} product image ${index + 1}` : `${productName} 商品画像 ${index + 1}枚目`);
+      button.innerHTML = `<img src="${image.thumb}" alt="${image.alt}" width="96" height="96" loading="${index === 0 ? "eager" : "lazy"}" decoding="async">`;
+      button.addEventListener("click", () => setImage(index));
+      inlineThumbs.append(button);
+    }
+
+    visibleThumbs = [...inlineThumbs.querySelectorAll("[data-gallery-thumb]")];
+  };
+
+  const syncInlineWindow = () => {
+    const distance = (currentIndex - inlineStartIndex + images.length) % images.length;
+
+    if (distance >= visibleThumbCount) {
+      inlineStartIndex = currentIndex;
+      renderInlineThumbs();
+    }
+  };
+
+  const setImage = (index, updateMain = true) => {
+    currentIndex = (index + images.length) % images.length;
+    const image = images[currentIndex];
+
+    if (updateMain) {
+      mainImage.src = image.src;
+      mainImage.srcset = "";
+      mainImage.alt = image.alt;
+    }
+
+    if (modalImage) {
+      modalImage.src = image.src;
+      modalImage.alt = image.alt;
+    }
+
+    if (modalCount) {
+      modalCount.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    syncInlineWindow();
+
+    visibleThumbs.forEach((button) => {
+      const isActive = Number(button.dataset.galleryIndex) === currentIndex;
+      button.classList.toggle("is-active", isActive);
+    });
+
+    modalThumbs?.querySelectorAll("[data-gallery-modal-thumb]").forEach((button) => {
+      const isActive = Number(button.dataset.galleryIndex) === currentIndex;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
+  const shiftInlineImage = (direction) => {
+    inlineStartIndex = (inlineStartIndex + direction + images.length) % images.length;
+    renderInlineThumbs();
+    setImage(inlineStartIndex);
+  };
+
+  images.forEach((image, index) => {
+    const button = document.createElement("button");
+    button.className = "product-lightbox-thumb";
+    button.type = "button";
+    button.dataset.galleryIndex = String(index);
+    button.dataset.galleryModalThumb = "";
+    button.setAttribute("aria-label", isEnglish ? `Product image ${index + 1}` : `商品画像 ${index + 1}枚目`);
+    button.innerHTML = `<img src="${image.thumb}" alt="${image.alt}" loading="lazy" decoding="async">`;
+    button.addEventListener("click", () => setImage(index, false));
+    modalThumbs?.append(button);
+  });
+
+  const openModal = () => {
+    setImage(currentIndex, false);
+    modal.hidden = false;
+    document.body.classList.add("product-lightbox-open");
+    modal.focus();
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove("product-lightbox-open");
+  };
+
+  visibleThumbs.forEach((button) => {
+    const index = Number(button.dataset.galleryIndex) || 0;
+
+    button.addEventListener("click", () => {
+      setImage(index);
+    });
+  });
+
+  inlinePrev?.addEventListener("click", () => shiftInlineImage(-1));
+  inlineNext?.addEventListener("click", () => shiftInlineImage(1));
+
+  document.querySelectorAll("[data-gallery-open]").forEach((button) => {
+    button.addEventListener("click", openModal);
+  });
+
+  modal.querySelector("[data-gallery-prev]")?.addEventListener("click", () => setImage(currentIndex - 1, false));
+  modal.querySelector("[data-gallery-next]")?.addEventListener("click", () => setImage(currentIndex + 1, false));
+  closeButton?.addEventListener("click", closeModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal || event.target === modal.querySelector(".product-lightbox-stage")) {
+      closeModal();
+    }
+  });
+
+  let stagePointerId = null;
+  let stageStartX = 0;
+  let stageStartY = 0;
+  let stageMoved = false;
+
+  const finishStageDrag = (event) => {
+    if (stagePointerId !== event.pointerId) {
+      return;
+    }
+
+    const movedX = event.clientX - stageStartX;
+    const movedY = event.clientY - stageStartY;
+
+    stage?.classList.remove("is-dragging");
+    if (stage?.hasPointerCapture(event.pointerId)) {
+      stage.releasePointerCapture(event.pointerId);
+    }
+
+    stagePointerId = null;
+
+    if (Math.abs(movedX) < 56 || Math.abs(movedX) < Math.abs(movedY) * 1.15) {
+      return;
+    }
+
+    setImage(currentIndex + (movedX < 0 ? 1 : -1), false);
+  };
+
+  stage?.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || event.target.closest("button")) {
+      return;
+    }
+
+    stagePointerId = event.pointerId;
+    stageStartX = event.clientX;
+    stageStartY = event.clientY;
+    stageMoved = false;
+    stage.setPointerCapture(event.pointerId);
+  });
+
+  stage?.addEventListener("pointermove", (event) => {
+    if (stagePointerId !== event.pointerId) {
+      return;
+    }
+
+    if (Math.abs(event.clientX - stageStartX) > 8) {
+      stageMoved = true;
+      stage.classList.add("is-dragging");
+    }
+  });
+
+  stage?.addEventListener("pointerup", finishStageDrag);
+  stage?.addEventListener("pointercancel", finishStageDrag);
+  stage?.addEventListener("lostpointercapture", () => {
+    if (!stageMoved) {
+      return;
+    }
+
+    stage?.classList.remove("is-dragging");
+    stagePointerId = null;
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      closeModal();
+    } else if (event.key === "ArrowLeft") {
+      setImage(currentIndex - 1, false);
+    } else if (event.key === "ArrowRight") {
+      setImage(currentIndex + 1, false);
+    }
+  });
+
+  renderInlineThumbs();
+  setImage(0, false);
+};
+
 document.querySelectorAll("[data-slider]").forEach(setupSlider);
 setupTipsPagination();
 setupBoothFilters();
 setupCardReveal();
+setupProductGallery();
 setupShareButtons();
 setupLanguageSwitcher();
