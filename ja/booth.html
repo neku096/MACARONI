@@ -194,6 +194,7 @@
     <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/booth.html">
     <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/booth.html">
 
+    <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -235,13 +236,15 @@
 
     <main class="booth-list-page">
       <section class="section booth-list-section" aria-label="BOOTH作品一覧">
-        <div class="list-page-intro">
-          <h1>VRChat・Unity向け<br>R18 3Dポーズ/モーション素材一覧</h1>
-          <p>セクシーポーズ、一人用モーション、汎用モーション、マテリアル素材をサムネイルからすばやく確認できます。</p>
-        </div>
-        <div class="booth-sort-tabs" role="group" aria-label="BOOTH作品表示順">
-          <button class="booth-sort-button is-active" type="button" data-booth-sort-button="default" aria-pressed="true">通常順</button>
-          <button class="booth-sort-button" type="button" data-booth-sort-button="popular" aria-pressed="false">人気順</button>
+        <div class="list-page-intro booth-list-intro">
+          <div class="booth-list-intro-copy">
+            <h1>VRChat・Unity向け<br>R18 3D素材一覧</h1>
+            <p>ポーズ・モーション・マテリアル素材をサムネイルから確認できます。</p>
+          </div>
+          <div class="booth-sort-tabs" role="group" aria-label="BOOTH作品表示順">
+            <button class="booth-sort-button is-active" type="button" data-booth-sort-button="default" aria-pressed="true">通常順</button>
+            <button class="booth-sort-button" type="button" data-booth-sort-button="popular" aria-pressed="false">人気順</button>
+          </div>
         </div>
         <div class="booth-filter-panel" data-booth-filter data-count-suffix="件" data-page-size="12">
           <p class="booth-filter-heading">種類</p>
@@ -252,17 +255,15 @@
             <button class="booth-filter-button" type="button" data-booth-filter-button="solo" aria-pressed="false">一人用</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="material" aria-pressed="false">マテリアル</button>
           </div>
-          <span class="booth-filter-status" data-booth-filter-status aria-live="polite"></span>
+          <span class="booth-filter-status booth-list-count" data-booth-filter-status aria-live="polite"></span>
         </div>
         <div class="booth-subtag-panel" id="booth-subtags" data-booth-subtag-filter>
           <p class="booth-subtag-heading">対応キャラ</p>
           <div class="booth-subtag-mobile-controls">
-            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" data-booth-subtag-primary aria-pressed="true">すべて</button>
-            <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="対応キャラを選ぶ" aria-expanded="false" aria-controls="booth-subtag-options">対応キャラを選ぶ</button>
+            <span class="booth-subtag-mobile-label">対応キャラ</span>
+            <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="すべて" aria-expanded="false" aria-controls="booth-subtag-options">すべて</button>
           </div>
           <div class="booth-subtag-picker" id="booth-subtag-options" data-booth-subtag-picker>
-            <label class="booth-subtag-search-label" for="booth-subtag-search">キャラ名で検索</label>
-            <input class="booth-subtag-search" id="booth-subtag-search" type="search" data-booth-subtag-search placeholder="キャラ名で検索" autocomplete="off">
             <div class="booth-subtag-tabs" role="group" aria-label="対応キャラ絞り込み">
             <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">すべて</button>
             <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">愛莉</button>
@@ -287,6 +288,7 @@
             <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" aria-pressed="false">ルルネ</button>
             </div>
           </div>
+          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="もっと見る ▼" data-close-label="閉じる ▲" data-open-aria-label="対応キャラをもっと見る" data-close-aria-label="対応キャラを閉じる" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="対応キャラをもっと見る">もっと見る ▼</button>
         </div>
         <div class="booth-list-grid" data-booth-list>
           <a class="booth-list-thumb" data-booth-tags="pose expression" data-booth-subtags="character-kumaly" data-popularity="115" href="../product-sexy-pose-kumaly.html">
@@ -358,6 +360,10 @@
           <span class="booth-page-status" data-booth-page-status aria-live="polite"></span>
           <button class="booth-page-button" type="button" data-booth-page-button="next">次へ</button>
         </nav>
+        <div class="booth-list-help">
+          <a href="booth-faq.html">購入・DLで困ったら</a>
+          <span>ダウンロード、ZIP解凍、利用規約の確認はこちら。</span>
+        </div>
 
       </section>
     </main>

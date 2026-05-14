@@ -113,6 +113,78 @@ const setupShareButtons = () => {
   });
 };
 
+const preloadCharacterCardImage = (card) => {
+  const image = card?.querySelector(".character-list-image img");
+
+  if (!image || image.dataset.characterPreloaded === "true") {
+    return;
+  }
+
+  image.dataset.characterPreloaded = "true";
+  image.loading = "eager";
+
+  const preloader = new Image();
+  preloader.decoding = "async";
+
+  if (image.sizes) {
+    preloader.sizes = image.sizes;
+  }
+
+  if (image.srcset) {
+    preloader.srcset = image.srcset;
+  }
+
+  preloader.src = image.currentSrc || image.src;
+
+  if (typeof preloader.decode === "function") {
+    preloader.decode().catch(() => {});
+  }
+};
+
+const setupCharacterImageLoading = (list, visibleCards) => {
+  if (!list || !visibleCards.length) {
+    return;
+  }
+
+  if (list.characterImageObserver) {
+    list.characterImageObserver.disconnect();
+  }
+
+  const triggerCards = visibleCards.slice(3, 6);
+  const nextCards = visibleCards.slice(6, 9);
+
+  if (!triggerCards.length || !nextCards.length) {
+    return;
+  }
+
+  const preloadNextCards = () => {
+    nextCards.forEach(preloadCharacterCardImage);
+    list.characterImageObserver?.disconnect();
+    list.characterImageObserver = null;
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    preloadNextCards();
+    return;
+  }
+
+  list.characterImageObserver = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) {
+        return;
+      }
+
+      preloadNextCards();
+    },
+    {
+      rootMargin: "160px 0px 160px 0px",
+      threshold: 0.1,
+    }
+  );
+
+  triggerCards.forEach((card) => list.characterImageObserver.observe(card));
+};
+
 const setupCharacterPagination = () => {
   document.querySelectorAll("[data-character-list]").forEach((list) => {
     const section = list.closest(".character-list-section") || document;
@@ -121,6 +193,7 @@ const setupCharacterPagination = () => {
     const authorButtons = authorPanel ? [...authorPanel.querySelectorAll("[data-character-author-button]")] : [];
     const authorStatus = authorPanel ? authorPanel.querySelector("[data-character-author-status]") : null;
     const authorToggle = authorPanel ? authorPanel.querySelector("[data-character-author-toggle]") : null;
+    const authorRowToggle = authorPanel ? authorPanel.querySelector("[data-character-author-row-toggle]") : null;
     const authorOptions = authorPanel ? authorPanel.querySelector("[data-character-author-options]") : null;
     const authorCurrent = authorPanel ? authorPanel.querySelector("[data-character-author-current]") : null;
     const searchInput = authorPanel ? authorPanel.querySelector("[data-character-search]") : null;
@@ -151,6 +224,24 @@ const setupCharacterPagination = () => {
 
       authorOptions.classList.toggle("is-open", isOpen);
       authorToggle.setAttribute("aria-expanded", String(isOpen));
+    };
+    const setAuthorRowsExpanded = (isExpanded) => {
+      if (!authorRowToggle || !authorOptions) {
+        return;
+      }
+
+      authorOptions.classList.toggle("is-expanded", isExpanded);
+      authorPanel.classList.toggle("is-author-rows-expanded", isExpanded);
+      authorRowToggle.setAttribute("aria-expanded", String(isExpanded));
+      authorRowToggle.textContent = isExpanded
+        ? (authorRowToggle.dataset.closeLabel || "閉じる ▲")
+        : (authorRowToggle.dataset.openLabel || "もっと見る ▼");
+      authorRowToggle.setAttribute(
+        "aria-label",
+        isExpanded
+          ? (authorRowToggle.dataset.closeAriaLabel || authorRowToggle.textContent)
+          : (authorRowToggle.dataset.openAriaLabel || authorRowToggle.textContent),
+      );
     };
     const updateAuthorSummary = () => {
       const authorLabel = getAuthorLabel(activeAuthor);
@@ -185,7 +276,8 @@ const setupCharacterPagination = () => {
       const pageCount = pageSize > 0 ? Math.max(1, Math.ceil(matchingCards.length / pageSize)) : 1;
       currentPage = Math.min(Math.max(currentPage, 1), pageCount);
       const firstCardIndex = (currentPage - 1) * pageSize;
-      const visibleCards = new Set(pageSize > 0 ? matchingCards.slice(firstCardIndex, firstCardIndex + pageSize) : matchingCards);
+      const visibleCardList = pageSize > 0 ? matchingCards.slice(firstCardIndex, firstCardIndex + pageSize) : matchingCards;
+      const visibleCards = new Set(visibleCardList);
 
       cards.forEach((card) => {
         const isVisible = visibleCards.has(card);
@@ -198,6 +290,8 @@ const setupCharacterPagination = () => {
       cards
         .filter((card) => !matchingCards.includes(card))
         .forEach((card) => list.appendChild(card));
+
+      setupCharacterImageLoading(list, visibleCardList);
 
       authorButtons.forEach((button) => {
         const isActive = button.dataset.characterAuthorButton === activeAuthor;
@@ -244,6 +338,14 @@ const setupCharacterPagination = () => {
       authorToggle.addEventListener("click", () => {
         const isOpen = authorToggle.getAttribute("aria-expanded") === "true";
         setAuthorOptionsOpen(!isOpen);
+      });
+    }
+
+    if (authorRowToggle) {
+      setAuthorRowsExpanded(false);
+      authorRowToggle.addEventListener("click", () => {
+        const isExpanded = authorRowToggle.getAttribute("aria-expanded") === "true";
+        setAuthorRowsExpanded(!isExpanded);
       });
     }
 
@@ -295,7 +397,25 @@ const setupCardReveal = () => {
     }
   );
 
+  const isInitialCharacterCard = (card) => {
+    const list = card.closest("[data-character-list]");
+
+    if (!list) {
+      return false;
+    }
+
+    const visibleCards = [...list.querySelectorAll(".character-list-card")]
+      .filter((item) => !item.hidden && item.style.display !== "none");
+
+    return visibleCards.indexOf(card) < 6;
+  };
+
   cards.forEach((card) => {
+    if (isInitialCharacterCard(card)) {
+      card.classList.remove("js-reveal-card", "is-visible");
+      return;
+    }
+
     card.classList.add("js-reveal-card");
     observer.observe(card);
   });

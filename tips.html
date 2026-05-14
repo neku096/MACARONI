@@ -67,6 +67,11 @@
                   "@type": "Article",
                   "name": "改変済みアバターの表情破綻を直す手順",
                   "url": "tips-face-emote-fix.html"
+            },
+            {
+                  "@type": "FAQPage",
+                  "name": "BOOTH購入者向けFAQ",
+                  "url": "booth-faq.html"
             }
       ]
 }
@@ -75,6 +80,7 @@
     <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/tips.html">
     <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/tips.html">
 
+    <script src="age-gate-boot.js"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -118,7 +124,7 @@
       <section class="section text-section" aria-labelledby="tips-title">
         <div class="text-panel">
           <h1 id="tips-title">使い方</h1>
-          <p>VRChatアバターのポーズ導入、Unityのanimファイル、ゲーム制作で使う時に詰まりやすいポイントを記事ごとにまとめています。</p>
+          <p>VRChatアバターのポーズ導入、Unityのanimファイル、ゲーム制作で使う時に詰まりやすいポイントを確認できます。</p>
 
           <div class="tips-column-layout tips-list-only" data-tips-list data-page-size="5">
             <div class="tips-list-column" aria-label="使い方記事一覧">
@@ -127,8 +133,8 @@
                 <span class="tip-list-body">
                   <span class="tip-card-meta">UNITY / 2026.05.08</span>
                   <strong>Unityでanimファイルを再生する手順</strong>
-                  <span>Animator ControllerとAnimationタブの使い方</span>
-                  <small>Unityでanimファイルを再生するために、Animator Controllerを作成し、対象オブジェクトへ設定して、animをAnimatorへドラッグ＆ドロップし、Animationタブで確認・管理する流れをまとめます。</small>
+                  <span>Animator ControllerとAnimationタブで再生を確認</span>
+                  <small>Animator Controllerの作成、対象オブジェクトへの設定、animの登録、Animationタブでの確認までを順番に確認できます。</small>
                 </span>
               </a>
               <a class="tip-list-card" href="tips-commercial-use.html">
@@ -137,7 +143,7 @@
                   <span class="tip-card-meta">GAME USE / 2026.05.09</span>
                   <strong>ゲーム開発時にanimを再生する手順</strong>
                   <span>スクリプトからAnimatorのStateを呼び出す方法</span>
-                  <small>UnityのGameビューでポーズを確認するために、MonoBehaviour Scriptを作成し、空オブジェクトへ付けて、AnimatorとState名を指定する流れをまとめます。</small>
+                  <small>Gameビューでポーズを確認したい時に、スクリプト、空オブジェクト、Animator、State名の設定手順を追えます。</small>
                 </span>
               </a>
               <a class="tip-list-card" href="tips-prefab-setup.html">
@@ -145,8 +151,8 @@
                 <span class="tip-list-body">
                   <span class="tip-card-meta">PREFAB / 2026.05.08</span>
                   <strong>導入に必要なPrefabについて</strong>
-                  <span>導入に必要なPrefabについて</span>
-                  <small>SexyPose_○○○ と MAMST_Controller の2つをHierarchyへ入れる時の注意点です。</small>
+                  <span>必要Prefabの入れ方と配置確認</span>
+                  <small>SexyPose_○○○ と MAMST_Controller をHierarchyへ入れる時の配置と確認ポイントを見られます。</small>
                 </span>
               </a>
               <a class="tip-list-card" href="tips-face-emote-fix.html">
@@ -155,7 +161,16 @@
                   <span class="tip-card-meta">FACE EMOTE / 2026.05.09</span>
                   <strong>改変済みアバターの表情破綻を直す手順</strong>
                   <span>BlendShape値を今の顔に合わせる方法</span>
-                  <small>表情用animを入れた時に目や口が崩れる場合、Animationタブでシェイプキー値を記録し直して直す流れをまとめます。</small>
+                  <small>表情用animで目や口が崩れる時に、Animationタブでシェイプキー値を記録し直す手順を確認できます。</small>
+                </span>
+              </a>
+              <a class="tip-list-card" href="booth-faq.html">
+                <span class="tip-thumb tip-thumb-icon"><img src="images/kkrn_icon_faq_17.svg" alt="" width="144" height="144" loading="lazy" decoding="async"></span>
+                <span class="tip-list-body">
+                  <span class="tip-card-meta">BOOTH FAQ / 2026.05.14</span>
+                  <strong>BOOTH購入者向けFAQ</strong>
+                  <span>利用規約、不具合、問い合わせ前チェック</span>
+                  <small>BOOTH商品の利用規約、EXMenuやPhysBoneの不具合、問い合わせ前に確認したい項目を見られます。</small>
                 </span>
               </a>
             </div>

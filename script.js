@@ -962,13 +962,14 @@ const setupBoothFilters = () => {
       ? [...subtagPanel.querySelectorAll("[data-booth-subtag-button]")]
       : [];
     const subtagToggle = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-toggle]") : null;
+    const subtagRowToggle = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-row-toggle]") : null;
     const subtagPicker = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-picker]") : null;
     const subtagSearch = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-search]") : null;
     const sortButtons = [...section.querySelectorAll("[data-booth-sort-button]")];
     const pagination = section.querySelector("[data-booth-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-booth-page-button]")] : [];
     const pageStatus = pagination ? pagination.querySelector("[data-booth-page-status]") : null;
-    const status = filterPanel.querySelector("[data-booth-filter-status]");
+    const status = section.querySelector("[data-booth-filter-status]");
     const suffix = filterPanel.dataset.countSuffix || " items";
     const singularSuffix = filterPanel.dataset.countSingularSuffix || suffix;
     const pageSize = Number(filterPanel.dataset.pageSize || 0);
@@ -994,7 +995,6 @@ const setupBoothFilters = () => {
 
     const getOriginalIndex = (card) => Number(card.dataset.originalIndex || 0);
     const getPopularity = (card) => Number(card.dataset.popularity || 0);
-    const compactSubtagQuery = window.matchMedia("(max-width: 640px)");
     const getSubtagLabel = (subtag) => {
       const button = subtagButtons.find((item) => item.dataset.boothSubtagButton === subtag
         && !item.hasAttribute("data-booth-subtag-primary"))
@@ -1022,6 +1022,23 @@ const setupBoothFilters = () => {
       if (isOpen && shouldFocus && subtagSearch) {
         window.requestAnimationFrame(() => subtagSearch.focus());
       }
+    };
+    const setSubtagRowsExpanded = (isExpanded) => {
+      if (!subtagRowToggle || !subtagPicker) {
+        return;
+      }
+
+      subtagPicker.classList.toggle("is-expanded", isExpanded);
+      subtagRowToggle.setAttribute("aria-expanded", String(isExpanded));
+      subtagRowToggle.textContent = isExpanded
+        ? (subtagRowToggle.dataset.closeLabel || "閉じる ▲")
+        : (subtagRowToggle.dataset.openLabel || "もっと見る ▼");
+      subtagRowToggle.setAttribute(
+        "aria-label",
+        isExpanded
+          ? (subtagRowToggle.dataset.closeAriaLabel || subtagRowToggle.textContent)
+          : (subtagRowToggle.dataset.openAriaLabel || subtagRowToggle.textContent),
+      );
     };
     const filterSubtagOptions = () => {
       if (!subtagSearch) {
@@ -1168,14 +1185,12 @@ const setupBoothFilters = () => {
         syncFilterUrl();
         render();
 
-        if (compactSubtagQuery.matches) {
-          if (subtagSearch) {
-            subtagSearch.value = "";
-            filterSubtagOptions();
-          }
-
-          setSubtagPickerOpen(false);
+        if (subtagSearch) {
+          subtagSearch.value = "";
+          filterSubtagOptions();
         }
+
+        setSubtagPickerOpen(false);
       });
     });
 
@@ -1183,6 +1198,14 @@ const setupBoothFilters = () => {
       subtagToggle.addEventListener("click", () => {
         const isOpen = subtagToggle.getAttribute("aria-expanded") === "true";
         setSubtagPickerOpen(!isOpen, !isOpen);
+      });
+    }
+
+    if (subtagRowToggle) {
+      setSubtagRowsExpanded(false);
+      subtagRowToggle.addEventListener("click", () => {
+        const isExpanded = subtagRowToggle.getAttribute("aria-expanded") === "true";
+        setSubtagRowsExpanded(!isExpanded);
       });
     }
 
@@ -1347,14 +1370,78 @@ const setupProductGallery = () => {
     activeThumb?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   };
 
-  const setImage = (index, updateMain = true) => {
+  let hasMainImageSynced = false;
+  let mainImageLoadSequence = 0;
+  const mainImageCache = new Map();
+  let inlineScrollSelectionMuted = false;
+  let inlineScrollSelectionTimer = null;
+  let inlineScrollSelectionFrame = null;
+
+  const preloadMainImage = (image) => {
+    if (!image?.src) {
+      return Promise.resolve(false);
+    }
+
+    if (mainImage.getAttribute("src") === image.src && mainImage.complete) {
+      return Promise.resolve(true);
+    }
+
+    const cachedImage = mainImageCache.get(image.src);
+
+    if (cachedImage) {
+      return cachedImage;
+    }
+
+    const loader = new Image();
+    loader.decoding = "async";
+    loader.src = image.src;
+
+    const loadPromise = (loader.decode
+      ? loader.decode()
+      : new Promise((resolve, reject) => {
+        loader.addEventListener("load", resolve, { once: true });
+        loader.addEventListener("error", reject, { once: true });
+      }))
+      .then(() => true)
+      .catch(() => false);
+
+    mainImageCache.set(image.src, loadPromise);
+    return loadPromise;
+  };
+
+  const updateMainImageWhenReady = (image) => {
+    if (!image?.src) {
+      return;
+    }
+
+    const loadSequence = ++mainImageLoadSequence;
+
+    preloadMainImage(image).then((isReady) => {
+      if (!isReady || loadSequence !== mainImageLoadSequence) {
+        return;
+      }
+
+      mainImage.src = image.src;
+      mainImage.srcset = "";
+      mainImage.alt = image.alt;
+      hasMainImageSynced = true;
+    });
+  };
+
+  const muteInlineScrollSelection = () => {
+    inlineScrollSelectionMuted = true;
+    window.clearTimeout(inlineScrollSelectionTimer);
+    inlineScrollSelectionTimer = window.setTimeout(() => {
+      inlineScrollSelectionMuted = false;
+    }, 360);
+  };
+
+  const setImage = (index, updateMain = true, syncInlineThumb = true) => {
     currentIndex = (index + images.length) % images.length;
     const image = images[currentIndex];
 
     if (updateMain) {
-      mainImage.src = image.src;
-      mainImage.srcset = "";
-      mainImage.alt = image.alt;
+      updateMainImageWhenReady(image);
     }
 
     if (modalImage) {
@@ -1371,13 +1458,19 @@ const setupProductGallery = () => {
       button.classList.toggle("is-active", isActive);
     });
 
-    scrollActiveInlineThumb();
+    if (syncInlineThumb) {
+      muteInlineScrollSelection();
+      scrollActiveInlineThumb();
+    }
 
     modalThumbs?.querySelectorAll("[data-gallery-modal-thumb]").forEach((button) => {
       const isActive = Number(button.dataset.galleryIndex) === currentIndex;
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-current", isActive ? "true" : "false");
     });
+
+    preloadMainImage(images[(currentIndex + 1) % images.length]);
+    preloadMainImage(images[(currentIndex - 1 + images.length) % images.length]);
   };
 
   const shiftInlineImage = (direction) => {
@@ -1458,7 +1551,11 @@ const setupProductGallery = () => {
     mainPointerId = event.pointerId;
     mainStartX = event.clientX;
     mainStartY = event.clientY;
-    mainTrigger.setPointerCapture(event.pointerId);
+    try {
+      mainTrigger.setPointerCapture(event.pointerId);
+    } catch (error) {
+      // Some synthetic or interrupted pointer streams cannot be captured.
+    }
   });
 
   mainTrigger?.addEventListener("pointermove", (event) => {
@@ -1484,6 +1581,7 @@ const setupProductGallery = () => {
 
   let thumbPointerId = null;
   let thumbStartX = 0;
+  let thumbStartY = 0;
   let thumbStartScrollLeft = 0;
   let thumbHasDragged = false;
   let thumbPressTarget = null;
@@ -1498,6 +1596,55 @@ const setupProductGallery = () => {
     }
 
     return Number(button.dataset.galleryIndex);
+  };
+
+  const getLeadingInlineThumbIndex = () => {
+    if (!inlineThumbs || !visibleThumbs.length) {
+      return null;
+    }
+
+    const sliderRect = inlineThumbs.getBoundingClientRect();
+    let leadingThumb = null;
+    let leadingDistance = Number.POSITIVE_INFINITY;
+
+    visibleThumbs.forEach((button) => {
+      const rect = button.getBoundingClientRect();
+      const isVisible = rect.right > sliderRect.left + 1 && rect.left < sliderRect.right - 1;
+
+      if (!isVisible) {
+        return;
+      }
+
+      const distance = Math.abs(rect.left - sliderRect.left);
+
+      if (distance < leadingDistance) {
+        leadingDistance = distance;
+        leadingThumb = button;
+      }
+    });
+
+    return leadingThumb ? Number(leadingThumb.dataset.galleryIndex) : null;
+  };
+
+  const syncMainImageToLeadingInlineThumb = () => {
+    if (inlineScrollSelectionMuted || inlineScrollSelectionFrame !== null) {
+      return;
+    }
+
+    inlineScrollSelectionFrame = window.requestAnimationFrame(() => {
+      inlineScrollSelectionFrame = null;
+
+      if (inlineScrollSelectionMuted) {
+        return;
+      }
+
+      const index = getLeadingInlineThumbIndex();
+      if (!Number.isFinite(index) || (index === currentIndex && hasMainImageSynced)) {
+        return;
+      }
+
+      setImage(index, true, false);
+    });
   };
 
   const suppressNextThumbClick = () => {
@@ -1520,17 +1667,28 @@ const setupProductGallery = () => {
   };
 
   inlineThumbs?.addEventListener("pointerdown", (event) => {
-    if (event.button !== 0 || event.pointerType === "touch" || event.isPrimary === false) {
+    if (event.button !== 0 || event.isPrimary === false) {
       return;
     }
 
+    inlineScrollSelectionMuted = false;
+    window.clearTimeout(inlineScrollSelectionTimer);
+
     thumbPointerId = event.pointerId;
     thumbStartX = event.clientX;
+    thumbStartY = event.clientY;
     thumbStartScrollLeft = inlineThumbs.scrollLeft;
     thumbHasDragged = false;
     thumbPressTarget = event.target.closest("[data-gallery-thumb]");
-    inlineThumbs.setPointerCapture(event.pointerId);
-    event.preventDefault();
+    try {
+      inlineThumbs.setPointerCapture(event.pointerId);
+    } catch (error) {
+      // Keep drag handling alive even if pointer capture is unavailable.
+    }
+
+    if (event.pointerType !== "touch") {
+      event.preventDefault();
+    }
   });
 
   inlineThumbs?.addEventListener("pointermove", (event) => {
@@ -1539,14 +1697,16 @@ const setupProductGallery = () => {
     }
 
     const movedX = event.clientX - thumbStartX;
+    const movedY = event.clientY - thumbStartY;
 
-    if (Math.abs(movedX) < 8) {
+    if (Math.abs(movedX) < 8 || Math.abs(movedX) < Math.abs(movedY) * 1.15) {
       return;
     }
 
     thumbHasDragged = true;
     inlineThumbs.classList.add("is-dragging");
     inlineThumbs.scrollLeft = thumbStartScrollLeft - movedX;
+    syncMainImageToLeadingInlineThumb();
     event.preventDefault();
   });
 
@@ -1601,6 +1761,8 @@ const setupProductGallery = () => {
       setImage(index);
     }
   });
+
+  inlineThumbs?.addEventListener("scroll", syncMainImageToLeadingInlineThumb, { passive: true });
 
   inlinePrev?.addEventListener("click", () => shiftInlineImage(-1));
   inlineNext?.addEventListener("click", () => shiftInlineImage(1));

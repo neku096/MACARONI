@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
     <title>Terms and License | Macaroni</title>
-    <meta name="description" content="Terms and license notes for Macaroni 3D pose and motion materials, including redistribution, AI training, adult content, and source avatar notices.">
+    <meta name="description" content="Terms and license notes for Macaroni 3D pose and motion materials, including site rules and item-specific BOOTH terms.">
     <meta name="author" content="Macaroni">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#07070b">
@@ -16,7 +16,7 @@
     <meta property="og:site_name" content="Macaroni">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Terms and License | Macaroni">
-    <meta property="og:description" content="Terms and license notes for Macaroni 3D pose and motion materials, including redistribution, AI training, adult content, and source avatar notices.">
+    <meta property="og:description" content="Terms and license notes for Macaroni 3D pose and motion materials, including site rules and item-specific BOOTH terms.">
     <meta property="og:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
     <meta property="og:image:secure_url" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
     <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
     <meta property="og:image:alt" content="Macaroni logo for VRChat and Unity R18 free 3D pose materials">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Terms and License | Macaroni">
-    <meta name="twitter:description" content="Terms and license notes for Macaroni 3D pose and motion materials, including redistribution, AI training, adult content, and source avatar notices.">
+    <meta name="twitter:description" content="Terms and license notes for Macaroni 3D pose and motion materials, including site rules and item-specific BOOTH terms.">
     <meta name="twitter:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
     <meta name="twitter:image:alt" content="Macaroni logo for VRChat and Unity R18 free 3D pose materials">
     <script type="application/ld+json" class="seo-schema">
@@ -39,7 +39,7 @@
       },
       "@type": "WebPage",
       "name": "Terms and License",
-      "description": "Terms and license notes for Macaroni 3D pose and motion materials, including redistribution, AI training, adult content, and source avatar notices.",
+      "description": "Terms and license notes for Macaroni 3D pose and motion materials, including site rules and item-specific BOOTH terms.",
       "about": [
             "License",
             "Terms",
@@ -52,6 +52,7 @@
     <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/terms.html">
     <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/terms.html">
 
+    <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -95,33 +96,158 @@
       <section class="section text-section" aria-labelledby="terms-title">
         <div class="text-panel">
           <h1 id="terms-title">Terms and <span class="no-break">License</span></h1>
-          <p>These notes summarize the basic rules for Macaroni free 3D pose and motion materials. Individual works distributed or sold on BOOTH or DLsite follow the conditions on each product page.</p>
-          <h2>Allowed Use</h2>
-          <p>Free materials may be used for personal, doujin, corporate, commercial, and non-commercial works.</p>
-          <ul>
-            <li>Use in VRChat, Unity projects, avatar photography, video production, and 3D game production.</li>
-            <li>Use inside games, videos, streams, social media posts, doujin works, and commercial works.</li>
-            <li>Editing needed for production, such as pose or motion adjustment, cropping, and format conversion.</li>
-            <li>Credit is optional. If you credit the site, please use the name "Macaroni".</li>
-          </ul>
-          <h2>Prohibited Use</h2>
-          <ul>
-            <li>Redistribution, resale, re-uploading, or claiming the materials as your own.</li>
-            <li>Using the files for AI training, datasets, LoRA training, or similar machine-learning datasets without written permission.</li>
-            <li>Use in illegal content, content involving minors or minor-looking characters, or content that violates local laws or platform terms.</li>
-          </ul>
-          <h2>Source Avatars</h2>
-          <p>Compatible avatars are not included in the distributed files. Please purchase or download each source avatar from its official creator page. Credit links on character pages point to the source avatar pages.</p>
-          <h2>Privacy</h2>
-          <p>This static site does not process payments, accounts, or inquiry forms. Age confirmation and language preference may be saved in your browser using localStorage.</p>
-          <h2>Analytics</h2>
-          <p>This site may use analytics tools to understand viewing conditions and improve the site. Analytics may collect information such as viewed pages, usage environment, and access date and time.</p>
-          <p>This information is not used to identify individual visitors. If tools such as Google Analytics are used, collected information is managed according to each provider's privacy policy.</p>
-          <h2>Disclaimer</h2>
-          <p>Macaroni is not responsible for damages, conflicts, or platform penalties caused by use of these materials. These terms may be updated when needed.</p>
-          <div class="text-actions">
-            <a class="button primary" href="characters.html">See Characters</a>
-            <a class="button secondary" href="booth.html">BOOTH Works</a>
+          <p>This page separates the basic rules for Macaroni materials from the item-specific license notes for works distributed or sold on BOOTH.</p>
+          <div class="terms-tabs">
+            <input class="terms-tab-input" type="radio" name="terms-view" id="terms-site" checked>
+            <input class="terms-tab-input" type="radio" name="terms-view" id="terms-booth">
+            <div class="terms-tab-list" role="tablist" aria-label="Terms categories">
+              <label class="terms-tab-button" for="terms-site" role="tab" id="terms-site-tab">Site Terms</label>
+              <label class="terms-tab-button" for="terms-booth" role="tab" id="terms-booth-tab">BOOTH Terms</label>
+            </div>
+            <div class="terms-tab-panels">
+              <section class="terms-tab-panel terms-tab-panel-site" role="tabpanel" aria-labelledby="terms-site-tab">
+                <h2>Allowed Use</h2>
+                <p>Free materials may be used for personal, doujin, corporate, commercial, and non-commercial works.</p>
+                <ul>
+                  <li>Use in VRChat, Unity projects, avatar photography, video production, and 3D game production.</li>
+                  <li>Use inside games, videos, streams, social media posts, doujin works, and commercial works.</li>
+                  <li>Editing needed for production, such as pose or motion adjustment, cropping, and format conversion.</li>
+                  <li>Credit is optional. If you credit the site, please use the name "Macaroni".</li>
+                </ul>
+                <h2>Prohibited Use</h2>
+                <ul>
+                  <li>Redistribution, resale, re-uploading, or claiming the materials as your own.</li>
+                  <li>Using the files for AI training, datasets, LoRA training, or similar machine-learning datasets without written permission.</li>
+                  <li>Use in illegal content, content involving minors or minor-looking characters, or content that violates local laws or platform terms.</li>
+                </ul>
+                <h2>Source Avatars</h2>
+                <p>Compatible avatars are not included in the distributed files. Please purchase or download each source avatar from its official creator page. Credit links on character pages point to the source avatar pages.</p>
+                <h2>Privacy</h2>
+                <p>This static site does not process payments, accounts, or inquiry forms. Age confirmation and language preference may be saved in your browser using localStorage.</p>
+                <h2>Analytics</h2>
+                <p>This site may use analytics tools to understand viewing conditions and improve the site. Analytics may collect information such as viewed pages, usage environment, and access date and time.</p>
+                <p>This information is not used to identify individual visitors. If tools such as Google Analytics are used, collected information is managed according to each provider's privacy policy.</p>
+                <h2>Disclaimer</h2>
+                <p>Macaroni is not responsible for damages, conflicts, or platform penalties caused by use of these materials. These terms may be updated when needed.</p>
+                <div class="text-actions">
+                  <a class="button primary" href="characters.html">See Characters</a>
+                  <a class="button secondary" href="booth.html">BOOTH Works</a>
+                </div>
+              </section>
+              <section class="terms-tab-panel terms-tab-panel-booth" role="tabpanel" aria-labelledby="terms-booth-tab">
+                <h2>Item-Specific BOOTH Terms</h2>
+                <input class="terms-license-input" type="radio" name="license-language" id="license-ja">
+                <input class="terms-license-input" type="radio" name="license-language" id="license-en" checked>
+                <input class="terms-license-input" type="radio" name="license-language" id="license-ko">
+                <input class="terms-license-input" type="radio" name="license-language" id="license-zh">
+                <div class="terms-license-switch" role="tablist" aria-label="BOOTH terms language">
+                  <label class="terms-license-button" for="license-ja" role="tab" id="license-ja-tab">JA</label>
+                  <label class="terms-license-button" for="license-en" role="tab" id="license-en-tab">EN</label>
+                  <label class="terms-license-button" for="license-ko" role="tab" id="license-ko-tab">KO</label>
+                  <label class="terms-license-button" for="license-zh" role="tab" id="license-zh-tab">ZH</label>
+                </div>
+                <p>For individual works distributed or sold on BOOTH, please also check the BOOTH product page description and the included PDF. If a product page or included PDF has item-specific conditions, those conditions take priority.</p>
+                <div class="terms-license-panels">
+                  <section class="terms-license-panel terms-license-panel-ja" role="tabpanel" aria-labelledby="license-ja-tab">
+                    <div class="terms-license-pages" aria-label="Japanese BOOTH terms PDF">
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-01.webp" alt="利用規約 1ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-02.webp" alt="利用規約 2ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-03.webp" alt="利用規約 3ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-04.webp" alt="利用規約 4ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-05.webp" alt="利用規約 5ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-06.webp" alt="利用規約 6ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-07.webp" alt="利用規約 7ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-08.webp" alt="利用規約 8ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-09.webp" alt="利用規約 9ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ja-10.webp" alt="利用規約 10ページ目" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                  </section>
+                  <section class="terms-license-panel terms-license-panel-en" role="tabpanel" aria-labelledby="license-en-tab">
+                    <div class="terms-license-pages" aria-label="English BOOTH terms PDF">
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-01.webp" alt="License terms page 1" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-02.webp" alt="License terms page 2" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-03.webp" alt="License terms page 3" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-04.webp" alt="License terms page 4" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-05.webp" alt="License terms page 5" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-06.webp" alt="License terms page 6" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-07.webp" alt="License terms page 7" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-08.webp" alt="License terms page 8" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-09.webp" alt="License terms page 9" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-10.webp" alt="License terms page 10" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-en-11.webp" alt="License terms page 11" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                  </section>
+                  <section class="terms-license-panel terms-license-panel-ko" role="tabpanel" aria-labelledby="license-ko-tab">
+                    <div class="terms-license-pages" aria-label="Korean BOOTH terms PDF">
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ko-01.webp" alt="Korean license terms page 1" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-ko-02.webp" alt="Korean license terms page 2" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                  </section>
+                  <section class="terms-license-panel terms-license-panel-zh" role="tabpanel" aria-labelledby="license-zh-tab">
+                    <div class="terms-license-pages" aria-label="Chinese BOOTH terms PDF">
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-zh-01.webp" alt="Chinese license terms page 1" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-zh-02.webp" alt="Chinese license terms page 2" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-zh-03.webp" alt="Chinese license terms page 3" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                      <figure class="terms-license-page">
+                        <img src="../images/terms/macaroni-license-zh-04.webp" alt="Chinese license terms page 4" width="1192" height="1684" loading="lazy" decoding="async">
+                      </figure>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </section>

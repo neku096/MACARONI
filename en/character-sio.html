@@ -65,6 +65,7 @@
     <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/character-sio.html">
     <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/character-sio.html">
 
+    <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -107,12 +108,17 @@
     <main>
       <section class="character-hero" aria-labelledby="character-title">
         <div class="character-copy">
+          <nav class="character-breadcrumb" aria-label="Breadcrumb">
+            <a href="characters.html">Characters</a>
+            <span aria-hidden="true">&gt;</span>
+            <span aria-current="page">Sio</span>
+          </nav>
           <h1 id="character-title">Sio</h1>
           <p>Free VRChat and Unity 3D pose materials for Sio. Review image previews for VRC avatar photos, 3D game production, and Unity anim file workflows.</p>
           <p class="avatar-credit">Source Avatar: <a href="https://chocolaterice.booth.pm/items/5650156" target="_blank" rel="noopener noreferrer">Sio</a></p>
           <div class="hero-actions">
-            <a class="button primary" href="#pose-catalog">Downloads</a>
-            <a class="button secondary" href="characters.html">Character List</a>
+            <a class="button primary" href="booth.html?subtag=character-sio">View Sio BOOTH Works</a>
+            <a class="button secondary" href="characters.html">View Other Characters</a>
           </div>
         </div>
         <img class="character-main-image standing-main-image" src="../images/standing/Sio_standing.webp" alt="Sio standing visual for VRChat free 3D pose materials" srcset="../images/standing/Sio_standing-600.webp 600w, ../images/standing/Sio_standing-800.webp 800w, ../images/standing/Sio_standing.webp 1000w" sizes="(max-width: 720px) 100vw, 520px" width="1000" height="1000" decoding="async" fetchpriority="high">
@@ -121,7 +127,7 @@
       <section class="section catalog-section" id="pose-catalog" aria-labelledby="catalog-title">
         <div class="section-heading">
           <div>
-            <h2 id="catalog-title">Downloadable Materials for Sio</h2>
+            <h2 id="catalog-title">Downloadable Materials</h2>
           </div>
           <a class="button primary catalog-download" href="../images/standing/Sio_standing.webp" download>Download Standing Image</a>
         </div>
@@ -138,7 +144,37 @@
         </div>
       </section>
 
-      <section class="section free-section related-free-section" id="related-free" aria-labelledby="related-free-title">
+      <section class="section sales-band character-booth-section" aria-labelledby="character-booth-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="character-booth-title">BOOTH Works for Sio</h2>
+          </div>
+          <a class="button secondary" href="booth.html?subtag=character-sio">View More</a>
+        </div>
+        <div class="product-related-grid character-booth-grid">
+          <a class="product-card" href="product-solo-motion-vol1.html">
+            <img class="product-cover" src="../images/linksamune/MBM1-600.webp" alt="Solo Motion vol.1 product thumbnail" srcset="../images/linksamune/MBM1-600.webp 600w, ../images/linksamune/MBM1-800.webp 800w, ../images/linksamune/MBM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.1</strong>
+            <small>Solo R18 motion</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol2.html">
+            <img class="product-cover" src="../images/linksamune/MBM2-600.webp" alt="Solo Motion vol.2 product thumbnail" srcset="../images/linksamune/MBM2-600.webp 600w, ../images/linksamune/MBM2-800.webp 800w, ../images/linksamune/MBM2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.2</strong>
+            <small>Solo R18 motion</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol3.html">
+            <img class="product-cover" src="../images/linksamune/MBM3-600.webp" alt="Solo Motion vol.3 product thumbnail" srcset="../images/linksamune/MBM3-600.webp 600w, ../images/linksamune/MBM3-800.webp 800w, ../images/linksamune/MBM3.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.3</strong>
+            <small>Solo R18 motion</small>
+          </a>
+          <a class="product-card" href="product-solo-motion-vol4.html">
+            <img class="product-cover" src="../images/linksamune/MBM4-600.webp" alt="Solo Motion vol.4 product thumbnail" srcset="../images/linksamune/MBM4-600.webp 600w, ../images/linksamune/MBM4-800.webp 800w, ../images/linksamune/MBM4.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
+            <strong>Solo Motion vol.4</strong>
+            <small>Solo R18 motion</small>
+          </a>
+        </div>
+      </section>
+      <section class="section free-section related-free-section character-free-compact" id="related-free" aria-labelledby="related-free-title">
         <div class="free-panel">
           <div class="section-heading">
             <div>
@@ -350,134 +386,6 @@
             </div>
             <div class="slider-dots" data-slider-dots aria-label="Free material slide position"></div>
           </div>
-        </div>
-      </section>
-      <section class="section sales-band character-booth-section" aria-labelledby="character-booth-title">
-        <div class="section-heading">
-          <div>
-            <h2 id="character-booth-title">BOOTH Link Slider</h2>
-          </div>
-          <a class="button secondary" href="booth.html">View BOOTH Works</a>
-        </div>
-        <div class="slider-shell">
-          <div class="product-slider" data-slider data-card-selector=".product-slide" data-loop="true" tabindex="0">
-            <div class="product-slide">
-              <a class="product-card" href="https://macaronin.booth.pm/items/7972077" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/KM1-600.webp" alt="15 Sexy Poses + 5 Expressions for Kumaly" srcset="../images/linksamune/KM1-600.webp 600w, ../images/linksamune/KM1-800.webp 800w, ../images/linksamune/KM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Kumaly</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6928043" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/CH-600.webp" alt="15 Sexy Poses + 5 Expressions for Chocolat" srcset="../images/linksamune/CH-600.webp 600w, ../images/linksamune/CH-800.webp 800w, ../images/linksamune/CH.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Chocolat</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6928043" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/PL-600.webp" alt="15 Sexy Poses + 5 Expressions for Plum" srcset="../images/linksamune/PL-600.webp 600w, ../images/linksamune/PL-800.webp 800w, ../images/linksamune/PL.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Plum</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7804730" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/RM-600.webp" alt="15 Sexy Poses + 5 Expressions for Ramune" srcset="../images/linksamune/RM-600.webp 600w, ../images/linksamune/RM-800.webp 800w, ../images/linksamune/RM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Ramune</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7533032" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/EK-600.webp" alt="15 Sexy Poses + 5 Expressions for Eku" srcset="../images/linksamune/EK-600.webp 600w, ../images/linksamune/EK-800.webp 800w, ../images/linksamune/EK.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Eku</strong>
-              <small>SexyPose</small>
-              </a>
-            </div>
-            <div class="product-slide">
-              <a class="product-card" href="https://macaronin.booth.pm/items/7508066" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/LM-600.webp" alt="15 Sexy Poses + 5 Expressions for Lumina" srcset="../images/linksamune/LM-600.webp 600w, ../images/linksamune/LM-800.webp 800w, ../images/linksamune/LM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Lumina</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7384961" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/IC-600.webp" alt="15 Sexy Poses + 5 Expressions for Ichigo" srcset="../images/linksamune/IC-600.webp 600w, ../images/linksamune/IC-800.webp 800w, ../images/linksamune/IC.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Ichigo</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6599274" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/SH-600.webp" alt="20 Sexy Poses + 5 Motion Animations for Shinano" srcset="../images/linksamune/SH-600.webp 600w, ../images/linksamune/SH-800.webp 800w, ../images/linksamune/SH.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>20 Sexy Poses + 5 Motion Animations for Shinano</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6597922" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/MIL-600.webp" alt="15 Sexy Poses + 7 Expressions for Milltina" srcset="../images/linksamune/MIL-600.webp 600w, ../images/linksamune/MIL-800.webp 800w, ../images/linksamune/MIL.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 7 Expressions for Milltina</strong>
-              <small>SexyPose</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6998979" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/RR-600.webp" alt="15 Sexy Poses + 5 Expressions for Rurune" srcset="../images/linksamune/RR-600.webp 600w, ../images/linksamune/RR-800.webp 800w, ../images/linksamune/RR.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Sexy Poses + 5 Expressions for Rurune</strong>
-              <small>SexyPose</small>
-              </a>
-            </div>
-            <div class="product-slide">
-              <a class="product-card" href="https://macaronin.booth.pm/items/6599280" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/SEXY1-600.webp" alt="5 Universal Sexy Motions" srcset="../images/linksamune/SEXY1-600.webp 600w, ../images/linksamune/SEXY1-800.webp 800w, ../images/linksamune/SEXY1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>5 Universal Sexy Motions</strong>
-              <small>SexyMotion</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6958362" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/SEXYA1-600.webp" alt="5 Universal Sexy Attack Motions" srcset="../images/linksamune/SEXYA1-600.webp 600w, ../images/linksamune/SEXYA1-800.webp 800w, ../images/linksamune/SEXYA1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>5 Universal Sexy Attack Motions</strong>
-              <small>SexyMotion</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7745526" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/SEXY2-600.webp" alt="SexyMotion / Attack vol.2" srcset="../images/linksamune/SEXY2-600.webp 600w, ../images/linksamune/SEXY2-800.webp 800w, ../images/linksamune/SEXY2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>SexyMotion / Attack vol.2</strong>
-              <small>SexyMotion</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6832068" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/FJB-600.webp" alt="6 Universal Foot Motion Animations" srcset="../images/linksamune/FJB-600.webp 600w, ../images/linksamune/FJB-800.webp 800w, ../images/linksamune/FJB.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>6 Universal Foot Motion Animations</strong>
-              <small>SexyMotion</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7015307" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/HJB-600.webp" alt="15 Universal Hand Motion Animations" srcset="../images/linksamune/HJB-600.webp 600w, ../images/linksamune/HJB-800.webp 800w, ../images/linksamune/HJB.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>15 Universal Hand Motion Animations</strong>
-              <small>SexyMotion</small>
-              </a>
-            </div>
-            <div class="product-slide">
-              <a class="product-card" href="https://macaronin.booth.pm/items/7772395" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/BJM-600.webp" alt="Oral Motion for 13 Avatars" srcset="../images/linksamune/BJM-600.webp 600w, ../images/linksamune/BJM-800.webp 800w, ../images/linksamune/BJM.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Oral Motion for 13 Avatars</strong>
-              <small>Solo_H</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/6764923" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/MBM1-600.webp" alt="Solo Motion vol.1" srcset="../images/linksamune/MBM1-600.webp 600w, ../images/linksamune/MBM1-800.webp 800w, ../images/linksamune/MBM1.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Solo Motion vol.1</strong>
-              <small>Solo_H</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7239054" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/MBM2-600.webp" alt="Solo Motion vol.2" srcset="../images/linksamune/MBM2-600.webp 600w, ../images/linksamune/MBM2-800.webp 800w, ../images/linksamune/MBM2.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Solo Motion vol.2</strong>
-              <small>Solo_H</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7432810" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/MBM3-600.webp" alt="Solo Motion vol.3" srcset="../images/linksamune/MBM3-600.webp 600w, ../images/linksamune/MBM3-800.webp 800w, ../images/linksamune/MBM3.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Solo Motion vol.3</strong>
-              <small>Solo_H</small>
-              </a>
-              <a class="product-card" href="https://macaronin.booth.pm/items/7432844" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/MBM4-600.webp" alt="Solo Motion vol.4" srcset="../images/linksamune/MBM4-600.webp 600w, ../images/linksamune/MBM4-800.webp 800w, ../images/linksamune/MBM4.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Solo Motion vol.4</strong>
-              <small>Solo_H</small>
-              </a>
-            </div>
-            <div class="product-slide">
-              <a class="product-card" href="https://macaronin.booth.pm/items/7237678" target="_blank" rel="noopener noreferrer">
-              <img class="product-cover" src="../images/linksamune/Doskebe-600.webp" alt="Adult Materials" srcset="../images/linksamune/Doskebe-600.webp 600w, ../images/linksamune/Doskebe-800.webp 800w, ../images/linksamune/Doskebe.webp 1000w" sizes="(max-width: 720px) 52vw, 260px" width="600" height="600" loading="lazy" decoding="async">
-              <strong>Adult Materials</strong>
-              <small>Others</small>
-              </a>
-            </div>
-          </div>
-          <div class="slider-dots" data-slider-dots aria-label="Slide position"></div>
         </div>
       </section>
     </main>

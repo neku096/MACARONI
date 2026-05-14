@@ -194,6 +194,7 @@
     <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/booth.html">
     <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/booth.html">
 
+    <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -235,13 +236,15 @@
 
     <main class="booth-list-page">
       <section class="section booth-list-section" aria-label="BOOTH Works">
-        <div class="list-page-intro">
-          <h1>R18 3D Pose and Motion Assets<br class="mobile-heading-break">for VRChat and Unity</h1>
-          <p>Browse sexy poses, solo motions, universal motions, and material assets quickly from BOOTH thumbnails.</p>
-        </div>
-        <div class="booth-sort-tabs" role="group" aria-label="BOOTH work sort order">
-          <button class="booth-sort-button is-active" type="button" data-booth-sort-button="default" aria-pressed="true">Default</button>
-          <button class="booth-sort-button" type="button" data-booth-sort-button="popular" aria-pressed="false">Popular</button>
+        <div class="list-page-intro booth-list-intro">
+          <div class="booth-list-intro-copy">
+            <h1>R18 3D Assets<br class="mobile-heading-break">for VRChat and Unity</h1>
+            <p>Browse pose, motion, and material assets from BOOTH thumbnails.</p>
+          </div>
+          <div class="booth-sort-tabs" role="group" aria-label="BOOTH work sort order">
+            <button class="booth-sort-button is-active" type="button" data-booth-sort-button="default" aria-pressed="true">Default</button>
+            <button class="booth-sort-button" type="button" data-booth-sort-button="popular" aria-pressed="false">Popular</button>
+          </div>
         </div>
         <div class="booth-filter-panel" data-booth-filter data-count-suffix=" works" data-count-singular-suffix=" work" data-page-size="12">
           <p class="booth-filter-heading">Type</p>
@@ -252,17 +255,15 @@
             <button class="booth-filter-button" type="button" data-booth-filter-button="solo" aria-pressed="false">Solo</button>
             <button class="booth-filter-button" type="button" data-booth-filter-button="material" aria-pressed="false">Materials</button>
           </div>
-          <span class="booth-filter-status" data-booth-filter-status aria-live="polite"></span>
+          <span class="booth-filter-status booth-list-count" data-booth-filter-status aria-live="polite"></span>
         </div>
         <div class="booth-subtag-panel" id="booth-subtags" data-booth-subtag-filter>
           <p class="booth-subtag-heading">Supported Avatars</p>
           <div class="booth-subtag-mobile-controls">
-            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" data-booth-subtag-primary aria-pressed="true">All</button>
-            <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="Choose Avatar" aria-expanded="false" aria-controls="booth-subtag-options">Choose Avatar</button>
+            <span class="booth-subtag-mobile-label">Avatar</span>
+            <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="All" aria-expanded="false" aria-controls="booth-subtag-options">All</button>
           </div>
           <div class="booth-subtag-picker" id="booth-subtag-options" data-booth-subtag-picker>
-            <label class="booth-subtag-search-label" for="booth-subtag-search">Search by avatar name</label>
-            <input class="booth-subtag-search" id="booth-subtag-search" type="search" data-booth-subtag-search placeholder="Search by avatar name" autocomplete="off">
             <div class="booth-subtag-tabs" role="group" aria-label="Supported avatar filters">
             <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">All</button>
             <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">Airi</button>
@@ -287,6 +288,7 @@
             <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" aria-pressed="false">Sio</button>
             </div>
           </div>
+          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="Show more ▼" data-close-label="Close ▲" data-open-aria-label="Show more supported avatars" data-close-aria-label="Close supported avatars" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="Show more supported avatars">Show more ▼</button>
         </div>
         <div class="booth-list-grid" data-booth-list>
           <a class="booth-list-thumb" data-booth-tags="pose expression" data-booth-subtags="character-kumaly" data-popularity="115" href="product-sexy-pose-kumaly.html">
@@ -358,6 +360,10 @@
           <span class="booth-page-status" data-booth-page-status aria-live="polite"></span>
           <button class="booth-page-button" type="button" data-booth-page-button="next">Next</button>
         </nav>
+        <div class="booth-list-help">
+          <a href="booth-faq.html">Need help with purchase or downloads?</a>
+          <span>Check download, ZIP extraction, and usage-term notes.</span>
+        </div>
 
       </section>
     </main>
