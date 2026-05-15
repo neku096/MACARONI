@@ -2,6 +2,11 @@ const gate = document.querySelector("#ageGate");
 const enterButton = document.querySelector("#enterSite");
 const focusableSelector = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+const scrollToPageTop = () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+};
+
 if (gate && localStorage.getItem("ageConfirmed") === "true") {
   gate.classList.add("is-hidden");
   gate.setAttribute("aria-hidden", "true");
@@ -1167,7 +1172,7 @@ const setupTipsPagination = () => {
     const moveToPage = (page) => {
       currentPage = Math.min(Math.max(page, 0), pageCount - 1);
       render();
-      container.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToPageTop();
     };
 
     previousButton?.addEventListener("click", () => moveToPage(currentPage - 1));
@@ -1451,6 +1456,7 @@ const setupBoothFilters = () => {
       button.addEventListener("click", () => {
         currentPage += button.dataset.boothPageButton === "next" ? 1 : -1;
         render();
+        scrollToPageTop();
       });
     });
 

@@ -1,6 +1,11 @@
 const gate = document.querySelector("#ageGate");
 const enterButton = document.querySelector("#enterSite");
 
+const scrollToPageTop = () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+};
+
 if (gate && localStorage.getItem("ageConfirmed") === "true") {
   gate.classList.add("is-hidden");
 }
@@ -360,8 +365,7 @@ const setupCharacterPagination = () => {
       button.addEventListener("click", () => {
         currentPage += button.dataset.characterPageButton === "next" ? 1 : -1;
         render();
-        const targetTop = section.getBoundingClientRect().top + window.scrollY - 112;
-        window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+        scrollToPageTop();
       });
     });
 
