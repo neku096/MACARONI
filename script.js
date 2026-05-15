@@ -447,6 +447,232 @@ const setupLanguageSwitcher = () => {
   applyLanguage(getDisplayLanguage());
 };
 
+const getVisualRows = (elements) => {
+  const rowTolerance = 4;
+  const rows = [];
+
+  elements.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+
+    if (!rect.width || !rect.height) {
+      return;
+    }
+
+    const existingRow = rows.find((row) => Math.abs(row.top - rect.top) <= rowTolerance);
+
+    if (existingRow) {
+      existingRow.bottom = Math.max(existingRow.bottom, rect.bottom);
+      return;
+    }
+
+    rows.push({
+      top: rect.top,
+      bottom: rect.bottom,
+    });
+  });
+
+  return rows.sort((a, b) => a.top - b.top);
+};
+
+const getCollapsedHeight = (container, rows, rowLimit) => {
+  const targetRow = rows[rowLimit - 1];
+
+  if (!targetRow) {
+    return 0;
+  }
+
+  return Math.ceil(targetRow.bottom - container.getBoundingClientRect().top + 1);
+};
+
+const setupProductCollapses = () => {
+  const productTagSections = [...document.querySelectorAll(".product-tag-section")];
+  const productAvatarContents = [...document.querySelectorAll(".product-avatar-list-content")];
+  const productBreadcrumbs = [...document.querySelectorAll(".product-summary-breadcrumb")];
+
+  if (!productTagSections.length && !productAvatarContents.length && !productBreadcrumbs.length) {
+    return;
+  }
+
+  const isEnglish = document.documentElement.lang === "en";
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+  const showTagsText = isEnglish ? "More ▼" : "もっと見る ▼";
+  const closeText = isEnglish ? "Close ▲" : "閉じる ▲";
+
+  const scheduleUpdate = (update) => {
+    window.requestAnimationFrame(update);
+  };
+
+  productTagSections.forEach((section, index) => {
+    const tagLists = [...section.children].filter((element) => element.classList.contains("product-tag-list"));
+    const subtagList = tagLists.length > 1 ? tagLists[tagLists.length - 1] : null;
+
+    if (!subtagList) {
+      return;
+    }
+
+    const content = document.createElement("div");
+    content.className = "product-subtag-collapse-content";
+    content.id = section.id ? `${section.id}-subtag-content` : `product-subtag-content-${index + 1}`;
+
+    subtagList.before(content);
+    content.append(subtagList);
+
+    const button = document.createElement("button");
+    button.className = "product-collapse-toggle";
+    button.type = "button";
+    button.setAttribute("aria-controls", content.id);
+    button.setAttribute("aria-expanded", "false");
+    button.hidden = true;
+
+    content.after(button);
+
+    let isExpanded = false;
+
+    const update = () => {
+      const tagItems = [...subtagList.querySelectorAll(".product-tag, .product-tag-chip")];
+      const rows = getVisualRows(tagItems);
+      const shouldCollapse = rows.length > 3;
+
+      button.hidden = !shouldCollapse;
+      content.classList.toggle("is-collapsible", shouldCollapse);
+      section.classList.toggle("has-collapse-toggle", shouldCollapse);
+
+      if (!shouldCollapse) {
+        isExpanded = false;
+        content.classList.remove("is-collapsed");
+        content.style.removeProperty("--collapsed-height");
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = showTagsText;
+        return;
+      }
+
+      content.style.setProperty("--collapsed-height", `${getCollapsedHeight(content, rows, 3)}px`);
+      content.classList.toggle("is-collapsed", !isExpanded);
+      button.setAttribute("aria-expanded", String(isExpanded));
+      button.textContent = isExpanded ? closeText : showTagsText;
+    };
+
+    button.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      update();
+
+      if (!isExpanded) {
+        section.scrollIntoView({ block: "nearest" });
+      }
+    });
+
+    update();
+    window.addEventListener("resize", () => scheduleUpdate(update), { passive: true });
+  });
+
+  productAvatarContents.forEach((content, index) => {
+    if (content.dataset.collapseReady === "true") {
+      return;
+    }
+
+    content.dataset.collapseReady = "true";
+    content.id = content.id || `product-avatar-list-content-${index + 1}`;
+
+    const button = document.createElement("button");
+    button.className = "product-collapse-toggle product-avatar-collapse-toggle";
+    button.type = "button";
+    button.setAttribute("aria-controls", content.id);
+    button.setAttribute("aria-expanded", "false");
+    button.hidden = true;
+    const row = content.closest(".product-specs div");
+
+    if (row) {
+      row.append(button);
+    } else {
+      content.after(button);
+    }
+
+    let isExpanded = false;
+
+    const update = () => {
+      const avatarItems = [...content.querySelectorAll(".product-avatar-list-item")];
+      const rows = getVisualRows(avatarItems);
+      const shouldCollapse = rows.length > 3;
+
+      button.hidden = !shouldCollapse;
+      content.classList.toggle("is-collapsible", shouldCollapse);
+
+      if (!shouldCollapse) {
+        isExpanded = false;
+        content.classList.remove("is-collapsed");
+        content.style.removeProperty("--collapsed-height");
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = showTagsText;
+        return;
+      }
+
+      content.style.setProperty("--collapsed-height", `${getCollapsedHeight(content, rows, 3)}px`);
+      content.classList.toggle("is-collapsed", !isExpanded);
+      button.setAttribute("aria-expanded", String(isExpanded));
+      button.textContent = isExpanded ? closeText : showTagsText;
+    };
+
+    button.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      update();
+    });
+
+    update();
+    window.addEventListener("resize", () => scheduleUpdate(update), { passive: true });
+  });
+
+  productBreadcrumbs.forEach((breadcrumb, index) => {
+    if (breadcrumb.dataset.collapseReady === "true") {
+      return;
+    }
+
+    breadcrumb.dataset.collapseReady = "true";
+    breadcrumb.id = breadcrumb.id || `product-summary-breadcrumb-${index + 1}`;
+
+    const button = document.createElement("button");
+    button.className = "product-collapse-toggle product-breadcrumb-toggle";
+    button.type = "button";
+    button.setAttribute("aria-controls", breadcrumb.id);
+    button.setAttribute("aria-expanded", "false");
+    button.hidden = true;
+    breadcrumb.after(button);
+
+    let isExpanded = false;
+
+    const update = () => {
+      const breadcrumbItems = [...breadcrumb.querySelectorAll("a")];
+      const rows = getVisualRows(breadcrumbItems);
+      const shouldCollapse = mobileQuery.matches && rows.length > 2;
+
+      button.hidden = !shouldCollapse;
+      breadcrumb.classList.toggle("is-collapsible", shouldCollapse);
+
+      if (!shouldCollapse) {
+        isExpanded = false;
+        breadcrumb.classList.remove("is-collapsed");
+        breadcrumb.style.removeProperty("--collapsed-height");
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = showTagsText;
+        return;
+      }
+
+      breadcrumb.style.setProperty("--collapsed-height", `${getCollapsedHeight(breadcrumb, rows, 2)}px`);
+      breadcrumb.classList.toggle("is-collapsed", !isExpanded);
+      button.setAttribute("aria-expanded", String(isExpanded));
+      button.textContent = isExpanded ? closeText : showTagsText;
+    };
+
+    button.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      update();
+    });
+
+    update();
+    mobileQuery.addEventListener("change", update);
+    window.addEventListener("resize", () => scheduleUpdate(update), { passive: true });
+  });
+};
+
 const mimeTypes = {
   anim: "application/octet-stream",
   jpg: "image/jpeg",
@@ -1339,6 +1565,49 @@ const setupProductGallery = () => {
   const stage = modal.querySelector("[data-gallery-stage]");
   mainImage.draggable = false;
 
+  const toCssImageUrl = (url) => `url("${String(url).replace(/\\/g, "\\\\").replace(/"/g, '\\"')}")`;
+
+  const getThumbnailSource = (image) => image?.thumb || image?.src || "";
+
+  const setThumbnailBackground = (button, image) => {
+    const source = getThumbnailSource(image);
+
+    if (source) {
+      button.style.backgroundImage = toCssImageUrl(source);
+    }
+  };
+
+  const createThumbnailImage = (image, index, options = {}) => {
+    const thumbnailSource = getThumbnailSource(image);
+    const fallbackSource = image?.src || thumbnailSource;
+    const img = document.createElement("img");
+
+    if (options.width) {
+      img.width = options.width;
+    }
+
+    if (options.height) {
+      img.height = options.height;
+    }
+
+    img.src = thumbnailSource;
+    img.alt = image?.alt || productName;
+    img.loading = index === 0 ? "eager" : "lazy";
+    img.decoding = index === 0 ? "sync" : "async";
+
+    if (index === 0 && "fetchPriority" in img) {
+      img.fetchPriority = "high";
+    }
+
+    img.addEventListener("error", () => {
+      if (fallbackSource && img.getAttribute("src") !== fallbackSource) {
+        img.src = fallbackSource;
+      }
+    });
+
+    return img;
+  };
+
   const renderInlineThumbs = () => {
     if (!inlineThumbs) {
       visibleThumbs = [...gallery.querySelectorAll("[data-gallery-thumb]")];
@@ -1354,7 +1623,8 @@ const setupProductGallery = () => {
       button.dataset.galleryIndex = String(index);
       button.dataset.galleryThumb = "";
       button.setAttribute("aria-label", isEnglish ? `${productName} product image ${index + 1}` : `${productName} 商品画像 ${index + 1}枚目`);
-      button.innerHTML = `<img src="${image.thumb}" alt="${image.alt}" width="96" height="96" loading="${index === 0 ? "eager" : "lazy"}" decoding="async">`;
+      setThumbnailBackground(button, image);
+      button.append(createThumbnailImage(image, index, { width: 96, height: 96 }));
       inlineThumbs.append(button);
     });
 
@@ -1484,7 +1754,8 @@ const setupProductGallery = () => {
     button.dataset.galleryIndex = String(index);
     button.dataset.galleryModalThumb = "";
     button.setAttribute("aria-label", isEnglish ? `Product image ${index + 1}` : `商品画像 ${index + 1}枚目`);
-    button.innerHTML = `<img src="${image.thumb}" alt="${image.alt}" loading="lazy" decoding="async">`;
+    setThumbnailBackground(button, image);
+    button.append(createThumbnailImage(image, index));
     button.addEventListener("click", () => setImage(index, false));
     modalThumbs?.append(button);
   });
@@ -1873,5 +2144,6 @@ setupTipsPagination();
 setupBoothFilters();
 setupCardReveal();
 setupProductGallery();
+setupProductCollapses();
 setupShareButtons();
 setupLanguageSwitcher();

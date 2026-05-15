@@ -2133,6 +2133,9 @@ p {
   border: 2px solid rgba(255, 111, 189, 0.2);
   border-radius: 8px;
   background: rgba(10, 10, 14, 0.72);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--text);
   cursor: pointer;
   font: inherit;
@@ -2213,6 +2216,27 @@ p {
   line-height: 1.72;
 }
 
+.product-summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 14px;
+}
+
+.product-summary-tags span {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  border: 1px solid rgba(255, 111, 189, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 111, 189, 0.045);
+  color: rgba(255, 211, 237, 0.72);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  padding: 3px 8px;
+}
+
 .product-specs {
   display: grid;
   gap: 10px;
@@ -2240,6 +2264,46 @@ p {
   line-height: 1.64;
 }
 
+.product-avatar-count {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.product-avatar-list-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 7px;
+}
+
+.product-avatar-list-item,
+.product-avatar-separator {
+  display: inline-flex;
+  align-items: center;
+}
+
+.product-avatar-separator {
+  color: rgba(255, 211, 237, 0.52);
+}
+
+.product-collapse-toggle.product-avatar-collapse-toggle {
+  grid-column: 1 / -1;
+  justify-self: center;
+  min-width: 92px;
+  min-height: 27px;
+  margin: 4px auto 0;
+  box-shadow: none;
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 11px;
+}
+
+@media (min-width: 881px) {
+  .product-collapse-toggle.product-avatar-collapse-toggle {
+    margin-top: -6px;
+  }
+}
+
 .product-summary-breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -2250,6 +2314,19 @@ p {
   font-size: 12px;
   font-weight: 900;
   line-height: 1.5;
+}
+
+.product-summary-breadcrumb.is-collapsible,
+.product-subtag-collapse-content.is-collapsible,
+.product-avatar-list-content.is-collapsible {
+  overflow: hidden;
+  transition: max-height 180ms ease;
+}
+
+.product-summary-breadcrumb.is-collapsed,
+.product-subtag-collapse-content.is-collapsed,
+.product-avatar-list-content.is-collapsed {
+  max-height: var(--collapsed-height);
 }
 
 .product-summary-breadcrumb a {
@@ -2267,6 +2344,47 @@ p {
 
 .product-summary-breadcrumb span {
   color: rgba(255, 211, 237, 0.52);
+}
+
+.product-collapse-toggle {
+  display: flex;
+  width: max-content;
+  min-width: 124px;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 111, 189, 0.28);
+  border-radius: 999px;
+  background: rgba(10, 10, 14, 0.96);
+  box-shadow: 0 0 0 6px rgba(10, 8, 14, 0.94);
+  color: var(--accent-2);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+  padding: 8px 16px;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.product-collapse-toggle:hover {
+  border-color: rgba(255, 154, 214, 0.66);
+  background: rgba(255, 111, 189, 0.18);
+  color: #ffffff;
+}
+
+.product-collapse-toggle[hidden] {
+  display: none;
+}
+
+.product-collapse-toggle.product-breadcrumb-toggle {
+  min-width: 72px;
+  min-height: 21px;
+  margin: -6px auto 8px;
+  box-shadow: 0 0 0 3px rgba(10, 8, 14, 0.94);
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 8px;
 }
 
 .product-actions {
@@ -2489,6 +2607,9 @@ p {
   height: 92px;
   border: 2px solid rgba(255, 111, 189, 0.2);
   background: rgba(10, 10, 14, 0.72);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: pointer;
   overflow: hidden;
   padding: 0;
@@ -2551,7 +2672,8 @@ p {
 }
 
 .product-tag-section {
-  max-width: 1180px;
+  width: min(1336px, calc(100% - clamp(36px, 10vw, 144px)));
+  max-width: 1336px;
   margin: 0 auto;
   border: 1px solid rgba(255, 111, 189, 0.24);
   border-radius: 8px;
@@ -2569,6 +2691,14 @@ p {
   gap: 10px;
 }
 
+.product-tag-section .product-tag-list {
+  gap: 12px;
+}
+
+.product-subtag-collapse-content {
+  display: block;
+}
+
 .product-tag-list + .booth-subtag-heading,
 .product-tag-list + .section-heading {
   margin-top: 18px;
@@ -2580,6 +2710,20 @@ p {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.product-tag-section .product-tag,
+.product-tag-section .product-tag-chip {
+  min-height: 48px;
+  font-size: 15px;
+  line-height: 1.2;
+  padding: 10px 20px;
+}
+
+.product-collapse-toggle {
+  position: relative;
+  z-index: 1;
+  margin: 14px auto -18px;
 }
 
 .product-related-grid {
@@ -3334,6 +3478,10 @@ p {
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.article-body-section a.modular-avatar-link {
+  color: #2563eb;
 }
 
 .article-note,
@@ -5673,8 +5821,8 @@ p {
 
   .site-footer .footer-links {
     display: grid !important;
-    width: min(94vw, 420px) !important;
-    max-width: none !important;
+    width: 100% !important;
+    max-width: 420px !important;
     align-items: center !important;
     align-self: center !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -6165,6 +6313,7 @@ p {
   }
 
   .product-tag-section {
+    width: calc(100% - 28px);
     padding: 14px;
   }
 
