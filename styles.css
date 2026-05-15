@@ -2239,29 +2239,31 @@ p {
 
 .product-specs {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
 }
 
 .product-specs div {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(124px, 9em) minmax(0, 1fr);
+  gap: 18px;
   border-top: 1px solid rgba(255, 111, 189, 0.18);
-  padding-top: 11px;
+  padding-top: 13px;
 }
 
 .product-specs dt {
   color: var(--accent-2);
-  font-size: 13px;
+  font-size: clamp(15px, 1.25vw, 17px);
   font-weight: 900;
+  line-height: 1.55;
 }
 
 .product-specs dd {
   margin: 0;
   color: var(--text);
+  font-size: clamp(17px, 1.45vw, 19px);
   font-weight: 800;
-  line-height: 1.64;
+  line-height: 1.68;
 }
 
 .product-avatar-count {
@@ -2704,6 +2706,12 @@ p {
   margin-top: 18px;
 }
 
+.product-tag-section .booth-subtag-heading {
+  margin-bottom: 14px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
 .product-tag,
 .product-tag-chip {
   display: inline-flex;
@@ -2714,10 +2722,10 @@ p {
 
 .product-tag-section .product-tag,
 .product-tag-section .product-tag-chip {
-  min-height: 48px;
-  font-size: 15px;
+  min-height: 56px;
+  font-size: 17px;
   line-height: 1.2;
-  padding: 10px 20px;
+  padding: 13px 24px;
 }
 
 .product-collapse-toggle {
@@ -6335,6 +6343,13 @@ p {
     font-size: 12px;
   }
 
+  .product-tag-section .product-tag,
+  .product-tag-section .product-tag-chip {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
   .booth-subtag-button {
     width: 100%;
     white-space: nowrap;
@@ -6507,12 +6522,13 @@ p {
   }
 
   .product-specs dt {
-    font-size: 12px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .product-specs dd {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.62;
   }
 
   .product-actions {
