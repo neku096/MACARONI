@@ -1749,8 +1749,9 @@ p {
     display: inline-flex;
     min-height: 48px;
     align-items: center;
+    justify-content: flex-end;
     min-width: 82px;
-    font-size: clamp(21px, 1.65vw, 24px);
+    font-size: clamp(22px, 2vw, 28px);
     font-weight: 700;
     line-height: 1.25;
   }
@@ -4098,6 +4099,18 @@ p {
   font-weight: 900;
 }
 
+.footer-pill-icon img {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.footer-pill-icon img[src$="x_logo-white_footer.webp"] {
+  width: 22px;
+  height: 22px;
+}
+
 .age-gate {
   position: fixed;
   inset: 0;
@@ -5545,6 +5558,11 @@ p {
     font-size: 12px;
   }
 
+  .footer-pill-icon img[src$="x_logo-white_footer.webp"] {
+    width: 16px;
+    height: 16px;
+  }
+
   .character-list-page .list-page-intro h1 {
     font-size: clamp(25px, 6.6vw, 30px);
     line-height: 1.16;
@@ -6695,6 +6713,11 @@ p {
     height: 24px !important;
     flex-basis: 24px !important;
     font-size: 12px !important;
+  }
+
+  .site-footer .footer-links .footer-pill-icon img[src$="x_logo-white_footer.webp"] {
+    width: 16px !important;
+    height: 16px !important;
   }
 }
 
