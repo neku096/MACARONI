@@ -271,31 +271,43 @@
             <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="All" aria-expanded="false" aria-controls="booth-subtag-options">All</button>
           </div>
           <div class="booth-subtag-picker" id="booth-subtag-options" data-booth-subtag-picker>
+            <div class="booth-subtag-search-panel" data-booth-subtag-search-panel>
+              <div class="booth-subtag-search-header">
+                <label class="booth-subtag-search-label" for="booth-subtag-search">Avatar Search</label>
+                <button class="booth-subtag-popover-close" type="button" data-booth-subtag-close aria-label="Close avatar search">×</button>
+              </div>
+              <div class="booth-subtag-search-field">
+                <span class="booth-subtag-search-icon" aria-hidden="true"></span>
+                <input class="booth-subtag-search" id="booth-subtag-search" type="search" data-booth-subtag-search placeholder="Search by avatar name..." autocomplete="off" inputmode="search">
+                <button class="booth-subtag-search-clear" type="button" data-booth-subtag-search-clear aria-label="Clear search text">×</button>
+              </div>
+              <p class="booth-subtag-empty" data-booth-subtag-empty hidden>No matching avatars</p>
+            </div>
             <div class="booth-subtag-tabs" role="group" aria-label="Supported avatar filters">
-            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">All</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">Airi</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" aria-pressed="false">Chocolat</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" aria-pressed="false">Eku</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" aria-pressed="false">ICHIGO</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" aria-pressed="false">KUMALY</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" aria-pressed="false">Lasyusha</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" aria-pressed="false">LUMINA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" aria-pressed="false">Mafuyu</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" aria-pressed="false">MANUKA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" aria-pressed="false">Mayo</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" aria-pressed="false">Milfy</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" aria-pressed="false">Milltina</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" aria-pressed="false">Moe</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" aria-pressed="false">Plum</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" aria-pressed="false">Ramune</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" aria-pressed="false">Ririka</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" aria-pressed="false">Rurune</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" aria-pressed="false">SELESTIA</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" aria-pressed="false">Shinano</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" aria-pressed="false">Sio</button>
+            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" data-booth-subtag-search-text="all" aria-pressed="true">All</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" data-booth-subtag-search-text="airi" aria-pressed="false">Airi</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" data-booth-subtag-search-text="chocolat chocolate" aria-pressed="false">Chocolat</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" data-booth-subtag-search-text="eku" aria-pressed="false">Eku</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" data-booth-subtag-search-text="ichigo" aria-pressed="false">ICHIGO</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" data-booth-subtag-search-text="kumaly kumari" aria-pressed="false">KUMALY</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" data-booth-subtag-search-text="lasyusha" aria-pressed="false">Lasyusha</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" data-booth-subtag-search-text="lumina" aria-pressed="false">LUMINA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" data-booth-subtag-search-text="mafuyu" aria-pressed="false">Mafuyu</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" data-booth-subtag-search-text="manuka" aria-pressed="false">MANUKA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" data-booth-subtag-search-text="mayo" aria-pressed="false">Mayo</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" data-booth-subtag-search-text="milfy" aria-pressed="false">Milfy</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" data-booth-subtag-search-text="milltina" aria-pressed="false">Milltina</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" data-booth-subtag-search-text="moe" aria-pressed="false">Moe</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" data-booth-subtag-search-text="plum" aria-pressed="false">Plum</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" data-booth-subtag-search-text="ramune" aria-pressed="false">Ramune</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" data-booth-subtag-search-text="ririka" aria-pressed="false">Ririka</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" data-booth-subtag-search-text="rurune" aria-pressed="false">Rurune</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" data-booth-subtag-search-text="selestia celestia" aria-pressed="false">SELESTIA</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" data-booth-subtag-search-text="shinano" aria-pressed="false">Shinano</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" data-booth-subtag-search-text="sio shio" aria-pressed="false">Sio</button>
             </div>
           </div>
-          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="Show more ▼" data-close-label="Close ▲" data-open-aria-label="Show more supported avatars" data-close-aria-label="Close supported avatars" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="Show more supported avatars">Show more ▼</button>
+          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="Search avatars ▼" data-close-label="Search avatars ▲" data-open-aria-label="Open avatar search" data-close-aria-label="Close avatar search" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="Open avatar search">Search avatars ▼</button>
         </div>
         <div class="booth-list-grid" data-booth-list>
           <a class="booth-list-thumb" data-booth-tags="pose expression" data-booth-subtags="character-kumaly" data-popularity="115" href="product-sexy-pose-kumaly.html">

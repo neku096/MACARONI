@@ -1196,6 +1196,9 @@ const setupBoothFilters = () => {
     const subtagRowToggle = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-row-toggle]") : null;
     const subtagPicker = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-picker]") : null;
     const subtagSearch = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-search]") : null;
+    const subtagSearchClear = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-search-clear]") : null;
+    const subtagClose = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-close]") : null;
+    const subtagEmpty = subtagPanel ? subtagPanel.querySelector("[data-booth-subtag-empty]") : null;
     const sortButtons = [...section.querySelectorAll("[data-booth-sort-button]")];
     const pagination = section.querySelector("[data-booth-pagination]");
     const pageButtons = pagination ? [...pagination.querySelectorAll("[data-booth-page-button]")] : [];
@@ -1233,6 +1236,14 @@ const setupBoothFilters = () => {
 
       return button?.textContent?.trim() || subtag;
     };
+    const normalizeSubtagSearchText = (value) => value
+      .trim()
+      .normalize("NFKC")
+      .toLocaleLowerCase()
+      .replace(/[\u30a1-\u30f6]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0x60));
+    const getSubtagSearchText = (button) => normalizeSubtagSearchText(
+      `${button.textContent || ""} ${button.dataset.boothSubtagSearchText || ""}`,
+    );
     const updateSubtagToggleLabel = () => {
       if (!subtagToggle) {
         return;
@@ -1242,50 +1253,69 @@ const setupBoothFilters = () => {
       subtagToggle.textContent = activeSubtag === "all" ? defaultLabel : getSubtagLabel(activeSubtag);
       subtagToggle.classList.toggle("is-selected", activeSubtag !== "all");
     };
+    const clearSubtagSearch = () => {
+      if (!subtagSearch) {
+        return;
+      }
+
+      subtagSearch.value = "";
+      filterSubtagOptions();
+    };
     const setSubtagPickerOpen = (isOpen, shouldFocus = false) => {
       if (!subtagToggle || !subtagPicker) {
         return;
       }
 
       subtagPicker.classList.toggle("is-open", isOpen);
+      subtagPanel?.classList.toggle("is-subtag-search-open", isOpen);
       subtagToggle.setAttribute("aria-expanded", String(isOpen));
+
+      if (subtagRowToggle) {
+        subtagRowToggle.setAttribute("aria-expanded", String(isOpen));
+        subtagRowToggle.textContent = isOpen
+          ? (subtagRowToggle.dataset.closeLabel || "閉じる ▲")
+          : (subtagRowToggle.dataset.openLabel || "もっと見る ▼");
+        subtagRowToggle.setAttribute(
+          "aria-label",
+          isOpen
+            ? (subtagRowToggle.dataset.closeAriaLabel || subtagRowToggle.textContent)
+            : (subtagRowToggle.dataset.openAriaLabel || subtagRowToggle.textContent),
+        );
+      }
+
+      if (!isOpen) {
+        clearSubtagSearch();
+      }
 
       if (isOpen && shouldFocus && subtagSearch) {
         window.requestAnimationFrame(() => subtagSearch.focus());
       }
-    };
-    const setSubtagRowsExpanded = (isExpanded) => {
-      if (!subtagRowToggle || !subtagPicker) {
-        return;
-      }
-
-      subtagPicker.classList.toggle("is-expanded", isExpanded);
-      subtagRowToggle.setAttribute("aria-expanded", String(isExpanded));
-      subtagRowToggle.textContent = isExpanded
-        ? (subtagRowToggle.dataset.closeLabel || "閉じる ▲")
-        : (subtagRowToggle.dataset.openLabel || "もっと見る ▼");
-      subtagRowToggle.setAttribute(
-        "aria-label",
-        isExpanded
-          ? (subtagRowToggle.dataset.closeAriaLabel || subtagRowToggle.textContent)
-          : (subtagRowToggle.dataset.openAriaLabel || subtagRowToggle.textContent),
-      );
     };
     const filterSubtagOptions = () => {
       if (!subtagSearch) {
         return;
       }
 
-      const queryText = subtagSearch.value.trim().normalize("NFKC").toLocaleLowerCase();
+      const queryText = normalizeSubtagSearchText(subtagSearch.value);
+      let visibleCharacterCount = 0;
+
       subtagButtons.forEach((button) => {
         if (button.hasAttribute("data-booth-subtag-primary")) {
           return;
         }
 
-        const label = button.textContent.trim().normalize("NFKC").toLocaleLowerCase();
-        const isMatching = !queryText || label.includes(queryText);
+        const isAllButton = button.dataset.boothSubtagButton === "all";
+        const isMatching = isAllButton || !queryText || getSubtagSearchText(button).includes(queryText);
         button.hidden = !isMatching;
+
+        if (!isAllButton && isMatching) {
+          visibleCharacterCount += 1;
+        }
       });
+
+      if (subtagEmpty) {
+        subtagEmpty.hidden = !queryText || visibleCharacterCount > 0;
+      }
     };
 
     const render = () => {
@@ -1416,11 +1446,6 @@ const setupBoothFilters = () => {
         syncFilterUrl();
         render();
 
-        if (subtagSearch) {
-          subtagSearch.value = "";
-          filterSubtagOptions();
-        }
-
         setSubtagPickerOpen(false);
       });
     });
@@ -1433,16 +1458,65 @@ const setupBoothFilters = () => {
     }
 
     if (subtagRowToggle) {
-      setSubtagRowsExpanded(false);
       subtagRowToggle.addEventListener("click", () => {
-        const isExpanded = subtagRowToggle.getAttribute("aria-expanded") === "true";
-        setSubtagRowsExpanded(!isExpanded);
+        const isOpen = subtagRowToggle.getAttribute("aria-expanded") === "true";
+        setSubtagPickerOpen(!isOpen, !isOpen);
       });
     }
 
     if (subtagSearch) {
       subtagSearch.addEventListener("input", filterSubtagOptions);
+      subtagSearch.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") {
+          return;
+        }
+
+        const hasSearchText = Boolean(subtagSearch.value.trim());
+        const firstVisibleButton = subtagButtons.find((button) => !button.hidden
+          && (!hasSearchText || button.dataset.boothSubtagButton !== "all"));
+        if (!firstVisibleButton) {
+          return;
+        }
+
+        event.preventDefault();
+        firstVisibleButton.click();
+      });
     }
+
+    if (subtagSearchClear) {
+      subtagSearchClear.addEventListener("click", () => {
+        clearSubtagSearch();
+        subtagSearch?.focus();
+      });
+    }
+
+    if (subtagClose) {
+      subtagClose.addEventListener("click", () => {
+        setSubtagPickerOpen(false);
+        subtagToggle?.focus();
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!subtagPanel || !subtagPicker?.classList.contains("is-open")) {
+        return;
+      }
+
+      if (subtagPanel.contains(event.target)) {
+        return;
+      }
+
+      setSubtagPickerOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !subtagPicker?.classList.contains("is-open")) {
+        return;
+      }
+
+      setSubtagPickerOpen(false);
+      subtagToggle?.focus();
+    });
 
     sortButtons.forEach((button) => {
       button.addEventListener("click", () => {

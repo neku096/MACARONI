@@ -15,4 +15,5 @@ node_modules/
 dist-private/
 _snapshots/
 .codex-snapshots/
+_backup/
 image-backup-*/

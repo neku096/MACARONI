@@ -271,31 +271,43 @@
             <button class="booth-subtag-picker-toggle" type="button" data-booth-subtag-toggle data-default-label="すべて" aria-expanded="false" aria-controls="booth-subtag-options">すべて</button>
           </div>
           <div class="booth-subtag-picker" id="booth-subtag-options" data-booth-subtag-picker>
+            <div class="booth-subtag-search-panel" data-booth-subtag-search-panel>
+              <div class="booth-subtag-search-header">
+                <label class="booth-subtag-search-label" for="booth-subtag-search">対応キャラ検索</label>
+                <button class="booth-subtag-popover-close" type="button" data-booth-subtag-close aria-label="対応キャラ検索を閉じる">×</button>
+              </div>
+              <div class="booth-subtag-search-field">
+                <span class="booth-subtag-search-icon" aria-hidden="true"></span>
+                <input class="booth-subtag-search" id="booth-subtag-search" type="search" data-booth-subtag-search placeholder="キャラ名で検索…" autocomplete="off" inputmode="search">
+                <button class="booth-subtag-search-clear" type="button" data-booth-subtag-search-clear aria-label="検索文字列をクリア">×</button>
+              </div>
+              <p class="booth-subtag-empty" data-booth-subtag-empty hidden>該当するキャラがありません</p>
+            </div>
             <div class="booth-subtag-tabs" role="group" aria-label="対応キャラ絞り込み">
-            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" aria-pressed="true">すべて</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" aria-pressed="false">愛莉</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" aria-pressed="false">イチゴ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" aria-pressed="false">エク</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" aria-pressed="false">クマリ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" aria-pressed="false">しお</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" aria-pressed="false">しなの</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" aria-pressed="false">ショコラ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" aria-pressed="false">セレスティア</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" aria-pressed="false">プラム</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" aria-pressed="false">マヌカ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" aria-pressed="false">真冬</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" aria-pressed="false">まよ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" aria-pressed="false">ミルティナ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" aria-pressed="false">ミルフィ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" aria-pressed="false">萌</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" aria-pressed="false">ラシューシャ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" aria-pressed="false">ラムネ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" aria-pressed="false">りりか</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" aria-pressed="false">ルミナ</button>
-            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" aria-pressed="false">ルルネ</button>
+            <button class="booth-subtag-button is-active" type="button" data-booth-subtag-button="all" data-booth-subtag-search-text="全部 all" aria-pressed="true">すべて</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-airi" data-booth-subtag-search-text="あいり airi" aria-pressed="false">愛莉</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ichigo" data-booth-subtag-search-text="いちご ichigo" aria-pressed="false">イチゴ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-eku" data-booth-subtag-search-text="えく eku" aria-pressed="false">エク</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-kumaly" data-booth-subtag-search-text="くまり kumaly kumari" aria-pressed="false">クマリ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-sio" data-booth-subtag-search-text="しお sio shio" aria-pressed="false">しお</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-shinano" data-booth-subtag-search-text="しなの shinano" aria-pressed="false">しなの</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-chocolat" data-booth-subtag-search-text="しょこら chocolat chocolate" aria-pressed="false">ショコラ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-selestia" data-booth-subtag-search-text="せれすてぃあ selestia celestia" aria-pressed="false">セレスティア</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-plum" data-booth-subtag-search-text="ぷらむ plum" aria-pressed="false">プラム</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-manuka" data-booth-subtag-search-text="まぬか manuka" aria-pressed="false">マヌカ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mafuyu" data-booth-subtag-search-text="まふゆ mafuyu" aria-pressed="false">真冬</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-mayo" data-booth-subtag-search-text="まよ mayo" aria-pressed="false">まよ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milltina" data-booth-subtag-search-text="みるてぃな milltina" aria-pressed="false">ミルティナ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-milfy" data-booth-subtag-search-text="みるふぃ milfy" aria-pressed="false">ミルフィ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-moe" data-booth-subtag-search-text="もえ moe" aria-pressed="false">萌</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lasyusha" data-booth-subtag-search-text="らしゅーしゃ lasyusha" aria-pressed="false">ラシューシャ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ramune" data-booth-subtag-search-text="らむね ramune" aria-pressed="false">ラムネ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-ririka" data-booth-subtag-search-text="りりか ririka" aria-pressed="false">りりか</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-lumina" data-booth-subtag-search-text="るみな lumina" aria-pressed="false">ルミナ</button>
+            <button class="booth-subtag-button" type="button" data-booth-subtag-button="character-rurune" data-booth-subtag-search-text="るるね rurune" aria-pressed="false">ルルネ</button>
             </div>
           </div>
-          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="もっと見る ▼" data-close-label="閉じる ▲" data-open-aria-label="対応キャラをもっと見る" data-close-aria-label="対応キャラを閉じる" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="対応キャラをもっと見る">もっと見る ▼</button>
+          <button class="booth-subtag-row-toggle" type="button" data-booth-subtag-row-toggle data-open-label="対応キャラを検索 ▼" data-close-label="対応キャラを検索 ▲" data-open-aria-label="対応キャラ検索を開く" data-close-aria-label="対応キャラ検索を閉じる" aria-expanded="false" aria-controls="booth-subtag-options" aria-label="対応キャラ検索を開く">対応キャラを検索 ▼</button>
         </div>
         <div class="booth-list-grid" data-booth-list>
           <a class="booth-list-thumb" data-booth-tags="pose expression" data-booth-subtags="character-kumaly" data-popularity="115" href="product-sexy-pose-kumaly.html">
