@@ -1,6 +1,7 @@
 .DS_Store
 .env
 .env.*
+!.env.example
 *.key
 *.pem
 *.p12
@@ -12,6 +13,11 @@
 *.rar
 config.toml
 node_modules/
+.next/
+*.tsbuildinfo
+.playwright-mcp/
+public/images/products/
+public/images/linksamune/
 dist-private/
 _snapshots/
 .codex-snapshots/

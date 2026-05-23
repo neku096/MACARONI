@@ -1,0 +1,24 @@
+{
+  "name": "マカロニ",
+  "short_name": "マカロニ",
+  "description": "VRChat・Unity向けR18 3Dポーズ素材無料配布サイト",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#07070b",
+  "theme_color": "#07070b",
+  "icons": [
+    {
+      "src": "images/android-chrome-192x192.png?v=20260516",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/android-chrome-512x512.png?v=20260516",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+import Link from "next/link";
+
+export function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <Link className="footer-brand" href="/" aria-label="トップへ">
+        <img src="/images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" />
+        <span>R18 3Dポーズ素材無料配布サイト</span>
+      </Link>
+      <div className="footer-links" aria-label="外部リンク">
+        <a className="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
+          <span className="footer-pill-icon">B</span>
+          <span>BOOTH</span>
+        </a>
+        <a className="footer-pill" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+          <span className="footer-pill-icon">X</span>
+          <span>X</span>
+        </a>
+        <Link className="footer-pill" href="/links.html">
+          <span className="footer-pill-icon">L</span>
+          <span>Links</span>
+        </Link>
+      </div>
+    </footer>
+  );
+}
