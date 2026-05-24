@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/next.css"],"sourcesContent":[".next-product-thumbnails {\n  padding: 2px 0 4px;\n}\n\n.product-related-section h2 {\n  margin: 0 0 18px;\n  color: var(--text);\n  font-size: clamp(24px, 3vw, 34px);\n  line-height: 1.25;\n}\n\n@media (max-width: 768px) {\n  .nav a[href=\"/products\"] {\n    font-size: 0;\n  }\n\n  .nav a[href=\"/products\"]::before {\n    content: \"BOOTH\";\n    font-size: 15px;\n  }\n}\n\n@media (max-width: 520px) {\n  .nav a[href=\"/products\"]::before {\n    font-size: 13px;\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;AAIA;;;;;;;AAOA;EACE;;;;EAIA;;;;;;AAMF;EACE"}}]
+}
