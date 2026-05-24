@@ -14,6 +14,7 @@
 config.toml
 node_modules/
 .next/
+.next-dev*/
 *.tsbuildinfo
 .playwright-mcp/
 public/images/products/

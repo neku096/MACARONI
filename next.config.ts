@@ -50,6 +50,10 @@ const nextConfig: NextConfig = {
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/ja/index.html", destination: "/", permanent: true },
       { source: "/en/index.html", destination: "/", permanent: false },
+      { source: "/ja/characters.html", destination: "/characters.html", permanent: true },
+      { source: "/ja/terms.html", destination: "/terms.html", permanent: true },
+      { source: "/ja/tips.html", destination: "/tips.html", permanent: true },
+      { source: "/ja/links.html", destination: "/links.html", permanent: true },
       ...productRedirects,
     ];
   },

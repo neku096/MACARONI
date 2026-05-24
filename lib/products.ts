@@ -19,6 +19,20 @@ export type GalleryImage = {
   alt: string;
 };
 
+export type ProductTagLink = {
+  href: string;
+  label: string;
+};
+
+export type ProductCatalogCard = {
+  tags: string[];
+  subtags: string[];
+  popularity: number;
+  image: string;
+  imageSet: string;
+  alt: string;
+};
+
 export type Product = {
   id: string;
   slug: string;
@@ -40,6 +54,11 @@ export type Product = {
   specs: ProductSpec[];
   salesLinks: SalesLink[];
   relatedIds: string[];
+  summaryTags?: string[];
+  normalTags?: ProductTagLink[];
+  subTags?: ProductTagLink[];
+  detailArticles?: string[];
+  catalogCards?: ProductCatalogCard[];
 };
 
 export const siteUrl =
@@ -85,28 +104,28 @@ export function getGalleryImages(product: Product): GalleryImage[] {
   });
 }
 
-export function getRelatedProducts(product: Product, limit = 5) {
-  const published = getPublishedProducts();
-  const manuallySelected = product.relatedIds
+export function getRelatedProducts(product: Product, limit = 4) {
+  return product.relatedIds
     .map((id) => getProductById(id))
-    .filter((related): related is Product => Boolean(related?.published));
+    .filter((related): related is Product => Boolean(related?.published))
+    .slice(0, limit);
+}
 
-  const selectedIds = new Set([product.id, ...manuallySelected.map((related) => related.id)]);
-  const scored = published
-    .filter((candidate) => !selectedIds.has(candidate.id))
-    .map((candidate) => {
-      const sharedTags = candidate.tags.filter((tag) => product.tags.includes(tag)).length;
-      const sharedAvatars = candidate.avatars.filter((avatar) => product.avatars.includes(avatar)).length;
-      const categoryScore = candidate.category === product.category ? 4 : 0;
-      return {
-        product: candidate,
-        score: categoryScore + sharedTags * 2 + sharedAvatars * 3,
-      };
-    })
-    .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score || a.product.shortTitle.localeCompare(b.product.shortTitle, "ja"));
+export function getLegacyCategoryTag(product: Product) {
+  if (product.normalTags?.[0]) {
+    const url = new URL(product.normalTags[0].href, siteUrl);
+    return url.searchParams.get("tag") || product.category;
+  }
 
-  return [...manuallySelected, ...scored.map((entry) => entry.product)].slice(0, limit);
+  if (product.category === "motion") {
+    return "universal";
+  }
+
+  if (product.category === "solo-motion") {
+    return "solo";
+  }
+
+  return product.category;
 }
 
 export function getFilterOptions() {

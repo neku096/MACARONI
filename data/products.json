@@ -9,21 +9,95 @@
     "description": "クマリ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録し、アバター撮影や動画制作に使えます。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["クマリ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "クマリ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/KM1-800.webp",
     "ogImage": "/products/covers/KM1.webp",
     "galleryPrefix": "sexy-pose-kumaly",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "クマリ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "クマリ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7972077", "primary": true }],
-    "relatedIds": ["sexy-pose-plum-chocolat", "sexy-pose-ramune", "sexy-pose-eku", "sexy-pose-lumina"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7972077",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1"
+    ],
+    "summaryTags": [
+      "クマリ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-kumaly",
+        "label": "クマリ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">クマリ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、クマリの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、クマリの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageをプロジェクトへインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">BOOTHの商品説明に従い、同梱Prefabまたはアニメーション設定を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">対応アバター上でポーズと表情の動作を確認してから、撮影やアップロードに進みます。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製コントローラーPrefabを導入済みの場合は、重複追加前にBOOTHの注意事項を確認してください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使った導入を想定しています。改変済みアバター、衣装、スケール変更の内容によっては、<strong>位置や表情の調整が必要になる場合があります</strong>。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>R18セクシーポーズ 15種</strong></li>\r\n              <li><strong>表情 5種</strong></li>\r\n              <li>クマリ向けファイル</li>\r\n              <li>導入用Prefab</li>\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、ボーン変更などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるポーズ素材として、静止画撮影、動画制作、3Dゲーム制作などにも使用できます。公開先やアバター制作者の規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>自分が使用するアバターが対象か、同梱ファイル、価格、利用条件、導入上の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-kumaly"
+        ],
+        "popularity": 115,
+        "image": "/products/covers/KM1-600.webp",
+        "imageSet": "/products/covers/KM1-600.webp 600w, /products/covers/KM1-800.webp 800w, /products/covers/KM1.webp 1000w",
+        "alt": "〖クマリ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-plum-chocolat",
@@ -35,21 +109,116 @@
     "description": "プラム・ショコラ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録し、アバター撮影や動画制作に使えます。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["プラム", "ショコラ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "プラム",
+      "ショコラ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/CH-800.webp",
     "ogImage": "/products/covers/CH.webp",
     "galleryPrefix": "sexy-pose-plum-chocolat",
     "galleryCount": 14,
     "specs": [
-      { "label": "対応アバター", "value": "プラム・ショコラ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "プラム・ショコラ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6928043", "primary": true }],
-    "relatedIds": ["sexy-pose-kumaly", "sexy-pose-ramune", "sexy-pose-eku", "solo-motion-vol2"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6928043",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "プラム",
+      "ショコラ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-chocolat",
+        "label": "ショコラ"
+      },
+      {
+        "href": "/products?subtag=character-plum",
+        "label": "プラム"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">プラム・ショコラ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、プラムとショコラそれぞれの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、プラム・ショコラの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageをプロジェクトへインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">BOOTHの商品説明に従い、同梱Prefabまたはアニメーション設定を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">対応アバター上でポーズと表情の動作を確認してから、撮影やアップロードに進みます。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製コントローラーPrefabを導入済みの場合は、重複追加前にBOOTHの注意事項を確認してください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使った導入を想定しています。改変済みアバター、衣装、スケール変更の内容によっては、<strong>位置や表情の調整が必要になる場合があります</strong>。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>R18セクシーポーズ 15種</strong></li>\r\n              <li><strong>表情 5種</strong></li>\r\n              <li>プラム・ショコラ向けファイル</li>\r\n              <li>導入用Prefab</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、ボーン変更などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるポーズ素材として、静止画撮影、動画制作、3Dゲーム制作などにも使用できます。公開先やアバター制作者の規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>自分が使用するアバターが対象か、同梱ファイル、価格、利用条件、導入上の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-chocolat"
+        ],
+        "popularity": 233,
+        "image": "/products/covers/CH-600.webp",
+        "imageSet": "/products/covers/CH-600.webp 600w, /products/covers/CH-800.webp 800w, /products/covers/CH.webp 1000w",
+        "alt": "〖ショコラ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      },
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-plum"
+        ],
+        "popularity": 233,
+        "image": "/products/covers/PL-600.webp",
+        "imageSet": "/products/covers/PL-600.webp 600w, /products/covers/PL-800.webp 800w, /products/covers/PL.webp 1000w",
+        "alt": "〖プラム用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-ramune",
@@ -61,21 +230,96 @@
     "description": "ラムネ向けのVRChat・Unity 2022用R18ポーズ素材です。無料版ありのセクシーポーズ15種と表情5種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "無料版あり", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["ラムネ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "無料版あり",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "ラムネ"
+    ],
     "price": "無料版あり / ¥500",
     "coverImage": "/products/covers/RM-800.webp",
     "ogImage": "/products/covers/RM.webp",
     "galleryPrefix": "sexy-pose-ramune",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "ラムネ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "無料版あり / ¥500" }
+      {
+        "label": "対応アバター",
+        "value": "ラムネ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "無料版あり / ¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7804730", "primary": true }],
-    "relatedIds": ["sexy-pose-kumaly", "sexy-pose-plum-chocolat", "sexy-pose-rurune", "bj-motion"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7804730",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1"
+    ],
+    "summaryTags": [
+      "ラムネ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "無料版あり",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-ramune",
+        "label": "ラムネ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\n            <p class=\"booth-lead\">ラムネ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\n            <p><strong>セクシーポーズ15種</strong>と<strong>表情5種</strong>を収録しており、ラムネの可愛さや色気を見せやすい構成にしました。VRChatでのアバター撮影、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、アバター改変後の見え方チェックなどに活用できます。</p>\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\n            <p><strong>無料版から試せる</strong>ため、撮影用のポーズに悩む時間を減らしつつ、ラムネの魅力をしっかり見せたい方におすすめです。</p>\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\n            <ol>\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageをプロジェクトへインポートします。</span></li>\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">BOOTHの商品説明に従い、同梱Prefabまたはアニメーション設定を配置します。</span></li>\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">ポーズと表情の動作を確認してから、撮影やアップロードに進みます。</span></li>\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製コントローラーPrefabを導入済みの場合は、重複追加前にBOOTHの注意事項を確認してください。</span></li>\n            </ol>\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使った導入を想定しています。改変済みアバター、衣装、スケール変更の内容によっては、<strong>位置や表情の調整が必要になる場合があります</strong>。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\n            <ul>\n              <li><strong>R18セクシーポーズ 15種</strong></li>\n              <li><strong>表情 5種</strong></li>\n              <li>ラムネ向けファイル</li>\n              <li>導入用Prefab</li>\n              <li>当アセットのunitypackage\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、ボーン変更などの改変量によっては調整が必要です。</p>\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\n            <p>Unity上で扱えるポーズ素材として、静止画撮影、動画制作、3Dゲーム制作などにも使用できます。公開先やアバター制作者の規約もあわせて確認してください。</p>\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\n            <p>自分が使用するアバターが対象か、同梱ファイル、価格、利用条件、導入上の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-ramune"
+        ],
+        "popularity": 125,
+        "image": "/products/covers/RM-600.webp",
+        "imageSet": "/products/covers/RM-600.webp 600w, /products/covers/RM-800.webp 800w, /products/covers/RM.webp 1000w",
+        "alt": "〖ラムネ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-eku",
@@ -87,21 +331,98 @@
     "description": "エク向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["エク"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "エク"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/EK-800.webp",
     "ogImage": "/products/covers/EK.webp",
     "galleryPrefix": "sexy-pose-eku",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "エク" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "エク"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7533032", "primary": true }],
-    "relatedIds": ["sexy-pose-lumina", "sexy-pose-ichigo", "solo-motion-vol2", "solo-motion-vol4"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7533032",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "エク",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-eku",
+        "label": "エク"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">エク向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、エクの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、エクの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageをプロジェクトへインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">BOOTHの商品説明に従い、同梱Prefabまたはアニメーション設定を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">対応アバター上でポーズと表情の動作を確認してから、撮影やアップロードに進みます。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製コントローラーPrefabを導入済みの場合は、重複追加前にBOOTHの注意事項を確認してください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使った導入を想定しています。改変済みアバター、衣装、スケール変更の内容によっては、<strong>位置や表情の調整が必要になる場合があります</strong>。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>R18セクシーポーズ 15種</strong></li>\r\n              <li><strong>表情 5種</strong></li>\r\n              <li>エク向けファイル</li>\r\n              <li>導入用Prefab</li>\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、ボーン変更などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるポーズ素材として、静止画撮影、動画制作、3Dゲーム制作などにも使用できます。公開先やアバター制作者の規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>自分が使用するアバターが対象か、同梱ファイル、価格、利用条件、導入上の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-eku"
+        ],
+        "popularity": 229,
+        "image": "/products/covers/EK-600.webp",
+        "imageSet": "/products/covers/EK-600.webp 600w, /products/covers/EK-800.webp 800w, /products/covers/EK.webp 1000w",
+        "alt": "〖エク用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-lumina",
@@ -113,21 +434,98 @@
     "description": "ルミナ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["ルミナ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "ルミナ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/LM-800.webp",
     "ogImage": "/products/covers/LM.webp",
     "galleryPrefix": "sexy-pose-lumina",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "ルミナ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "ルミナ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7508066", "primary": true }],
-    "relatedIds": ["sexy-pose-eku", "sexy-pose-ichigo", "solo-motion-vol2", "bj-motion"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7508066",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "ルミナ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-lumina",
+        "label": "ルミナ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">ルミナ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、ルミナの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、ルミナの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageと、商品に必要な共通packageがある場合は両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、商品に含まれる対応アバター用Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">アップロードや撮影の前に、Unity上でExpression Menuとポーズ・モーションの動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製ポーズやモーションで共通Controllerを導入済みの場合は、BOOTHの説明に従い重複追加を避けてください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\"><strong>同梱ファイル</strong>、導入上の注意は商品バージョンによって変わる可能性があるため、購入前と導入前に<strong>BOOTHの商品ページ</strong>を優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>セクシーポーズ15種</strong>、<strong>表情5種</strong></li>\r\n              <li><strong>対応アバター</strong>向けPrefabデータ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケールなどの改変量によっては、位置や表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱える素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先、販売先、アバター制作者の利用規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対象アバター、同梱ファイル、導入条件、利用条件、最新の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-lumina"
+        ],
+        "popularity": 226,
+        "image": "/products/covers/LM-600.webp",
+        "imageSet": "/products/covers/LM-600.webp 600w, /products/covers/LM-800.webp 800w, /products/covers/LM.webp 1000w",
+        "alt": "〖ルミナ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-ichigo",
@@ -139,21 +537,98 @@
     "description": "イチゴ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["イチゴ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "イチゴ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/IC-800.webp",
     "ogImage": "/products/covers/IC.webp",
     "galleryPrefix": "sexy-pose-ichigo",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "イチゴ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "イチゴ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7384961", "primary": true }],
-    "relatedIds": ["sexy-pose-lumina", "sexy-pose-eku", "solo-motion-vol2", "solo-motion-vol4"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7384961",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "イチゴ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-ichigo",
+        "label": "イチゴ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">イチゴ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、イチゴの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、イチゴの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageと、商品に必要な共通packageがある場合は両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、商品に含まれる対応アバター用Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">アップロードや撮影の前に、Unity上でExpression Menuとポーズ・モーションの動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製ポーズやモーションで共通Controllerを導入済みの場合は、BOOTHの説明に従い重複追加を避けてください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\"><strong>同梱ファイル</strong>、導入上の注意は商品バージョンによって変わる可能性があるため、購入前と導入前に<strong>BOOTHの商品ページ</strong>を優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>セクシーポーズ15種</strong>、<strong>表情5種</strong></li>\r\n              <li><strong>対応アバター</strong>向けPrefabデータ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケールなどの改変量によっては、位置や表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱える素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先、販売先、アバター制作者の利用規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対象アバター、同梱ファイル、導入条件、利用条件、最新の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-ichigo"
+        ],
+        "popularity": 296,
+        "image": "/products/covers/IC-600.webp",
+        "imageSet": "/products/covers/IC-600.webp 600w, /products/covers/IC-800.webp 800w, /products/covers/IC.webp 1000w",
+        "alt": "〖イチゴ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-shinano",
@@ -165,21 +640,98 @@
     "description": "しなの向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ20種、挿入モーション5種、表情11種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "挿入モーション", "音付き", "表情付き", "VRChat", "Unity"],
-    "avatars": ["しなの"],
+    "tags": [
+      "セクシーポーズ",
+      "挿入モーション",
+      "音付き",
+      "表情付き",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "しなの"
+    ],
     "price": "¥1,000",
     "coverImage": "/products/covers/SH-800.webp",
     "ogImage": "/products/covers/SH.webp",
     "galleryPrefix": "sexy-pose-shinano",
     "galleryCount": 10,
     "specs": [
-      { "label": "対応アバター", "value": "しなの" },
-      { "label": "内容", "value": "セクシーポーズ20種、挿入モーション5種(音付)、表情11種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥1,000" }
+      {
+        "label": "対応アバター",
+        "value": "しなの"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ20種、挿入モーション5種(音付)、表情11種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6599274", "primary": true }],
-    "relatedIds": ["sexy-pose-milltina", "solo-motion-vol2", "solo-motion-vol3", "solo-motion-vol4"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6599274",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "しなの",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "挿入モーション付き",
+      "音声付き",
+      "表情付き",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-shinano",
+        "label": "しなの"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">しなの向けに調整した、R18撮影・動画制作向けのポーズ・表情・モーション素材セットです。</p>\r\n            <p>セクシーポーズ20種、音付き挿入モーション5種、表情11種を収録しており、しなのの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>や挿入モーションと組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズや短い動画演出に悩む時間を減らし、しなのの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageと、商品に必要な共通packageがある場合は両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、商品に含まれる対応アバター用Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">アップロードや撮影の前に、Unity上でExpression Menuとポーズ・モーションの動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製ポーズやモーションで共通Controllerを導入済みの場合は、BOOTHの説明に従い重複追加を避けてください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\"><strong>同梱ファイル</strong>、導入上の注意は商品バージョンによって変わる可能性があるため、購入前と導入前に<strong>BOOTHの商品ページ</strong>を優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>セクシーポーズ20種、挿入モーション5種(音付)、<strong>表情</strong>11種</li>\r\n              <li><strong>対応アバター</strong>向けPrefabデータ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケールなどの改変量によっては、位置や表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱える素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先、販売先、アバター制作者の利用規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対象アバター、同梱ファイル、導入条件、利用条件、最新の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose"
+        ],
+        "subtags": [
+          "character-shinano"
+        ],
+        "popularity": 355,
+        "image": "/products/covers/SH-600.webp",
+        "imageSet": "/products/covers/SH-600.webp 600w, /products/covers/SH-800.webp 800w, /products/covers/SH.webp 1000w",
+        "alt": "〖しなの用〗セクシーポーズ20種＋挿入モーション5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-milltina",
@@ -191,21 +743,98 @@
     "description": "ミルティナ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情7種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["ミルティナ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "ミルティナ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/MIL-800.webp",
     "ogImage": "/products/covers/MIL.webp",
     "galleryPrefix": "sexy-pose-milltina",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "ミルティナ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情7種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "ミルティナ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情7種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6597922", "primary": true }],
-    "relatedIds": ["sexy-pose-shinano", "sexy-pose-rurune", "solo-motion-vol2", "solo-motion-vol3"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6597922",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "ミルティナ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-milltina",
+        "label": "ミルティナ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">ミルティナ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情7種を収録しており、ミルティナの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンや表情差分のあるカットを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、ミルティナの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageと、商品に必要な共通packageがある場合は両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、商品に含まれる対応アバター用Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">アップロードや撮影の前に、Unity上でExpression Menuとポーズ・モーションの動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製ポーズやモーションで共通Controllerを導入済みの場合は、BOOTHの説明に従い重複追加を避けてください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\"><strong>同梱ファイル</strong>、導入上の注意は商品バージョンによって変わる可能性があるため、購入前と導入前に<strong>BOOTHの商品ページ</strong>を優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>セクシーポーズ15種</strong>、<strong>表情</strong>7種</li>\r\n              <li><strong>対応アバター</strong>向けPrefabデータ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケールなどの改変量によっては、位置や表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱える素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先、販売先、アバター制作者の利用規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対象アバター、同梱ファイル、導入条件、利用条件、最新の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-milltina"
+        ],
+        "popularity": 413,
+        "image": "/products/covers/MIL-600.webp",
+        "imageSet": "/products/covers/MIL-600.webp 600w, /products/covers/MIL-800.webp 800w, /products/covers/MIL.webp 1000w",
+        "alt": "〖ミルティナ用〗セクシーポーズ15種＋表情7種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-pose-rurune",
@@ -217,21 +846,98 @@
     "description": "ルルネ向けのVRChat・Unity 2022用R18ポーズ素材です。セクシーポーズ15種と表情5種を収録しています。",
     "category": "pose",
     "categoryLabel": "ポーズ",
-    "tags": ["セクシーポーズ", "表情付き", "VRChat", "Unity", "Modular Avatar"],
-    "avatars": ["ルルネ"],
+    "tags": [
+      "セクシーポーズ",
+      "表情付き",
+      "VRChat",
+      "Unity",
+      "Modular Avatar"
+    ],
+    "avatars": [
+      "ルルネ"
+    ],
     "price": "¥500",
     "coverImage": "/products/covers/RR-800.webp",
     "ogImage": "/products/covers/RR.webp",
     "galleryPrefix": "sexy-pose-rurune",
     "galleryCount": 7,
     "specs": [
-      { "label": "対応アバター", "value": "ルルネ" },
-      { "label": "内容", "value": "セクシーポーズ15種、表情5種" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "対応アバター",
+        "value": "ルルネ"
+      },
+      {
+        "label": "内容",
+        "value": "セクシーポーズ15種、表情5種"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6998979", "primary": true }],
-    "relatedIds": ["sexy-pose-ramune", "sexy-pose-milltina", "solo-motion-vol2", "solo-motion-vol4"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6998979",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "bj-motion",
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "ルルネ",
+      "セクシーポーズ",
+      "エロツイポーズ",
+      "VRChat",
+      "Unity",
+      "R18ポーズ",
+      "表情付き",
+      "アバター撮影向け",
+      "サムネイル向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=pose",
+        "label": "ポーズ"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-rurune",
+        "label": "ルルネ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">ルルネ向けに調整した、R18撮影向けポーズ・表情素材セットです。</p>\r\n            <p>セクシーポーズ15種と表情5種を収録しており、ルルネの可愛さや色気を見せやすい構成にしました。<strong>VRChatでのアバター撮影</strong>、Unity動画制作、<strong>BOOTH用サムネイル制作</strong>、<strong>アバター改変後の見え方チェック</strong>などに活用できます。</p>\r\n            <p>ポーズは静止画で映えやすいシルエットや角度を意識して制作。<strong>表情素材</strong>と組み合わせることで、雰囲気のあるR18向けシーンを手軽に作りやすくなっています。</p>\r\n            <p>撮影用のポーズに悩む時間を減らし、ルルネの魅力をしっかり見せたい方におすすめです。</p>\r\n            <p class=\"booth-note\">同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">unitypackageをインポート</strong><span class=\"booth-step-desc\">購入したunitypackageと、商品に必要な共通packageがある場合は両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、商品に含まれる対応アバター用Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">アップロードや撮影の前に、Unity上でExpression Menuとポーズ・モーションの動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">別のマカロニ製ポーズやモーションで共通Controllerを導入済みの場合は、BOOTHの説明に従い重複追加を避けてください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\"><strong>同梱ファイル</strong>、導入上の注意は商品バージョンによって変わる可能性があるため、購入前と導入前に<strong>BOOTHの商品ページ</strong>を優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>セクシーポーズ15種</strong>、<strong>表情5種</strong></li>\r\n              <li><strong>対応アバター</strong>向けPrefabデータ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケールなどの改変量によっては、位置や表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱える素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先、販売先、アバター制作者の利用規約もあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対象アバター、同梱ファイル、導入条件、利用条件、最新の注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "pose",
+          "expression"
+        ],
+        "subtags": [
+          "character-rurune"
+        ],
+        "popularity": 227,
+        "image": "/products/covers/RR-600.webp",
+        "imageSet": "/products/covers/RR-600.webp 600w, /products/covers/RR-800.webp 800w, /products/covers/RR.webp 1000w",
+        "alt": "〖ルルネ用〗セクシーポーズ15種＋表情5種 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-motion-vol1",
@@ -243,22 +949,94 @@
     "description": "汎用で使いやすいセクシーモーション5種類を収録した、VRChat・Unity向けR18モーション素材です。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["汎用モーション", "セクシーモーション", "音付き", "VRChat", "Unity"],
+    "tags": [
+      "汎用モーション",
+      "セクシーモーション",
+      "音付き",
+      "VRChat",
+      "Unity"
+    ],
     "avatars": [],
     "price": "¥500",
     "coverImage": "/products/covers/SEXY1-800.webp",
     "ogImage": "/products/covers/SEXY1.webp",
     "galleryPrefix": "sexy-motion-vol1",
     "galleryCount": 3,
-    "galleryNumbers": [1, 2, 8],
-    "specs": [
-      { "label": "商品名", "value": "【汎用】セクシーモーション5種類(音付)" },
-      { "label": "内容", "value": "5種類のセクシーモーションと音付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥500" }
+    "galleryNumbers": [
+      1,
+      2,
+      8
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6599280", "primary": true }],
-    "relatedIds": ["sexy-attack-motion-vol1", "sexy-motion-attack-vol2", "foot-motion", "hand-motion"]
+    "specs": [
+      {
+        "label": "商品名",
+        "value": "【汎用】セクシーモーション5種類(音付)"
+      },
+      {
+        "label": "内容",
+        "value": "5種類のセクシーモーションと音付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
+    ],
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6599280",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-attack-motion-vol1",
+      "sexy-motion-attack-vol2",
+      "foot-motion",
+      "hand-motion",
+      "bj-motion"
+    ],
+    "summaryTags": [
+      "セクシーモーション",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "受け",
+      "音声付き",
+      "汎用",
+      "アバター撮影向け",
+      "動画制作向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【音付き】汎用セクシーモーション Vol.1｜VRChat・3Dアバター向けセクシーアニメーション</h3>\r\n            <p class=\"booth-lead\">どのアバターでも使いやすいように、埋まり込みやポーズ破綻をできるだけ抑えつつ、自然で実用的な動きを目指して制作した受けモーション集です。</p>\r\n            <p>「可愛いだけ」「激しいだけ」ではなく、実際にVRChat内で使ったときに映えること、シチュエーションに没入できることを重視して細かく調整しています。</p>\r\n            <p>動きのテンポや反応、見せ方にもこだわり、さまざまなアバターで合わせやすいモーションに仕上げました。撮影、<strong>ロールプレイ</strong>、セクシー演出など、幅広いシーンで活用できます。</p>\r\n            <p>さらに、シチュエーションを盛り上げる<strong>音声</strong>も付属。お気に入りのアバターで、より濃厚な空気感を楽しめます。</p>\r\n            <p>アバターによっては<strong>位置調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>SEXY1_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>5種類のセクシーモーション</strong>と音付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Sound</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [],
+        "popularity": 880,
+        "image": "/products/covers/SEXY1-600.webp",
+        "imageSet": "/products/covers/SEXY1-600.webp 600w, /products/covers/SEXY1-800.webp 800w, /products/covers/SEXY1.webp 1000w",
+        "alt": "〖汎用〗セクシーモーション5種類 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-attack-motion-vol1",
@@ -270,22 +1048,94 @@
     "description": "汎用のセクシーアタックモーション5種類を収録した、VRChat・Unity向けR18モーション素材です。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["汎用モーション", "アタックモーション", "音付き", "VRChat", "Unity"],
+    "tags": [
+      "汎用モーション",
+      "アタックモーション",
+      "音付き",
+      "VRChat",
+      "Unity"
+    ],
     "avatars": [],
     "price": "¥500",
     "coverImage": "/products/covers/SEXYA1-800.webp",
     "ogImage": "/products/covers/SEXYA1.webp",
     "galleryPrefix": "sexy-attack-motion-vol1",
     "galleryCount": 3,
-    "galleryNumbers": [1, 2, 8],
-    "specs": [
-      { "label": "商品名", "value": "【汎用】セクシーアタックモーション5種類(音付)" },
-      { "label": "内容", "value": "5種類のセクシーアタックモーションと音付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥500" }
+    "galleryNumbers": [
+      1,
+      2,
+      8
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6958362", "primary": true }],
-    "relatedIds": ["sexy-motion-vol1", "sexy-motion-attack-vol2", "foot-motion", "hand-motion"]
+    "specs": [
+      {
+        "label": "商品名",
+        "value": "【汎用】セクシーアタックモーション5種類(音付)"
+      },
+      {
+        "label": "内容",
+        "value": "5種類のセクシーアタックモーションと音付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
+    ],
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6958362",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-motion-vol1",
+      "sexy-motion-attack-vol2",
+      "foot-motion",
+      "hand-motion",
+      "bj-motion"
+    ],
+    "summaryTags": [
+      "セクシーアタック",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "攻め",
+      "音声付き",
+      "汎用",
+      "アバター撮影向け",
+      "動画制作向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【音付き】汎用セクシーアタックモーション Vol.1｜VRChat・3Dアバター向けアニメーション</h3>\r\n            <p class=\"booth-lead\">どのアバターでも扱いやすいように、体への埋まり込みやポーズの破綻が起きにくい動きを意識して制作した、実用性重視のセクシーアタックアニメーション集です。</p>\r\n            <p>派手さだけではなく、実際に使ったときの見栄え、合わせやすさ、シチュエーションへの馴染みやすさを大切にしています。</p>\r\n            <p>さまざまな3Dアバターで使いやすいよう、無理な姿勢になりすぎないモーションに調整しているため、導入後すぐに楽しみやすい内容になっています。</p>\r\n            <p>各アニメーションにはシチュエーションを盛り上げる<strong>音声</strong>も付属。VRChatでの演出、撮影、<strong>ロールプレイ</strong>、ワールド内での雰囲気作りなど、さまざまな場面で活用できます。</p>\r\n            <p>アバターによっては<strong>位置調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>SEXYA1_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>5種類のセクシーアタックモーションと音付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Sound</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [],
+        "popularity": 178,
+        "image": "/products/covers/SEXYA1-600.webp",
+        "imageSet": "/products/covers/SEXYA1-600.webp 600w, /products/covers/SEXYA1-800.webp 800w, /products/covers/SEXYA1.webp 1000w",
+        "alt": "〖汎用〗セクシーアタックモーション5種類 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "sexy-motion-attack-vol2",
@@ -297,22 +1147,99 @@
     "description": "Prefab置くだけ導入のSexyMotion / Attack vol.2です。VRChatアバター撮影やUnity動画制作向けの音付きモーション素材です。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["汎用モーション", "アタックモーション", "音付き", "Prefab", "VRChat", "Unity"],
+    "tags": [
+      "汎用モーション",
+      "アタックモーション",
+      "音付き",
+      "Prefab",
+      "VRChat",
+      "Unity"
+    ],
     "avatars": [],
     "price": "¥500〜¥800",
     "coverImage": "/products/covers/SEXY2-800.webp",
     "ogImage": "/products/covers/SEXY2.webp",
     "galleryPrefix": "sexy-motion-attack-vol2",
     "galleryCount": 6,
-    "galleryNumbers": [1, 2, 3, 9, 10, 11],
-    "specs": [
-      { "label": "商品名", "value": "【Prefab置くだけ導入】SexyMotion / Attack vol.2  (音付)" },
-      { "label": "内容", "value": "Prefab置くだけ導入のSexyMotion / Attack vol.2、音付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥500〜¥800" }
+    "galleryNumbers": [
+      1,
+      2,
+      3,
+      9,
+      10,
+      11
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7745526", "primary": true }],
-    "relatedIds": ["sexy-motion-vol1", "sexy-attack-motion-vol1", "hand-motion", "foot-motion"]
+    "specs": [
+      {
+        "label": "商品名",
+        "value": "【Prefab置くだけ導入】SexyMotion / Attack vol.2  (音付)"
+      },
+      {
+        "label": "内容",
+        "value": "Prefab置くだけ導入のSexyMotion / Attack vol.2、音付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500〜¥800"
+      }
+    ],
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7745526",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-motion-vol1",
+      "sexy-attack-motion-vol1",
+      "foot-motion",
+      "hand-motion",
+      "bj-motion"
+    ],
+    "summaryTags": [
+      "SexyMotion",
+      "Attack",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "攻め",
+      "受け",
+      "音声付き",
+      "Prefab対応",
+      "汎用",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【セット割あり】汎用アタック＆受けモーション集｜VRChat・3Dアバター向け音付きアニメーション</h3>\r\n            <p class=\"booth-lead\">アタック側と受け側、どちらのシチュエーションにも対応できるように制作した、実用性の高いセクシーアニメーションセットです。</p>\r\n            <p>どのアバターでも使いやすいよう、体に埋まりにくく、ポーズが破綻しにくい動きを意識して調整しています。アバター同士の距離感や見た目の自然さを重視しているため、<strong>VRChatでの撮影</strong>、演出、<strong>ロールプレイ</strong>にも使いやすい内容です。</p>\r\n            <p>アタックモーションと受けモーションを組み合わせることで、単体では出せないシチュエーションの幅が広がります。さらに<strong>音声</strong>も付属しているため、雰囲気作りや没入感のある演出にも向いています。</p>\r\n            <p><strong>セットで購入</strong>すると、単品購入より<strong>20%お得</strong>に入手できます。攻め、受けの両方をまとめて揃えたい方や、より幅広い表現を楽しみたい方におすすめのモーションパックです。</p>\r\n            <p>アバターによっては<strong>位置調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>SEXY2_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>Prefab置くだけ導入のSexyMotion / Attack vol.2、音付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Sound</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [],
+        "popularity": 567,
+        "image": "/products/covers/SEXY2-600.webp",
+        "imageSet": "/products/covers/SEXY2-600.webp 600w, /products/covers/SEXY2-800.webp 800w, /products/covers/SEXY2.webp 1000w",
+        "alt": "SexyMotion / Attack vol.2 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "foot-motion",
@@ -324,7 +1251,12 @@
     "description": "汎用の足○キモーション6種類を収録した、VRChat・Unity向けR18モーション素材です。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["汎用モーション", "音付き", "VRChat", "Unity"],
+    "tags": [
+      "汎用モーション",
+      "音付き",
+      "VRChat",
+      "Unity"
+    ],
     "avatars": [],
     "price": "¥500",
     "coverImage": "/products/covers/FJB-800.webp",
@@ -332,13 +1264,75 @@
     "galleryPrefix": "foot-motion",
     "galleryCount": 3,
     "specs": [
-      { "label": "商品名", "value": "【汎用】足○キモーション6種類(音付)" },
-      { "label": "内容", "value": "6種類の足○キモーションと音付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥500" }
+      {
+        "label": "商品名",
+        "value": "【汎用】足○キモーション6種類(音付)"
+      },
+      {
+        "label": "内容",
+        "value": "6種類の足○キモーションと音付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6832068", "primary": true }],
-    "relatedIds": ["hand-motion", "sexy-motion-vol1", "sexy-motion-attack-vol2", "bj-motion"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6832068",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-motion-vol1",
+      "sexy-attack-motion-vol1",
+      "sexy-motion-attack-vol2",
+      "hand-motion",
+      "bj-motion"
+    ],
+    "summaryTags": [
+      "足コキ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "攻め",
+      "音声付き",
+      "汎用",
+      "アバター撮影向け",
+      "動画制作向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【音付き】足コキモーション集｜VRChat・3Dアバター向けセクシーアニメーション</h3>\r\n            <p class=\"booth-lead\">足元の動きや距離感にこだわった、実用性のある足コキアニメーション集です。</p>\r\n            <p>どのアバターでも扱いやすいように、体への埋まり込みやポーズの破綻が起きにくい動きを意識して制作しています。</p>\r\n            <p>足、脚の見せ方、動きのテンポ、シチュエーションとしての使いやすさを重視しているため、導入後すぐに自然な演出として楽しめます。</p>\r\n            <p><strong>音声</strong>も付属しているので、モーション単体でも雰囲気を作りやすく、<strong>VRChatでの撮影</strong>、<strong>ロールプレイ</strong>、セクシー演出、アバター表現の幅を広げたい方におすすめです。</p>\r\n            <p>「使いやすい」「破綻しにくい」「シチュエーションに合わせやすい」ことを大切にした足コキモーションパックです。</p>\r\n            <p>アバターによっては<strong>位置調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>FJB_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>6種類の足○キモーションと音付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Sound</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [],
+        "popularity": 369,
+        "image": "/products/covers/FJB-600.webp",
+        "imageSet": "/products/covers/FJB-600.webp 600w, /products/covers/FJB-800.webp 800w, /products/covers/FJB.webp 1000w",
+        "alt": "〖汎用〗足○キモーション6種類 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "hand-motion",
@@ -350,7 +1344,12 @@
     "description": "汎用の手○キモーション15種類を収録した、VRChat・Unity向けR18モーション素材です。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["汎用モーション", "音付き", "VRChat", "Unity"],
+    "tags": [
+      "汎用モーション",
+      "音付き",
+      "VRChat",
+      "Unity"
+    ],
     "avatars": [],
     "price": "¥500〜¥1,000",
     "coverImage": "/products/covers/HJB-800.webp",
@@ -358,13 +1357,75 @@
     "galleryPrefix": "hand-motion",
     "galleryCount": 5,
     "specs": [
-      { "label": "商品名", "value": "【汎用】手○キモーション15種類(音付)" },
-      { "label": "内容", "value": "15種類の手○キモーションと音付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥500〜¥1,000" }
+      {
+        "label": "商品名",
+        "value": "【汎用】手○キモーション15種類(音付)"
+      },
+      {
+        "label": "内容",
+        "value": "15種類の手○キモーションと音付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥500〜¥1,000"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7015307", "primary": true }],
-    "relatedIds": ["foot-motion", "sexy-motion-vol1", "sexy-motion-attack-vol2", "bj-motion"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7015307",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-motion-vol1",
+      "sexy-attack-motion-vol1",
+      "sexy-motion-attack-vol2",
+      "foot-motion",
+      "bj-motion"
+    ],
+    "summaryTags": [
+      "手コキ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "攻め",
+      "音声付き",
+      "汎用",
+      "アバター撮影向け",
+      "動画制作向け",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【音付き】手コキモーション集｜VRChat・3Dアバター向け汎用セクシーアニメーション</h3>\r\n            <p class=\"booth-lead\">手元の動きやテンポ感にこだわって制作した、実用性のある手コキアニメーション集です。</p>\r\n            <p>どのアバターでも使いやすいように、体に埋まりにくく、ポーズが破綻しにくいモーションを意識して調整しています。激しすぎて扱いにくい動きではなく、さまざまなシチュエーションに馴染みやすい、導入しやすいアニメーションを目指しました。</p>\r\n            <p><strong>音声</strong>も付属しているため、モーションと組み合わせることでより没入感のある演出が可能です。<strong>VRChatでの撮影</strong>、<strong>ロールプレイ</strong>、アバター表現、セクシーなシーン作りに幅広く活用できます。</p>\r\n            <p><strong>セットで購入</strong>すると単品より<strong>33%お得</strong>に入手できます。手コキモーションをしっかり揃えたい方、複数のシチュエーションで使い分けたい方におすすめです。</p>\r\n            <p>アバターによっては<strong>位置調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>HJB_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>15種類の手○キモーションと音付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Tex</li>\r\n                  <li>ExMenu</li>\r\n                  <li>Sound</li>\r\n                  <li>Animation</li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [],
+        "popularity": 404,
+        "image": "/products/covers/HJB-600.webp",
+        "imageSet": "/products/covers/HJB-600.webp 600w, /products/covers/HJB-800.webp 800w, /products/covers/HJB.webp 1000w",
+        "alt": "〖汎用〗手○キモーション15種類 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "bj-motion",
@@ -376,21 +1437,170 @@
     "description": "13アバター対応のフ〇ラモーション素材です。ボイス音声、汎用舌モデル、表情付きで、VRChatやUnityでの撮影・動画制作に使えます。",
     "category": "motion",
     "categoryLabel": "モーション",
-    "tags": ["対応アバターあり", "音声付き", "表情付き", "VRChat", "Unity"],
-    "avatars": ["愛莉", "イチゴ", "エク", "ラシューシャ", "ルミナ", "マヌカ", "まよ", "ミルティナ", "萌", "プラム", "ラムネ", "ルルネ", "しなの"],
+    "tags": [
+      "対応アバターあり",
+      "音声付き",
+      "表情付き",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "愛莉",
+      "イチゴ",
+      "エク",
+      "ラシューシャ",
+      "ルミナ",
+      "マヌカ",
+      "まよ",
+      "ミルティナ",
+      "萌",
+      "プラム",
+      "ラムネ",
+      "ルルネ",
+      "しなの"
+    ],
     "price": "¥1,000〜¥2,200",
     "coverImage": "/products/covers/BJM-800.webp",
     "ogImage": "/products/covers/BJM.webp",
     "galleryPrefix": "bj-motion",
     "galleryCount": 15,
     "specs": [
-      { "label": "商品名", "value": "【13アバター対応】フ〇ラモーション(ボイス音声＋汎用舌モデル＋表情付き)" },
-      { "label": "内容", "value": "13アバター対応、ボイス音声、汎用舌モデル、表情付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け" },
-      { "label": "価格", "value": "¥1,000〜¥2,200" }
+      {
+        "label": "商品名",
+        "value": "【13アバター対応】フ〇ラモーション(ボイス音声＋汎用舌モデル＋表情付き)"
+      },
+      {
+        "label": "内容",
+        "value": "13アバター対応、ボイス音声、汎用舌モデル、表情付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000〜¥2,200"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7772395", "primary": true }],
-    "relatedIds": ["solo-motion-vol1", "hand-motion", "foot-motion", "sexy-motion-vol1"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7772395",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "sexy-motion-vol1",
+      "sexy-attack-motion-vol1",
+      "sexy-motion-attack-vol2",
+      "foot-motion",
+      "hand-motion"
+    ],
+    "summaryTags": [
+      "フェラ",
+      "BJ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "攻め",
+      "音声付き",
+      "表情付き",
+      "舌モデル付",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=universal",
+        "label": "汎用"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-airi",
+        "label": "愛莉"
+      },
+      {
+        "href": "/products?subtag=character-ichigo",
+        "label": "イチゴ"
+      },
+      {
+        "href": "/products?subtag=character-eku",
+        "label": "エク"
+      },
+      {
+        "href": "/products?subtag=character-shinano",
+        "label": "しなの"
+      },
+      {
+        "href": "/products?subtag=character-plum",
+        "label": "プラム"
+      },
+      {
+        "href": "/products?subtag=character-manuka",
+        "label": "マヌカ"
+      },
+      {
+        "href": "/products?subtag=character-mayo",
+        "label": "まよ"
+      },
+      {
+        "href": "/products?subtag=character-milltina",
+        "label": "ミルティナ"
+      },
+      {
+        "href": "/products?subtag=character-moe",
+        "label": "萌"
+      },
+      {
+        "href": "/products?subtag=character-lasyusha",
+        "label": "ラシューシャ"
+      },
+      {
+        "href": "/products?subtag=character-ramune",
+        "label": "ラムネ"
+      },
+      {
+        "href": "/products?subtag=character-lumina",
+        "label": "ルミナ"
+      },
+      {
+        "href": "/products?subtag=character-rurune",
+        "label": "ルルネ"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <h3 class=\"booth-sub-title\">【BlendShape対応】舌表現付きBJ・フェラモーション｜VRChat・3Dアバター向けセクシーアニメーション</h3>\r\n            <p class=\"booth-lead\">セクシーな舌遣いと動きにこだわった、BJ・フェラシチュエーション向けの実用アニメーションです。</p>\r\n            <p>舌の動きや<strong>表情</strong>のニュアンスを活かすことで、より印象的で雰囲気のあるシーンを演出できます。多数の<strong>BlendShapeキー</strong>に対応しており、舌を短くしたり長くしたりと、シチュエーションやアバターに合わせたカスタマイズも可能です。</p>\r\n            <p><strong>対応アバター</strong>向けに作られていますが、調整次第では<strong>対応外のアバター</strong>でも使用できる場合があります。<strong>VRChatでの撮影</strong>、ロールプレイ、成人向けアバター演出など、より細かな表現を求める方におすすめです。</p>\r\n            <p><strong>フルセット</strong>で購入すると、単品で揃えるよりもお得に入手できます。舌表現、<strong>BJモーション</strong>、<strong>フェラ系アニメーション</strong>をまとめて導入したい方は、フルセットも検討しやすい内容です。</p>\r\n            <p>アバターによっては位置調整や<strong>表情調整が必要</strong>になる場合がありますが、できるだけ多くのアバターで扱いやすいよう、汎用性を意識して制作しています。</p>\r\n            <p>導入しやすさ、使いやすさ、シチュエーションへの馴染みやすさを重視して制作しました。お気に入りのアバターに導入して、いつもの表現をさらに魅力的に広げていただければ嬉しいです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">導入環境を確認</strong><span class=\"booth-step-desc\">BOOTHの商品ページに記載されたUnity、VRChat、導入環境を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入した商品ファイルと、必要な共通パッケージがある場合は説明に沿ってインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">対応アバター向けPrefabが含まれる場合は、<code>BJM_○○○</code> など該当するPrefabを商品説明に従って配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\">モーション、音、表情、位置関係を自分のプロジェクト上で確認してから撮影や公開に使用します。</span></li>\r\n              <li><strong class=\"booth-step-title\">調整が必要な場合を確認</strong><span class=\"booth-step-desc\">未対応アバターや大きく改変したアバターでは、位置や接触感の調整が必要になる場合があります。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">購入前に、<strong>対応アバター</strong>、同梱ファイル、価格、利用条件、注意事項を<strong>BOOTHの商品ページ</strong>でご確認ください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>13アバター対応</strong>、<strong>ボイス音声</strong>、<strong>汎用舌モデル</strong>、表情付き</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Common\r\n                    <ul>\r\n                      <li>Mat</li>\r\n                      <li>SE</li>\r\n                      <li>Tex</li>\r\n                    </ul>\r\n                  </li>\r\n                  <li>Data\r\n                    <ul>\r\n                      <li>Animation</li>\r\n                      <li>ExMenu</li>\r\n                      <li>FBX</li>\r\n                      <li>Tex</li>\r\n                    </ul>\r\n                  </li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、衣装、スケール、接触位置などの改変量によっては調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\r\n            <p>BOOTHの商品ページで明記されていない限り、アバター本体は<strong class=\"booth-negative\">含まれません。</strong>各アバターは公式ページから別途入手してください。</p>\r\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\r\n            <p>対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "universal",
+          "motion"
+        ],
+        "subtags": [
+          "character-airi",
+          "character-eku",
+          "character-ichigo",
+          "character-lumina",
+          "character-lasyusha",
+          "character-manuka",
+          "character-mayo",
+          "character-milltina",
+          "character-moe",
+          "character-plum",
+          "character-ramune",
+          "character-rurune",
+          "character-shinano"
+        ],
+        "popularity": 375,
+        "image": "/products/covers/BJM-600.webp",
+        "imageSet": "/products/covers/BJM-600.webp 600w, /products/covers/BJM-800.webp 800w, /products/covers/BJM.webp 1000w",
+        "alt": "〖13アバター対応〗フ〇ラモーション VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "solo-motion-vol1",
@@ -402,21 +1612,211 @@
     "description": "20アバター対応の一人用R18モーション素材です。モーション2種類、音、パーティクル、玩具、表情を収録しています。",
     "category": "solo-motion",
     "categoryLabel": "一人用モーション",
-    "tags": ["一人用モーション", "音付き", "パーティクル", "表情付き", "VRChat", "Unity"],
-    "avatars": ["愛莉", "イチゴ", "エク", "クマリ", "しお", "しなの", "ショコラ", "セレスティア", "マヌカ", "真冬", "まよ", "ミルティナ", "ミルフィ", "萌", "プラム", "ラシューシャ", "ラムネ", "りりか", "ルミナ", "ルルネ"],
+    "tags": [
+      "一人用モーション",
+      "音付き",
+      "パーティクル",
+      "表情付き",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "愛莉",
+      "イチゴ",
+      "エク",
+      "クマリ",
+      "しお",
+      "しなの",
+      "ショコラ",
+      "セレスティア",
+      "マヌカ",
+      "真冬",
+      "まよ",
+      "ミルティナ",
+      "ミルフィ",
+      "萌",
+      "プラム",
+      "ラシューシャ",
+      "ラムネ",
+      "りりか",
+      "ルミナ",
+      "ルルネ"
+    ],
     "price": "¥1,000〜 / フルパック ¥2,200",
     "coverImage": "/products/covers/MBM1-800.webp",
     "ogImage": "/products/covers/MBM1.webp",
     "galleryPrefix": "solo-motion-vol1",
     "galleryCount": 22,
     "specs": [
-      { "label": "対応アバター", "value": "20アバター対応" },
-      { "label": "内容", "value": "モーション2種類、音、パーティクル、玩具、表情付き" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥1,000〜 / フルパック ¥2,200" }
+      {
+        "label": "対応アバター",
+        "value": "20アバター対応"
+      },
+      {
+        "label": "内容",
+        "value": "モーション2種類、音、パーティクル、玩具、表情付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000〜 / フルパック ¥2,200"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/6764923", "primary": true }],
-    "relatedIds": ["solo-motion-vol2", "solo-motion-vol3", "solo-motion-vol4", "bj-motion"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/6764923",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "solo-motion-vol2",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "一人用",
+      "オナニー",
+      "ローター",
+      "バイブ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "音声付き",
+      "表情付き",
+      "just"
+    ],
+    "normalTags": [
+      {
+        "href": "/products?tag=solo",
+        "label": "一人用"
+      }
+    ],
+    "subTags": [
+      {
+        "href": "/products?subtag=character-airi",
+        "label": "愛莉"
+      },
+      {
+        "href": "/products?subtag=character-chocolat",
+        "label": "ショコラ"
+      },
+      {
+        "href": "/products?subtag=character-eku",
+        "label": "エク"
+      },
+      {
+        "href": "/products?subtag=character-ichigo",
+        "label": "イチゴ"
+      },
+      {
+        "href": "/products?subtag=character-kumaly",
+        "label": "クマリ"
+      },
+      {
+        "href": "/products?subtag=character-lumina",
+        "label": "ルミナ"
+      },
+      {
+        "href": "/products?subtag=character-lasyusha",
+        "label": "ラシューシャ"
+      },
+      {
+        "href": "/products?subtag=character-manuka",
+        "label": "マヌカ"
+      },
+      {
+        "href": "/products?subtag=character-mafuyu",
+        "label": "真冬"
+      },
+      {
+        "href": "/products?subtag=character-mayo",
+        "label": "まよ"
+      },
+      {
+        "href": "/products?subtag=character-milfy",
+        "label": "ミルフィ"
+      },
+      {
+        "href": "/products?subtag=character-milltina",
+        "label": "ミルティナ"
+      },
+      {
+        "href": "/products?subtag=character-moe",
+        "label": "萌"
+      },
+      {
+        "href": "/products?subtag=character-plum",
+        "label": "プラム"
+      },
+      {
+        "href": "/products?subtag=character-ramune",
+        "label": "ラムネ"
+      },
+      {
+        "href": "/products?subtag=character-ririka",
+        "label": "りりか"
+      },
+      {
+        "href": "/products?subtag=character-rurune",
+        "label": "ルルネ"
+      },
+      {
+        "href": "/products?subtag=character-selestia",
+        "label": "セレスティア"
+      },
+      {
+        "href": "/products?subtag=character-shinano",
+        "label": "しなの"
+      },
+      {
+        "href": "/products?subtag=character-sio",
+        "label": "しお"
+      }
+    ],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">好きなアバターで、欲に素直な“オ○ニー”を楽しめるVRChat・Unity向けR18モーション素材です。</p>\r\n            <p>「一人エッチモーション vol.1」は、ローターバイブを使ったシチュエーションを演出できるモーションセットです。モーションの動きだけでなく、<strong>表情</strong>の変化、音、<strong>パーティクル</strong>、<strong>玩具</strong>の存在感まで組み合わせて、眺めている時間そのものを楽しめるように制作しました。</p>\r\n            <p>ひとり遊びらしい恥じらい、気持ちよさ、欲に素直になる雰囲気を表現しやすく、<strong>VRChatでの撮影</strong>、<strong>Unity動画制作</strong>、<strong>BOOTH用サムネイル制作</strong>などにも活用しやすい内容です。</p>\r\n            <p>導入後すぐにシチュエーションを作りやすいよう、<strong>音声</strong>、表情、<strong>パーティクル</strong>、<strong>玩具演出</strong>をまとめて収録。お気に入りのアバターの可愛さや色気を、より魅力的に引き出したい方におすすめです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入したアバター名のunitypackageと、Commonのunitypackageを両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、対応アバター用の <code>MBM1_○○○</code> Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">MAMST_Controllerを配置</strong><span class=\"booth-step-desc\">同じくアバターのHierarchy直下に、<code>MAMST_Controller</code> を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要Prefabの配置を確認</strong><span class=\"booth-step-desc\"><code>MBM1_○○○</code> と <code>MAMST_Controller</code> の2つが入っていることを確認してから動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">すでに別のマカロニ製ポーズやモーションで <code>MAMST_Controller</code> を導入済みの場合は、重複して追加しないでください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使ってアバター直下にPrefabを置くことで、アニメーションと<strong>Expression Menu</strong>を追加する形式です。通常のanimファイルをAnimatorへ登録する手順とは異なるため、Prefab導入の詳しい条件や注意事項はBOOTHの商品ページを優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>一人用R18モーション 2種類</strong></li>\r\n              <li>モーションに合わせた音素材</li>\r\n              <li>演出用<strong>パーティクル</strong></li>\r\n              <li><strong>玩具</strong>オブジェクト</li>\r\n              <li><strong>対応アバター</strong>向け<strong>表情</strong>データ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>Common\r\n                    <ul>\r\n                      <li>Material</li>\r\n                      <li>SE</li>\r\n                      <li>Animation</li>\r\n                      <li>Tex</li>\r\n                    </ul>\r\n                  </li>\r\n                  <li>Data\r\n                    <ul>\r\n                      <li>Animation</li>\r\n                      <li>ExMenu</li>\r\n                      <li>FBX</li>\r\n                      <li>Tex</li>\r\n                    </ul>\r\n                  </li>\r\n                  <li>Prefab</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、胸、腰、衣装、スケールなどの改変量によっては、位置、接触感、表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるモーション素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先・販売先の規約、アバター制作者の利用規約、使用する場所のルールもあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">Modular Avatarが必要ですか？</h3>\r\n            <p>Unity 2022のプロジェクトにModular Avatarを導入した状態での使用を想定しています。対応アバター用Prefabを配置して使うため、導入前にプロジェクト環境と同梱ファイルを確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\n            <div class=\"booth-faq-break\" aria-hidden=\"true\"></div>\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\n            <p>まず、自分が使用するアバターが対応一覧に含まれているかを確認してください。音やパーティクルを使用する場合は、撮影環境やUnity上で問題なく扱えるかも確認しておくと安心です。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "solo",
+          "motion"
+        ],
+        "subtags": [
+          "character-airi",
+          "character-chocolat",
+          "character-eku",
+          "character-ichigo",
+          "character-kumaly",
+          "character-lumina",
+          "character-lasyusha",
+          "character-manuka",
+          "character-mafuyu",
+          "character-mayo",
+          "character-milfy",
+          "character-milltina",
+          "character-moe",
+          "character-plum",
+          "character-ramune",
+          "character-ririka",
+          "character-rurune",
+          "character-selestia",
+          "character-shinano",
+          "character-sio"
+        ],
+        "popularity": 884,
+        "image": "/products/covers/MBM1-600.webp",
+        "imageSet": "/products/covers/MBM1-600.webp 600w, /products/covers/MBM1-800.webp 800w, /products/covers/MBM1.webp 1000w",
+        "alt": "一人エッチモーション vol.1 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "solo-motion-vol2",
@@ -428,21 +1828,109 @@
     "description": "対応アバター向けの一人用R18モーション素材です。モーション3種類、音、パーティクル、玩具、表情を収録しています。",
     "category": "solo-motion",
     "categoryLabel": "一人用モーション",
-    "tags": ["一人用モーション", "音付き", "パーティクル", "表情付き", "VRChat", "Unity"],
-    "avatars": ["イチゴ", "エク", "しお", "しなの", "ショコラ", "セレスティア", "マヌカ", "ミルティナ", "ミルフィ", "萌", "ルミナ", "ルルネ"],
+    "tags": [
+      "一人用モーション",
+      "音付き",
+      "パーティクル",
+      "表情付き",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "イチゴ",
+      "エク",
+      "しお",
+      "しなの",
+      "ショコラ",
+      "セレスティア",
+      "マヌカ",
+      "ミルティナ",
+      "ミルフィ",
+      "萌",
+      "ルミナ",
+      "ルルネ"
+    ],
     "price": "¥1,000円",
     "coverImage": "/products/covers/MBM2-800.webp",
     "ogImage": "/products/covers/MBM2.webp",
     "galleryPrefix": "solo-motion-vol2",
     "galleryCount": 14,
     "specs": [
-      { "label": "対応アバター", "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ" },
-      { "label": "内容", "value": "モーション3種類、音、パーティクル、玩具、表情付き" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unity 2022での動画制作、改変アバターの見え方確認、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥1,000円" }
+      {
+        "label": "対応アバター",
+        "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ"
+      },
+      {
+        "label": "内容",
+        "value": "モーション3種類、音、パーティクル、玩具、表情付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unity 2022での動画制作、改変アバターの見え方確認、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000円"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7239054", "primary": true }],
-    "relatedIds": ["solo-motion-vol1", "solo-motion-vol3", "solo-motion-vol4", "sexy-pose-shinano"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7239054",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "solo-motion-vol1",
+      "solo-motion-vol3",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "一人用",
+      "オナニー",
+      "ディルド",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "音声付き",
+      "パーティクル付き",
+      "表情付き",
+      "just"
+    ],
+    "normalTags": [],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">ディルドを使った“オ○ニー”を、好きなアバターでじっくり楽しめるVRChat・Unity向けR18モーション素材です。</p>\r\n            <p>「一人エッチモーション vol.2」は、欲に素直になる瞬間や、少しずつ快感に沈んでいく雰囲気を表現できるように制作しました。</p>\r\n            <p>ただモーションを再生するだけではなく、<strong>表情</strong>の変化、音、<strong>パーティクル</strong>、<strong>玩具</strong>の存在感を組み合わせることで、シチュエーション全体を眺めて楽しめる構成にしています。</p>\r\n            <p>ディルドを使った動きならではのテンポ感や、アバターの反応が伝わる見せ方を意識して調整。<strong>VRChatでの撮影</strong>、<strong>Unity動画制作</strong>、<strong>BOOTH用サムネイル制作</strong>など、R18シーンの雰囲気づくりに使いやすい内容です。</p>\r\n            <p>お気に入りのアバターで、少し濃厚な“オ○ニー”を演出したい方におすすめです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入したアバター名のunitypackageと、Commonのunitypackageを両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、対応アバター用の <code>MBM2_○○○</code> Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">MAMST_Controllerを配置</strong><span class=\"booth-step-desc\">同じくアバターのHierarchy直下に、<code>MAMST_Controller</code> を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\"><code>MBM2_○○○</code> と <code>MAMST_Controller</code> の2つが入っていることを確認してから動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">すでに別のマカロニ製ポーズやモーションで <code>MAMST_Controller</code> を導入済みの場合は、重複して追加しないでください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使ってアバター直下にPrefabを置くことで、アニメーションと<strong>Expression Menu</strong>を追加する形式です。通常のanimファイルをAnimatorへ登録する手順とは異なるため、Prefab導入の詳しい条件や注意事項はBOOTHの商品ページを優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>一人用R18モーション素材</li>\r\n              <li><strong>対応アバター</strong>向けPrefab</li>\r\n              <li>導入に必要な関連データ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>EXmenu</li>\r\n                  <li>Prefab</li>\r\n                  <li>FBX</li>\r\n                  <li>Sound</li>\r\n                  <li>Material</li>\r\n                  <li>Texture</li>\r\n                  <li>Animation</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、胸、腰、衣装、スケールなどの改変量によっては、位置、接触感、表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるモーション素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先・販売先の規約、アバター制作者の利用規約、使用する場所のルールもあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">Modular Avatarが必要ですか？</h3>\r\n            <p>Unity 2022のプロジェクトにModular Avatarを導入した状態での使用を想定しています。対応アバター用Prefabを配置して使うため、導入前にプロジェクト環境と同梱ファイルを確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\n            <div class=\"booth-faq-break\" aria-hidden=\"true\"></div>\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\n            <p>まず、自分が使用するアバターが対応一覧に含まれているかを確認してください。音やパーティクルを使用する場合は、撮影環境やUnity上で問題なく扱えるかも確認しておくと安心です。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "solo",
+          "motion"
+        ],
+        "subtags": [
+          "character-eku",
+          "character-lumina",
+          "character-ichigo",
+          "character-milltina",
+          "character-shinano",
+          "character-manuka",
+          "character-rurune",
+          "character-sio",
+          "character-chocolat",
+          "character-milfy",
+          "character-moe",
+          "character-selestia"
+        ],
+        "popularity": 790,
+        "image": "/products/covers/MBM2-600.webp",
+        "imageSet": "/products/covers/MBM2-600.webp 600w, /products/covers/MBM2-800.webp 800w, /products/covers/MBM2.webp 1000w",
+        "alt": "一人エッチモーション vol.2 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "solo-motion-vol3",
@@ -454,21 +1942,109 @@
     "description": "対応アバター向けの一人用R18モーション素材です。モーション2種類、音、パーティクル、玩具、表情を収録しています。",
     "category": "solo-motion",
     "categoryLabel": "一人用モーション",
-    "tags": ["一人用モーション", "音付き", "パーティクル", "表情付き", "VRChat", "Unity"],
-    "avatars": ["イチゴ", "エク", "しお", "しなの", "ショコラ", "セレスティア", "マヌカ", "ミルティナ", "ミルフィ", "萌", "ルミナ", "ルルネ"],
+    "tags": [
+      "一人用モーション",
+      "音付き",
+      "パーティクル",
+      "表情付き",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "イチゴ",
+      "エク",
+      "しお",
+      "しなの",
+      "ショコラ",
+      "セレスティア",
+      "マヌカ",
+      "ミルティナ",
+      "ミルフィ",
+      "萌",
+      "ルミナ",
+      "ルルネ"
+    ],
     "price": "¥1,000円",
     "coverImage": "/products/covers/MBM3-800.webp",
     "ogImage": "/products/covers/MBM3.webp",
     "galleryPrefix": "solo-motion-vol3",
     "galleryCount": 14,
     "specs": [
-      { "label": "対応アバター", "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ" },
-      { "label": "内容", "value": "モーション2種類、音、パーティクル、玩具、表情付き" },
-      { "label": "用途", "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥1,000円" }
+      {
+        "label": "対応アバター",
+        "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ"
+      },
+      {
+        "label": "内容",
+        "value": "モーション2種類、音、パーティクル、玩具、表情付き"
+      },
+      {
+        "label": "用途",
+        "value": "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000円"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7432810", "primary": true }],
-    "relatedIds": ["solo-motion-vol1", "solo-motion-vol2", "solo-motion-vol4", "sexy-pose-milltina"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7432810",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol4"
+    ],
+    "summaryTags": [
+      "一人用",
+      "オナニー",
+      "電マ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "音声付き",
+      "パーティクル付き",
+      "表情付き",
+      "just"
+    ],
+    "normalTags": [],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">電マの刺激に身を委ねる“オ○ニー”を演出できる、VRChat・Unity向けR18モーション素材です。</p>\r\n            <p>「一人エッチモーション vol.3」は、刺激に反応する<strong>表情</strong>や身体の動き、少しずつ高まっていく空気感を楽しめるように制作しました。</p>\r\n            <p>電マならではの刺激感を、モーション、<strong>表情</strong>、音、<strong>パーティクル</strong>、<strong>玩具演出</strong>でまとめ、ただ動きを見るだけではなく、シチュエーションとして眺めたくなる内容に仕上げています。</p>\r\n            <p>恥じらい、我慢、快感に身を任せる雰囲気など、R18撮影で見せたい表情や反応を作りやすい構成です。<strong>VRChatでのアバター撮影</strong>、<strong>Unity動画制作</strong>、サムネイル制作、アバター改変後の魅力チェックにも活用できます。</p>\r\n            <p>お気に入りのアバターの可愛さや色気を、より印象的に引き出したい方におすすめのモーションセットです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入したアバター名のunitypackageと、Commonのunitypackageを両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、対応アバター用の <code>MBM3_○○○</code> Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">MAMST_Controllerを配置</strong><span class=\"booth-step-desc\">同じくアバターのHierarchy直下に、<code>MAMST_Controller</code> を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\"><code>MBM3_○○○</code> と <code>MAMST_Controller</code> の2つが入っていることを確認してから動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">すでに別のマカロニ製ポーズやモーションで <code>MAMST_Controller</code> を導入済みの場合は、重複して追加しないでください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使ってアバター直下にPrefabを置くことで、アニメーションと<strong>Expression Menu</strong>を追加する形式です。通常のanimファイルをAnimatorへ登録する手順とは異なるため、Prefab導入の詳しい条件や注意事項はBOOTHの商品ページを優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li><strong>一人用R18モーション 2種類</strong></li>\r\n              <li>モーションに合わせた音素材</li>\r\n              <li>演出用<strong>パーティクル</strong></li>\r\n              <li><strong>玩具</strong>オブジェクト</li>\r\n              <li><strong>対応アバター</strong>向け<strong>表情</strong>データ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>EXmenu</li>\r\n                  <li>Prefab</li>\r\n                  <li>FBX</li>\r\n                  <li>Sound</li>\r\n                  <li>Material</li>\r\n                  <li>Texture</li>\r\n                  <li>Animation</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、胸、腰、衣装、スケールなどの改変量によっては、位置、接触感、表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるモーション素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先・販売先の規約、アバター制作者の利用規約、使用する場所のルールもあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">Modular Avatarが必要ですか？</h3>\r\n            <p>Unity 2022のプロジェクトにModular Avatarを導入した状態での使用を想定しています。対応アバター用Prefabを配置して使うため、導入前にプロジェクト環境と同梱ファイルを確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\n            <div class=\"booth-faq-break\" aria-hidden=\"true\"></div>\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\n            <p>まず、自分が使用するアバターが対応一覧に含まれているかを確認してください。音やパーティクルを使用する場合は、撮影環境やUnity上で問題なく扱えるかも確認しておくと安心です。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "solo",
+          "motion"
+        ],
+        "subtags": [
+          "character-eku",
+          "character-lumina",
+          "character-ichigo",
+          "character-milltina",
+          "character-shinano",
+          "character-manuka",
+          "character-rurune",
+          "character-sio",
+          "character-chocolat",
+          "character-milfy",
+          "character-moe",
+          "character-selestia"
+        ],
+        "popularity": 532,
+        "image": "/products/covers/MBM3-600.webp",
+        "imageSet": "/products/covers/MBM3-600.webp 600w, /products/covers/MBM3-800.webp 800w, /products/covers/MBM3.webp 1000w",
+        "alt": "一人エッチモーション vol.3 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "solo-motion-vol4",
@@ -480,21 +2056,110 @@
     "description": "対応アバター向けの一人用R18モーション素材です。表情、音素材、パーティクル、玩具ギミック、対応アバター向けPrefabを収録しています。",
     "category": "solo-motion",
     "categoryLabel": "一人用モーション",
-    "tags": ["一人用モーション", "音付き", "パーティクル", "表情付き", "Prefab", "VRChat", "Unity"],
-    "avatars": ["ルミナ", "エク", "イチゴ", "ミルティナ", "しなの", "マヌカ", "ルルネ", "しお", "ショコラ", "ミルフィ", "萌", "セレスティア"],
+    "tags": [
+      "一人用モーション",
+      "音付き",
+      "パーティクル",
+      "表情付き",
+      "Prefab",
+      "VRChat",
+      "Unity"
+    ],
+    "avatars": [
+      "ルミナ",
+      "エク",
+      "イチゴ",
+      "ミルティナ",
+      "しなの",
+      "マヌカ",
+      "ルルネ",
+      "しお",
+      "ショコラ",
+      "ミルフィ",
+      "萌",
+      "セレスティア"
+    ],
     "price": "¥1,000円",
     "coverImage": "/products/covers/MBM4-800.webp",
     "ogImage": "/products/covers/MBM4.webp",
     "galleryPrefix": "solo-motion-vol4",
     "galleryCount": 1,
     "specs": [
-      { "label": "対応アバター", "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ" },
-      { "label": "内容", "value": "一人用R18モーション、表情、音素材、パーティクル、玩具ギミック、対応アバター向けPrefab" },
-      { "label": "用途", "value": "VRChatアバター撮影、Unity 2022での動画制作、R18シーン確認、3Dゲーム制作向け" },
-      { "label": "価格", "value": "¥1,000円" }
+      {
+        "label": "対応アバター",
+        "value": "イチゴ / エク / しお / しなの / ショコラ / セレスティア / マヌカ / ミルティナ / ミルフィ / 萌 / ルミナ / ルルネ"
+      },
+      {
+        "label": "内容",
+        "value": "一人用R18モーション、表情、音素材、パーティクル、玩具ギミック、対応アバター向けPrefab"
+      },
+      {
+        "label": "用途",
+        "value": "VRChatアバター撮影、Unity 2022での動画制作、R18シーン確認、3Dゲーム制作向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥1,000円"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7432844", "primary": true }],
-    "relatedIds": ["solo-motion-vol1", "solo-motion-vol2", "solo-motion-vol3", "sexy-pose-shinano"]
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7432844",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3"
+    ],
+    "summaryTags": [
+      "一人用",
+      "オナニー",
+      "セルフタッチ",
+      "VRChat",
+      "Unity",
+      "R18モーション",
+      "音声付き",
+      "パーティクル付き",
+      "表情付き",
+      "just"
+    ],
+    "normalTags": [],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">自分の手で快感を求める“オ○ニー”を演出できる、VRChat・Unity向けR18モーション素材です。</p>\r\n            <p>「一人エッチモーション vol.4」は、道具に頼りすぎないからこそ伝わる、仕草、<strong>表情</strong>、身体の反応を大切に制作しました。</p>\r\n            <p>手の動き、<strong>表情</strong>の変化、音、<strong>パーティクル</strong>、<strong>愛液モデル</strong>を組み合わせることで、ひとり遊びならではの生々しい雰囲気や没入感を表現しやすい構成にしています。</p>\r\n            <p>静かな始まりから、少しずつ欲に素直になっていくような空気感を演出しやすく、<strong>VRChatでの撮影</strong>、<strong>Unity動画制作</strong>、<strong>BOOTH用サムネイル制作</strong>にも使いやすい内容です。</p>\r\n            <p>お気に入りのアバターで、より自然に、より近く感じられる“オ○ニー”を楽しみたい方におすすめです。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Modular Avatarを導入したUnity 2022のプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">必要なunitypackageをインポート</strong><span class=\"booth-step-desc\">購入したアバター名のunitypackageと、Commonのunitypackageを両方インポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">Prefabまたは設定を配置</strong><span class=\"booth-step-desc\">アバターのHierarchy直下に、対応アバター用の <code>MBM4_○○○</code> Prefabを配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">MAMST_Controllerを配置</strong><span class=\"booth-step-desc\">同じくアバターのHierarchy直下に、<code>MAMST_Controller</code> を配置します。</span></li>\r\n              <li><strong class=\"booth-step-title\">対応アバター上で動作確認</strong><span class=\"booth-step-desc\"><code>MBM4_○○○</code> と <code>MAMST_Controller</code> の2つが入っていることを確認してから動作を確認します。</span></li>\r\n              <li><strong class=\"booth-step-title\">重複追加前に注意事項を確認</strong><span class=\"booth-step-desc\">すでに別のマカロニ製ポーズやモーションで <code>MAMST_Controller</code> を導入済みの場合は、重複して追加しないでください。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">この商品は、<strong>Modular Avatar</strong>を使ってアバター直下にPrefabを置くことで、アニメーションと<strong>Expression Menu</strong>を追加する形式です。通常のanimファイルをAnimatorへ登録する手順とは異なるため、Prefab導入の詳しい条件や注意事項はBOOTHの商品ページを優先して確認してください。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>一人用R18モーション</li>\r\n              <li>モーションに合わせた音素材</li>\r\n              <li>演出用<strong>パーティクル</strong></li>\r\n              <li><strong>玩具</strong>オブジェクト</li>\r\n              <li><strong>対応アバター</strong>向け<strong>表情</strong>データ</li>\r\n              <li>当アセットのunitypackage\r\n                <ul>\r\n                  <li>EXmenu</li>\r\n                  <li>Prefab</li>\r\n                  <li>FBX</li>\r\n                  <li>Sound</li>\r\n                  <li>Material</li>\r\n                  <li>Texture</li>\r\n                  <li>Animation</li>\r\n                </ul>\r\n              </li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\r\n            <h3 class=\"booth-sub-title\">改変済みアバターでも使えますか？</h3>\r\n            <p>対応アバターをベースにしていれば使える可能性があります。ただし、体型、胸、腰、衣装、スケールなどの改変量によっては、位置、接触感、表情の調整が必要です。</p>\r\n            <h3 class=\"booth-sub-title\">VRChat以外でも使えますか？</h3>\r\n            <p>Unity上で扱えるモーション素材として、3Dゲーム制作、動画制作、静止画撮影などにも使用できます。公開先・販売先の規約、アバター制作者の利用規約、使用する場所のルールもあわせて確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">Modular Avatarが必要ですか？</h3>\r\n            <p>Unity 2022のプロジェクトにModular Avatarを導入した状態での使用を想定しています。対応アバター用Prefabを配置して使うため、導入前にプロジェクト環境と同梱ファイルを確認してください。</p>\r\n            <h3 class=\"booth-sub-title\">対応アバター本体は含まれますか？</h3>\n            <p><strong class=\"booth-negative\">含まれません。</strong>アバター本体は各公式ページから別途入手してください。</p>\n            <div class=\"booth-faq-break\" aria-hidden=\"true\"></div>\n            <h3 class=\"booth-sub-title\">購入前に何を確認すればいいですか？</h3>\n            <p>まず、自分が使用するアバターが対応一覧に含まれているかを確認してください。音やパーティクルを使用する場合は、撮影環境やUnity上で問題なく扱えるかも確認しておくと安心です。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "solo",
+          "motion"
+        ],
+        "subtags": [
+          "character-lumina",
+          "character-eku",
+          "character-ichigo",
+          "character-milltina",
+          "character-shinano",
+          "character-manuka",
+          "character-rurune",
+          "character-sio",
+          "character-chocolat",
+          "character-milfy",
+          "character-moe",
+          "character-selestia"
+        ],
+        "popularity": 135,
+        "image": "/products/covers/MBM4-600.webp",
+        "imageSet": "/products/covers/MBM4-600.webp 600w, /products/covers/MBM4-800.webp 800w, /products/covers/MBM4.webp 1000w",
+        "alt": "一人エッチモーション vol.4 VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   },
   {
     "id": "dosukebe-material",
@@ -506,7 +2171,12 @@
     "description": "liltoon用プリセットを含むスキンマテリアル素材です。Unity 2022、liltoon導入済みプロジェクト向けに利用できます。",
     "category": "material",
     "categoryLabel": "マテリアル",
-    "tags": ["マテリアル", "liltoon", "Unity", "Texture"],
+    "tags": [
+      "マテリアル",
+      "liltoon",
+      "Unity",
+      "Texture"
+    ],
     "avatars": [],
     "price": "¥300",
     "coverImage": "/products/covers/Doskebe-800.webp",
@@ -514,12 +2184,65 @@
     "galleryPrefix": "dosukebe-material",
     "galleryCount": 3,
     "specs": [
-      { "label": "形式", "value": "liltoon用プリセットを含むスキンマテリアル" },
-      { "label": "内容", "value": "unitypackage、Preset、Texture（Noise x 1 / Normal x 1 / MatCap x 1）、Material" },
-      { "label": "環境", "value": "Unity 2022、liltoon導入済みプロジェクト向け" },
-      { "label": "価格", "value": "¥300" }
+      {
+        "label": "形式",
+        "value": "liltoon用プリセットを含むスキンマテリアル"
+      },
+      {
+        "label": "内容",
+        "value": "unitypackage、Preset、Texture（Noise x 1 / Normal x 1 / MatCap x 1）、Material"
+      },
+      {
+        "label": "環境",
+        "value": "Unity 2022、liltoon導入済みプロジェクト向け"
+      },
+      {
+        "label": "価格",
+        "value": "¥300"
+      }
     ],
-    "salesLinks": [{ "label": "BOOTH", "url": "https://macaronin.booth.pm/items/7237678", "primary": true }],
-    "relatedIds": []
+    "salesLinks": [
+      {
+        "label": "BOOTH",
+        "url": "https://macaronin.booth.pm/items/7237678",
+        "primary": true
+      }
+    ],
+    "relatedIds": [
+      "solo-motion-vol1",
+      "solo-motion-vol2",
+      "solo-motion-vol3"
+    ],
+    "summaryTags": [
+      "ドスケベマテリアル",
+      "VRChat",
+      "Unity",
+      "R18マテリアル",
+      "肌マテリアル",
+      "lilToon",
+      "Substance Designer",
+      "Preset付き",
+      "just"
+    ],
+    "normalTags": [],
+    "subTags": [],
+    "detailArticles": [
+      "<h2 id=\"product-detail-title\" class=\"booth-section-title\">商品詳細</h2>\r\n            <p class=\"booth-lead\">VRChat向けアバターの肌表現を艶っぽく整えるR18向けスキンマテリアルです。Substance Designer制作のTexture、Material、lilToon用Presetを収録し、Unityでのアバター撮影や映像制作で質感を強めたい時に使いやすい素材です。</p>\r\n            <p>「ドスケベマテリアル」は、VRChatでの使用を想定した肌用マテリアルです。BOOTHの商品説明では、リアルで艶っぽいスキンマテリアルとして案内されています。</p>\r\n            <p>導入はliltoonプリセット形式で、使用中のアバター肌マテリアルを選択し、liltoon設定のプリセットから <code>DosukebeSkin</code> を選ぶ流れが説明されています。</p>\r\n            <p>質感が強い場合はNormalマップの強度、赤みが強く出る場合はliltoonの影関連設定を調整する案内があります。実際の見え方はアバター、肌マテリアル、ライティング、Unity設定によって変わるため、BOOTHの商品説明を確認しながら調整してください。</p>",
+      "<h2 class=\"booth-section-title\">導入方法</h2>\r\n            <ol>\r\n              <li><strong class=\"booth-step-title\">Unity 2022のプロジェクトを用意</strong><span class=\"booth-step-desc\">Unity 2022で、liltoonが導入されたプロジェクトを用意します。</span></li>\r\n              <li><strong class=\"booth-step-title\">アセットをインポート</strong><span class=\"booth-step-desc\">購入したアセットをUnityプロジェクトへインポートします。</span></li>\r\n              <li><strong class=\"booth-step-title\">肌マテリアルを選択</strong><span class=\"booth-step-desc\">使用中のアバター肌マテリアルを選択します。</span></li>\r\n              <li><strong class=\"booth-step-title\">liltoonプリセットを選択</strong><span class=\"booth-step-desc\">liltoon設定から、プリセット、肌、<code>DosukebeSkin</code> の順に選択します。</span></li>\r\n              <li><strong class=\"booth-step-title\">質感を調整</strong><span class=\"booth-step-desc\">反映後、必要に応じてNormalマップの強度や影関連の設定を調整します。</span></li>\r\n            </ol>\r\n            <p class=\"booth-note\">BOOTHの商品説明では<strong>Unity 2022</strong>のみ対応、liltoonが導入されたプロジェクトで使用するよう案内されています。</p>",
+      "<h2 class=\"booth-section-title\">同梱内容</h2>\r\n            <ul>\r\n              <li>当アセットの<strong>unitypackage</strong></li>\r\n              <li>liltoon用Preset</li>\r\n              <li>Texture（Noise x 1 / Normal x 1 / MatCap x 1）</li>\r\n              <li>Material</li>\r\n            </ul>",
+      "<h2 class=\"booth-section-title\">FAQ</h2>\n            <h3 class=\"booth-sub-title\">どのUnity環境で使えますか？</h3>\n            <p>BOOTHの商品説明では、Unity 2022のみ対応です。</p>\n            <h3 class=\"booth-sub-title\">liltoonは必要ですか？</h3>\n            <p>はい。liltoonを導入したプロジェクトで使用します。</p>\n            <h3 class=\"booth-sub-title\">質感や赤みは調整できますか？</h3>\n            <p>質感が強すぎる場合はNormalマップの強度、赤みが強く出すぎる場合はliltoonの影関連設定値を調整できます。</p>\n            <h3 class=\"booth-sub-title\">アバター本体は含まれますか？</h3>\n            <p>商品説明で確認できる同梱内容はunitypackage、Preset、Texture、Materialです。アバター本体は含まれません。</p>\n            <h3 class=\"booth-sub-title\">利用条件はどこで確認できますか？</h3>\n            <p>BOOTHの商品説明では、個人利用と改変ができます。データの再配布・販売はできません。使用は自己責任になります。購入前に最新の利用規約を商品ページで確認してください。</p>"
+    ],
+    "catalogCards": [
+      {
+        "tags": [
+          "material"
+        ],
+        "subtags": [],
+        "popularity": 387,
+        "image": "/products/covers/Doskebe-600.webp",
+        "imageSet": "/products/covers/Doskebe-600.webp 600w, /products/covers/Doskebe-800.webp 800w, /products/covers/Doskebe.webp 1000w",
+        "alt": "ドスケベマテリアル VRChat・Unity向け3Dポーズ/モーション作品"
+      }
+    ]
   }
 ]

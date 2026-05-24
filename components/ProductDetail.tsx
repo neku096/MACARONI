@@ -1,29 +1,43 @@
-import Link from "next/link";
+import { Fragment } from "react";
 import type { Product } from "@/lib/products";
-import { getGalleryImages, getRelatedProducts } from "@/lib/products";
+import { getGalleryImages, getLegacyCategoryTag, getRelatedProducts } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
 type ProductDetailProps = {
   product: Product;
 };
 
+const categoryLabels: Record<string, string> = {
+  pose: "ポーズ",
+  universal: "汎用",
+  solo: "一人用",
+  material: "マテリアル",
+};
+
 export function ProductDetail({ product }: ProductDetailProps) {
   const gallery = getGalleryImages(product);
   const mainImage = gallery[0] ?? {
     src: product.coverImage,
-    thumb: product.coverImage,
+    thumb: product.coverImage.replace("-800.webp", "-600.webp"),
     alt: product.shortTitle,
   };
   const relatedProducts = getRelatedProducts(product);
-  const summaryTags = [...product.avatars, ...product.tags].slice(0, 12);
+  const summaryTags = product.summaryTags?.length ? product.summaryTags : [...product.avatars, ...product.tags].slice(0, 12);
+  const categoryTag = getLegacyCategoryTag(product);
 
   return (
     <main className="product-page">
       <section className="section product-hero" aria-labelledby="product-title">
-        <div className="product-gallery" aria-label="商品画像ギャラリー">
+        <div className="product-gallery" data-product-gallery="" aria-label="商品画像ギャラリー">
           <figure className="product-main-figure">
-            <a className="product-main-button" href={mainImage.src} target="_blank" rel="noopener noreferrer">
+            <button
+              className="product-main-button"
+              type="button"
+              data-gallery-open=""
+              aria-label={`${product.shortTitle}の商品画像を拡大表示`}
+            >
               <img
+                data-product-main-image=""
                 src={mainImage.src}
                 srcSet={`${mainImage.thumb} 600w, ${mainImage.src} 1000w`}
                 sizes="(max-width: 720px) 100vw, 620px"
@@ -33,31 +47,33 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 decoding="async"
                 fetchPriority="high"
               />
-            </a>
+            </button>
           </figure>
-          <div className="product-thumbnail-slider" aria-label="サムネイルスライダー">
-            <div className="product-thumbnails next-product-thumbnails" aria-label="サムネイル">
-              {gallery.map((image, index) => (
-                <a
-                  className={`product-thumbnail${index === 0 ? " is-active" : ""}`}
-                  href={image.src}
-                  key={image.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={image.thumb} alt={`${image.alt} サムネイル`} width="600" height="600" loading="lazy" />
-                </a>
-              ))}
-            </div>
+          <div className="product-thumbnail-slider">
+            <button className="product-thumbnail-arrow" type="button" data-gallery-inline-prev="" aria-label="前のサムネイルへ">
+              ‹
+            </button>
+            <div className="product-thumbnails" data-gallery-inline-thumbs="" aria-label="サムネイル" />
+            <button className="product-thumbnail-arrow" type="button" data-gallery-inline-next="" aria-label="次のサムネイルへ">
+              ›
+            </button>
           </div>
-          <p className="product-media-note">画像クリックで拡大表示できます。</p>
+          <p className="product-media-note">クリックして拡大できます。</p>
         </div>
 
         <aside className="product-summary" aria-label="商品情報">
           <nav className="product-summary-breadcrumb" aria-label="作品カテゴリ">
-            <Link href="/products">BOOTH作品一覧</Link>
+            <a href="/products" aria-label="BOOTH">
+              BOOTH作品一覧
+            </a>
             <span aria-hidden="true">›</span>
-            <Link href={`/products?category=${product.category}`}>{product.categoryLabel}</Link>
+            <a href={`/products?tag=${categoryTag}`}>{categoryLabels[categoryTag] ?? product.categoryLabel}</a>
+            {product.subTags?.slice(0, 20).map((tag) => (
+              <Fragment key={tag.href}>
+                <span aria-hidden="true">›</span>
+                <a href={tag.href}>{tag.label}</a>
+              </Fragment>
+            ))}
           </nav>
           <h1 id="product-title">{product.title}</h1>
           <div className="product-summary-tags" aria-label="商品キーワード">
@@ -92,58 +108,63 @@ export function ProductDetail({ product }: ProductDetailProps) {
         </aside>
       </section>
 
+      <script
+        type="application/json"
+        id="product-gallery-data"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(gallery) }}
+      />
+
       <section className="section product-detail-section" aria-labelledby="product-detail-title">
         <div className="product-detail-grid">
-          <article className="product-detail-block booth-description">
-            <h2 id="product-detail-title" className="booth-section-title">
-              商品詳細
-            </h2>
-            <p className="booth-lead">{product.description}</p>
-            <p>
-              VRChatでのアバター撮影、Unity動画制作、BOOTH用サムネイル制作、改変後の見え方チェックなどに使いやすい素材です。
-            </p>
-            <p>
-              商品画像で雰囲気やシルエットを確認しながら、使いたいアバターや制作シーンに合う素材を選べます。
-            </p>
-            {product.avatars.length > 0 ? (
-              <p>
-                対応アバターは <strong>{product.avatars.join(" / ")}</strong> です。導入前にBOOTH側の最新説明も確認してください。
-              </p>
-            ) : (
-              <p>汎用素材として使いやすい構成ですが、導入前に利用環境とBOOTH側の最新説明を確認してください。</p>
-            )}
-            <p className="booth-note">
-              同梱内容や最新の<strong>注意事項</strong>については、<strong>BOOTHの商品ページ</strong>をご確認ください。
-            </p>
-          </article>
-
-          <article className="product-detail-block booth-description">
-            <h2 className="booth-section-title">導入・確認ポイント</h2>
-            <ol>
-              <li>
-                <strong className="booth-step-title">Unity 2022のプロジェクトを用意</strong>
-                <span className="booth-step-desc">Modular Avatarなど、BOOTH商品側で指定されている導入環境を確認します。</span>
-              </li>
-              <li>
-                <strong className="booth-step-title">unitypackageやPrefabをインポート</strong>
-                <span className="booth-step-desc">購入したファイルをProjectへ入れ、同梱説明に沿って配置します。</span>
-              </li>
-              <li>
-                <strong className="booth-step-title">対応アバター上でPreview確認</strong>
-                <span className="booth-step-desc">撮影や動画制作の前に、見え方、表情、音、ギミックの動作を確認します。</span>
-              </li>
-              <li>
-                <strong className="booth-step-title">利用条件を確認</strong>
-                <span className="booth-step-desc">商用利用、改変、再配布可否などはBOOTHの商品ページと利用規約を優先してください。</span>
-              </li>
-            </ol>
-          </article>
+          {(product.detailArticles?.length ? product.detailArticles : []).map((article, index) => (
+            <article
+              className="product-detail-block booth-description"
+              key={index}
+              dangerouslySetInnerHTML={{ __html: article }}
+            />
+          ))}
         </div>
       </section>
 
+      {product.normalTags?.length || product.subTags?.length ? (
+        <section className="section product-tag-section" aria-label="この商品のタグ">
+          {product.normalTags?.length ? (
+            <>
+              <p className="booth-subtag-heading">通常タグ</p>
+              <div className="product-tag-list">
+                {product.normalTags.map((tag) => (
+                  <a className="product-tag" href={tag.href} key={tag.href}>
+                    {tag.label}
+                  </a>
+                ))}
+              </div>
+            </>
+          ) : null}
+          {product.subTags?.length ? (
+            <>
+              <p className="booth-subtag-heading">サブタグ</p>
+              <div className="product-tag-list">
+                {product.subTags.map((tag) => (
+                  <a className="product-tag" href={tag.href} key={tag.href}>
+                    {tag.label}
+                  </a>
+                ))}
+              </div>
+            </>
+          ) : null}
+        </section>
+      ) : null}
+
       {relatedProducts.length > 0 ? (
         <section className="section product-related-section" aria-labelledby="product-related-title">
-          <h2 id="product-related-title">関連商品</h2>
+          <div className="section-heading">
+            <div>
+              <h2 id="product-related-title">関連商品</h2>
+            </div>
+            <a className="button secondary" href="/products">
+              BOOTH作品一覧へ
+            </a>
+          </div>
           <div className="product-related-grid">
             {relatedProducts.map((related) => (
               <ProductCard key={related.id} product={related} />

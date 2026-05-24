@@ -1,25 +1,29 @@
-import Link from "next/link";
-
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <Link className="footer-brand" href="/" aria-label="トップへ">
+      <a className="footer-brand" href="/" aria-label="トップへ">
         <img src="/images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" />
         <span>R18 3Dポーズ素材無料配布サイト</span>
-      </Link>
+      </a>
       <div className="footer-links" aria-label="外部リンク">
         <a className="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
-          <span className="footer-pill-icon">B</span>
+          <span className="footer-pill-icon" aria-hidden="true">
+            <img src="/images/link-icons/Booth_logo_footer.webp" alt="" width="38" height="38" loading="lazy" decoding="async" />
+          </span>
           <span>BOOTH</span>
         </a>
-        <a className="footer-pill" href="https://x.com/" target="_blank" rel="noopener noreferrer">
-          <span className="footer-pill-icon">X</span>
+        <a className="footer-pill" href="https://x.com/macaroniSoft" target="_blank" rel="noopener noreferrer">
+          <span className="footer-pill-icon" aria-hidden="true">
+            <img src="/images/link-icons/x_logo-white_footer.webp" alt="" width="38" height="38" loading="lazy" decoding="async" />
+          </span>
           <span>X</span>
         </a>
-        <Link className="footer-pill" href="/links.html">
-          <span className="footer-pill-icon">L</span>
+        <a className="footer-pill" href="/links.html">
+          <span className="footer-pill-icon" aria-hidden="true">
+            L
+          </span>
           <span>Links</span>
-        </Link>
+        </a>
       </div>
     </footer>
   );

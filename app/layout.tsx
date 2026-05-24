@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { AgeGate } from "@/components/AgeGate";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteUrl } from "@/lib/products";
 import "../styles.css";
-import "./next.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
@@ -47,12 +47,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body>
+        <Script src="/age-gate-boot.js?v=20260516" strategy="beforeInteractive" />
         <AgeGate />
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Script src="/script.js?v=22" strategy="afterInteractive" />
       </body>
     </html>
   );

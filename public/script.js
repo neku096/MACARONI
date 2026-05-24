@@ -172,9 +172,13 @@ const characterNameTranslations = {
   ルミナ: "Lumina",
   真冬: "Mafuyu",
   マヌカ: "Manuka",
+  しお: "Sio",
   ミルティナ: "Milltina",
+  ミルフィ: "Milfy",
   萌: "Moe",
   プラム: "Plum",
+  "プラム・ショコラ": "Plum / Chocolat",
+  ラシューシャ: "Lasyusha",
   ラムネ: "Ramune",
   りりか: "Ririka",
   ルルネ: "Rurune",
@@ -196,6 +200,18 @@ const textTranslations = {
   対応キャラ: "Characters",
   BOOTH作品: "BOOTH Works",
   BOOTH作品一覧: "BOOTH Works",
+  使い方: "How to Use",
+  利用規約: "Terms",
+  商品詳細: "Product Details",
+  導入方法: "Setup",
+  同梱内容: "Included Files",
+  関連商品: "Related Products",
+  通常タグ: "Tags",
+  サブタグ: "Sub Tags",
+  対応アバター: "Supported Avatar",
+  内容: "Contents",
+  用途: "Use",
+  価格: "Price",
   "VRChat・Unity向けR18無料3Dポーズ素材": "R18 Free 3D Pose Materials for VRChat and Unity",
   "VRChat・Unity向けR18無料3Dポーズ素材 | マカロニ": "R18 Free 3D Pose Materials for VRChat and Unity | Macaroni",
   "VRChat対応アバター別 無料3Dポーズ素材一覧": "Free 3D Pose Materials by VRChat Avatar",
@@ -261,6 +277,11 @@ const translateText = (text) => {
   const sexyPoseMatch = text.match(/^〖(.+)用〗セクシーポーズ(\d+)種＋表情(\d+)種$/);
   if (sexyPoseMatch) {
     return `${sexyPoseMatch[2]} Sexy Poses + ${sexyPoseMatch[3]} Expressions for ${translateCharacterName(sexyPoseMatch[1])}`;
+  }
+
+  const bracketSexyPoseMatch = text.match(/^【(.+?)用\s*】セクシーポーズ(\d+)種＋表情(\d+)種$/);
+  if (bracketSexyPoseMatch) {
+    return `${bracketSexyPoseMatch[2]} Sexy Poses + ${bracketSexyPoseMatch[3]} Expressions for ${translateCharacterName(bracketSexyPoseMatch[1])}`;
   }
 
   const sexyMotionMatch = text.match(/^〖(.+)用〗セクシーポーズ(\d+)種＋挿入モーション(\d+)種$/);
@@ -371,7 +392,10 @@ const translateTextNode = (node, language) => {
 };
 
 const translateAttribute = (element, attributeName, language) => {
-  const originalKey = `original${attributeName[0].toUpperCase()}${attributeName.slice(1)}`;
+  const originalKey = `original${attributeName
+    .split("-")
+    .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+    .join("")}`;
   const currentValue = element.getAttribute(attributeName);
 
   if (!currentValue) {
@@ -1208,8 +1232,17 @@ const setupBoothFilters = () => {
     const singularSuffix = filterPanel.dataset.countSingularSuffix || suffix;
     const pageSize = Number(filterPanel.dataset.pageSize || 0);
     const query = new URLSearchParams(window.location.search);
-    const requestedTag = query.get("tag");
-    const requestedSubtag = query.get("subtag");
+    const categoryAliases = {
+      motion: "universal",
+      universal: "universal",
+      "solo-motion": "solo",
+      solo: "solo",
+      pose: "pose",
+      material: "material",
+    };
+    const requestedCategory = query.get("category");
+    const requestedTag = query.get("tag") || categoryAliases[requestedCategory] || requestedCategory;
+    const requestedSubtag = query.get("subtag") || query.get("avatar");
     const hasTag = (tag) => tag === "all"
       || filterButtons.some((button) => button.dataset.boothFilterButton === tag);
     const hasSubtag = (subtag) => subtag === "all"
