@@ -73,11 +73,14 @@ if not defined PORT (
 set "LOCK_DIR=%LOCK_ROOT%\port-%PORT%.lock"
 
 echo Starting Next.js dev server on port %PORT%...
-start "Macaroni Next dev :%PORT%" cmd /k ""%~f0" --serve %PORT% "%LOCK_DIR%""
+start "Macaroni Next dev :%PORT%" cmd /k call "%~f0" --serve %PORT% "%LOCK_DIR%"
 
 echo Waiting for http://localhost:%PORT% ...
 powershell -NoProfile -ExecutionPolicy Bypass -Command "$port=%PORT%; $baseUrl='http://localhost:' + $port; $productsUrl=$baseUrl + '/products'; $ready=$false; for ($i=0; $i -lt 60; $i++) { try { $response=Invoke-WebRequest -Uri $baseUrl -UseBasicParsing -TimeoutSec 1; if ($response.StatusCode -lt 500) { $ready=$true; break } } catch { Start-Sleep -Milliseconds 500 } }; Start-Process $baseUrl; Start-Process $productsUrl; if (-not $ready) { exit 2 }"
 if errorlevel 2 (
+  if defined LOCK_DIR (
+    rmdir "%LOCK_DIR%" >nul 2>nul
+  )
   echo.
   echo The browser was opened, but the dev server did not respond yet.
   echo Check the "Macaroni Next dev :%PORT%" window for details.
