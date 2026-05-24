@@ -54,6 +54,9 @@ const nextConfig: NextConfig = {
       { source: "/ja/terms.html", destination: "/terms.html", permanent: true },
       { source: "/ja/tips.html", destination: "/tips.html", permanent: true },
       { source: "/ja/links.html", destination: "/links.html", permanent: true },
+      { source: "/blog.html", destination: "/tips.html", permanent: true },
+      { source: "/ja/blog.html", destination: "/tips.html", permanent: true },
+      { source: "/en/blog.html", destination: "/tips.html", permanent: false },
       ...productRedirects,
     ];
   },

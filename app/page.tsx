@@ -1,9 +1,40 @@
 import type { Metadata } from "next";
-import { getPublishedProducts } from "@/lib/products";
+import { getPublishedProducts, siteUrl } from "@/lib/products";
+
+const homeTitle = "VRChat・Unity向けR18無料3Dポーズ素材";
+const homeDescription =
+  "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
+const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 
 export const metadata: Metadata = {
-  title: "VRChat・Unity向けR18無料3Dポーズ素材",
-  description: "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。",
+  title: homeTitle,
+  description: homeDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: `${homeTitle} | マカロニ`,
+    description: homeDescription,
+    siteName: "マカロニ",
+    locale: "ja_JP",
+    images: [
+      {
+        url: siteOgImage,
+        width: 1200,
+        height: 630,
+        alt: "マカロニ",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${homeTitle} | マカロニ`,
+    description: homeDescription,
+    images: [siteOgImage],
+  },
 };
 
 const characters = [

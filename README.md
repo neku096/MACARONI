@@ -1,17 +1,56 @@
-# R18 BOOTH Promotion Site
+# MACARONI Next.js Site
 
-静的HTML/CSSサイトです。`index.html` がトップ、`character-kumaly.html` が無料ポーズの個別カタログページです。
+マカロニのBOOTH作品・無料素材ページをNext.js App Routerで管理するサイトです。
 
-## 差し替える場所
+## セットアップ
 
-- `index.html` の `href="#"` をBOOTHショップ、商品ページ、X、問い合わせ先に変更
-- `character-kumaly.html` の `download` リンクを無料配布ファイルのURLまたはファイルパスに変更
-- `マカロニ` を活動名またはブランド名に合わせて変更
-- 商品名、利用条件、説明文を実際の素材内容に合わせて変更
+```bash
+npm install
+npm run dev
+```
 
-## 公開前チェック
+ローカル確認は `http://127.0.0.1:3000` を使います。
 
-- BOOTH側の商品はR-18設定にする
-- 無料配布素材にも利用規約を同梱する
-- 未成年、無修正、違法アップロード、権利侵害を想起させる素材や説明を置かない
-- 年齢確認は簡易ゲートです。法的・決済的な年齢確認が必要な場合は、サーバー側や外部サービスで追加対応してください
+## コマンド
+
+- `npm run dev`: 開発サーバーを起動
+- `npm run lint`: lintを実行
+- `npm run typecheck`: TypeScriptの型チェックを実行
+- `npm run build`: 本番ビルドを作成
+- `npm run start`: ビルド済みアプリを起動
+
+## 本番公開方針
+
+Next.js版の本番公開は **Vercel推奨** です。`/products` と `/products/[slug]` を本番URLとして動かす前提のため、GitHub Pages旧HTML公開とはURL仕様が異なります。
+
+GitHub Pagesは旧HTML公開用として残せますが、Next.js版の本番URLとしては扱いません。GitHub PagesでNext.js版を公開する場合は、`basePath` / `assetPrefix` / static export などの追加設計が必要です。現時点では追加していません。
+
+## 環境変数
+
+Vercel Productionに必ず以下を設定してください。
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-production-domain.example
+```
+
+`NEXT_PUBLIC_SITE_URL` は canonical、OGP URL、sitemap、robots の基準URLになります。未設定時は Vercel の `VERCEL_URL`、それも無い場合は `http://localhost:3000` を使います。
+
+## データ管理
+
+商品データは `data/products.json` を中心に管理します。`published:false` の商品は `/products/[slug]` の静的生成対象から外れ、商品ページでは `notFound()` になります。`noindex:true` を使う場合は、metadata側で検索対象外にする前提です。
+
+## 旧HTML互換
+
+`next.config.ts` の redirects で旧URLをNext.js版へ転送します。
+
+- `booth.html` -> `/products`
+- `product-*.html` -> `/products/[slug]`
+- `/ja/terms.html` -> `/terms.html`
+- `/ja/characters.html` -> `/characters.html`
+- `/blog.html` -> `/tips.html`
+
+これらのredirectはVercel/Next.js上で動作します。GitHub Pagesで静的HTMLとして配信している場合は、Next.jsのredirectは実行されません。
+
+## デプロイ
+
+詳細は [docs/deploy.md](docs/deploy.md) を参照してください。

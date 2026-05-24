@@ -61,8 +61,14 @@ export type Product = {
   catalogCards?: ProductCatalogCard[];
 };
 
-export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://neku096.github.io/MACARONI";
+function resolveSiteUrl() {
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const vercelUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "";
+
+  return (configuredUrl || vercelUrl || "http://localhost:3000").replace(/\/$/, "");
+}
+
+export const siteUrl = resolveSiteUrl();
 
 const products = productsData as Product[];
 

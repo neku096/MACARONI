@@ -1,12 +1,40 @@
 import type { Metadata } from "next";
 import { ProductCatalog } from "@/components/ProductCatalog";
-import { getPublishedProducts } from "@/lib/products";
+import { getPublishedProducts, siteUrl } from "@/lib/products";
+
+const productsTitle = "VRChat・Unity向けR18 3D素材一覧";
+const productsDescription =
+  "VRChatアバターやUnity向けのR18 3Dポーズ、モーション、マテリアル素材をカテゴリ・タグ・対応アバターで絞り込めます。";
+const productsOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 
 export const metadata: Metadata = {
-  title: "VRChat・Unity向けR18 3D素材一覧",
-  description: "VRChatアバターやUnity向けのR18 3Dポーズ、モーション、マテリアル素材をカテゴリ・タグ・対応アバターで絞り込めます。",
+  title: productsTitle,
+  description: productsDescription,
   alternates: {
     canonical: "/products",
+  },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/products`,
+    title: `${productsTitle} | マカロニ`,
+    description: productsDescription,
+    siteName: "マカロニ",
+    locale: "ja_JP",
+    images: [
+      {
+        url: productsOgImage,
+        width: 1200,
+        height: 630,
+        alt: "マカロニ BOOTH作品一覧",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${productsTitle} | マカロニ`,
+    description: productsDescription,
+    images: [productsOgImage],
   },
 };
 
