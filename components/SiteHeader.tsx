@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ShareButton } from "@/components/ShareButton";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isProductsPage = pathname === "/products" || pathname.startsWith("/products/");
+  const productSlug = pathname.startsWith("/products/") ? pathname.slice("/products/".length) : "";
+  const japaneseHref = productSlug ? `/products/${productSlug}` : isProductsPage ? "/products" : "/";
+  const englishHref = productSlug ? `/en/product-${productSlug}.html` : isProductsPage ? "/en/booth.html" : "/en/index.html";
+
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="トップへ">
@@ -17,16 +26,18 @@ export function SiteHeader() {
       </Link>
       <nav className="nav" aria-label="メインナビゲーション">
         <Link href="/characters.html">対応キャラ</Link>
-        <Link href="/products">BOOTH作品</Link>
+        <Link href="/products" aria-current={isProductsPage ? "page" : undefined} aria-label="BOOTH">
+          BOOTH作品
+        </Link>
         <Link href="/tips.html">使い方</Link>
         <Link href="/terms.html">利用規約</Link>
       </nav>
       <div className="header-actions">
         <div className="language-switch" role="group" aria-label="Language">
-          <Link className="language-option" href="/" aria-pressed="true">
+          <Link className="language-option" href={japaneseHref} aria-pressed="true">
             JP
           </Link>
-          <Link className="language-option" href="/en/index.html" aria-pressed="false">
+          <Link className="language-option" href={englishHref} aria-pressed="false">
             EN
           </Link>
         </div>

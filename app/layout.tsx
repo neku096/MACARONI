@@ -7,6 +7,16 @@ import { siteUrl } from "@/lib/products";
 import "../styles.css";
 import "./next.css";
 
+const ageGateBootScript = `(() => {
+  try {
+    if (localStorage.getItem("ageConfirmed") === "true") {
+      document.documentElement.classList.add("age-confirmed");
+    }
+  } catch {
+    document.documentElement.classList.remove("age-confirmed");
+  }
+})();`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: {
@@ -47,7 +57,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: ageGateBootScript }} />
+      </head>
       <body>
         <AgeGate />
         <SiteHeader />

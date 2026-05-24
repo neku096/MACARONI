@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const distDir = process.env.NEXT_DIST_DIR?.trim();
+const tsconfigPath = process.env.NEXT_TSCONFIG_PATH?.trim();
+
 const productSlugs = [
   "sexy-pose-kumaly",
   "sexy-pose-plum-chocolat",
@@ -24,6 +27,8 @@ const productSlugs = [
 ];
 
 const nextConfig: NextConfig = {
+  ...(distDir ? { distDir } : {}),
+  ...(tsconfigPath ? { typescript: { tsconfigPath } } : {}),
   async redirects() {
     const productRedirects = productSlugs.flatMap((slug) => [
       {
@@ -36,21 +41,19 @@ const nextConfig: NextConfig = {
         destination: `/products/${slug}`,
         permanent: true,
       },
-      {
-        source: `/en/product-${slug}.html`,
-        destination: `/products/${slug}`,
-        permanent: false,
-      },
     ]);
 
     return [
+      { source: "/en", destination: "/en/index.html", permanent: false },
       { source: "/booth.html", destination: "/products", permanent: true },
       { source: "/ja/booth.html", destination: "/products", permanent: true },
-      { source: "/en/booth.html", destination: "/products", permanent: false },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/ja/index.html", destination: "/", permanent: true },
-      { source: "/en/index.html", destination: "/", permanent: false },
+      { source: "/products/dark-voice-material", destination: "/products/dosukebe-material", permanent: false },
+      { source: "/product-dark-voice-material.html", destination: "/products/dosukebe-material", permanent: true },
+      { source: "/ja/product-dark-voice-material.html", destination: "/products/dosukebe-material", permanent: true },
       ...productRedirects,
+      { source: "/ja/:path*", destination: "/:path*", permanent: true },
     ];
   },
 };

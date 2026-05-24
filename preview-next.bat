@@ -94,13 +94,27 @@ set "PORT=%~2"
 set "LOCK_DIR=%~3"
 
 cd /d "%~dp0"
+set "NEXT_DIST_DIR=.next-dev-%PORT%"
+set "NEXT_TSCONFIG_PATH=tsconfig.preview-%PORT%.json"
+set "NEXT_ENV_BACKUP=%TEMP%\macaroni-next-env-%PORT%-%RANDOM%.d.ts"
+if exist "next-env.d.ts" (
+  copy /y "next-env.d.ts" "%NEXT_ENV_BACKUP%" >nul 2>nul
+)
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$dist=$env:NEXT_DIST_DIR; $path=$env:NEXT_TSCONFIG_PATH; $json=[ordered]@{ extends='./tsconfig.json'; compilerOptions=[ordered]@{ tsBuildInfoFile=('./' + $dist + '/tsconfig.tsbuildinfo') }; include=@('next-env.d.ts','**/*.ts','**/*.tsx',($dist + '/types/**/*.ts'),($dist + '/dev/types/**/*.ts')); exclude=@('node_modules') }; $text=ConvertTo-Json $json -Depth 4; $encoding=New-Object System.Text.UTF8Encoding($false); [System.IO.File]::WriteAllText((Join-Path (Get-Location) $path), $text, $encoding)"
 echo Next.js dev server
 echo URL: http://localhost:%PORT%
 echo Products: http://localhost:%PORT%/products
+echo Cache: %NEXT_DIST_DIR%
+echo TypeScript config: %NEXT_TSCONFIG_PATH%
 echo.
 
 call npm run dev -- -p %PORT%
 set "EXIT_CODE=%ERRORLEVEL%"
+
+if exist "%NEXT_ENV_BACKUP%" (
+  copy /y "%NEXT_ENV_BACKUP%" "next-env.d.ts" >nul 2>nul
+  del "%NEXT_ENV_BACKUP%" >nul 2>nul
+)
 
 if defined LOCK_DIR (
   rmdir "%LOCK_DIR%" >nul 2>nul

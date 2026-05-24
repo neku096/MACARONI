@@ -208,8 +208,11 @@ a {
 .share-modal-backdrop {
   position: absolute;
   inset: 0;
+  border: 0;
   background: rgba(4, 4, 7, 0.66);
   backdrop-filter: blur(3px);
+  cursor: default;
+  padding: 0;
 }
 
 .share-dialog {

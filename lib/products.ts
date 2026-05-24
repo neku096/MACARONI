@@ -19,6 +19,11 @@ export type GalleryImage = {
   alt: string;
 };
 
+export type ProductDetailSection = {
+  title: string;
+  html: string;
+};
+
 export type Product = {
   id: string;
   slug: string;
@@ -37,6 +42,10 @@ export type Product = {
   galleryPrefix: string;
   galleryCount: number;
   galleryNumbers?: number[];
+  galleryImages?: GalleryImage[];
+  summaryTags?: string[];
+  purchaseNote?: string;
+  detailSections?: ProductDetailSection[];
   specs: ProductSpec[];
   salesLinks: SalesLink[];
   relatedIds: string[];
@@ -72,6 +81,14 @@ export function getAbsoluteProductUrl(product: Product) {
 }
 
 export function getGalleryImages(product: Product): GalleryImage[] {
+  if (product.galleryImages?.length) {
+    return product.galleryImages.map((image) => ({
+      src: normalizeAssetPath(image.src),
+      thumb: normalizeAssetPath(image.thumb),
+      alt: image.alt,
+    }));
+  }
+
   const numbers =
     product.galleryNumbers ?? Array.from({ length: product.galleryCount }, (_, index) => index + 1);
 
@@ -91,6 +108,10 @@ export function getRelatedProducts(product: Product, limit = 5) {
     .map((id) => getProductById(id))
     .filter((related): related is Product => Boolean(related?.published));
 
+  if (manuallySelected.length > 0) {
+    return manuallySelected.slice(0, limit);
+  }
+
   const selectedIds = new Set([product.id, ...manuallySelected.map((related) => related.id)]);
   const scored = published
     .filter((candidate) => !selectedIds.has(candidate.id))
@@ -107,6 +128,14 @@ export function getRelatedProducts(product: Product, limit = 5) {
     .sort((a, b) => b.score - a.score || a.product.shortTitle.localeCompare(b.product.shortTitle, "ja"));
 
   return [...manuallySelected, ...scored.map((entry) => entry.product)].slice(0, limit);
+}
+
+function normalizeAssetPath(assetPath: string) {
+  if (!assetPath || assetPath.startsWith("/") || /^https?:\/\//.test(assetPath)) {
+    return assetPath;
+  }
+
+  return `/${assetPath.replace(/^public\//, "")}`;
 }
 
 export function getFilterOptions() {

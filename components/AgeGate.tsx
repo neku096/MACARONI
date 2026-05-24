@@ -2,19 +2,28 @@
 
 import { useEffect, useState } from "react";
 
-const storageKey = "macaroni-age-confirmed";
+const storageKey = "ageConfirmed";
 
 export function AgeGate() {
   const [isAccepted, setIsAccepted] = useState(false);
 
   useEffect(() => {
-    // LocalStorage is the source of truth for the age-gate state.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsAccepted(localStorage.getItem(storageKey) === "true");
+    try {
+      const accepted = localStorage.getItem(storageKey) === "true";
+      document.documentElement.classList.toggle("age-confirmed", accepted);
+      document.body.classList.toggle("age-gate-open", !accepted);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsAccepted(accepted);
+    } catch {
+      document.documentElement.classList.remove("age-confirmed");
+      document.body.classList.add("age-gate-open");
+    }
   }, []);
 
   function enterSite() {
     localStorage.setItem(storageKey, "true");
+    document.documentElement.classList.add("age-confirmed");
+    document.body.classList.remove("age-gate-open");
     setIsAccepted(true);
   }
 

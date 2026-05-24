@@ -44,5 +44,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...productPages];
+  const englishStaticPages: MetadataRoute.Sitemap = [
+    {
+      url: `${siteUrl}/en/index.html`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/en/booth.html`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/en/characters.html`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/en/tips.html`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.55,
+    },
+    {
+      url: `${siteUrl}/en/terms.html`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.35,
+    },
+  ];
+
+  const englishProductPages = getPublishedProducts().map((product) => ({
+    url: `${siteUrl}/en/product-${product.slug}.html`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...productPages, ...englishStaticPages, ...englishProductPages];
 }

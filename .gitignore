@@ -14,6 +14,11 @@
 config.toml
 node_modules/
 .next/
+.next-dev-*/
+out/
+dist/
+coverage/
+tsconfig.preview-*.json
 *.tsbuildinfo
 .playwright-mcp/
 public/images/products/

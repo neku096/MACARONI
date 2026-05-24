@@ -39,6 +39,11 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     description: product.description,
     alternates: {
       canonical: getProductUrl(product),
+      languages: {
+        ja: getProductUrl(product),
+        en: `/en/product-${product.slug}.html`,
+        "x-default": getProductUrl(product),
+      },
     },
     openGraph: {
       type: "website",
