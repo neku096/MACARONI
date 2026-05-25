@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+// Migration helper: extracts product detail data from the root legacy HTML files
+// into data/products.json. It is not part of the Next.js runtime.
 const root = process.cwd();
 const dataPath = path.join(root, "data", "products.json");
 const boothPath = path.join(root, "booth.html");
