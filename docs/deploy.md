@@ -50,6 +50,19 @@ NEXT_PUBLIC_SITE_URL=https://macaroni.example.com
 /robots.txt
 ```
 
+## 本番公開後チェック
+
+2026-05-25時点の確認結果です。
+
+- 本番URL: `https://macaroni-wheat.vercel.app`
+- `NEXT_PUBLIC_SITE_URL` は `https://macaroni-wheat.vercel.app` で設定済みです。
+- `/`、`/products`、`/products/sexy-pose-kumaly` は `200 OK` です。
+- `/blog.html` は `/tips.html` へredirectします。
+- `sitemap.xml` と `robots.txt` は本番URL基準です。
+- Playwright確認でconsole warning/errorはありません。
+- Vercel MCPではproject取得が未完了ですが、実サイト確認はOKです。
+- Vercel Analytics Draft PRは旧HTML向けのため、Next.js移行作業にはマージしない方針です。
+
 ## GitHub Pagesについて
 
 GitHub Pagesは旧HTMLを公開し続ける場合だけ利用します。Next.js版の `/products` や `/products/[slug]` は、GitHub Pagesの静的HTML配信ではそのまま動きません。
