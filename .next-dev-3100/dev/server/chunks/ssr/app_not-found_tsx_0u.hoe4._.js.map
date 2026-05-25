@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/Codex/MACARONI/app/not-found.tsx"],"sourcesContent":["import Link from \"next/link\";\n\nexport default function NotFound() {\n  return (\n    <main className=\"text-page\">\n      <section className=\"section text-section\" aria-labelledby=\"not-found-title\">\n        <div className=\"text-panel\">\n          <p className=\"eyebrow\">404</p>\n          <h1 id=\"not-found-title\">ページが見つかりません</h1>\n          <p>商品が非公開、またはURLが変更された可能性があります。</p>\n          <Link className=\"button primary\" href=\"/products\">\n            商品一覧へ戻る\n          </Link>\n        </div>\n      </section>\n    </main>\n  );\n}\n"],"names":["NotFound","className","id","href"],"mappings":";;;;;AAAA;;;AAEe,SAASA;IACtB,qBACE,8OAAC;QAAKC,WAAU;kBACd,cAAA,8OAAC;YAAQA,WAAU;YAAuB,mBAAgB;sBACxD,cAAA,8OAAC;gBAAIA,WAAU;;kCACb,8OAAC;wBAAEA,WAAU;kCAAU;;;;;;kCACvB,8OAAC;wBAAGC,IAAG;kCAAkB;;;;;;kCACzB,8OAAC;kCAAE;;;;;;kCACH,8OAAC,0LAAI;wBAACD,WAAU;wBAAiBE,MAAK;kCAAY;;;;;;;;;;;;;;;;;;;;;;AAO5D"}}]
-}
