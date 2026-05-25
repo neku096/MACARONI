@@ -38,6 +38,7 @@ export type Product = {
   slug: string;
   legacyPath: string;
   published: boolean;
+  noindex?: boolean;
   title: string;
   shortTitle: string;
   description: string;
@@ -78,6 +79,10 @@ export function getAllProducts() {
 
 export function getPublishedProducts() {
   return products.filter((product) => product.published);
+}
+
+export function getIndexableProducts() {
+  return getPublishedProducts().filter((product) => !product.noindex);
 }
 
 export function getProductBySlug(slug: string) {

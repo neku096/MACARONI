@@ -37,6 +37,12 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: product.shortTitle,
     description: product.description,
+    robots: product.noindex
+      ? {
+          index: false,
+          follow: false,
+        }
+      : undefined,
     alternates: {
       canonical: getProductUrl(product),
     },

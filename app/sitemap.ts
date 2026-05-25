@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAbsoluteProductUrl, getPublishedProducts, siteUrl } from "@/lib/products";
+import { getAbsoluteProductUrl, getIndexableProducts, siteUrl } from "@/lib/products";
 
 const lastModified = new Date("2026-05-24T00:00:00+09:00");
 
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const productPages = getPublishedProducts().map((product) => ({
+  const productPages = getIndexableProducts().map((product) => ({
     url: getAbsoluteProductUrl(product),
     lastModified,
     changeFrequency: "weekly" as const,
