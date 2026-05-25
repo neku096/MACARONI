@@ -31,6 +31,22 @@ NEXT_PUBLIC_SITE_URL=https://macaroni.example.com
 - robots.txt の sitemap URL
 - 商品JSON-LDの画像URL
 
+## ローカルadmin
+
+`/admin` は `data/products.json` を編集するためのローカル運用向け画面です。本格CMSではなく、DBや認証は導入していません。
+
+公開運用では、Production環境に `MACARONI_ADMIN_ENABLED` を設定しないでください。`MACARONI_ADMIN_ENABLED=1` の時だけ `/admin` を表示し、それ以外は404になります。
+
+保存APIの `/api/admin/products` は、本番環境では常に `403` を返します。ローカル開発時のみ、localhostからのPUTで `data/products.json` を更新できます。
+
+ローカルでadminを使う場合:
+
+```bash
+MACARONI_ADMIN_ENABLED=1 npm run dev
+```
+
+認証なしでadminを公開運用することは非推奨です。将来CMS化する場合は、保存API側にも必ず認証・認可を追加してください。
+
 ## 公開前チェック
 
 1. Vercel ProjectをGitHubリポジトリに接続します。

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { AdminProductEditor } from "@/components/AdminProductEditor";
 import { getAllProducts } from "@/lib/products";
 
@@ -9,10 +10,20 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
   },
+  openGraph: null,
+  twitter: null,
 };
 
 export default function AdminPage() {
+  if (process.env.MACARONI_ADMIN_ENABLED !== "1") {
+    notFound();
+  }
+
   const products = getAllProducts();
 
   return (

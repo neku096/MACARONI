@@ -25,6 +25,10 @@ export async function GET() {
 }
 
 export async function PUT(request: Request) {
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json({ message: "Admin writes are disabled in production." }, { status: 403 });
+  }
+
   if (!isLocalRequest(request)) {
     return NextResponse.json(
       { message: "Admin writes are only available from a local host." },
@@ -77,7 +81,7 @@ async function writeProducts(products: EditableProduct[]) {
 }
 
 function isLocalRequest(request: Request) {
-  if (process.env.MACARONI_ADMIN_WRITE === "1") {
+  if (process.env.NODE_ENV !== "production" && process.env.MACARONI_ADMIN_WRITE === "1") {
     return true;
   }
 
