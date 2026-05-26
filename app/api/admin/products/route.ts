@@ -43,29 +43,33 @@ export async function PUT(request: Request) {
     return NextResponse.json({ message: "Invalid JSON body." }, { status: 400 });
   }
 
-  const validationError = validatePayload(payload);
-  if (validationError) {
-    return NextResponse.json({ message: validationError }, { status: 400 });
+  const basicValidationError = validatePayload(payload);
+  if (basicValidationError) {
+    return NextResponse.json({ message: basicValidationError }, { status: 400 });
   }
 
   const products = await readProducts();
   const product = normalizeProduct(payload.product as EditableProduct);
-  const originalId = payload.originalId || product.id;
-  const targetIndex = products.findIndex((item) => item.id === originalId);
+  const originalId = payload.originalId?.trim() || "";
+  const targetIndex = originalId ? products.findIndex((item) => item.id === originalId) : -1;
+  const validationError = validateProductAgainstProducts(product, products, targetIndex);
+  if (validationError) {
+    return NextResponse.json({ message: validationError }, { status: 400 });
+  }
 
-  if (targetIndex < 0) {
+  if (originalId && targetIndex < 0) {
     return NextResponse.json({ message: `Product not found: ${originalId}` }, { status: 404 });
   }
 
-  if (product.id !== originalId) {
+  if (originalId && product.id !== originalId) {
     return NextResponse.json({ message: "Changing product id is not supported." }, { status: 400 });
   }
 
-  if (products.some((item) => item.id !== originalId && item.slug === product.slug)) {
-    return NextResponse.json({ message: `Slug already exists: ${product.slug}` }, { status: 400 });
+  if (targetIndex >= 0) {
+    products[targetIndex] = product;
+  } else {
+    products.push(product);
   }
-
-  products[targetIndex] = product;
   await writeProducts(products);
 
   return NextResponse.json({ product, products });
@@ -100,13 +104,24 @@ function validatePayload(payload: SavePayload) {
   if (!isNonEmptyString(product.title)) return "Missing title.";
   if (!isNonEmptyString(product.description)) return "Missing description.";
   if (!categories.has(product.category)) return "Unsupported category.";
+  if (!isNonEmptyString(product.categoryLabel)) return "Missing categoryLabel.";
+  if (!Array.isArray(product.avatars) || product.avatars.some((avatar) => typeof avatar !== "string")) {
+    return "Avatars must be a string array.";
+  }
   if (!Array.isArray(product.tags) || product.tags.some((tag) => !isNonEmptyString(tag))) {
     return "Tags must be a string array.";
   }
+  if (!Array.isArray(product.relatedIds) || product.relatedIds.some((id) => !isNonEmptyString(id))) {
+    return "relatedIds must be a string array.";
+  }
+  if (!Array.isArray(product.salesLinks)) return "salesLinks must be an array.";
+  if (!Array.isArray(product.specs)) return "specs must be an array.";
   if (typeof product.published !== "boolean") return "published must be a boolean.";
   if (product.noindex !== undefined && typeof product.noindex !== "boolean") {
     return "noindex must be a boolean.";
   }
+  if (!isNonEmptyString(product.coverImage)) return "Missing coverImage.";
+  if (!isNonEmptyString(product.ogImage)) return "Missing ogImage.";
   if (!isNonEmptyString(product.galleryPrefix)) return "Missing galleryPrefix.";
   if (!Number.isInteger(product.galleryCount) || product.galleryCount < 0 || product.galleryCount > 100) {
     return "galleryCount must be an integer from 0 to 100.";
@@ -125,10 +140,29 @@ function validatePayload(payload: SavePayload) {
   return "";
 }
 
+function validateProductAgainstProducts(product: EditableProduct, products: EditableProduct[], targetIndex: number) {
+  if (products.some((item, index) => index !== targetIndex && item.id === product.id)) {
+    return `Product id already exists: ${product.id}`;
+  }
+  if (products.some((item, index) => index !== targetIndex && item.slug === product.slug)) {
+    return `Slug already exists: ${product.slug}`;
+  }
+
+  const productIds = new Set(products.map((item, index) => (index === targetIndex ? product.id : item.id)));
+  const missingRelatedId = product.relatedIds.find((id) => !productIds.has(id));
+  if (missingRelatedId) {
+    return `relatedId does not exist: ${missingRelatedId}`;
+  }
+
+  return "";
+}
+
 function normalizeProduct(product: EditableProduct): EditableProduct {
   const normalized = {
     ...product,
     tags: normalizeStringList(product.tags),
+    avatars: normalizeStringList(product.avatars),
+    relatedIds: normalizeStringList(product.relatedIds),
     galleryNumbers: product.galleryNumbers?.length ? product.galleryNumbers : undefined,
   };
 
