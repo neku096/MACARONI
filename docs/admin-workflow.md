@@ -1,6 +1,12 @@
 # Admin Workflow
 
-`/admin` はローカルで `data/products.json` を編集するための軽量ツールです。DB、認証、本番admin運用は前提にしていません。
+`/admin` はローカルで管理用JSONを編集するための軽量ツールです。DB、認証、本番admin運用は前提にしていません。
+
+管理画面:
+
+- `/admin/products`: `data/products.json`
+- `/admin/free-poses`: `data/free-poses.json`
+- `/admin/slide-links`: `data/slide-links.json`
 
 ## 起動
 
@@ -83,6 +89,9 @@ public/products/<slug>/<galleryPrefix>-02-600.webp
 
 ```bash
 npm run validate:products
+npm run validate:free-poses
+npm run validate:slide-links
+npm run validate
 ```
 
 チェック対象:
@@ -95,6 +104,8 @@ npm run validate:products
 - gallery空
 - OGP不足候補
 - draft商品のnoindex状態
+- 無料配布ポーズのローカルthumbnail / downloadUrl
+- リンク集カードのURL形式とローカルthumbnail
 
 エラーが出た場合は公開前に修正してください。warningは内容を確認し、意図した状態なら許容できます。
 

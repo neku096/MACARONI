@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { getAdminWriteError } from "@/lib/admin";
 import type { Product, ProductCategory } from "@/lib/products";
 
 export const runtime = "nodejs";
@@ -25,15 +26,9 @@ export async function GET() {
 }
 
 export async function PUT(request: Request) {
-  if (process.env.NODE_ENV === "production") {
-    return NextResponse.json({ message: "Admin writes are disabled in production." }, { status: 403 });
-  }
-
-  if (!isLocalRequest(request)) {
-    return NextResponse.json(
-      { message: "Admin writes are only available from a local host." },
-      { status: 403 },
-    );
+  const adminWriteError = getAdminWriteError(request);
+  if (adminWriteError) {
+    return NextResponse.json({ message: adminWriteError }, { status: 403 });
   }
 
   let payload: SavePayload;
@@ -82,15 +77,6 @@ async function readProducts() {
 
 async function writeProducts(products: EditableProduct[]) {
   await fs.writeFile(productsPath, `${JSON.stringify(products, null, 2)}\n`, "utf8");
-}
-
-function isLocalRequest(request: Request) {
-  if (process.env.NODE_ENV !== "production" && process.env.MACARONI_ADMIN_WRITE === "1") {
-    return true;
-  }
-
-  const hostname = new URL(request.url).hostname.toLowerCase();
-  return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
 }
 
 function validatePayload(payload: SavePayload) {
