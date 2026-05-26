@@ -55,12 +55,13 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     );
   }
 
+  const selectedProductIndex = products.indexOf(selectedProduct);
   const isNewProduct = newProductIds.has(selectedProduct.id);
   const detailArticles = selectedProduct.detailArticles ?? [];
   const faqArticleIndex = detailArticles.findIndex((article) => /<h2[^>]*>\s*FAQ\s*<\/h2>/i.test(article));
   const faqArticle = faqArticleIndex >= 0 ? detailArticles[faqArticleIndex] : "";
   const slugDuplicate = products.some(
-    (product) => product.id !== selectedProduct.id && product.slug === selectedProduct.slug,
+    (product, index) => index !== selectedProductIndex && product.slug === selectedProduct.slug,
   );
   const relatedIdWarnings = selectedProduct.relatedIds.filter(
     (relatedId) => !products.some((product) => product.id === relatedId),
@@ -77,6 +78,18 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     setSaveState({
       status: "idle",
       message: "新規draftを作成しました。画像とBOOTHリンクを確認してから保存してください。",
+    });
+  }
+
+  function duplicateProduct(sourceProduct: EditableProduct) {
+    const product = createDuplicatedProduct(sourceProduct, products);
+
+    setProducts((currentProducts) => [product, ...currentProducts]);
+    setSelectedId(product.id);
+    setNewProductIds((currentIds) => new Set(currentIds).add(product.id));
+    setSaveState({
+      status: "idle",
+      message: `${sourceProduct.shortTitle || sourceProduct.title} を複製しました。slug、画像、BOOTHリンクを確認してから保存してください。`,
     });
   }
 
@@ -109,12 +122,15 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     }
 
     const previousId = selectedProduct.id;
+    const nextId = products.some((product) => product.id !== previousId && product.id === nextSlug)
+      ? previousId
+      : nextSlug;
     setProducts((currentProducts) =>
       currentProducts.map((product) =>
         product.id === previousId
           ? {
               ...product,
-              id: nextSlug,
+              id: nextId,
               slug: nextSlug,
               legacyPath: `product-${nextSlug}.html`,
               galleryPrefix: product.galleryPrefix === product.slug ? nextSlug : product.galleryPrefix,
@@ -122,11 +138,11 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
           : product,
       ),
     );
-    setSelectedId(nextSlug);
+    setSelectedId(nextId);
     setNewProductIds((currentIds) => {
       const nextIds = new Set(currentIds);
       nextIds.delete(previousId);
-      nextIds.add(nextSlug);
+      nextIds.add(nextId);
       return nextIds;
     });
     setSaveState({ status: "idle", message: "" });
@@ -211,12 +227,14 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
         </div>
         <div className="admin-product-list">
           <ProductListGroup
+            onClone={duplicateProduct}
             products={draftProducts}
             selectedId={selectedProduct.id}
             title="Draft"
             onSelect={setSelectedId}
           />
           <ProductListGroup
+            onClone={duplicateProduct}
             products={publishedProducts}
             selectedId={selectedProduct.id}
             title="Published"
@@ -313,8 +331,8 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
           <details className="admin-used-slugs">
             <summary>使用済みslugを表示</summary>
             <div>
-              {usedSlugs.map((slug) => (
-                <code key={slug}>{slug}</code>
+              {usedSlugs.map((slug, index) => (
+                <code key={`${slug}-${index}`}>{slug}</code>
               ))}
             </div>
           </details>
@@ -515,13 +533,14 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
 }
 
 type ProductListGroupProps = {
+  onClone: (product: EditableProduct) => void;
   onSelect: (id: string) => void;
   products: EditableProduct[];
   selectedId: string;
   title: string;
 };
 
-function ProductListGroup({ onSelect, products, selectedId, title }: ProductListGroupProps) {
+function ProductListGroup({ onClone, onSelect, products, selectedId, title }: ProductListGroupProps) {
   if (!products.length) {
     return null;
   }
@@ -530,19 +549,24 @@ function ProductListGroup({ onSelect, products, selectedId, title }: ProductList
     <div className="admin-product-group">
       <p>{title}</p>
       {products.map((product) => (
-        <button
-          className={`admin-product-button${product.id === selectedId ? " is-active" : ""}`}
-          key={product.id}
-          type="button"
-          onClick={() => onSelect(product.id)}
-        >
-          <span>{product.shortTitle || product.title}</span>
-          <small>{product.slug}</small>
-          <span className="admin-product-status">
-            {!product.published ? <em>draft</em> : null}
-            {product.noindex ? <em>noindex</em> : null}
-          </span>
-        </button>
+        <div className={`admin-product-row${product.id === selectedId ? " is-active" : ""}`} key={product.id}>
+          <button className="admin-product-button" type="button" onClick={() => onSelect(product.id)}>
+            <span>{product.shortTitle || product.title}</span>
+            <small>{product.slug}</small>
+            <span className="admin-product-status">
+              {!product.published ? <em>draft</em> : null}
+              {product.noindex ? <em>noindex</em> : null}
+            </span>
+          </button>
+          <button
+            className="admin-product-clone"
+            type="button"
+            onClick={() => onClone(product)}
+            aria-label={`${product.shortTitle || product.title}を複製`}
+          >
+            複製
+          </button>
+        </div>
       ))}
     </div>
   );
@@ -590,6 +614,38 @@ function createDraftProduct(products: EditableProduct[]): EditableProduct {
   };
 }
 
+function createDuplicatedProduct(sourceProduct: EditableProduct, products: EditableProduct[]): EditableProduct {
+  const slug = makeUniqueSlug(`${sourceProduct.slug}-copy`, products);
+  const product = cloneProduct(sourceProduct);
+  const title = `${sourceProduct.title} コピー`;
+  const shortTitle = `${sourceProduct.shortTitle || sourceProduct.title} コピー`;
+  const firstGallery = `/products/${slug}/${slug}-01.webp`;
+
+  return {
+    ...product,
+    id: slug,
+    slug,
+    legacyPath: `product-${slug}.html`,
+    published: false,
+    noindex: true,
+    title,
+    shortTitle,
+    coverImage: firstGallery,
+    ogImage: firstGallery,
+    galleryPrefix: slug,
+    summaryTags: product.summaryTags ? [...product.summaryTags] : undefined,
+    normalTags: product.normalTags ? cloneProduct(product.normalTags) : undefined,
+    subTags: product.subTags ? cloneProduct(product.subTags) : undefined,
+    detailArticles: product.detailArticles ? [...product.detailArticles] : undefined,
+    catalogCards: product.catalogCards?.map((card) => ({
+      ...card,
+      image: `/products/${slug}/${slug}-01-600.webp`,
+      imageSet: `/products/${slug}/${slug}-01-600.webp 600w, /products/${slug}/${slug}-01.webp 1000w`,
+      alt: `${shortTitle} VRChat・Unity向け3D素材`,
+    })),
+  };
+}
+
 function createDetailArticleTemplates(product: EditableProduct) {
   const target = product.avatars.join("・") || "対応アバター";
 
@@ -626,6 +682,10 @@ function createDetailArticleTemplates(product: EditableProduct) {
 
 function cloneProducts(products: Product[]): EditableProduct[] {
   return JSON.parse(JSON.stringify(products)) as EditableProduct[];
+}
+
+function cloneProduct<T>(product: T): T {
+  return JSON.parse(JSON.stringify(product)) as T;
 }
 
 function parseTextList(value: string) {

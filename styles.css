@@ -3283,6 +3283,32 @@ p {
   background: rgba(255, 111, 189, 0.12);
 }
 
+.admin-product-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  align-items: stretch;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.admin-product-row:hover,
+.admin-product-row.is-active {
+  border-color: rgba(255, 111, 189, 0.38);
+  background: rgba(255, 111, 189, 0.12);
+}
+
+.admin-product-row .admin-product-button {
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+}
+
+.admin-product-row .admin-product-button:hover {
+  border-color: transparent;
+  background: transparent;
+}
+
 .admin-product-button span {
   font-size: 14px;
   font-weight: 900;
@@ -3314,6 +3340,24 @@ p {
   font-weight: 900;
   line-height: 1;
   padding: 3px 8px;
+}
+
+.admin-product-clone {
+  align-self: center;
+  min-height: 36px;
+  border: 1px solid rgba(255, 111, 189, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 111, 189, 0.08);
+  color: var(--accent-2);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 10px;
+}
+
+.admin-product-clone:hover {
+  border-color: rgba(255, 111, 189, 0.5);
+  background: rgba(255, 111, 189, 0.16);
 }
 
 .admin-badge.is-draft {

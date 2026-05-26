@@ -37,6 +37,34 @@ public/products/<slug>/<galleryPrefix>-02-600.webp
 15. 公開する直前に `published:true` へ変更し、検索対象にする場合だけ `noindex` を外します。
 16. commit / push 後、Vercelの反映を確認します。
 
+## 既存商品から複製する場合
+
+似た商品を追加する場合は、商品一覧の「複製」ボタンを使います。
+
+複製時に自動変更される項目:
+
+- `id`
+- `slug`
+- `legacyPath`
+- `title` / `shortTitle` の「コピー」追加
+- `published:false`
+- `noindex:true`
+- `coverImage` / `ogImage` の候補
+- `galleryPrefix`
+- catalog cardの画像候補
+
+複製時に引き継がれる項目:
+
+- gallery枚数
+- FAQ / 商品詳細HTML
+- tags
+- relatedIds
+- avatars
+- specs
+- salesLinks
+
+複製後は draft 一覧へ移動します。保存前に `slug`、画像パス、BOOTHリンク、商品詳細本文、catalog card内容を必ず確認してください。
+
 ## slug運用
 
 - slugは商品URL `/products/<slug>` と画像フォルダの基準になります。
