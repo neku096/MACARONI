@@ -11,6 +11,14 @@ npm run dev
 
 ローカル確認は `http://127.0.0.1:3000` を使います。
 
+## Windows ローカル起動
+
+プロジェクト直下の `.bat` は `D:\Codex\MACARONI` 前提で動きます。
+
+- `start-local.bat`: `MACARONI_ADMIN_ENABLED=1` を設定して `npm run dev` を起動します。ローカル管理画面 `/admin` を使う時はこちらを使います。
+- `start-prod-preview.bat`: `npm run build` の後に `npm run start` を起動します。production preview 用なので `/admin` は無効です。
+- `stop-node.bat`: 3000〜3999番で待ち受けている Node.js process を表示し、確認後に停止します。dev server や preview server を止めたい時に使います。
+
 ## コマンド
 
 - `npm run dev`: 開発サーバーを起動

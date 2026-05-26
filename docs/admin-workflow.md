@@ -16,6 +16,14 @@ MACARONI_ADMIN_ENABLED=1 npm run dev
 
 本番環境では `MACARONI_ADMIN_ENABLED` を設定しないでください。保存APIは production では常に `403` を返します。
 
+### Windows bat
+
+ローカル運用では、プロジェクト直下の `.bat` を使えます。いずれも `D:\Codex\MACARONI` 前提です。
+
+- `start-local.bat`: `MACARONI_ADMIN_ENABLED=1` を設定して `npm run dev` を起動します。`/admin`、`/admin/products`、`/admin/free-poses`、`/admin/top-cards` を編集する時に使います。
+- `start-prod-preview.bat`: `npm run build` 後に `npm run start` を起動します。production preview 用なので、adminは無効で `/admin` は404になります。
+- `stop-node.bat`: 3000〜3999番で待ち受けている Node.js process を表示し、確認後に停止します。停止対象を見てから `y` を入力してください。
+
 ## 新商品追加フロー
 
 1. BOOTH商品ページから、商品名、価格、対応アバター、同梱内容、注意事項を確認します。
