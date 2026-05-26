@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { getPublishedProducts, siteUrl } from "@/lib/products";
+import { siteUrl } from "@/lib/products";
+import { getAllTopCards } from "@/lib/top-cards";
 
 const homeTitle = "VRChat・Unity向けR18無料3Dポーズ素材";
 const homeDescription =
   "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
+const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 
 export const metadata: Metadata = {
   title: homeTitle,
@@ -63,23 +65,25 @@ const characters = [
 type SliderEntry = {
   href: string;
   image: string;
-  imageSet: string;
   alt: string;
   title: string;
+  description: string;
   label: string;
+  openInNewTab: boolean;
 };
 
 export default function HomePage() {
-  const entries = getPublishedProducts().flatMap<SliderEntry>((product) =>
-    (product.catalogCards ?? []).map((card) => ({
-      href: `/products/${product.slug}`,
-      image: card.image,
-      imageSet: card.imageSet,
-      alt: card.alt,
-      title: card.alt.replace(/\s*VRChat・Unity向け3Dポーズ\/モーション作品$/, ""),
-      label: getSliderLabel(card.tags),
-    })),
-  );
+  const entries = getAllTopCards()
+    .filter((card) => card.published)
+    .map<SliderEntry>((card) => ({
+      href: card.url,
+      image: getTopCardImage(card.thumbnail),
+      alt: `${card.title}のカード画像`,
+      title: card.title,
+      description: card.description,
+      label: getTopCardLabel(card.category, card.tags),
+      openInNewTab: card.openInNewTab,
+    }));
   const slides = chunk(entries, 5);
 
   return (
@@ -93,12 +97,18 @@ export default function HomePage() {
             {slides.map((slide, slideIndex) => (
               <div className="product-slide" key={slideIndex}>
                 {slide.map((entry, entryIndex) => (
-                  <a className="product-card" href={entry.href} key={`${entry.href}-${entry.image}`}>
+                  <a
+                    aria-label={`${entry.title}: ${entry.description}`}
+                    className="product-card"
+                    href={entry.href}
+                    key={`${entry.href}-${entry.image}`}
+                    rel={entry.openInNewTab ? "noopener noreferrer" : undefined}
+                    target={entry.openInNewTab ? "_blank" : undefined}
+                  >
                     <img
                       className="product-cover"
                       src={entry.image}
                       alt={entry.alt}
-                      srcSet={entry.imageSet}
                       sizes="(max-width: 720px) 52vw, 260px"
                       width="600"
                       height="600"
@@ -107,7 +117,11 @@ export default function HomePage() {
                       fetchPriority={slideIndex === 0 && entryIndex === 0 ? "high" : undefined}
                     />
                     <strong>{entry.title}</strong>
-                    <small>{entry.label}</small>
+                    <small>
+                      {entry.description}
+                      <br />
+                      <span>{entry.label}</span>
+                    </small>
                   </a>
                 ))}
               </div>
@@ -182,20 +196,12 @@ export default function HomePage() {
   );
 }
 
-function getSliderLabel(tags: string[]) {
-  if (tags.includes("pose")) {
-    return "SexyPose";
-  }
+function getTopCardImage(thumbnail: string) {
+  return thumbnail.trim() || topCardFallbackImage;
+}
 
-  if (tags.includes("universal")) {
-    return "SexyMotion";
-  }
-
-  if (tags.includes("solo")) {
-    return "Solo_H";
-  }
-
-  return "Others";
+function getTopCardLabel(category: string, tags: string[]) {
+  return [category, ...tags].filter(Boolean).join(" / ");
 }
 
 function chunk<T>(items: T[], size: number) {
