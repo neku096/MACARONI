@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import { getAdminWriteError } from "@/lib/admin";
+import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
 import { freePoseCharacterOptions, type FreePose } from "@/lib/free-poses";
 
 export const runtime = "nodejs";
@@ -19,7 +19,12 @@ type DeletePayload = {
 const freePosesPath = path.join(process.cwd(), "data", "free-poses.json");
 const characterSet = new Set<string>(freePoseCharacterOptions);
 
-export async function GET() {
+export async function GET(request: Request) {
+  const adminAccessError = getAdminAccessError(request);
+  if (adminAccessError) {
+    return NextResponse.json({ message: adminAccessError }, { status: 403 });
+  }
+
   const items = await readFreePoses();
 
   return NextResponse.json({ items });

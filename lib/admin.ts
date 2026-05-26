@@ -4,20 +4,24 @@ export function isAdminEnabled() {
   return process.env.NODE_ENV !== "production" && process.env.MACARONI_ADMIN_ENABLED === "1";
 }
 
-export function getAdminWriteError(request: Request) {
+export function getAdminAccessError(request: Request) {
   if (process.env.NODE_ENV === "production") {
-    return "Admin writes are disabled in production.";
+    return "Admin API is disabled in production.";
   }
 
   if (process.env.MACARONI_ADMIN_ENABLED !== "1") {
-    return "Admin writes require MACARONI_ADMIN_ENABLED=1.";
+    return "Admin API requires MACARONI_ADMIN_ENABLED=1.";
   }
 
   if (!isLocalRequest(request)) {
-    return "Admin writes are only available from a local host.";
+    return "Admin API is only available from a local host.";
   }
 
   return "";
+}
+
+export function getAdminWriteError(request: Request) {
+  return getAdminAccessError(request);
 }
 
 export function isLocalRequest(request: Request) {

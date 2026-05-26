@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import { getAdminWriteError } from "@/lib/admin";
+import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
 import type { Product, ProductCategory } from "@/lib/products";
 
 export const runtime = "nodejs";
@@ -19,7 +19,12 @@ type SavePayload = {
 const categories = new Set<ProductCategory>(["pose", "motion", "solo-motion", "material"]);
 const productsPath = path.join(process.cwd(), "data", "products.json");
 
-export async function GET() {
+export async function GET(request: Request) {
+  const adminAccessError = getAdminAccessError(request);
+  if (adminAccessError) {
+    return NextResponse.json({ message: adminAccessError }, { status: 403 });
+  }
+
   const products = await readProducts();
 
   return NextResponse.json({ products });

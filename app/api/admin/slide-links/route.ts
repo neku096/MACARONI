@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import { getAdminWriteError } from "@/lib/admin";
+import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
 import type { SlideLink } from "@/lib/slide-links";
 
 export const runtime = "nodejs";
@@ -18,7 +18,12 @@ type DeletePayload = {
 
 const slideLinksPath = path.join(process.cwd(), "data", "slide-links.json");
 
-export async function GET() {
+export async function GET(request: Request) {
+  const adminAccessError = getAdminAccessError(request);
+  if (adminAccessError) {
+    return NextResponse.json({ message: adminAccessError }, { status: 403 });
+  }
+
   const items = await readSlideLinks();
 
   return NextResponse.json({ items });
