@@ -34,9 +34,9 @@ export function AdminFreePoseEditor({ freePoses: initialFreePoses }: AdminFreePo
   if (!selectedItem) {
     return (
       <div className="admin-empty">
-        <p>編集できる無料配布ポーズがありません。</p>
+        <p>編集できる対応キャラ別無料ポーズがありません。</p>
         <button className="button primary" type="button" onClick={createNewItem}>
-          新規ポーズ作成
+          新規無料ポーズ作成
         </button>
       </div>
     );
@@ -51,7 +51,7 @@ export function AdminFreePoseEditor({ freePoses: initialFreePoses }: AdminFreePo
 
     setItems((currentItems) => [item, ...currentItems]);
     setSelectedClientId(item.clientId);
-    setSaveState({ status: "idle", message: "新規draftを作成しました。サムネイルとdownloadUrlを確認してください。" });
+    setSaveState({ status: "idle", message: "新規無料ポーズdraftを作成しました。character、downloadUrl、サムネイルを確認してください。" });
   }
 
   function updateSelected(update: (item: EditableFreePose) => EditableFreePose) {
@@ -141,14 +141,14 @@ export function AdminFreePoseEditor({ freePoses: initialFreePoses }: AdminFreePo
 
   return (
     <div className="admin-grid">
-      <aside className="admin-sidebar" aria-label="無料配布ポーズ一覧">
+      <aside className="admin-sidebar" aria-label="対応キャラ別無料ポーズ一覧">
         <div className="admin-sidebar-heading">
           <div>
-            <h2>無料配布ポーズ</h2>
+            <h2>対応キャラ別無料ポーズ</h2>
             <span>{items.length}件</span>
           </div>
           <button className="button compact" type="button" onClick={createNewItem}>
-            新規ポーズ作成
+            新規無料ポーズ作成
           </button>
         </div>
         <div className="admin-product-list">
@@ -179,8 +179,10 @@ export function AdminFreePoseEditor({ freePoses: initialFreePoses }: AdminFreePo
         </div>
 
         <div className="admin-notice">
-          <strong>無料配布ポーズ管理</strong>
-          <span>キャラは既存候補から選択します。画像取得や外部サイト確認は行わず、手入力したローカルパスだけを保存します。</span>
+          <strong>対応キャラ別無料ポーズ管理</strong>
+          <span>
+            桔梗、マヌカ、ショコラなど、対応キャラごとの無料配布ポーズを管理します。anim取得や外部API呼び出しは行いません。
+          </span>
         </div>
 
         <div className="admin-card">

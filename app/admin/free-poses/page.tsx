@@ -18,7 +18,7 @@ export default function AdminFreePosesPage() {
           </Link>
         </div>
         <p className="admin-lead">
-          無料配布ポーズのtitle、slug、対応キャラ、サムネイル、downloadUrl、公開状態を管理します。外部取得は行いません。
+          対応キャラ別の無料配布ポーズを管理します。character、サムネイル、downloadUrl、公開状態、noindexを編集できます。外部取得は行いません。
         </p>
         <AdminFreePoseEditor freePoses={freePoses} />
       </section>

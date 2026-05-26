@@ -1,13 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { SlideLink } from "@/lib/slide-links";
+import type { TopCard } from "@/lib/top-cards";
 
-type AdminSlideLinkEditorProps = {
-  slideLinks: SlideLink[];
+type AdminTopCardEditorProps = {
+  topCards: TopCard[];
 };
 
-type EditableSlideLink = SlideLink & {
+type EditableTopCard = TopCard & {
   clientId: string;
   originalUrl?: string;
   isNew?: boolean;
@@ -19,8 +19,8 @@ type SaveState =
   | { status: "success"; message: string }
   | { status: "error"; message: string };
 
-export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSlideLinkEditorProps) {
-  const [items, setItems] = useState<EditableSlideLink[]>(() => cloneSlideLinks(initialSlideLinks));
+export function AdminTopCardEditor({ topCards: initialTopCards }: AdminTopCardEditorProps) {
+  const [items, setItems] = useState<EditableTopCard[]>(() => cloneTopCards(initialTopCards));
   const [selectedClientId, setSelectedClientId] = useState(items[0]?.clientId ?? "");
   const [saveState, setSaveState] = useState<SaveState>({ status: "idle", message: "" });
 
@@ -34,9 +34,9 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
   if (!selectedItem) {
     return (
       <div className="admin-empty">
-        <p>編集できるリンクカードがありません。</p>
+        <p>編集できるTopページ表示カードがありません。</p>
         <button className="button primary" type="button" onClick={createNewItem}>
-          新規リンクカード作成
+          新規Topカード作成
         </button>
       </div>
     );
@@ -45,21 +45,21 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
   const urlDuplicate = items.some((item) => item.clientId !== selectedItem.clientId && item.url === selectedItem.url);
 
   function createNewItem() {
-    const item = createDraftSlideLink(items);
+    const item = createDraftTopCard(items);
 
     setItems((currentItems) => [item, ...currentItems]);
     setSelectedClientId(item.clientId);
-    setSaveState({ status: "idle", message: "新規リンクカードdraftを作成しました。URLとサムネイルを確認してください。" });
+    setSaveState({ status: "idle", message: "新規Topカードdraftを作成しました。URLとサムネイルを確認してください。" });
   }
 
-  function updateSelected(update: (item: EditableSlideLink) => EditableSlideLink) {
+  function updateSelected(update: (item: EditableTopCard) => EditableTopCard) {
     setItems((currentItems) =>
       currentItems.map((item) => (item.clientId === selectedItem.clientId ? update(item) : item)),
     );
     setSaveState({ status: "idle", message: "" });
   }
 
-  function updateField<K extends keyof SlideLink>(key: K, value: SlideLink[K]) {
+  function updateField<K extends keyof TopCard>(key: K, value: TopCard[K]) {
     updateSelected((item) => ({ ...item, [key]: value }));
   }
 
@@ -67,7 +67,7 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
     setSaveState({ status: "saving", message: "保存中です..." });
 
     try {
-      const response = await fetch("/api/admin/slide-links", {
+      const response = await fetch("/api/admin/top-cards", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -77,15 +77,15 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
           item: stripClientFields(selectedItem),
         }),
       });
-      const result = (await response.json()) as { items?: SlideLink[]; message?: string };
+      const result = (await response.json()) as { items?: TopCard[]; message?: string };
 
       if (!response.ok || !result.items) {
         throw new Error(result.message || "保存に失敗しました。");
       }
 
-      setItems(cloneSlideLinks(result.items));
+      setItems(cloneTopCards(result.items));
       setSelectedClientId(selectedItem.url);
-      setSaveState({ status: "success", message: "slide-links.json を更新しました。" });
+      setSaveState({ status: "success", message: "top-cards.json を更新しました。" });
     } catch (error) {
       setSaveState({
         status: "error",
@@ -104,7 +104,7 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
     }
 
     const targetUrl = selectedItem.originalUrl || selectedItem.url;
-    const confirmed = window.confirm(`${selectedItem.title} を slide-links.json から削除しますか？`);
+    const confirmed = window.confirm(`${selectedItem.title} を top-cards.json から削除しますか？`);
     if (!confirmed) {
       return;
     }
@@ -112,23 +112,23 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
     setSaveState({ status: "saving", message: "削除中です..." });
 
     try {
-      const response = await fetch("/api/admin/slide-links", {
+      const response = await fetch("/api/admin/top-cards", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url: targetUrl }),
       });
-      const result = (await response.json()) as { items?: SlideLink[]; message?: string };
+      const result = (await response.json()) as { items?: TopCard[]; message?: string };
 
       if (!response.ok || !result.items) {
         throw new Error(result.message || "削除に失敗しました。");
       }
 
-      const nextItems = cloneSlideLinks(result.items);
+      const nextItems = cloneTopCards(result.items);
       setItems(nextItems);
       setSelectedClientId(nextItems[0]?.clientId ?? "");
-      setSaveState({ status: "success", message: "slide-links.json から削除しました。" });
+      setSaveState({ status: "success", message: "top-cards.json から削除しました。" });
     } catch (error) {
       setSaveState({
         status: "error",
@@ -139,24 +139,24 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
 
   return (
     <div className="admin-grid">
-      <aside className="admin-sidebar" aria-label="スライドリンクカード一覧">
+      <aside className="admin-sidebar" aria-label="Topページ表示カード一覧">
         <div className="admin-sidebar-heading">
           <div>
-            <h2>リンクカード</h2>
+            <h2>Topカード</h2>
             <span>{items.length}件</span>
           </div>
           <button className="button compact" type="button" onClick={createNewItem}>
-            新規カード作成
+            新規Topカード作成
           </button>
         </div>
         <div className="admin-product-list">
-          <SlideLinkListGroup
+          <TopCardListGroup
             items={draftItems}
             selectedClientId={selectedItem.clientId}
             title="Draft"
             onSelect={setSelectedClientId}
           />
-          <SlideLinkListGroup
+          <TopCardListGroup
             items={publishedItems}
             selectedClientId={selectedItem.clientId}
             title="Published"
@@ -177,8 +177,10 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
         </div>
 
         <div className="admin-notice">
-          <strong>スライドリンク集カード管理</strong>
-          <span>URLとサムネイルを手入力します。リンク先のスクレイピング、画像取得、外部API呼び出しは行いません。</span>
+          <strong>Topページ表示カード管理</strong>
+          <span>
+            商品リンクカード、おすすめカード、スライドカード、商品導線カードを編集します。URL先のスクレイピング、画像取得、外部API呼び出しは行いません。
+          </span>
         </div>
 
         <div className="admin-card">
@@ -286,7 +288,7 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
             onClick={saveItem}
             disabled={saveState.status === "saving" || urlDuplicate}
           >
-            slide-links.jsonへ保存
+            top-cards.jsonへ保存
           </button>
           <span className={`admin-save-state is-${saveState.status}`}>
             {saveState.message || "保存APIはlocalhostかつMACARONI_ADMIN_ENABLED=1の時だけ有効です。"}
@@ -297,14 +299,14 @@ export function AdminSlideLinkEditor({ slideLinks: initialSlideLinks }: AdminSli
   );
 }
 
-type SlideLinkListGroupProps = {
-  items: EditableSlideLink[];
+type TopCardListGroupProps = {
+  items: EditableTopCard[];
   onSelect: (clientId: string) => void;
   selectedClientId: string;
   title: string;
 };
 
-function SlideLinkListGroup({ items, onSelect, selectedClientId, title }: SlideLinkListGroupProps) {
+function TopCardListGroup({ items, onSelect, selectedClientId, title }: TopCardListGroupProps) {
   if (!items.length) {
     return null;
   }
@@ -328,38 +330,38 @@ function SlideLinkListGroup({ items, onSelect, selectedClientId, title }: SlideL
   );
 }
 
-function cloneSlideLinks(items: SlideLink[]): EditableSlideLink[] {
+function cloneTopCards(items: TopCard[]): EditableTopCard[] {
   return items.map((item) => ({
     ...JSON.parse(JSON.stringify(item)),
     clientId: item.url,
     originalUrl: item.url,
-  })) as EditableSlideLink[];
+  })) as EditableTopCard[];
 }
 
-function createDraftSlideLink(items: EditableSlideLink[]): EditableSlideLink {
+function createDraftTopCard(items: EditableTopCard[]): EditableTopCard {
   const nextOrder = Math.max(0, ...items.map((item) => item.sortOrder)) + 1;
 
   return {
-    title: "新規リンクカード",
-    description: "リンクカードの説明を入力してください。",
-    url: `https://example.com/manual-link-${nextOrder}`,
+    title: "新規Topカード",
+    description: "Topページ表示カードの説明を入力してください。",
+    url: `https://example.com/top-card-${nextOrder}`,
     thumbnail: "/images/link-icons/booth.webp",
     category: "draft",
     tags: ["draft"],
     sortOrder: nextOrder,
     published: false,
     openInNewTab: true,
-    clientId: `new-slide-link-${Date.now()}`,
+    clientId: `new-top-card-${Date.now()}`,
     isNew: true,
   };
 }
 
-function stripClientFields(item: EditableSlideLink): SlideLink {
-  const slideLink = { ...item } as Partial<EditableSlideLink>;
-  delete slideLink.clientId;
-  delete slideLink.originalUrl;
-  delete slideLink.isNew;
-  return slideLink as SlideLink;
+function stripClientFields(item: EditableTopCard): TopCard {
+  const topCard = { ...item } as Partial<EditableTopCard>;
+  delete topCard.clientId;
+  delete topCard.originalUrl;
+  delete topCard.isNew;
+  return topCard as TopCard;
 }
 
 function parseTextList(value: string) {

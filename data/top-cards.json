@@ -5,7 +5,10 @@
     "url": "https://macaronin.booth.pm/",
     "thumbnail": "/images/link-icons/booth.webp",
     "category": "store",
-    "tags": ["BOOTH", "販売"],
+    "tags": [
+      "BOOTH",
+      "販売"
+    ],
     "sortOrder": 1,
     "published": true,
     "openInNewTab": true
@@ -16,7 +19,10 @@
     "url": "https://www.dmm.co.jp/dc/doujin/-/list/=/article=maker/id=230502/",
     "thumbnail": "/images/link-icons/fanza.webp",
     "category": "store",
-    "tags": ["FANZA", "販売"],
+    "tags": [
+      "FANZA",
+      "販売"
+    ],
     "sortOrder": 2,
     "published": true,
     "openInNewTab": true
@@ -27,7 +33,10 @@
     "url": "https://www.dlsite.com/maniax/circle/profile/=/maker_id/RG01058589.html",
     "thumbnail": "/images/link-icons/dlsite.webp",
     "category": "store",
-    "tags": ["DLsite", "販売"],
+    "tags": [
+      "DLsite",
+      "販売"
+    ],
     "sortOrder": 3,
     "published": true,
     "openInNewTab": true
@@ -38,7 +47,10 @@
     "url": "https://ci-en.dlsite.com/creator/33812",
     "thumbnail": "/images/link-icons/cien.svg",
     "category": "news",
-    "tags": ["Ci-en", "更新"],
+    "tags": [
+      "Ci-en",
+      "更新"
+    ],
     "sortOrder": 4,
     "published": true,
     "openInNewTab": true
@@ -49,7 +61,10 @@
     "url": "https://x.com/macaroniSoft",
     "thumbnail": "/images/link-icons/x.svg",
     "category": "social",
-    "tags": ["X", "SNS"],
+    "tags": [
+      "X",
+      "SNS"
+    ],
     "sortOrder": 5,
     "published": true,
     "openInNewTab": true

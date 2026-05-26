@@ -4,9 +4,9 @@
 
 管理画面:
 
-- `/admin/products`: `data/products.json`
-- `/admin/free-poses`: `data/free-poses.json`
-- `/admin/slide-links`: `data/slide-links.json`
+- `/admin/products`: `data/products.json` の商品LP管理
+- `/admin/free-poses`: `data/free-poses.json` の対応キャラ別無料ポーズ管理
+- `/admin/top-cards`: `data/top-cards.json` のTopページ表示カード管理
 
 ## 起動
 
@@ -90,7 +90,7 @@ public/products/<slug>/<galleryPrefix>-02-600.webp
 ```bash
 npm run validate:products
 npm run validate:free-poses
-npm run validate:slide-links
+npm run validate:top-cards
 npm run validate
 ```
 
@@ -104,8 +104,8 @@ npm run validate
 - gallery空
 - OGP不足候補
 - draft商品のnoindex状態
-- 無料配布ポーズのローカルthumbnail / downloadUrl
-- リンク集カードのURL形式とローカルthumbnail
+- 対応キャラ別無料ポーズのローカルthumbnail / downloadUrl / noindex
+- Topページ表示カードのURL形式とローカルthumbnail
 
 エラーが出た場合は公開前に修正してください。warningは内容を確認し、意図した状態なら許容できます。
 

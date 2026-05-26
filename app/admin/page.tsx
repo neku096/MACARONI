@@ -8,13 +8,13 @@ const adminLinks = [
   },
   {
     href: "/admin/free-poses",
-    title: "無料配布ポーズ管理",
-    description: "data/free-poses.json の無料配布anim、サムネイル、公開状態を編集します。",
+    title: "対応キャラ別無料ポーズ管理",
+    description: "data/free-poses.json の対応キャラ、サムネイル、downloadUrl、公開状態、noindexを編集します。",
   },
   {
-    href: "/admin/slide-links",
-    title: "スライドリンク集カード管理",
-    description: "data/slide-links.json の外部リンクカード、カテゴリ、公開状態を編集します。",
+    href: "/admin/top-cards",
+    title: "Topページ表示カード管理",
+    description: "data/top-cards.json の商品リンクカード、おすすめカード、スライドカード、商品導線カードを編集します。",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function AdminPage() {
           <span>ローカル運用向け</span>
         </div>
         <p className="admin-lead">
-          商品管理、無料配布ポーズ、リンク集カードを分けて編集します。保存はローカルJSONのみで、productionでは無効です。
+          商品管理、対応キャラ別無料ポーズ、Topページ表示カードを分けて編集します。保存はローカルJSONのみで、productionでは無効です。
         </p>
         <div className="admin-menu-grid">
           {adminLinks.map((link) => (

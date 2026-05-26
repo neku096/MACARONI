@@ -10,8 +10,8 @@
     "typecheck": "tsc --noEmit",
     "validate:products": "node scripts/validate-products.mjs",
     "validate:free-poses": "node scripts/validate-free-poses.mjs",
-    "validate:slide-links": "node scripts/validate-slide-links.mjs",
-    "validate": "npm run validate:products && npm run validate:free-poses && npm run validate:slide-links"
+    "validate:top-cards": "node scripts/validate-top-cards.mjs",
+    "validate": "npm run validate:products && npm run validate:free-poses && npm run validate:top-cards"
   },
   "dependencies": {
     "next": "16.2.2",

@@ -3,17 +3,17 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const slideLinksPath = path.join(root, "data", "slide-links.json");
+const topCardsPath = path.join(root, "data", "top-cards.json");
 const publicDir = path.join(root, "public");
 
 const errors = [];
 const warnings = [];
-const slideLinks = JSON.parse(await readFile(slideLinksPath, "utf8"));
+const topCards = JSON.parse(await readFile(topCardsPath, "utf8"));
 
-if (!Array.isArray(slideLinks)) {
-  fail("data/slide-links.json must be an array.");
+if (!Array.isArray(topCards)) {
+  fail("data/top-cards.json must be an array.");
 } else {
-  await validateSlideLinks(slideLinks);
+  await validateTopCards(topCards);
 }
 
 printResults();
@@ -22,14 +22,14 @@ if (errors.length) {
   process.exitCode = 1;
 }
 
-async function validateSlideLinks(items) {
+async function validateTopCards(items) {
   const urls = new Map();
 
   for (const [index, item] of items.entries()) {
     const label = item?.title || item?.url || `index ${index}`;
 
     if (!isRecord(item)) {
-      error(label, "slide link must be an object.");
+      error(label, "top card must be an object.");
       continue;
     }
 
@@ -60,7 +60,7 @@ async function validateSlideLinks(items) {
       error(label, "openInNewTab must be boolean.");
     }
     if (!item.published) {
-      warn(label, "slide link is draft.");
+      warn(label, "top card is draft.");
     }
 
     await checkLocalPublicAsset(item.thumbnail, label, "thumbnail");
@@ -128,20 +128,20 @@ function fail(message) {
 
 function printResults() {
   if (errors.length) {
-    console.error(`\nSlide link validation failed with ${errors.length} error(s):`);
+    console.error(`\nTop card validation failed with ${errors.length} error(s):`);
     for (const message of errors) {
       console.error(`- ${message}`);
     }
   }
 
   if (warnings.length) {
-    console.warn(`\nSlide link validation warning(s): ${warnings.length}`);
+    console.warn(`\nTop card validation warning(s): ${warnings.length}`);
     for (const message of warnings) {
       console.warn(`- ${message}`);
     }
   }
 
   if (!errors.length) {
-    console.log(`Slide link validation passed. slideLinks=${Array.isArray(slideLinks) ? slideLinks.length : 0}, warnings=${warnings.length}`);
+    console.log(`Top card validation passed. topCards=${Array.isArray(topCards) ? topCards.length : 0}, warnings=${warnings.length}`);
   }
 }
