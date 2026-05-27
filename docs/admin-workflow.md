@@ -6,7 +6,7 @@
 
 - `/admin/products`: `data/products.json` の商品LP管理
 - `/admin/free-poses`: `data/free-poses.json` の対応キャラ別無料ポーズ管理
-- `/admin/top-cards`: `data/top-cards.json` のTopページ表示カード管理
+- `/admin/top-cards`: `data/top-cards.json` のTopページ表示カード管理。SNSリンク集ではなく、商品LPまたはBOOTH商品ページへの商品導線だけを扱います。
 
 ## 起動
 
@@ -113,9 +113,16 @@ npm run validate
 - OGP不足候補
 - draft商品のnoindex状態
 - 対応キャラ別無料ポーズのローカルthumbnail / downloadUrl / noindex
-- Topページ表示カードのURL形式とローカルthumbnail
+- Topページ表示カードのURL形式、ローカルthumbnail、商品導線URLであること
 
 エラーが出た場合は公開前に修正してください。warningは内容を確認し、意図した状態なら許容できます。
+
+## Topカード運用
+
+- Topカードは、Topページの商品リンクカード、おすすめカード、スライドカードを管理するためのものです。
+- URLは `/products/<slug>` の商品LP、または `https://*.booth.pm/items/...` のBOOTH商品ページに限定します。
+- X、Ci-en、プロフィールページ、汎用ストアトップなどのSNS・外部プロフィール導線は入れません。
+- `sourceProductSlug` のように商品との対応情報を持たせる場合は、`products.json` のBOOTH商品URLと商品画像を優先して確認します。
 
 ## 画像配置メモ
 

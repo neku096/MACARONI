@@ -4,14 +4,19 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const topCardsPath = path.join(root, "data", "top-cards.json");
+const productsPath = path.join(root, "data", "products.json");
 const publicDir = path.join(root, "public");
 
 const errors = [];
 const warnings = [];
 const topCards = JSON.parse(await readFile(topCardsPath, "utf8"));
+const products = JSON.parse(await readFile(productsPath, "utf8"));
+const productSlugs = new Set(Array.isArray(products) ? products.map((product) => product.slug) : []);
 
 if (!Array.isArray(topCards)) {
   fail("data/top-cards.json must be an array.");
+} else if (!Array.isArray(products)) {
+  fail("data/products.json must be an array.");
 } else {
   await validateTopCards(topCards);
 }
@@ -44,11 +49,17 @@ async function validateTopCards(items) {
     }
     if (item.url) urls.set(item.url, label);
 
-    if (typeof item.url === "string" && !isHttpUrl(item.url)) {
-      error(label, "url must be an absolute http(s) URL.");
+    if (typeof item.url === "string" && !isProductDestinationUrl(item.url)) {
+      error(label, "url must be a product LP path (/products/<slug>) or a BOOTH item URL.");
     }
     if (!Array.isArray(item.tags) || item.tags.some((tag) => typeof tag !== "string" || !tag.trim())) {
       error(label, "tags must be a non-empty string array.");
+    }
+    if (item.sourceProductSlug !== undefined && (typeof item.sourceProductSlug !== "string" || !item.sourceProductSlug.trim())) {
+      error(label, "sourceProductSlug must be a non-empty string.");
+    }
+    if (typeof item.sourceProductSlug === "string" && item.sourceProductSlug.trim() && !productSlugs.has(item.sourceProductSlug.trim())) {
+      error(label, `sourceProductSlug not found in products.json: ${item.sourceProductSlug}`);
     }
     if (!Number.isInteger(item.sortOrder)) {
       error(label, "sortOrder must be an integer.");
@@ -73,10 +84,21 @@ function checkRequiredString(item, key, label) {
   }
 }
 
-function isHttpUrl(value) {
+function isProductDestinationUrl(value) {
+  const trimmedValue = value.trim();
+  if (/^\/products\/[a-z0-9-]+\/?$/i.test(trimmedValue)) {
+    return true;
+  }
+
+  return isBoothItemUrl(trimmedValue);
+}
+
+function isBoothItemUrl(value) {
   try {
     const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
+    const isHttp = url.protocol === "http:" || url.protocol === "https:";
+    const isBoothHost = url.hostname === "booth.pm" || url.hostname.endsWith(".booth.pm");
+    return isHttp && isBoothHost && url.pathname.startsWith("/items/");
   } catch {
     return false;
   }

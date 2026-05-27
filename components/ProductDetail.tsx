@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import type { Product } from "@/lib/products";
 import { getGalleryImages, getLegacyCategoryTag, getRelatedProducts } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -68,12 +67,6 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </a>
             <span aria-hidden="true">›</span>
             <a href={`/products?tag=${categoryTag}`}>{categoryLabels[categoryTag] ?? product.categoryLabel}</a>
-            {product.subTags?.slice(0, 20).map((tag) => (
-              <Fragment key={tag.href}>
-                <span aria-hidden="true">›</span>
-                <a href={tag.href}>{tag.label}</a>
-              </Fragment>
-            ))}
           </nav>
           <h1 id="product-title">{product.title}</h1>
           <div className="product-summary-tags" aria-label="商品キーワード">

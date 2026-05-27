@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
 import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
+import { getProductBySlug } from "@/lib/products";
 import type { TopCard } from "@/lib/top-cards";
 
 export const runtime = "nodejs";
@@ -117,11 +118,14 @@ function validatePayload(payload: SavePayload) {
 
   if (!isNonEmptyString(item.title)) return "Missing title.";
   if (!isNonEmptyString(item.description)) return "Missing description.";
-  if (!isHttpUrl(item.url)) return "url must be an absolute http(s) URL.";
+  if (!isProductDestinationUrl(item.url)) return "url must be a product LP path (/products/<slug>) or a BOOTH item URL.";
   if (!isLocalPath(item.thumbnail)) return "thumbnail must be a local public path.";
   if (!isNonEmptyString(item.category)) return "Missing category.";
   if (!Array.isArray(item.tags) || item.tags.some((tag) => !isNonEmptyString(tag))) {
     return "tags must be a string array.";
+  }
+  if (item.sourceProductSlug !== undefined && !isNonEmptyString(item.sourceProductSlug)) {
+    return "sourceProductSlug must be a non-empty string.";
   }
   if (!Number.isInteger(item.sortOrder)) return "sortOrder must be an integer.";
   if (typeof item.published !== "boolean") return "published must be a boolean.";
@@ -133,6 +137,9 @@ function validatePayload(payload: SavePayload) {
 function validateTopCardAgainstItems(item: TopCard, items: TopCard[], targetIndex: number) {
   if (items.some((currentItem, index) => index !== targetIndex && currentItem.url === item.url)) {
     return `URL already exists: ${item.url}`;
+  }
+  if (item.sourceProductSlug && !getProductBySlug(item.sourceProductSlug)) {
+    return `sourceProductSlug not found in products.json: ${item.sourceProductSlug}`;
   }
 
   return "";
@@ -147,6 +154,7 @@ function normalizeTopCard(item: TopCard): TopCard {
     thumbnail: item.thumbnail.trim(),
     category: item.category.trim(),
     tags: normalizeStringList(item.tags),
+    sourceProductSlug: item.sourceProductSlug?.trim() || undefined,
   };
 }
 
@@ -162,14 +170,25 @@ function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-function isHttpUrl(value: unknown): value is string {
+function isProductDestinationUrl(value: unknown): value is string {
   if (typeof value !== "string") {
     return false;
   }
 
+  const trimmedValue = value.trim();
+  if (/^\/products\/[a-z0-9-]+\/?$/i.test(trimmedValue)) {
+    return true;
+  }
+
+  return isBoothItemUrl(trimmedValue);
+}
+
+function isBoothItemUrl(value: string) {
   try {
     const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
+    const isHttp = url.protocol === "http:" || url.protocol === "https:";
+    const isBoothHost = url.hostname === "booth.pm" || url.hostname.endsWith(".booth.pm");
+    return isHttp && isBoothHost && url.pathname.startsWith("/items/");
   } catch {
     return false;
   }

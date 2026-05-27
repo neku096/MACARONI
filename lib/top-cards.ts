@@ -11,6 +11,7 @@ export type TopCard = {
   sortOrder: number;
   published: boolean;
   openInNewTab: boolean;
+  sourceProductSlug?: string;
 };
 
 const topCardsPath = path.join(process.cwd(), "data", "top-cards.json");

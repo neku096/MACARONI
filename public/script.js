@@ -1447,6 +1447,8 @@ const setupBoothFilters = () => {
 
     const syncFilterUrl = () => {
       const url = new URL(window.location.href);
+      url.searchParams.delete("category");
+      url.searchParams.delete("avatar");
 
       if (activeTag === "all") {
         url.searchParams.delete("tag");
