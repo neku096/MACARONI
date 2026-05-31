@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { slug } = await params;
   const product = getProductBySlug(slug);
 
-  if (!product?.published) {
+  if (!product?.published || product.archived) {
     return {
       title: "商品が見つかりません",
       robots: {
@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
 
-  if (!product?.published) {
+  if (!product?.published || product.archived) {
     notFound();
   }
 

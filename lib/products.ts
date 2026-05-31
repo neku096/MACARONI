@@ -38,6 +38,7 @@ export type Product = {
   slug: string;
   legacyPath: string;
   published: boolean;
+  archived?: boolean;
   noindex?: boolean;
   title: string;
   shortTitle: string;
@@ -78,7 +79,7 @@ export function getAllProducts() {
 }
 
 export function getPublishedProducts() {
-  return products.filter((product) => product.published);
+  return products.filter((product) => product.published && !product.archived);
 }
 
 export function getIndexableProducts() {
@@ -118,7 +119,7 @@ export function getGalleryImages(product: Product): GalleryImage[] {
 export function getRelatedProducts(product: Product, limit = 4) {
   return product.relatedIds
     .map((id) => getProductById(id))
-    .filter((related): related is Product => Boolean(related?.published))
+    .filter((related): related is Product => Boolean(related?.published && !related.archived))
     .slice(0, limit);
 }
 

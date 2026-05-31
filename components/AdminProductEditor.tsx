@@ -8,6 +8,7 @@ type AdminProductEditorProps = {
 };
 
 type EditableProduct = Product & {
+  archived?: boolean;
   noindex?: boolean;
 };
 
@@ -41,8 +42,15 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     () => products.find((product) => product.id === selectedId) ?? products[0],
     [products, selectedId],
   );
-  const publishedProducts = useMemo(() => products.filter((product) => product.published), [products]);
-  const draftProducts = useMemo(() => products.filter((product) => !product.published), [products]);
+  const publishedProducts = useMemo(
+    () => products.filter((product) => product.published && !product.archived),
+    [products],
+  );
+  const draftProducts = useMemo(
+    () => products.filter((product) => !product.published && !product.archived),
+    [products],
+  );
+  const archivedProducts = useMemo(() => products.filter((product) => product.archived), [products]);
 
   if (!selectedProduct) {
     return (
@@ -177,6 +185,36 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     }
   }
 
+  function archiveSelectedProduct() {
+    const confirmed = window.confirm(
+      `${selectedProduct.shortTitle || selectedProduct.title} をアーカイブしますか？\nproducts.jsonからは削除せず、公開一覧・検索・関連商品から外します。`,
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    updateSelected((product) => ({
+      ...product,
+      archived: true,
+      published: false,
+      noindex: true,
+    }));
+    setSaveState({ status: "idle", message: "アーカイブ状態にしました。確定するには保存してください。" });
+  }
+
+  function restoreSelectedProduct() {
+    updateSelected((product) => {
+      const nextProduct = {
+        ...product,
+        published: false,
+        noindex: true,
+      };
+      delete nextProduct.archived;
+      return nextProduct;
+    });
+    setSaveState({ status: "idle", message: "下書きとして復元しました。確定するには保存してください。" });
+  }
+
   async function saveProduct() {
     setSaveState({ status: "saving", message: "保存中です..." });
 
@@ -228,6 +266,13 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
         <div className="admin-product-list">
           <ProductListGroup
             onClone={duplicateProduct}
+            products={publishedProducts}
+            selectedId={selectedProduct.id}
+            title="Published"
+            onSelect={setSelectedId}
+          />
+          <ProductListGroup
+            onClone={duplicateProduct}
             products={draftProducts}
             selectedId={selectedProduct.id}
             title="Draft"
@@ -235,9 +280,9 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
           />
           <ProductListGroup
             onClone={duplicateProduct}
-            products={publishedProducts}
+            products={archivedProducts}
             selectedId={selectedProduct.id}
-            title="Published"
+            title="Archived"
             onSelect={setSelectedId}
           />
         </div>
@@ -249,15 +294,26 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
             <p className="admin-kicker">{isNewProduct ? "New Draft" : "Editing"}</p>
             <h2>{selectedProduct.shortTitle || selectedProduct.title}</h2>
           </div>
-          <a className="button compact" href={`/products/${selectedProduct.slug}`} target="_blank" rel="noreferrer">
-            LPを開く
-          </a>
+          <div className="admin-button-row">
+            <a className="button compact" href={`/products/${selectedProduct.slug}`} target="_blank" rel="noreferrer">
+              LPを開く
+            </a>
+            {selectedProduct.archived ? (
+              <button className="button compact" type="button" onClick={restoreSelectedProduct}>
+                復元
+              </button>
+            ) : (
+              <button className="button compact" type="button" onClick={archiveSelectedProduct}>
+                アーカイブ
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="admin-notice">
           <strong>商品追加メモ</strong>
           <span>
-            新規商品は draft / noindex で作成します。slug変更後は旧URL redirectの追加が必要か確認してください。
+            新規商品は draft / noindex で作成します。不要になった商品は削除せず、アーカイブで公開面から外してください。
           </span>
         </div>
 
@@ -320,6 +376,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
               <span>noindex</span>
             </label>
             {!selectedProduct.published ? <span className="admin-badge is-draft">draft</span> : null}
+            {selectedProduct.archived ? <span className="admin-badge">archived</span> : null}
             {selectedProduct.noindex ? <span className="admin-badge">noindex</span> : null}
           </div>
 
@@ -555,6 +612,7 @@ function ProductListGroup({ onClone, onSelect, products, selectedId, title }: Pr
             <small>{product.slug}</small>
             <span className="admin-product-status">
               {!product.published ? <em>draft</em> : null}
+              {product.archived ? <em>archived</em> : null}
               {product.noindex ? <em>noindex</em> : null}
             </span>
           </button>
@@ -579,6 +637,7 @@ function createDraftProduct(products: EditableProduct[]): EditableProduct {
     id: slug,
     slug,
     legacyPath: `product-${slug}.html`,
+    archived: undefined,
     published: false,
     noindex: true,
     title: "新規商品タイトル",

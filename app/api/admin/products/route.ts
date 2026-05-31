@@ -8,6 +8,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type EditableProduct = Product & {
+  archived?: boolean;
   noindex?: boolean;
 };
 
@@ -108,6 +109,9 @@ function validatePayload(payload: SavePayload) {
   if (!Array.isArray(product.salesLinks)) return "salesLinks must be an array.";
   if (!Array.isArray(product.specs)) return "specs must be an array.";
   if (typeof product.published !== "boolean") return "published must be a boolean.";
+  if (product.archived !== undefined && typeof product.archived !== "boolean") {
+    return "archived must be a boolean.";
+  }
   if (product.noindex !== undefined && typeof product.noindex !== "boolean") {
     return "noindex must be a boolean.";
   }
@@ -156,6 +160,13 @@ function normalizeProduct(product: EditableProduct): EditableProduct {
     relatedIds: normalizeStringList(product.relatedIds),
     galleryNumbers: product.galleryNumbers?.length ? product.galleryNumbers : undefined,
   };
+
+  if (normalized.archived) {
+    normalized.published = false;
+    normalized.noindex = true;
+  } else {
+    delete normalized.archived;
+  }
 
   if (!normalized.noindex) {
     delete normalized.noindex;

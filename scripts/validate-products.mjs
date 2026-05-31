@@ -64,8 +64,17 @@ async function validateProducts(items) {
     if (typeof product.published !== "boolean") {
       error(label, "published must be boolean.");
     }
+    if (product.archived !== undefined && typeof product.archived !== "boolean") {
+      error(label, "archived must be boolean when set.");
+    }
     if (product.noindex !== undefined && typeof product.noindex !== "boolean") {
       error(label, "noindex must be boolean when set.");
+    }
+    if (product.archived && product.published) {
+      error(label, "archived product must not be published.");
+    }
+    if (product.archived && !product.noindex) {
+      error(label, "archived product must keep noindex:true.");
     }
     if (!product.published && !product.noindex) {
       warn(label, "draft product should normally keep noindex:true.");
