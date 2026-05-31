@@ -6,7 +6,7 @@ import { isAdminEnabled } from "@/lib/admin";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Admin",
+  title: "ローカル管理",
   robots: {
     index: false,
     follow: false,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { AdminGalleryNumbersField, AdminGalleryPrefixField, AdminPathField } from "@/components/AdminPathAssist";
 import type { Product, ProductCategory } from "@/lib/products";
 
 type AdminProductEditorProps = {
@@ -76,6 +77,9 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
   );
   const galleryPreview = previewGalleryPaths(selectedProduct, 8);
   const usedSlugs = products.map((product) => product.slug).sort((a, b) => a.localeCompare(b));
+  const productImageBasePath = `/products/${selectedProduct.slug}`;
+  const coverImageBasePath = getPathDirectory(selectedProduct.coverImage, productImageBasePath);
+  const ogImageBasePath = getPathDirectory(selectedProduct.ogImage, productImageBasePath);
 
   function createNewProduct() {
     const product = createDraftProduct(products);
@@ -85,7 +89,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     setNewProductIds((currentIds) => new Set(currentIds).add(product.id));
     setSaveState({
       status: "idle",
-      message: "新規draftを作成しました。画像とBOOTHリンクを確認してから保存してください。",
+      message: "新規下書きを作成しました。画像とBOOTHリンクを確認してから保存してください。",
     });
   }
 
@@ -97,7 +101,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
     setNewProductIds((currentIds) => new Set(currentIds).add(product.id));
     setSaveState({
       status: "idle",
-      message: `${sourceProduct.shortTitle || sourceProduct.title} を複製しました。slug、画像、BOOTHリンクを確認してから保存してください。`,
+      message: `${sourceProduct.shortTitle || sourceProduct.title} を複製しました。URL識別子、画像、BOOTHリンクを確認してから保存してください。`,
     });
   }
 
@@ -268,21 +272,21 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
             onClone={duplicateProduct}
             products={publishedProducts}
             selectedId={selectedProduct.id}
-            title="Published"
+            title="公開中"
             onSelect={setSelectedId}
           />
           <ProductListGroup
             onClone={duplicateProduct}
             products={draftProducts}
             selectedId={selectedProduct.id}
-            title="Draft"
+            title="下書き"
             onSelect={setSelectedId}
           />
           <ProductListGroup
             onClone={duplicateProduct}
             products={archivedProducts}
             selectedId={selectedProduct.id}
-            title="Archived"
+            title="アーカイブ済み"
             onSelect={setSelectedId}
           />
         </div>
@@ -291,7 +295,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
       <section className="admin-editor" aria-label={`${selectedProduct.shortTitle}の編集`}>
         <div className="admin-editor-header">
           <div>
-            <p className="admin-kicker">{isNewProduct ? "New Draft" : "Editing"}</p>
+            <p className="admin-kicker">{isNewProduct ? "新規下書き" : "編集中"}</p>
             <h2>{selectedProduct.shortTitle || selectedProduct.title}</h2>
           </div>
           <div className="admin-button-row">
@@ -313,7 +317,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
         <div className="admin-notice">
           <strong>商品追加メモ</strong>
           <span>
-            新規商品は draft / noindex で作成します。不要になった商品は削除せず、アーカイブで公開面から外してください。
+            新規商品は下書き・検索除外で作成します。不要になった商品は削除せず、アーカイブで公開面から外してください。
           </span>
         </div>
 
@@ -321,29 +325,33 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
           <h3>基本情報</h3>
           <div className="admin-form-grid">
             <label className="admin-field">
-              <span>title</span>
+              <span>商品名</span>
               <input value={selectedProduct.title} onChange={(event) => updateField("title", event.target.value)} />
+              <p className="admin-help">商品LPや検索結果で使う正式な商品名です。</p>
             </label>
             <label className="admin-field">
-              <span>shortTitle</span>
+              <span>短縮商品名</span>
               <input
                 value={selectedProduct.shortTitle}
                 onChange={(event) => updateField("shortTitle", event.target.value)}
               />
+              <p className="admin-help">一覧や管理画面で短く表示する名前です。</p>
             </label>
             <label className="admin-field">
-              <span>slug</span>
+              <span>URL識別子</span>
               <input value={selectedProduct.slug} onChange={(event) => updateSlug(event.target.value)} />
+              <p className="admin-help">商品ページURLに使用されます。公開後は変更しないことを推奨します。</p>
             </label>
             <label className="admin-field">
-              <span>legacyPath</span>
+              <span>旧HTMLパス</span>
               <input
                 value={selectedProduct.legacyPath}
                 onChange={(event) => updateField("legacyPath", event.target.value)}
               />
+              <p className="admin-help">旧HTMLからNext.js商品ページへ転送するための互換パスです。</p>
             </label>
             <label className="admin-field">
-              <span>category</span>
+              <span>カテゴリ</span>
               <select value={selectedProduct.category} onChange={(event) => updateCategory(event.target.value as ProductCategory)}>
                 {categoryOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -351,10 +359,12 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
                   </option>
                 ))}
               </select>
+              <p className="admin-help">商品一覧の種類フィルターに使います。</p>
             </label>
             <label className="admin-field">
-              <span>price</span>
+              <span>価格</span>
               <input value={selectedProduct.price} onChange={(event) => updateField("price", event.target.value)} />
+              <p className="admin-help">LP上に表示する価格表記です。</p>
             </label>
           </div>
 
@@ -365,7 +375,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
                 checked={selectedProduct.published}
                 onChange={(event) => updateField("published", event.target.checked)}
               />
-              <span>published</span>
+              <span>公開する</span>
             </label>
             <label className="admin-check-row">
               <input
@@ -373,20 +383,23 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
                 checked={Boolean(selectedProduct.noindex)}
                 onChange={(event) => updateField("noindex", event.target.checked || undefined)}
               />
-              <span>noindex</span>
+              <span>検索結果に載せない</span>
             </label>
-            {!selectedProduct.published ? <span className="admin-badge is-draft">draft</span> : null}
-            {selectedProduct.archived ? <span className="admin-badge">archived</span> : null}
-            {selectedProduct.noindex ? <span className="admin-badge">noindex</span> : null}
+            {!selectedProduct.published ? <span className="admin-badge is-draft">下書き</span> : null}
+            {selectedProduct.archived ? <span className="admin-badge">アーカイブ済み</span> : null}
+            {selectedProduct.noindex ? <span className="admin-badge">検索除外</span> : null}
           </div>
+          <p className="admin-help">
+            「検索結果に載せない」を有効にすると、Google検索へ登録しません。アーカイブ済み商品は公開一覧・サイトマップ・関連商品から外れます。
+          </p>
 
           <div className="admin-warning-list" aria-live="polite">
-            {slugDuplicate ? <p>slugが重複しています。保存前に別slugへ変更してください。</p> : null}
-            {!isNewProduct ? <p>公開済み商品のslug変更は旧URL redirectの確認が必要です。</p> : null}
+            {slugDuplicate ? <p>URL識別子が重複しています。保存前に別の値へ変更してください。</p> : null}
+            {!isNewProduct ? <p>公開済み商品のURL識別子変更は旧URL redirectの確認が必要です。</p> : null}
           </div>
 
           <details className="admin-used-slugs">
-            <summary>使用済みslugを表示</summary>
+            <summary>使用済みURL識別子を表示</summary>
             <div>
               {usedSlugs.map((slug, index) => (
                 <code key={`${slug}-${index}`}>{slug}</code>
@@ -400,34 +413,36 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
             <h3>画像・ギャラリー</h3>
             <div className="admin-button-row">
               <button className="button compact" type="button" onClick={resetGalleryFromSlug}>
-                slugから一括生成
+                URL識別子から一括生成
               </button>
               <button className="button compact" type="button" onClick={syncCoverWithGallery}>
-                coverをgallery[0]に同期
+                メイン画像を先頭ギャラリーに同期
               </button>
             </div>
           </div>
           <div className="admin-form-grid">
+            <AdminPathField
+              basePath={coverImageBasePath}
+              label="メイン画像"
+              value={selectedProduct.coverImage}
+              helpText="商品LPのメイン画像やカード表示に使う画像です。"
+              onChange={(value) => updateField("coverImage", value)}
+            />
+            <AdminPathField
+              basePath={ogImageBasePath}
+              label="SNS共有画像"
+              value={selectedProduct.ogImage}
+              helpText="SNS共有やOGPで使う画像です。"
+              onChange={(value) => updateField("ogImage", value)}
+            />
+            <AdminGalleryPrefixField
+              label="ギャラリー画像パス"
+              value={selectedProduct.galleryPrefix}
+              helpText="ギャラリー画像名の共通部分です。例: product-name-01.webp の product-name 部分。"
+              onChange={(value) => updateField("galleryPrefix", value)}
+            />
             <label className="admin-field">
-              <span>coverImage</span>
-              <input
-                value={selectedProduct.coverImage}
-                onChange={(event) => updateField("coverImage", event.target.value)}
-              />
-            </label>
-            <label className="admin-field">
-              <span>ogImage</span>
-              <input value={selectedProduct.ogImage} onChange={(event) => updateField("ogImage", event.target.value)} />
-            </label>
-            <label className="admin-field">
-              <span>galleryPrefix</span>
-              <input
-                value={selectedProduct.galleryPrefix}
-                onChange={(event) => updateField("galleryPrefix", event.target.value)}
-              />
-            </label>
-            <label className="admin-field">
-              <span>galleryCount</span>
+              <span>ギャラリー枚数</span>
               <input
                 min="0"
                 max="100"
@@ -435,22 +450,22 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
                 value={selectedProduct.galleryCount}
                 onChange={(event) => updateField("galleryCount", Number(event.target.value))}
               />
+              <p className="admin-help">連番で自動生成するギャラリー画像の枚数です。</p>
             </label>
-            <label className="admin-field admin-field-wide">
-              <span>galleryNumbers</span>
-              <input
-                placeholder="例: 1, 2, 5。空欄なら1からgalleryCountまで自動生成"
-                value={selectedProduct.galleryNumbers?.join(", ") ?? ""}
-                onChange={(event) => updateField("galleryNumbers", parseNumberList(event.target.value))}
-              />
-            </label>
+            <AdminGalleryNumbersField
+              label="ギャラリー番号"
+              value={selectedProduct.galleryNumbers?.join(", ") ?? ""}
+              helpText={`複数画像を選ぶと、${productImageBasePath} 配下の画像名から番号候補を作ります。`}
+              onTextChange={(value) => updateField("galleryNumbers", parseNumberList(value))}
+              onApply={(numbers) => updateField("galleryNumbers", numbers.length ? numbers : undefined)}
+            />
           </div>
           <div className="admin-path-preview" aria-label="生成される画像パス">
             {galleryPreview.map((image) => (
               <div key={image.src}>
-                <span>src</span>
+                <span>通常</span>
                 <code>{image.src}</code>
-                <span>thumb</span>
+                <span>サムネ</span>
                 <code>{image.thumb}</code>
               </div>
             ))}
@@ -460,43 +475,47 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
         <div className="admin-card">
           <h3>タグ・説明文</h3>
           <label className="admin-field">
-            <span>tags（1行に1つ）</span>
+            <span>タグ（1行に1つ）</span>
             <textarea
               rows={6}
               value={selectedProduct.tags.join("\n")}
               onChange={(event) => updateField("tags", parseTextList(event.target.value))}
             />
+            <p className="admin-help">商品検索やLP上部の補助情報に使います。</p>
           </label>
           <label className="admin-field">
-            <span>avatars（1行に1つ）</span>
+            <span>対応アバター（1行に1つ）</span>
             <textarea
               rows={4}
               value={selectedProduct.avatars.join("\n")}
               onChange={(event) => updateField("avatars", parseTextList(event.target.value))}
             />
+            <p className="admin-help">対応キャラ絞り込みやサブタグに使うアバター名です。</p>
           </label>
           <label className="admin-field">
-            <span>description</span>
+            <span>説明文</span>
             <textarea
               rows={5}
               value={selectedProduct.description}
               onChange={(event) => updateField("description", event.target.value)}
             />
+            <p className="admin-help">一覧、SEO、SNS共有で使う短い説明文です。</p>
           </label>
         </div>
 
         <div className="admin-card">
           <h3>関連商品</h3>
           <label className="admin-field">
-            <span>relatedIds（1行に1つ）</span>
+            <span>関連商品（1行に1つ）</span>
             <textarea
               rows={5}
               value={selectedProduct.relatedIds.join("\n")}
               onChange={(event) => updateField("relatedIds", parseTextList(event.target.value))}
             />
+            <p className="admin-help">関連商品に表示する商品のURL識別子です。</p>
           </label>
           {relatedIdWarnings.length ? (
-            <p className="admin-inline-warning">存在しないrelatedIds: {relatedIdWarnings.join(", ")}</p>
+            <p className="admin-inline-warning">存在しない関連商品: {relatedIdWarnings.join(", ")}</p>
           ) : (
             <p className="admin-help">空欄なら関連商品なし。公開前に4件以内を目安に設定してください。</p>
           )}
@@ -504,7 +523,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
 
         <div className="admin-card">
           <div className="admin-card-heading">
-            <h3>商品詳細・FAQ HTML</h3>
+            <h3>商品詳細・FAQ本文</h3>
             <div className="admin-button-row">
               <button
                 className="button compact"
@@ -525,7 +544,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
           </div>
           {detailArticles.map((article, index) => (
             <label className="admin-field" key={`${extractSectionTitle(article)}-${index}`}>
-              <span>{extractSectionTitle(article) || `section ${index + 1}`}</span>
+              <span>{extractSectionTitle(article) || `セクション ${index + 1}`}</span>
               <textarea
                 rows={index === faqArticleIndex ? 12 : 9}
                 value={article}
@@ -540,7 +559,7 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
         </div>
 
         <div className="admin-card admin-preview">
-          <h3>簡易プレビュー</h3>
+          <h3>プレビュー</h3>
           <div className="admin-preview-panel">
             <h4>{selectedProduct.title}</h4>
             <p>{selectedProduct.description}</p>
@@ -552,11 +571,11 @@ export function AdminProductEditor({ products: initialProducts }: AdminProductEd
             <dl>
               <div>
                 <dt>公開</dt>
-                <dd>{selectedProduct.published ? "公開" : "draft"}</dd>
+                <dd>{selectedProduct.published ? "公開中" : "下書き"}</dd>
               </div>
               <div>
                 <dt>検索</dt>
-                <dd>{selectedProduct.noindex ? "noindex" : "index"}</dd>
+                <dd>{selectedProduct.noindex ? "検索除外" : "検索対象"}</dd>
               </div>
               <div>
                 <dt>画像</dt>
@@ -611,9 +630,9 @@ function ProductListGroup({ onClone, onSelect, products, selectedId, title }: Pr
             <span>{product.shortTitle || product.title}</span>
             <small>{product.slug}</small>
             <span className="admin-product-status">
-              {!product.published ? <em>draft</em> : null}
-              {product.archived ? <em>archived</em> : null}
-              {product.noindex ? <em>noindex</em> : null}
+              {!product.published ? <em>下書き</em> : null}
+              {product.archived ? <em>アーカイブ</em> : null}
+              {product.noindex ? <em>検索除外</em> : null}
             </span>
           </button>
           <button
@@ -789,6 +808,17 @@ function firstGalleryImage(product: EditableProduct) {
     src: `/products/${product.slug}/${product.galleryPrefix}-01.webp`,
     thumb: `/products/${product.slug}/${product.galleryPrefix}-01-600.webp`,
   };
+}
+
+function getPathDirectory(path: string, fallback: string) {
+  const normalizedPath = path.trim().replace(/\\/g, "/");
+  const slashIndex = normalizedPath.lastIndexOf("/");
+
+  if (slashIndex > 0) {
+    return normalizedPath.slice(0, slashIndex);
+  }
+
+  return fallback;
 }
 
 function makeUniqueSlug(baseSlug: string, products: EditableProduct[]) {
