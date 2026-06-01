@@ -568,7 +568,7 @@ p {
 }
 
 .free-section {
-  padding-top: clamp(26px, 4vw, 48px);
+  padding-top: clamp(10px, 1.8vw, 22px);
   padding-bottom: clamp(42px, 6vw, 72px);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(255, 240, 246, 0.72)),
@@ -582,6 +582,10 @@ p {
   box-shadow: 0 18px 50px rgba(219, 80, 136, 0.12);
   padding: clamp(22px, 4vw, 44px);
   backdrop-filter: blur(18px);
+}
+
+.free-section .free-panel {
+  padding-top: clamp(16px, 2.4vw, 28px);
 }
 
 .character-free-compact {
@@ -787,7 +791,7 @@ p {
 
 .sales-band-top {
   padding-top: clamp(14px, 2vw, 24px);
-  padding-bottom: clamp(18px, 3vw, 30px);
+  padding-bottom: clamp(6px, 1.4vw, 14px);
 }
 
 .sales-band-top h1 {
@@ -6448,7 +6452,7 @@ p {
 
   .sales-band-top {
     padding-top: clamp(16px, 4vw, 28px);
-    padding-bottom: clamp(18px, 4vw, 34px);
+    padding-bottom: clamp(8px, 2vw, 16px);
   }
 
   .product-slider {
@@ -7196,7 +7200,7 @@ p {
   }
 
   .free-section {
-    padding-top: 22px;
+    padding-top: 10px;
     padding-bottom: 32px;
   }
 
@@ -7219,7 +7223,7 @@ p {
 
   .sales-band-top {
     padding-top: 14px;
-    padding-bottom: 18px;
+    padding-bottom: 8px;
   }
 
   .sales-band-top h1 {
