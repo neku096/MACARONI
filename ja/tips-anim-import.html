@@ -1,57 +1,57 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
-    <title>Unityでanimファイルを入れる時の基本 | 使い方記事 | マカロニ</title>
-    <meta name="description" content="Unityでダウンロードした.animファイルを読み込み、HumanPrefabへAnimator Controllerを設定し、AnimatorとAnimationタブでポーズ・アニメーションを再生確認する手順をまとめます。">
-    <meta name="author" content="マカロニ">
+    <title>Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ | 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・/title>
+    <meta name="description" content="Unity縺ｧ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・anim繝輔ぃ繧､繝ｫ繧定ｪｭ縺ｿ霎ｼ縺ｿ縲？umanPrefab縺ｸAnimator Controller繧定ｨｭ螳壹＠縲、nimator縺ｨAnimation繧ｿ繝悶〒繝昴・繧ｺ繝ｻ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞・逕溽｢ｺ隱阪☆繧区焔鬆・ｒ縺ｾ縺ｨ繧√∪縺吶・>
+    <meta name="author" content="繝槭き繝ｭ繝・>
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#07070b">
-    <meta name="application-name" content="マカロニ">
-    <meta name="apple-mobile-web-app-title" content="マカロニ">
+    <meta name="application-name" content="繝槭き繝ｭ繝・>
+    <meta name="apple-mobile-web-app-title" content="繝槭き繝ｭ繝・>
     <link rel="icon" href="../favicon.ico?v=20260516" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png?v=20260516">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png?v=20260516">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png?v=20260516">
     <link rel="manifest" href="../site.webmanifest?v=20260516">
-    <link rel="canonical" href="https://neku096.github.io/MACARONI/ja/tips-anim-import.html">
+    <link rel="canonical" href="https://macaroni-wheat.vercel.app/ja/tips-anim-import.html">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://neku096.github.io/MACARONI/ja/tips-anim-import.html">
-    <meta property="og:site_name" content="マカロニ">
+    <meta property="og:url" content="https://macaroni-wheat.vercel.app/ja/tips-anim-import.html">
+    <meta property="og:site_name" content="繝槭き繝ｭ繝・>
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:title" content="Unityでanimファイルを入れる時の基本 | 使い方記事 | マカロニ">
-    <meta property="og:description" content="Unityでダウンロードした.animファイルを読み込み、HumanPrefabへAnimator Controllerを設定し、AnimatorとAnimationタブでポーズ・アニメーションを再生確認する手順をまとめます。">
-    <meta property="og:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
-    <meta property="og:image:secure_url" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
+    <meta property="og:title" content="Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ | 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・>
+    <meta property="og:description" content="Unity縺ｧ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・anim繝輔ぃ繧､繝ｫ繧定ｪｭ縺ｿ霎ｼ縺ｿ縲？umanPrefab縺ｸAnimator Controller繧定ｨｭ螳壹＠縲、nimator縺ｨAnimation繧ｿ繝悶〒繝昴・繧ｺ繝ｻ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞・逕溽｢ｺ隱阪☆繧区焔鬆・ｒ縺ｾ縺ｨ繧√∪縺吶・>
+    <meta property="og:image" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
+    <meta property="og:image:secure_url" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
+    <meta property="og:image:alt" content="繝槭き繝ｭ繝・VRChat繝ｻUnity蜷代￠R18辟｡譁・D繝昴・繧ｺ邏譚舌Ο繧ｴ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Unityでanimファイルを入れる時の基本 | 使い方記事 | マカロニ">
-    <meta name="twitter:description" content="Unityでダウンロードした.animファイルを読み込み、HumanPrefabへAnimator Controllerを設定し、AnimatorとAnimationタブでポーズ・アニメーションを再生確認する手順をまとめます。">
-    <meta name="twitter:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
-    <meta name="twitter:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
+    <meta name="twitter:title" content="Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ | 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・>
+    <meta name="twitter:description" content="Unity縺ｧ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・anim繝輔ぃ繧､繝ｫ繧定ｪｭ縺ｿ霎ｼ縺ｿ縲？umanPrefab縺ｸAnimator Controller繧定ｨｭ螳壹＠縲、nimator縺ｨAnimation繧ｿ繝悶〒繝昴・繧ｺ繝ｻ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞・逕溽｢ｺ隱阪☆繧区焔鬆・ｒ縺ｾ縺ｨ繧√∪縺吶・>
+    <meta name="twitter:image" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
+    <meta name="twitter:image:alt" content="繝槭き繝ｭ繝・VRChat繝ｻUnity蜷代￠R18辟｡譁・D繝昴・繧ｺ邏譚舌Ο繧ｴ">
     <script type="application/ld+json" class="seo-schema">
 {
       "@context": "https://schema.org",
       "@type": "Article",
       "inLanguage": "ja",
       "isFamilyFriendly": false,
-      "headline": "Unityでanimファイルを入れる時の基本",
-      "description": "Unityでダウンロードした.animファイルを読み込み、HumanPrefabへAnimator Controllerを設定し、AnimatorとAnimationタブでポーズ・アニメーションを再生確認する手順をまとめます。",
+      "headline": "Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ",
+      "description": "Unity縺ｧ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・anim繝輔ぃ繧､繝ｫ繧定ｪｭ縺ｿ霎ｼ縺ｿ縲？umanPrefab縺ｸAnimator Controller繧定ｨｭ螳壹＠縲、nimator縺ｨAnimation繧ｿ繝悶〒繝昴・繧ｺ繝ｻ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞・逕溽｢ｺ隱阪☆繧区焔鬆・ｒ縺ｾ縺ｨ繧√∪縺吶・,
       "datePublished": "2026-05-08",
       "dateModified": "2026-05-08",
       "author": {
             "@type": "Organization",
-            "name": "マカロニ"
+            "name": "繝槭き繝ｭ繝・
       },
       "publisher": {
             "@type": "Organization",
-            "name": "マカロニ"
+            "name": "繝槭き繝ｭ繝・
       },
       "image": "../images/tips/anim-step-03.webp",
       "isAccessibleForFree": true,
@@ -66,9 +66,9 @@
       ]
 }
     </script>
-    <link rel="alternate" hreflang="ja" href="https://neku096.github.io/MACARONI/ja/tips-anim-import.html">
-    <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/tips-anim-import.html">
-    <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/tips-anim-import.html">
+    <link rel="alternate" hreflang="ja" href="https://macaroni-wheat.vercel.app/ja/tips-anim-import.html">
+    <link rel="alternate" hreflang="en" href="https://macaroni-wheat.vercel.app/en/tips-anim-import.html">
+    <link rel="alternate" hreflang="x-default" href="https://macaroni-wheat.vercel.app/ja/tips-anim-import.html">
 
     <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
@@ -76,36 +76,36 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
-        <h2>このサイトは18歳以上向けです</h2>
-        <p>R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
+        <h2>縺薙・繧ｵ繧､繝医・18豁ｳ莉･荳雁髄縺代〒縺・/h2>
+        <p>R18菴懷刀繝ｻ邏譚舌↓髢｢縺吶ｋ諠・ｱ繧貞性縺ｿ縺ｾ縺吶・8豁ｳ莉･荳翫・蝣ｴ蜷医・縺ｿ蜈･蝣ｴ縺励※縺上□縺輔＞縲・/p>
         <div class="age-actions">
-          <button class="button primary" id="enterSite" type="button">18歳以上です</button>
-          <a class="button ghost" href="https://www.google.com/">退場する</a>
+          <button class="button primary" id="enterSite" type="button">18豁ｳ莉･荳翫〒縺・/button>
+          <a class="button ghost" href="https://www.google.com/">騾蝣ｴ縺吶ｋ</a>
         </div>
       </div>
     </div>
 
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="トップへ">
-        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" decoding="async">
-        <span class="brand-subtitle">R18 ３Dポーズ素材無料配布サイト</span>
+      <a class="brand" href="index.html" aria-label="繝医ャ繝励∈">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="繝槭き繝ｭ繝・ width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 ・泥繝昴・繧ｺ邏譚千┌譁咎・蟶・し繧､繝・/span>
       </a>
-      <nav class="nav" aria-label="メインナビゲーション">
-        <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-label="BOOTH">BOOTH作品</a>
-        <a href="tips.html" aria-current="page">使い方</a>
-        <a href="terms.html">利用規約</a>
+      <nav class="nav" aria-label="繝｡繧､繝ｳ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ">
+        <a href="characters.html">蟇ｾ蠢懊く繝｣繝ｩ</a>
+        <a href="booth.html" aria-label="BOOTH">BOOTH菴懷刀</a>
+        <a href="tips.html" aria-current="page">菴ｿ縺・婿</a>
+        <a href="terms.html">蛻ｩ逕ｨ隕冗ｴ・/a>
       </nav>
       <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Language">
         <a class="language-option" href="tips-anim-import.html" aria-pressed="true">JP</a>
         <a class="language-option" href="../en/tips-anim-import.html" aria-pressed="false">EN</a>
       </div>
-      <button class="share-button" type="button" data-share-button aria-label="このページを共有" title="このページを共有">
+      <button class="share-button" type="button" data-share-button aria-label="縺薙・繝壹・繧ｸ繧貞・譛・ title="縺薙・繝壹・繧ｸ繧貞・譛・>
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .13.88L8.91 8.42a3 3 0 1 0 0 7.16l6.22 3.54A3 3 0 1 0 16 17.4l-6.22-3.54a3.06 3.06 0 0 0 0-3.72L16 6.6A3 3 0 0 0 18 8Z"></path>
         </svg>
-        <span>共有</span>
+        <span>蜈ｱ譛・/span>
       </button>
       </div>
     </header>
@@ -113,240 +113,240 @@
     <main class="text-page tip-article-page">
       <section class="section article-section" aria-labelledby="article-title">
         <div class="article-shell">
-          <nav class="article-breadcrumb" aria-label="パンくずリスト">
-            <a href="index.html">ホーム</a>
-            <span aria-hidden="true">›</span>
-            <a href="tips.html">使い方</a>
-            <span aria-hidden="true">›</span>
-            <span>Unityでanimファイルを入れる時の基本</span>
+          <nav class="article-breadcrumb" aria-label="繝代Φ縺上★繝ｪ繧ｹ繝・>
+            <a href="index.html">繝帙・繝</a>
+            <span aria-hidden="true">窶ｺ</span>
+            <a href="tips.html">菴ｿ縺・婿</a>
+            <span aria-hidden="true">窶ｺ</span>
+            <span>Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</span>
           </nav>
 
           <article class="blog-article">
             <header class="article-header">
               <p class="tag">UNITY</p>
-              <h1 id="article-title">Unityでanimファイルを入れる時の基本</h1>
+              <h1 id="article-title">Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</h1>
               <div class="article-meta-row">
                 <time datetime="2026-05-08">2026.05.08</time>
-                <span>使い方記事</span>
+                <span>菴ｿ縺・婿險倅ｺ・/span>
               </div>
-              <p class="article-lead">この記事では、ダウンロードした <code>.anim</code> ファイルをUnityへ入れて、アバターにポーズが反映されるところまでを画面の流れに沿って説明します。</p>
+              <p class="article-lead">縺薙・險倅ｺ九〒縺ｯ縲√ム繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・<code>.anim</code> 繝輔ぃ繧､繝ｫ繧旦nity縺ｸ蜈･繧後※縲√い繝舌ち繝ｼ縺ｫ繝昴・繧ｺ縺悟渚譏縺輔ｌ繧九→縺薙ｍ縺ｾ縺ｧ繧堤判髱｢縺ｮ豬√ｌ縺ｫ豐ｿ縺｣縺ｦ隱ｬ譏弱＠縺ｾ縺吶・/p>
             </header>
 
             <div class="article-visual">
-              <span class="article-visual-image"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
+              <span class="article-visual-image"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity縺ｧAnimator Controller繧剃ｽ懈・縺吶ｋ謇矩・判髱｢" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
               <div>
-                <strong>Unityでanimファイルを入れる時の基本</strong>
-                <p>やることは、アバターをHierarchyへ置く、Animator Controllerを作る、親オブジェクトへ設定する、animをAnimatorへ入れてPreviewで見る、の4つです。</p>
+                <strong>Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</strong>
+                <p>繧・ｋ縺薙→縺ｯ縲√い繝舌ち繝ｼ繧辿ierarchy縺ｸ鄂ｮ縺上、nimator Controller繧剃ｽ懊ｋ縲∬ｦｪ繧ｪ繝悶ず繧ｧ繧ｯ繝医∈險ｭ螳壹☆繧九∥nim繧但nimator縺ｸ蜈･繧後※Preview縺ｧ隕九ｋ縲√・4縺､縺ｧ縺吶・/p>
               </div>
             </div>
 
-            <nav class="article-toc" aria-label="記事目次">
+            <nav class="article-toc" aria-label="險倅ｺ狗岼谺｡">
               <p>Contents</p>
-              <a href="#prepare">事前に用意するもの</a>
-              <span class="article-toc-label">作業手順</span>
+              <a href="#prepare">莠句燕縺ｫ逕ｨ諢上☆繧九ｂ縺ｮ</a>
+              <span class="article-toc-label">菴懈･ｭ謇矩・/span>
               <ol>
-                <li><a href="#place-human">HumanPrefabをHierarchyに配置する</a></li>
-                <li><a href="#create-controller">Animator Controllerを作成する</a></li>
-                <li><a href="#assign-controller">ControllerをHumanObjectに設定する</a></li>
-                <li><a href="#open-animator">Animator Controllerを開く</a></li>
-                <li><a href="#import-anim">animファイルをUnityに入れる</a></li>
-                <li><a href="#register-anim">animをAnimatorへ登録する</a></li>
-                <li><a href="#preview">AnimationタブでPreview確認する</a></li>
+                <li><a href="#place-human">HumanPrefab繧辿ierarchy縺ｫ驟咲ｽｮ縺吶ｋ</a></li>
+                <li><a href="#create-controller">Animator Controller繧剃ｽ懈・縺吶ｋ</a></li>
+                <li><a href="#assign-controller">Controller繧辿umanObject縺ｫ險ｭ螳壹☆繧・/a></li>
+                <li><a href="#open-animator">Animator Controller繧帝幕縺・/a></li>
+                <li><a href="#import-anim">anim繝輔ぃ繧､繝ｫ繧旦nity縺ｫ蜈･繧後ｋ</a></li>
+                <li><a href="#register-anim">anim繧但nimator縺ｸ逋ｻ骭ｲ縺吶ｋ</a></li>
+                <li><a href="#preview">Animation繧ｿ繝悶〒Preview遒ｺ隱阪☆繧・/a></li>
               </ol>
-              <a href="#finish">完了の目安</a>
-              <a href="#trouble">うまく再生されない時</a>
-              <a href="#references">参考元</a>
+              <a href="#finish">螳御ｺ・・逶ｮ螳・/a>
+              <a href="#trouble">縺・∪縺丞・逕溘＆繧後↑縺・凾</a>
+              <a href="#references">蜿り・・</a>
             </nav>
 
             <section class="article-body-section" id="prepare">
-              <h2>事前に用意するもの</h2>
+              <h2>莠句燕縺ｫ逕ｨ諢上☆繧九ｂ縺ｮ</h2>
               <ul>
-                <li>FBX、またはセットアップ済みのHumanPrefab</li>
-                <li>当サイトからダウンロードした <code>.anim</code> ファイル</li>
+                <li>FBX縲√∪縺溘・繧ｻ繝・ヨ繧｢繝・・貂医∩縺ｮHumanPrefab</li>
+                <li>蠖薙し繧､繝医°繧峨ム繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・<code>.anim</code> 繝輔ぃ繧､繝ｫ</li>
               </ul>
-              <p><code>.anim</code> は、それだけで勝手に動くファイルではなく、Unity上ではAnimation Clipとして扱われます。アバターで確認するには、Animator Controllerへ登録して、アバター側のAnimatorに読ませる必要があります。</p>
-              <p class="article-note">慣れていないうちは、本番アバターへいきなり入れず、複製したPrefabやテスト用Sceneで試すのがおすすめです。動かなかった時に、素材側の問題なのか、設定場所のミスなのかを切り分けやすくなります。</p>
+              <p><code>.anim</code> 縺ｯ縲√◎繧後□縺代〒蜍晄焔縺ｫ蜍輔￥繝輔ぃ繧､繝ｫ縺ｧ縺ｯ縺ｪ縺上ゞnity荳翫〒縺ｯAnimation Clip縺ｨ縺励※謇ｱ繧上ｌ縺ｾ縺吶ゅい繝舌ち繝ｼ縺ｧ遒ｺ隱阪☆繧九↓縺ｯ縲、nimator Controller縺ｸ逋ｻ骭ｲ縺励※縲√い繝舌ち繝ｼ蛛ｴ縺ｮAnimator縺ｫ隱ｭ縺ｾ縺帙ｋ蠢・ｦ√′縺ゅｊ縺ｾ縺吶・/p>
+              <p class="article-note">諷｣繧後※縺・↑縺・≧縺｡縺ｯ縲∵悽逡ｪ繧｢繝舌ち繝ｼ縺ｸ縺・″縺ｪ繧雁・繧後★縲∬､・｣ｽ縺励◆Prefab繧・ユ繧ｹ繝育畑Scene縺ｧ隧ｦ縺吶・縺後♀縺吶☆繧√〒縺吶ょ虚縺九↑縺九▲縺滓凾縺ｫ縲∫ｴ譚仙・縺ｮ蝠城｡後↑縺ｮ縺九∬ｨｭ螳壼ｴ謇縺ｮ繝溘せ縺ｪ縺ｮ縺九ｒ蛻・ｊ蛻・￠繧・☆縺上↑繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="place-human">
-              <h2>1. FBXまたはHumanPrefabをHierarchyに配置する</h2>
-              <p>まずは、Assets内にあるFBX、またはセットアップ済みのHumanPrefabをHierarchyへドラッグ＆ドロップします。ここでScene上にアバターが表示されればOKです。</p>
+              <h2>1. FBX縺ｾ縺溘・HumanPrefab繧辿ierarchy縺ｫ驟咲ｽｮ縺吶ｋ</h2>
+              <p>縺ｾ縺壹・縲、ssets蜀・↓縺ゅｋFBX縲√∪縺溘・繧ｻ繝・ヨ繧｢繝・・貂医∩縺ｮHumanPrefab繧辿ierarchy縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶ゅ％縺薙〒Scene荳翫↓繧｢繝舌ち繝ｼ縺瑚｡ｨ遉ｺ縺輔ｌ繧後・OK縺ｧ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-01-800.webp" alt="PrefabまたはFBXをAssetsからHierarchyへドラッグ＆ドロップするUnity画面" srcset="../images/tips/anim-step-01-600.webp 600w, ../images/tips/anim-step-01-800.webp 800w, ../images/tips/anim-step-01.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-01-800.webp" alt="Prefab縺ｾ縺溘・FBX繧但ssets縺九ｉHierarchy縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/anim-step-01-600.webp 600w, ../images/tips/anim-step-01-800.webp 800w, ../images/tips/anim-step-01.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>このあと設定するのは、Bodyや髪、服などの子オブジェクトではなく、アバター全体をまとめている一番上のHumanObjectです。</p>
-              <p class="article-note">迷ったら、画像のようにHierarchyで一番上にある <code>Milltina_mukuchi_kisekae</code> のような親オブジェクトを選びます。Bodyや髪パーツにControllerを入れると、思った通りに動かないことがあります。</p>
+              <p>縺薙・縺ゅ→險ｭ螳壹☆繧九・縺ｯ縲。ody繧・ｫｪ縲∵恪縺ｪ縺ｩ縺ｮ蟄舌が繝悶ず繧ｧ繧ｯ繝医〒縺ｯ縺ｪ縺上√い繝舌ち繝ｼ蜈ｨ菴薙ｒ縺ｾ縺ｨ繧√※縺・ｋ荳逡ｪ荳翫・HumanObject縺ｧ縺吶・/p>
+              <p class="article-note">霑ｷ縺｣縺溘ｉ縲∫判蜒上・繧医≧縺ｫHierarchy縺ｧ荳逡ｪ荳翫↓縺ゅｋ <code>Milltina_mukuchi_kisekae</code> 縺ｮ繧医≧縺ｪ隕ｪ繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ驕ｸ縺ｳ縺ｾ縺吶・ody繧・ｫｪ繝代・繝・↓Controller繧貞・繧後ｋ縺ｨ縲∵昴▲縺滄壹ｊ縺ｫ蜍輔°縺ｪ縺・％縺ｨ縺後≠繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="create-controller">
-              <h2>2. Animator Controllerを作成する</h2>
-              <p>ProjectウィンドウのAssets内で、何もない場所を右クリックします。メニューが出たら <code>Create &gt; Animator Controller</code> を選びます。</p>
+              <h2>2. Animator Controller繧剃ｽ懈・縺吶ｋ</h2>
+              <p>Project繧ｦ繧｣繝ｳ繝峨え縺ｮAssets蜀・〒縲∽ｽ輔ｂ縺ｪ縺・ｴ謇繧貞承繧ｯ繝ｪ繝・け縺励∪縺吶ゅΓ繝九Η繝ｼ縺悟・縺溘ｉ <code>Create &gt; Animator Controller</code> 繧帝∈縺ｳ縺ｾ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-02-800.webp" alt="Assetsの空白を右クリックしてCreateからAnimator Controllerを選択するUnity画面" srcset="../images/tips/anim-step-02-600.webp 600w, ../images/tips/anim-step-02-800.webp 800w, ../images/tips/anim-step-02.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-02-800.webp" alt="Assets縺ｮ遨ｺ逋ｽ繧貞承繧ｯ繝ｪ繝・け縺励※Create縺九ｉAnimator Controller繧帝∈謚槭☆繧偽nity逕ｻ髱｢" srcset="../images/tips/anim-step-02-600.webp 600w, ../images/tips/anim-step-02-800.webp 800w, ../images/tips/anim-step-02.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>作成したAnimator Controllerには、あとから見ても分かる名前を付けておきます。名前は動作に影響しませんが、整理しておくと後でかなり楽です。</p>
+              <p>菴懈・縺励◆Animator Controller縺ｫ縺ｯ縲√≠縺ｨ縺九ｉ隕九※繧ょ・縺九ｋ蜷榊燕繧剃ｻ倥￠縺ｦ縺翫″縺ｾ縺吶ょ錐蜑阪・蜍穂ｽ懊↓蠖ｱ髻ｿ縺励∪縺帙ｓ縺後∵紛逅・＠縺ｦ縺翫￥縺ｨ蠕後〒縺九↑繧頑･ｽ縺ｧ縺吶・/p>
               <ul>
                 <li><code>PosePreview_Controller</code></li>
                 <li><code>TIPSAnim_Controller</code></li>
                 <li><code>SamplePose_Controller</code></li>
               </ul>
-              <p class="article-note">Unityでは、Animation ClipをGameObjectで使う時にAnimator Controllerを経由します。ポーズが1個だけでも、まずはControllerを作る、と覚えておくと分かりやすいです。</p>
+              <p class="article-note">Unity縺ｧ縺ｯ縲、nimation Clip繧竪ameObject縺ｧ菴ｿ縺・凾縺ｫAnimator Controller繧堤ｵ檎罰縺励∪縺吶ゅ・繝ｼ繧ｺ縺・蛟九□縺代〒繧ゅ√∪縺壹・Controller繧剃ｽ懊ｋ縲√→隕壹∴縺ｦ縺翫￥縺ｨ蛻・°繧翫ｄ縺吶＞縺ｧ縺吶・/p>
             </section>
 
             <section class="article-body-section" id="assign-controller">
-              <h2>3. ControllerをHumanObjectに設定する</h2>
-              <p>ここが一番大事です。作ったAnimator Controllerを、さきほどHierarchyに置いたHumanObjectへ入れます。</p>
+              <h2>3. Controller繧辿umanObject縺ｫ險ｭ螳壹☆繧・/h2>
+              <p>縺薙％縺御ｸ逡ｪ螟ｧ莠九〒縺吶ゆｽ懊▲縺蘗nimator Controller繧偵√＆縺阪⊇縺ｩHierarchy縺ｫ鄂ｮ縺・◆HumanObject縺ｸ蜈･繧後∪縺吶・/p>
               <ol>
-                <li>Hierarchyで、アバター全体の親になっているHumanObjectを選びます。</li>
-                <li>Projectウィンドウで、作成したAnimator Controllerを探します。</li>
-                <li>Animator ControllerをHumanObjectへドラッグ＆ドロップします。</li>
-                <li>InspectorのAnimatorコンポーネントにある <code>Controller</code> 欄へ入っていればOKです。</li>
+                <li>Hierarchy縺ｧ縲√い繝舌ち繝ｼ蜈ｨ菴薙・隕ｪ縺ｫ縺ｪ縺｣縺ｦ縺・ｋHumanObject繧帝∈縺ｳ縺ｾ縺吶・/li>
+                <li>Project繧ｦ繧｣繝ｳ繝峨え縺ｧ縲∽ｽ懈・縺励◆Animator Controller繧呈爾縺励∪縺吶・/li>
+                <li>Animator Controller繧辿umanObject縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶・/li>
+                <li>Inspector縺ｮAnimator繧ｳ繝ｳ繝昴・繝阪Φ繝医↓縺ゅｋ <code>Controller</code> 谺・∈蜈･縺｣縺ｦ縺・ｌ縺ｰOK縺ｧ縺吶・/li>
               </ol>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-03-800.webp" alt="作成したAnimator ControllerをHierarchyのHumanObjectへドラッグ＆ドロップするUnity画面" srcset="../images/tips/anim-step-03-600.webp 600w, ../images/tips/anim-step-03-800.webp 800w, ../images/tips/anim-step-03.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-03-800.webp" alt="菴懈・縺励◆Animator Controller繧辿ierarchy縺ｮHumanObject縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/anim-step-03-600.webp 600w, ../images/tips/anim-step-03-800.webp 800w, ../images/tips/anim-step-03.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>ドラッグ＆ドロップで反映されない時は、HumanObjectを選択したままInspectorを見て、Animatorコンポーネントの <code>Controller</code> 欄へ直接入れてください。Animatorコンポーネントがない場合は、<code>Add Component &gt; Animator</code> で追加してからControllerを入れます。</p>
-              <p class="article-warning">Project内にAnimator Controllerを作っただけでは、アバター側には何も起きません。必ずHierarchy上のHumanObjectへ設定します。</p>
+              <p>繝峨Λ繝・げ・・ラ繝ｭ繝・・縺ｧ蜿肴丐縺輔ｌ縺ｪ縺・凾縺ｯ縲？umanObject繧帝∈謚槭＠縺溘∪縺ｾInspector繧定ｦ九※縲、nimator繧ｳ繝ｳ繝昴・繝阪Φ繝医・ <code>Controller</code> 谺・∈逶ｴ謗･蜈･繧後※縺上□縺輔＞縲・nimator繧ｳ繝ｳ繝昴・繝阪Φ繝医′縺ｪ縺・ｴ蜷医・縲・code>Add Component &gt; Animator</code> 縺ｧ霑ｽ蜉縺励※縺九ｉController繧貞・繧後∪縺吶・/p>
+              <p class="article-warning">Project蜀・↓Animator Controller繧剃ｽ懊▲縺溘□縺代〒縺ｯ縲√い繝舌ち繝ｼ蛛ｴ縺ｫ縺ｯ菴輔ｂ襍ｷ縺阪∪縺帙ｓ縲ょｿ・★Hierarchy荳翫・HumanObject縺ｸ險ｭ螳壹＠縺ｾ縺吶・/p>
             </section>
 
             <section class="article-body-section" id="open-animator">
-              <h2>4. Animator Controllerを開く</h2>
-              <p>Projectウィンドウ内のAnimator Controllerをダブルクリックします。画面の中央か右側にAnimatorウィンドウが出てくればOKです。</p>
+              <h2>4. Animator Controller繧帝幕縺・/h2>
+              <p>Project繧ｦ繧｣繝ｳ繝峨え蜀・・Animator Controller繧偵ム繝悶Ν繧ｯ繝ｪ繝・け縺励∪縺吶ら判髱｢縺ｮ荳ｭ螟ｮ縺句承蛛ｴ縺ｫAnimator繧ｦ繧｣繝ｳ繝峨え縺悟・縺ｦ縺上ｌ縺ｰOK縺ｧ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-04-800.webp" alt="Animator ControllerをダブルクリックしてAnimatorウィンドウを表示するUnity画面" srcset="../images/tips/anim-step-04-600.webp 600w, ../images/tips/anim-step-04-800.webp 800w, ../images/tips/anim-step-04.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-04-800.webp" alt="Animator Controller繧偵ム繝悶Ν繧ｯ繝ｪ繝・け縺励※Animator繧ｦ繧｣繝ｳ繝峨え繧定｡ｨ遉ｺ縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/anim-step-04-600.webp 600w, ../images/tips/anim-step-04-800.webp 800w, ../images/tips/anim-step-04.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>Animatorウィンドウは、animファイルをStateとして登録する場所です。Animationタブとは役割が違うので、ここは分けて考えると迷いにくいです。</p>
+              <p>Animator繧ｦ繧｣繝ｳ繝峨え縺ｯ縲∥nim繝輔ぃ繧､繝ｫ繧担tate縺ｨ縺励※逋ｻ骭ｲ縺吶ｋ蝣ｴ謇縺ｧ縺吶・nimation繧ｿ繝悶→縺ｯ蠖ｹ蜑ｲ縺碁＆縺・・縺ｧ縲√％縺薙・蛻・￠縺ｦ閠・∴繧九→霑ｷ縺・↓縺上＞縺ｧ縺吶・/p>
               <ul>
-                <li>Animatorウィンドウ: animファイルをStateとして登録する場所</li>
-                <li>Animationタブ: animファイルの中身やPreviewを確認する場所</li>
+                <li>Animator繧ｦ繧｣繝ｳ繝峨え: anim繝輔ぃ繧､繝ｫ繧担tate縺ｨ縺励※逋ｻ骭ｲ縺吶ｋ蝣ｴ謇</li>
+                <li>Animation繧ｿ繝・ anim繝輔ぃ繧､繝ｫ縺ｮ荳ｭ霄ｫ繧Пreview繧堤｢ｺ隱阪☆繧句ｴ謇</li>
               </ul>
             </section>
 
             <section class="article-body-section" id="import-anim">
-              <h2>5. ダウンロードしたanimファイルをUnityに入れる</h2>
-              <p>当サイトからダウンロードした <code>.anim</code> ファイルを、UnityのAssets内へドラッグ＆ドロップします。Projectウィンドウにanimファイルが表示されれば、Unityへの取り込みはできています。</p>
+              <h2>5. 繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺歛nim繝輔ぃ繧､繝ｫ繧旦nity縺ｫ蜈･繧後ｋ</h2>
+              <p>蠖薙し繧､繝医°繧峨ム繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・<code>.anim</code> 繝輔ぃ繧､繝ｫ繧偵ゞnity縺ｮAssets蜀・∈繝峨Λ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶１roject繧ｦ繧｣繝ｳ繝峨え縺ｫanim繝輔ぃ繧､繝ｫ縺瑚｡ｨ遉ｺ縺輔ｌ繧後・縲ゞnity縺ｸ縺ｮ蜿悶ｊ霎ｼ縺ｿ縺ｯ縺ｧ縺阪※縺・∪縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-05-800.webp" alt="ダウンロードしたanimファイルをAssetsへインポートしAnimatorへドラッグ＆ドロップするUnity画面" srcset="../images/tips/anim-step-05-600.webp 600w, ../images/tips/anim-step-05-800.webp 800w, ../images/tips/anim-step-05.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-05-800.webp" alt="繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺歛nim繝輔ぃ繧､繝ｫ繧但ssets縺ｸ繧､繝ｳ繝昴・繝医＠Animator縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/anim-step-05-600.webp 600w, ../images/tips/anim-step-05-800.webp 800w, ../images/tips/anim-step-05.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>ここではまず「Assetsにanimファイルが入った状態」を確認できれば大丈夫です。</p>
-              <p>複数のポーズやモーションを使う場合は、Assets内に <code>Pose</code> や <code>Anim</code> のようなフォルダを作ってまとめておくと、後から探しやすくなります。</p>
+              <p>縺薙％縺ｧ縺ｯ縺ｾ縺壹窟ssets縺ｫanim繝輔ぃ繧､繝ｫ縺悟・縺｣縺溽憾諷九阪ｒ遒ｺ隱阪〒縺阪ｌ縺ｰ螟ｧ荳亥､ｫ縺ｧ縺吶・/p>
+              <p>隍・焚縺ｮ繝昴・繧ｺ繧・Δ繝ｼ繧ｷ繝ｧ繝ｳ繧剃ｽｿ縺・ｴ蜷医・縲、ssets蜀・↓ <code>Pose</code> 繧・<code>Anim</code> 縺ｮ繧医≧縺ｪ繝輔か繝ｫ繝繧剃ｽ懊▲縺ｦ縺ｾ縺ｨ繧√※縺翫￥縺ｨ縲∝ｾ後°繧画爾縺励ｄ縺吶￥縺ｪ繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="register-anim">
-              <h2>6. animファイルをAnimatorへ登録する</h2>
-              <p>ここは、ひとつ前の画像の続きです。Assetsに入れたanimファイルを、右側に表示しているAnimatorウィンドウへドラッグ＆ドロップします。</p>
+              <h2>6. anim繝輔ぃ繧､繝ｫ繧但nimator縺ｸ逋ｻ骭ｲ縺吶ｋ</h2>
+              <p>縺薙％縺ｯ縲√・縺ｨ縺､蜑阪・逕ｻ蜒上・邯壹″縺ｧ縺吶・ssets縺ｫ蜈･繧後◆anim繝輔ぃ繧､繝ｫ繧偵∝承蛛ｴ縺ｫ陦ｨ遉ｺ縺励※縺・ｋAnimator繧ｦ繧｣繝ｳ繝峨え縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶・/p>
               <ol>
-                <li>Projectウィンドウで、取り込んだ <code>.anim</code> ファイルを見つけます。</li>
-                <li>Animatorウィンドウの何もない場所へ、animファイルをドラッグ＆ドロップします。</li>
-                <li>四角いノードが作られたら登録成功です。このノードをStateと呼びます。</li>
-                <li>最初に再生したいStateがオレンジ色になっているか確認します。</li>
-                <li>オレンジ色でない場合は、そのStateを右クリックして <code>Set as Layer Default State</code> を選びます。</li>
+                <li>Project繧ｦ繧｣繝ｳ繝峨え縺ｧ縲∝叙繧願ｾｼ繧薙□ <code>.anim</code> 繝輔ぃ繧､繝ｫ繧定ｦ九▽縺代∪縺吶・/li>
+                <li>Animator繧ｦ繧｣繝ｳ繝峨え縺ｮ菴輔ｂ縺ｪ縺・ｴ謇縺ｸ縲∥nim繝輔ぃ繧､繝ｫ繧偵ラ繝ｩ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶・/li>
+                <li>蝗幄ｧ偵＞繝弱・繝峨′菴懊ｉ繧後◆繧臥匳骭ｲ謌仙粥縺ｧ縺吶ゅ％縺ｮ繝弱・繝峨ｒState縺ｨ蜻ｼ縺ｳ縺ｾ縺吶・/li>
+                <li>譛蛻昴↓蜀咲函縺励◆縺Тtate縺後が繝ｬ繝ｳ繧ｸ濶ｲ縺ｫ縺ｪ縺｣縺ｦ縺・ｋ縺狗｢ｺ隱阪＠縺ｾ縺吶・/li>
+                <li>繧ｪ繝ｬ繝ｳ繧ｸ濶ｲ縺ｧ縺ｪ縺・ｴ蜷医・縲√◎縺ｮState繧貞承繧ｯ繝ｪ繝・け縺励※ <code>Set as Layer Default State</code> 繧帝∈縺ｳ縺ｾ縺吶・/li>
               </ol>
-              <p class="article-note">よくあるのは、animをProjectに入れただけで止まってしまうパターンです。Projectに入れるだけでは再生されないので、Animatorウィンドウへ入れてStateができるところまで進めます。</p>
+              <p class="article-note">繧医￥縺ゅｋ縺ｮ縺ｯ縲∥nim繧単roject縺ｫ蜈･繧後◆縺縺代〒豁｢縺ｾ縺｣縺ｦ縺励∪縺・ヱ繧ｿ繝ｼ繝ｳ縺ｧ縺吶１roject縺ｫ蜈･繧後ｋ縺縺代〒縺ｯ蜀咲函縺輔ｌ縺ｪ縺・・縺ｧ縲、nimator繧ｦ繧｣繝ｳ繝峨え縺ｸ蜈･繧後※State縺後〒縺阪ｋ縺ｨ縺薙ｍ縺ｾ縺ｧ騾ｲ繧√∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="preview">
-              <h2>7. AnimationタブでPreview確認する</h2>
-              <p>最後に、実際にポーズが出るか確認します。animファイルをダブルクリックするか、<code>Window &gt; Animation &gt; Animation</code> からAnimationタブを開きます。</p>
+              <h2>7. Animation繧ｿ繝悶〒Preview遒ｺ隱阪☆繧・/h2>
+              <p>譛蠕後↓縲∝ｮ滄圀縺ｫ繝昴・繧ｺ縺悟・繧九°遒ｺ隱阪＠縺ｾ縺吶Ｂnim繝輔ぃ繧､繝ｫ繧偵ム繝悶Ν繧ｯ繝ｪ繝・け縺吶ｋ縺九・code>Window &gt; Animation &gt; Animation</code> 縺九ｉAnimation繧ｿ繝悶ｒ髢九″縺ｾ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-06-800.webp" alt="animファイルをダブルクリックしてAnimationタブを表示するUnity画面" srcset="../images/tips/anim-step-06-600.webp 600w, ../images/tips/anim-step-06-800.webp 800w, ../images/tips/anim-step-06.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-06-800.webp" alt="anim繝輔ぃ繧､繝ｫ繧偵ム繝悶Ν繧ｯ繝ｪ繝・け縺励※Animation繧ｿ繝悶ｒ陦ｨ遉ｺ縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/anim-step-06-600.webp 600w, ../images/tips/anim-step-06-800.webp 800w, ../images/tips/anim-step-06.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
               <ol>
-                <li>HierarchyでHumanObjectを選びます。</li>
-                <li>Animationタブ上部のClip選択欄から、確認したい <code>.anim</code> を選びます。</li>
-                <li>左上のPreviewを押します。</li>
-                <li>ポーズ用animなら、Scene上のアバターにポーズが反映されるか見ます。</li>
-                <li>モーション付きanimなら、再生ボタンやタイムラインを動かして確認します。</li>
+                <li>Hierarchy縺ｧHumanObject繧帝∈縺ｳ縺ｾ縺吶・/li>
+                <li>Animation繧ｿ繝紋ｸ企Κ縺ｮClip驕ｸ謚樊ｬ・°繧峨∫｢ｺ隱阪＠縺溘＞ <code>.anim</code> 繧帝∈縺ｳ縺ｾ縺吶・/li>
+                <li>蟾ｦ荳翫・Preview繧呈款縺励∪縺吶・/li>
+                <li>繝昴・繧ｺ逕ｨanim縺ｪ繧峨ヾcene荳翫・繧｢繝舌ち繝ｼ縺ｫ繝昴・繧ｺ縺悟渚譏縺輔ｌ繧九°隕九∪縺吶・/li>
+                <li>繝｢繝ｼ繧ｷ繝ｧ繝ｳ莉倥″anim縺ｪ繧峨∝・逕溘・繧ｿ繝ｳ繧・ち繧､繝繝ｩ繧､繝ｳ繧貞虚縺九＠縺ｦ遒ｺ隱阪＠縺ｾ縺吶・/li>
               </ol>
               <figure class="article-image-frame">
-                <img src="../images/tips/anim-step-07-800.webp" alt="AnimationタブのPreviewを押してポーズを再生確認するUnity画面" srcset="../images/tips/anim-step-07-600.webp 600w, ../images/tips/anim-step-07-800.webp 800w, ../images/tips/anim-step-07.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/anim-step-07-800.webp" alt="Animation繧ｿ繝悶・Preview繧呈款縺励※繝昴・繧ｺ繧貞・逕溽｢ｺ隱阪☆繧偽nity逕ｻ髱｢" srcset="../images/tips/anim-step-07-600.webp 600w, ../images/tips/anim-step-07-800.webp 800w, ../images/tips/anim-step-07.webp 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p class="article-warning">確認するだけなら、赤いRecordボタンは触らなくて大丈夫です。Recordをオンにすると編集モードになり、意図しないキーを追加してしまうことがあります。</p>
+              <p class="article-warning">遒ｺ隱阪☆繧九□縺代↑繧峨∬ｵ､縺Сecord繝懊ち繝ｳ縺ｯ隗ｦ繧峨↑縺上※螟ｧ荳亥､ｫ縺ｧ縺吶３ecord繧偵が繝ｳ縺ｫ縺吶ｋ縺ｨ邱ｨ髮・Δ繝ｼ繝峨↓縺ｪ繧翫∵э蝗ｳ縺励↑縺・く繝ｼ繧定ｿｽ蜉縺励※縺励∪縺・％縺ｨ縺後≠繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="finish">
-              <h2>完了の目安</h2>
-              <p>ここまでできていれば、最低限の再生確認は完了です。</p>
+              <h2>螳御ｺ・・逶ｮ螳・/h2>
+              <p>縺薙％縺ｾ縺ｧ縺ｧ縺阪※縺・ｌ縺ｰ縲∵怙菴朱剞縺ｮ蜀咲函遒ｺ隱阪・螳御ｺ・〒縺吶・/p>
               <ul class="article-summary-list">
-                <li>HierarchyにHumanObjectが配置されている</li>
-                <li>HumanObjectのAnimatorにAnimator Controllerが設定されている</li>
-                <li>AnimatorウィンドウにanimファイルのStateが追加されている</li>
-                <li>再生したいStateがDefault Stateになっている</li>
-                <li>AnimationタブでPreviewを押すと、Scene上のアバターにポーズが反映される</li>
+                <li>Hierarchy縺ｫHumanObject縺碁・鄂ｮ縺輔ｌ縺ｦ縺・ｋ</li>
+                <li>HumanObject縺ｮAnimator縺ｫAnimator Controller縺瑚ｨｭ螳壹＆繧後※縺・ｋ</li>
+                <li>Animator繧ｦ繧｣繝ｳ繝峨え縺ｫanim繝輔ぃ繧､繝ｫ縺ｮState縺瑚ｿｽ蜉縺輔ｌ縺ｦ縺・ｋ</li>
+                <li>蜀咲函縺励◆縺Тtate縺轡efault State縺ｫ縺ｪ縺｣縺ｦ縺・ｋ</li>
+                <li>Animation繧ｿ繝悶〒Preview繧呈款縺吶→縲ヾcene荳翫・繧｢繝舌ち繝ｼ縺ｫ繝昴・繧ｺ縺悟渚譏縺輔ｌ繧・/li>
               </ul>
             </section>
 
             <section class="article-body-section" id="trouble">
-              <h2>うまく再生されない時の確認ポイント</h2>
-              <h3>Previewを押してもポーズが変わらない</h3>
-              <p>HumanObjectではなく、Bodyや髪などの子オブジェクトを選んでいる可能性があります。Hierarchyで、アバター全体をまとめている一番上のオブジェクトを選び直してください。</p>
+              <h2>縺・∪縺丞・逕溘＆繧後↑縺・凾縺ｮ遒ｺ隱阪・繧､繝ｳ繝・/h2>
+              <h3>Preview繧呈款縺励※繧ゅ・繝ｼ繧ｺ縺悟､峨ｏ繧峨↑縺・/h3>
+              <p>HumanObject縺ｧ縺ｯ縺ｪ縺上。ody繧・ｫｪ縺ｪ縺ｩ縺ｮ蟄舌が繝悶ず繧ｧ繧ｯ繝医ｒ驕ｸ繧薙〒縺・ｋ蜿ｯ閭ｽ諤ｧ縺後≠繧翫∪縺吶・ierarchy縺ｧ縲√い繝舌ち繝ｼ蜈ｨ菴薙ｒ縺ｾ縺ｨ繧√※縺・ｋ荳逡ｪ荳翫・繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ驕ｸ縺ｳ逶ｴ縺励※縺上□縺輔＞縲・/p>
 
-              <h3>Animatorにanimを入れても再生されない</h3>
-              <p>Animator ControllerがHumanObjectに入っているか確認します。Project内にControllerを作っただけだと、アバターにはまだ反映されません。</p>
+              <h3>Animator縺ｫanim繧貞・繧後※繧ょ・逕溘＆繧後↑縺・/h3>
+              <p>Animator Controller縺粂umanObject縺ｫ蜈･縺｣縺ｦ縺・ｋ縺狗｢ｺ隱阪＠縺ｾ縺吶１roject蜀・↓Controller繧剃ｽ懊▲縺溘□縺代□縺ｨ縲√い繝舌ち繝ｼ縺ｫ縺ｯ縺ｾ縺蜿肴丐縺輔ｌ縺ｾ縺帙ｓ縲・/p>
 
-              <h3>Animationタブに何も表示されない</h3>
-              <p>Animationタブは、選んでいるGameObjectやAnimation Clipに合わせて表示が変わります。HumanObject、または確認したいanimファイルを選び直してみてください。</p>
+              <h3>Animation繧ｿ繝悶↓菴輔ｂ陦ｨ遉ｺ縺輔ｌ縺ｪ縺・/h3>
+              <p>Animation繧ｿ繝悶・縲・∈繧薙〒縺・ｋGameObject繧Бnimation Clip縺ｫ蜷医ｏ縺帙※陦ｨ遉ｺ縺悟､峨ｏ繧翫∪縺吶・umanObject縲√∪縺溘・遒ｺ隱阪＠縺溘＞anim繝輔ぃ繧､繝ｫ繧帝∈縺ｳ逶ｴ縺励※縺ｿ縺ｦ縺上□縺輔＞縲・/p>
 
-              <h3>別アバターで崩れる、動かない</h3>
-              <p>Humanoid用のアニメーションを別アバターで使う場合、モデル側のAvatar設定が必要です。FBXのRig設定でAnimation TypeがHumanoidになっているか、Avatarが正しく作成されているか確認してください。</p>
+              <h3>蛻･繧｢繝舌ち繝ｼ縺ｧ蟠ｩ繧後ｋ縲∝虚縺九↑縺・/h3>
+              <p>Humanoid逕ｨ縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞挨繧｢繝舌ち繝ｼ縺ｧ菴ｿ縺・ｴ蜷医√Δ繝・Ν蛛ｴ縺ｮAvatar險ｭ螳壹′蠢・ｦ√〒縺吶・BX縺ｮRig險ｭ螳壹〒Animation Type縺粂umanoid縺ｫ縺ｪ縺｣縺ｦ縺・ｋ縺九、vatar縺梧ｭ｣縺励￥菴懈・縺輔ｌ縺ｦ縺・ｋ縺狗｢ｺ隱阪＠縺ｦ縺上□縺輔＞縲・/p>
 
-              <h3>作業を切り分けたい時</h3>
+              <h3>菴懈･ｭ繧貞・繧雁・縺代◆縺・凾</h3>
               <ul>
-                <li>テスト用Sceneで試す</li>
-                <li>テスト用Animator Controllerを1つだけ作る</li>
-                <li>既存のFX、Gesture、Action Controllerへいきなり混ぜない</li>
-                <li>まず1つのanimだけをDefault Stateにして動作を見る</li>
+                <li>繝・せ繝育畑Scene縺ｧ隧ｦ縺・/li>
+                <li>繝・せ繝育畑Animator Controller繧・縺､縺縺台ｽ懊ｋ</li>
+                <li>譌｢蟄倥・FX縲；esture縲、ction Controller縺ｸ縺・″縺ｪ繧頑ｷｷ縺懊↑縺・/li>
+                <li>縺ｾ縺・縺､縺ｮanim縺縺代ｒDefault State縺ｫ縺励※蜍穂ｽ懊ｒ隕九ｋ</li>
               </ul>
-              <p>最初は「HumanObjectを置く、Controllerを入れる、animをAnimatorに入れる、Default Stateにする、Previewで見る」だけに絞ると原因を追いやすいです。ここで動けば、少なくともanim自体はUnity上で再生できる状態だと判断しやすくなります。</p>
+              <p>譛蛻昴・縲粂umanObject繧堤ｽｮ縺上，ontroller繧貞・繧後ｋ縲∥nim繧但nimator縺ｫ蜈･繧後ｋ縲．efault State縺ｫ縺吶ｋ縲￣review縺ｧ隕九ｋ縲阪□縺代↓邨槭ｋ縺ｨ蜴溷屏繧定ｿｽ縺・ｄ縺吶＞縺ｧ縺吶ゅ％縺薙〒蜍輔￠縺ｰ縲∝ｰ代↑縺上→繧Ｂnim閾ｪ菴薙・Unity荳翫〒蜀咲函縺ｧ縺阪ｋ迥ｶ諷九□縺ｨ蛻､譁ｭ縺励ｄ縺吶￥縺ｪ繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="references">
-              <h2>参考元</h2>
+              <h2>蜿り・・</h2>
               <ul>
-                <li><a href="https://docs.unity3d.com/ja/current/Manual/class-AnimatorController.html" target="_blank" rel="noopener noreferrer">Unity マニュアル: アニメーターコントローラー</a></li>
-                <li><a href="https://docs.unity3d.com/ja/current/Manual/Retargeting.html" target="_blank" rel="noopener noreferrer">Unity マニュアル: ヒューマノイドアニメーションのリターゲティング</a></li>
-                <li><a href="https://docs.unity3d.com/ja/current/Manual/AnimationEditorGuide.html" target="_blank" rel="noopener noreferrer">Unity マニュアル: Animation ウィンドウ</a></li>
-                <li><a href="https://docs.unity3d.com/ja/current/Manual/animeditor-UsingAnimationEditor.html" target="_blank" rel="noopener noreferrer">Unity マニュアル: Animation ビューの使用</a></li>
+                <li><a href="https://docs.unity3d.com/ja/current/Manual/class-AnimatorController.html" target="_blank" rel="noopener noreferrer">Unity 繝槭ル繝･繧｢繝ｫ: 繧｢繝九Γ繝ｼ繧ｿ繝ｼ繧ｳ繝ｳ繝医Ο繝ｼ繝ｩ繝ｼ</a></li>
+                <li><a href="https://docs.unity3d.com/ja/current/Manual/Retargeting.html" target="_blank" rel="noopener noreferrer">Unity 繝槭ル繝･繧｢繝ｫ: 繝偵Η繝ｼ繝槭ヮ繧､繝峨い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ繝ｪ繧ｿ繝ｼ繧ｲ繝・ぅ繝ｳ繧ｰ</a></li>
+                <li><a href="https://docs.unity3d.com/ja/current/Manual/AnimationEditorGuide.html" target="_blank" rel="noopener noreferrer">Unity 繝槭ル繝･繧｢繝ｫ: Animation 繧ｦ繧｣繝ｳ繝峨え</a></li>
+                <li><a href="https://docs.unity3d.com/ja/current/Manual/animeditor-UsingAnimationEditor.html" target="_blank" rel="noopener noreferrer">Unity 繝槭ル繝･繧｢繝ｫ: Animation 繝薙Η繝ｼ縺ｮ菴ｿ逕ｨ</a></li>
                 <li><a href="https://learn.unity.com/course/usc-unity-virtual-production/unit/creative-core-animation/tutorial/control-animation-with-an-animator" target="_blank" rel="noopener noreferrer">Unity Learn: Control animation with an Animator</a></li>
                 <li><a href="https://learn.unity.com/course/introduction-to-3d-mobile-games-for-artists-companion-toolkit-2018-4/tutorial/animator-controllers-2019-3?version=2018.4" target="_blank" rel="noopener noreferrer">Unity Learn: Animator Controllers</a></li>
                 <li><a href="https://docs.unity.cn/Manual/ConfiguringtheAvatar.html" target="_blank" rel="noopener noreferrer">Unity Manual: Importing a model with humanoid animations</a></li>
               </ul>
             </section>
 
-            <nav class="article-next-prev" aria-label="前後の使い方記事">
+            <nav class="article-next-prev" aria-label="蜑榊ｾ後・菴ｿ縺・婿險倅ｺ・>
               <a class="article-nav-card article-nav-card-prev" href="tips-face-emote-fix.html">
                 <span class="article-nav-label">PREV</span>
-                <span class="article-nav-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
-                <span class="article-nav-title">改変済みアバターの表情破綻を直す手順</span>
+                <span class="article-nav-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animation繧ｿ繝悶〒陦ｨ諠・ｒPreview遒ｺ隱阪＠縺ｦ縺・ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・/span>
               </a>
               <a class="article-nav-card article-nav-card-next" href="tips-commercial-use.html">
                 <span class="article-nav-label">NEXT</span>
-                <span class="article-nav-title">ゲーム開発時にanimを再生する手順</span>
-                <span class="article-nav-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">繧ｲ繝ｼ繝髢狗匱譎ゅ↓anim繧貞・逕溘☆繧区焔鬆・/span>
+                <span class="article-nav-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity縺ｮGame繝薙Η繝ｼ縺ｧanim繝昴・繧ｺ繧貞・逕溽｢ｺ隱阪☆繧狗判髱｢" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
               </a>
             </nav>
 
             <section class="article-related" aria-labelledby="related-tips-title">
-              <h2 id="related-tips-title">関連記事</h2>
+              <h2 id="related-tips-title">髢｢騾｣險倅ｺ・/h2>
               <div class="article-related-list">
               <a class="article-related-item" href="tips-commercial-use.html">
-                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity縺ｮGame繝薙Η繝ｼ縺ｧanim繝昴・繧ｺ繧貞・逕溽｢ｺ隱阪☆繧狗判髱｢" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>ゲーム開発時にanimを再生する手順</strong>
+                  <strong>繧ｲ繝ｼ繝髢狗匱譎ゅ↓anim繧貞・逕溘☆繧区焔鬆・/strong>
                   <small>GAME USE / 2026.05.09</small>
                 </span>
               </a>
               <a class="article-related-item" href="tips-prefab-setup.html">
-                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity縺ｧ蠢・ｦ√↑Prefab繧辿ierarchy縺ｸ霑ｽ蜉縺吶ｋ逕ｻ髱｢" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>導入に必要なPrefabについて</strong>
+                  <strong>蟆主・縺ｫ蠢・ｦ√↑Prefab縺ｫ縺､縺・※</strong>
                   <small>PREFAB / 2026.05.08</small>
                 </span>
               </a>
               <a class="article-related-item" href="tips-face-emote-fix.html">
-                <span class="article-related-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animation繧ｿ繝悶〒陦ｨ諠・ｒPreview遒ｺ隱阪＠縺ｦ縺・ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>改変済みアバターの表情破綻を直す手順</strong>
+                  <strong>謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・/strong>
                   <small>FACE EMOTE / 2026.05.09</small>
                 </span>
               </a>
@@ -354,7 +354,7 @@
             </section>
 
             <div class="text-actions article-actions">
-              <a class="button secondary" href="tips.html">使い方一覧へ戻る</a>
+              <a class="button secondary" href="tips.html">菴ｿ縺・婿荳隕ｧ縺ｸ謌ｻ繧・/a>
             </div>
           </article>
         </div>
@@ -362,9 +362,9 @@
     </main>
 
     <footer class="site-footer">
-      <a class="footer-brand" href="index.html" aria-label="トップへ">
-        <img src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" decoding="async">
-        <span>R18 ３Dポーズ素材無料配布サイト</span>
+      <a class="footer-brand" href="index.html" aria-label="繝医ャ繝励∈">
+        <img src="../images/macaroni-logo.webp" alt="繝槭き繝ｭ繝・ width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 ・泥繝昴・繧ｺ邏譚千┌譁咎・蟶・し繧､繝・/span>
       </a>
       <div class="footer-links">
         <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">

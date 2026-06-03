@@ -1,58 +1,58 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
-    <title>改変済みアバターの表情破綻を直す手順 | 使い方記事 | マカロニ</title>
-    <meta name="description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
-    <meta name="author" content="マカロニ">
+    <title>謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・| 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・/title>
+    <meta name="description" content="謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｫ陦ｨ諠・畑anim繧貞・繧後◆譎ゅ∫岼繧・哨縺ｮBlendShape縺悟ｴｩ繧後ｋ蝣ｴ蜷医↓縲、nimation繧ｿ繝悶〒繧ｷ繧ｧ繧､繝励く繝ｼ蛟､繧定ｨ倬鹸縺礼峩縺励※逶ｴ縺呎焔鬆・〒縺吶・>
+    <meta name="author" content="繝槭き繝ｭ繝・>
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="theme-color" content="#07070b">
-    <meta name="application-name" content="マカロニ">
-    <meta name="apple-mobile-web-app-title" content="マカロニ">
+    <meta name="application-name" content="繝槭き繝ｭ繝・>
+    <meta name="apple-mobile-web-app-title" content="繝槭き繝ｭ繝・>
     <link rel="icon" href="../favicon.ico?v=20260516" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png?v=20260516">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png?v=20260516">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png?v=20260516">
     <link rel="manifest" href="../site.webmanifest?v=20260516">
-    <link rel="canonical" href="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
+    <link rel="canonical" href="https://macaroni-wheat.vercel.app/ja/tips-face-emote-fix.html">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
-    <meta property="og:site_name" content="マカロニ">
+    <meta property="og:url" content="https://macaroni-wheat.vercel.app/ja/tips-face-emote-fix.html">
+    <meta property="og:site_name" content="繝槭き繝ｭ繝・>
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:title" content="改変済みアバターの表情破綻を直す手順 | 使い方記事 | マカロニ">
-    <meta property="og:description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
-    <meta property="og:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
-    <meta property="og:image:secure_url" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
+    <meta property="og:title" content="謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・| 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・>
+    <meta property="og:description" content="謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｫ陦ｨ諠・畑anim繧貞・繧後◆譎ゅ∫岼繧・哨縺ｮBlendShape縺悟ｴｩ繧後ｋ蝣ｴ蜷医↓縲、nimation繧ｿ繝悶〒繧ｷ繧ｧ繧､繝励く繝ｼ蛟､繧定ｨ倬鹸縺礼峩縺励※逶ｴ縺呎焔鬆・〒縺吶・>
+    <meta property="og:image" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
+    <meta property="og:image:secure_url" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
+    <meta property="og:image:alt" content="繝槭き繝ｭ繝・VRChat繝ｻUnity蜷代￠R18辟｡譁・D繝昴・繧ｺ邏譚舌Ο繧ｴ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="改変済みアバターの表情破綻を直す手順 | 使い方記事 | マカロニ">
-    <meta name="twitter:description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
-    <meta name="twitter:image" content="https://neku096.github.io/MACARONI/Macaroni_Samune/ogp-v4.png">
-    <meta name="twitter:image:alt" content="マカロニ VRChat・Unity向けR18無料3Dポーズ素材ロゴ">
+    <meta name="twitter:title" content="謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・| 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・>
+    <meta name="twitter:description" content="謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｫ陦ｨ諠・畑anim繧貞・繧後◆譎ゅ∫岼繧・哨縺ｮBlendShape縺悟ｴｩ繧後ｋ蝣ｴ蜷医↓縲、nimation繧ｿ繝悶〒繧ｷ繧ｧ繧､繝励く繝ｼ蛟､繧定ｨ倬鹸縺礼峩縺励※逶ｴ縺呎焔鬆・〒縺吶・>
+    <meta name="twitter:image" content="https://macaroni-wheat.vercel.app/Macaroni_Samune/ogp-v4.png">
+    <meta name="twitter:image:alt" content="繝槭き繝ｭ繝・VRChat繝ｻUnity蜷代￠R18辟｡譁・D繝昴・繧ｺ邏譚舌Ο繧ｴ">
     <script type="application/ld+json" class="seo-schema">
 {
       "@context": "https://schema.org",
       "@type": "Article",
       "inLanguage": "ja",
       "isFamilyFriendly": false,
-      "headline": "改変済みアバターの表情破綻を直す手順",
-      "description": "改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。",
+      "headline": "謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・,
+      "description": "謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｫ陦ｨ諠・畑anim繧貞・繧後◆譎ゅ∫岼繧・哨縺ｮBlendShape縺悟ｴｩ繧後ｋ蝣ｴ蜷医↓縲、nimation繧ｿ繝悶〒繧ｷ繧ｧ繧､繝励く繝ｼ蛟､繧定ｨ倬鹸縺礼峩縺励※逶ｴ縺呎焔鬆・〒縺吶・,
       "datePublished": "2026-05-09",
       "dateModified": "2026-05-09",
       "image": "../images/tips/face-fix-step-04.webp",
       "author": {
             "@type": "Organization",
-            "name": "マカロニ"
+            "name": "繝槭き繝ｭ繝・
       },
       "publisher": {
             "@type": "Organization",
-            "name": "マカロニ"
+            "name": "繝槭き繝ｭ繝・
       },
       "isAccessibleForFree": true,
       "citation": [
@@ -62,9 +62,9 @@
       ]
 }
     </script>
-    <link rel="alternate" hreflang="ja" href="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
-    <link rel="alternate" hreflang="en" href="https://neku096.github.io/MACARONI/en/tips-face-emote-fix.html">
-    <link rel="alternate" hreflang="x-default" href="https://neku096.github.io/MACARONI/ja/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="ja" href="https://macaroni-wheat.vercel.app/ja/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="en" href="https://macaroni-wheat.vercel.app/en/tips-face-emote-fix.html">
+    <link rel="alternate" hreflang="x-default" href="https://macaroni-wheat.vercel.app/ja/tips-face-emote-fix.html">
 
     <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
@@ -72,36 +72,36 @@
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
       <div class="age-panel">
-        <h2>このサイトは18歳以上向けです</h2>
-        <p>R18作品・素材に関する情報を含みます。18歳以上の場合のみ入場してください。</p>
+        <h2>縺薙・繧ｵ繧､繝医・18豁ｳ莉･荳雁髄縺代〒縺・/h2>
+        <p>R18菴懷刀繝ｻ邏譚舌↓髢｢縺吶ｋ諠・ｱ繧貞性縺ｿ縺ｾ縺吶・8豁ｳ莉･荳翫・蝣ｴ蜷医・縺ｿ蜈･蝣ｴ縺励※縺上□縺輔＞縲・/p>
         <div class="age-actions">
-          <button class="button primary" id="enterSite" type="button">18歳以上です</button>
-          <a class="button ghost" href="https://www.google.com/">退場する</a>
+          <button class="button primary" id="enterSite" type="button">18豁ｳ莉･荳翫〒縺・/button>
+          <a class="button ghost" href="https://www.google.com/">騾蝣ｴ縺吶ｋ</a>
         </div>
       </div>
     </div>
 
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="トップへ">
-        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" decoding="async">
-        <span class="brand-subtitle">R18 ３Dポーズ素材無料配布サイト</span>
+      <a class="brand" href="index.html" aria-label="繝医ャ繝励∈">
+        <img class="brand-logo" src="../images/macaroni-logo.webp" alt="繝槭き繝ｭ繝・ width="720" height="209" decoding="async">
+        <span class="brand-subtitle">R18 ・泥繝昴・繧ｺ邏譚千┌譁咎・蟶・し繧､繝・/span>
       </a>
-      <nav class="nav" aria-label="メインナビゲーション">
-        <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-label="BOOTH">BOOTH作品</a>
-        <a href="tips.html" aria-current="page">使い方</a>
-        <a href="terms.html">利用規約</a>
+      <nav class="nav" aria-label="繝｡繧､繝ｳ繝翫ン繧ｲ繝ｼ繧ｷ繝ｧ繝ｳ">
+        <a href="characters.html">蟇ｾ蠢懊く繝｣繝ｩ</a>
+        <a href="booth.html" aria-label="BOOTH">BOOTH菴懷刀</a>
+        <a href="tips.html" aria-current="page">菴ｿ縺・婿</a>
+        <a href="terms.html">蛻ｩ逕ｨ隕冗ｴ・/a>
       </nav>
       <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Language">
         <a class="language-option" href="tips-face-emote-fix.html" aria-pressed="true">JP</a>
         <a class="language-option" href="../en/tips-face-emote-fix.html" aria-pressed="false">EN</a>
       </div>
-      <button class="share-button" type="button" data-share-button aria-label="このページを共有" title="このページを共有">
+      <button class="share-button" type="button" data-share-button aria-label="縺薙・繝壹・繧ｸ繧貞・譛・ title="縺薙・繝壹・繧ｸ繧貞・譛・>
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .13.88L8.91 8.42a3 3 0 1 0 0 7.16l6.22 3.54A3 3 0 1 0 16 17.4l-6.22-3.54a3.06 3.06 0 0 0 0-3.72L16 6.6A3 3 0 0 0 18 8Z"></path>
         </svg>
-        <span>共有</span>
+        <span>蜈ｱ譛・/span>
       </button>
       </div>
     </header>
@@ -109,175 +109,175 @@
     <main class="text-page tip-article-page">
       <section class="section article-section" aria-labelledby="article-title">
         <div class="article-shell">
-          <nav class="article-breadcrumb" aria-label="パンくずリスト">
-            <a href="index.html">ホーム</a>
-            <span aria-hidden="true">›</span>
-            <a href="tips.html">使い方</a>
-            <span aria-hidden="true">›</span>
-            <span>改変済みアバターの表情破綻を直す手順</span>
+          <nav class="article-breadcrumb" aria-label="繝代Φ縺上★繝ｪ繧ｹ繝・>
+            <a href="index.html">繝帙・繝</a>
+            <span aria-hidden="true">窶ｺ</span>
+            <a href="tips.html">菴ｿ縺・婿</a>
+            <span aria-hidden="true">窶ｺ</span>
+            <span>謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・/span>
           </nav>
 
           <article class="blog-article">
             <header class="article-header">
               <p class="tag">FACE EMOTE</p>
-              <h1 id="article-title">改変済みアバターの表情破綻を直す手順</h1>
+              <h1 id="article-title">謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｮ陦ｨ諠・ｴ邯ｻ繧堤峩縺呎焔鬆・/h1>
               <div class="article-meta-row">
                 <time datetime="2026-05-09">2026.05.09</time>
-                <span>使い方記事</span>
+                <span>菴ｿ縺・婿險倅ｺ・/span>
               </div>
-              <p class="article-lead">表情用animを入れた時に、目が閉じすぎる、口がズレる、改変前と違う顔になる。そういう時は、AnimationタブでBlendShapeの値を今のアバターに合わせて記録し直します。</p>
+              <p class="article-lead">陦ｨ諠・畑anim繧貞・繧後◆譎ゅ↓縲∫岼縺碁哩縺倥☆縺弱ｋ縲∝哨縺後ぜ繝ｬ繧九∵隼螟牙燕縺ｨ驕輔≧鬘斐↓縺ｪ繧九ゅ◎縺・＞縺・凾縺ｯ縲、nimation繧ｿ繝悶〒BlendShape縺ｮ蛟､繧剃ｻ翫・繧｢繝舌ち繝ｼ縺ｫ蜷医ｏ縺帙※險倬鹸縺礼峩縺励∪縺吶・/p>
             </header>
 
             <div class="article-visual">
-              <span class="article-visual-image"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animationタブで表情をPreview確認しているUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
+              <span class="article-visual-image"><img src="../images/tips/face-fix-step-04-600.webp?v=1" alt="Animation繧ｿ繝悶〒陦ｨ諠・ｒPreview遒ｺ隱阪＠縺ｦ縺・ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" decoding="async" fetchpriority="high"></span>
               <div>
-                <strong>改変後の顔に合わせて表情animを直す</strong>
-                <p>表情破綻は、animの表情値と改変後のBlendShape値が合っていない時に起きやすいです。元clipを見ながら、必要なシェイプキーだけを少しずつ直します。</p>
+                <strong>謾ｹ螟牙ｾ後・鬘斐↓蜷医ｏ縺帙※陦ｨ諠・nim繧堤峩縺・/strong>
+                <p>陦ｨ諠・ｴ邯ｻ縺ｯ縲∥nim縺ｮ陦ｨ諠・､縺ｨ謾ｹ螟牙ｾ後・BlendShape蛟､縺悟粋縺｣縺ｦ縺・↑縺・凾縺ｫ襍ｷ縺阪ｄ縺吶＞縺ｧ縺吶ょ・clip繧定ｦ九↑縺後ｉ縲∝ｿ・ｦ√↑繧ｷ繧ｧ繧､繝励く繝ｼ縺縺代ｒ蟆代＠縺壹▽逶ｴ縺励∪縺吶・/p>
               </div>
             </div>
 
-            <nav class="article-toc" aria-label="記事目次">
+            <nav class="article-toc" aria-label="險倅ｺ狗岼谺｡">
               <p>Contents</p>
-              <a href="#before">先に確認しておくこと</a>
-              <span class="article-toc-label">作業手順</span>
+              <a href="#before">蜈医↓遒ｺ隱阪＠縺ｦ縺翫￥縺薙→</a>
+              <span class="article-toc-label">菴懈･ｭ謇矩・/span>
               <ol>
-                <li><a href="#add-fx">表情用FXをアバターへ入れる</a></li>
-                <li><a href="#default-face">DefaultFaceを開く</a></li>
-                <li><a href="#record">BodyまたはFaceを選んでRecordする</a></li>
-                <li><a href="#value">BlendShape値を手入力してDefaultFaceに記録する</a></li>
-                <li><a href="#preview">Recordを終了してPreviewで確認する</a></li>
-                <li><a href="#adjust">破綻箇所をSceneビューで見ながら調整する</a></li>
+                <li><a href="#add-fx">陦ｨ諠・畑FX繧偵い繝舌ち繝ｼ縺ｸ蜈･繧後ｋ</a></li>
+                <li><a href="#default-face">DefaultFace繧帝幕縺・/a></li>
+                <li><a href="#record">Body縺ｾ縺溘・Face繧帝∈繧薙〒Record縺吶ｋ</a></li>
+                <li><a href="#value">BlendShape蛟､繧呈焔蜈･蜉帙＠縺ｦDefaultFace縺ｫ險倬鹸縺吶ｋ</a></li>
+                <li><a href="#preview">Record繧堤ｵゆｺ・＠縺ｦPreview縺ｧ遒ｺ隱阪☆繧・/a></li>
+                <li><a href="#adjust">遐ｴ邯ｻ邂・園繧担cene繝薙Η繝ｼ縺ｧ隕九↑縺後ｉ隱ｿ謨ｴ縺吶ｋ</a></li>
               </ol>
-              <a href="#trouble">つまずきやすいところ</a>
-              <a href="#references">参考元</a>
+              <a href="#trouble">縺､縺ｾ縺壹″繧・☆縺・→縺薙ｍ</a>
+              <a href="#references">蜿り・・</a>
             </nav>
 
             <section class="article-body-section" id="before">
-              <h2>先に確認しておくこと</h2>
-              <p>この手順は、アバターの顔や表情シェイプキーを改変済みで、配布されている表情用animをそのまま使うと顔が崩れる時の直し方です。まだanimの基本操作が不安な場合は、先に <a href="tips-anim-import.html">Unityでanimファイルを入れる時の基本</a> を見ておくと流れがつかみやすいです。</p>
-              <p>UnityのBlendShapeはSkinnedMeshRenderer側に表示され、0は影響なし、100は最大の影響として扱われます。表情animはこの数値をAnimation Clip内に記録して動かしているので、改変後の顔に合わない値だけを直していきます。</p>
+              <h2>蜈医↓遒ｺ隱阪＠縺ｦ縺翫￥縺薙→</h2>
+              <p>縺薙・謇矩・・縲√い繝舌ち繝ｼ縺ｮ鬘斐ｄ陦ｨ諠・す繧ｧ繧､繝励く繝ｼ繧呈隼螟画ｸ医∩縺ｧ縲・・蟶・＆繧後※縺・ｋ陦ｨ諠・畑anim繧偵◎縺ｮ縺ｾ縺ｾ菴ｿ縺・→鬘斐′蟠ｩ繧後ｋ譎ゅ・逶ｴ縺玲婿縺ｧ縺吶ゅ∪縺anim縺ｮ蝓ｺ譛ｬ謫堺ｽ懊′荳榊ｮ峨↑蝣ｴ蜷医・縲∝・縺ｫ <a href="tips-anim-import.html">Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</a> 繧定ｦ九※縺翫￥縺ｨ豬√ｌ縺後▽縺九∩繧・☆縺・〒縺吶・/p>
+              <p>Unity縺ｮBlendShape縺ｯSkinnedMeshRenderer蛛ｴ縺ｫ陦ｨ遉ｺ縺輔ｌ縲・縺ｯ蠖ｱ髻ｿ縺ｪ縺励・00縺ｯ譛螟ｧ縺ｮ蠖ｱ髻ｿ縺ｨ縺励※謇ｱ繧上ｌ縺ｾ縺吶り｡ｨ諠・nim縺ｯ縺薙・謨ｰ蛟､繧但nimation Clip蜀・↓險倬鹸縺励※蜍輔°縺励※縺・ｋ縺ｮ縺ｧ縲∵隼螟牙ｾ後・鬘斐↓蜷医ｏ縺ｪ縺・､縺縺代ｒ逶ｴ縺励※縺・″縺ｾ縺吶・/p>
               <ul class="article-summary-list">
-                <li>元の表情clipはできれば複製してから作業する</li>
-                <li>顔のメッシュ名はアバターによってBody、Face、Headなど違う</li>
-                <li>Record中は値がclipへ記録されるので、作業後は必ずRecordを切る</li>
+                <li>蜈・・陦ｨ諠・lip縺ｯ縺ｧ縺阪ｌ縺ｰ隍・｣ｽ縺励※縺九ｉ菴懈･ｭ縺吶ｋ</li>
+                <li>鬘斐・繝｡繝・す繝･蜷阪・繧｢繝舌ち繝ｼ縺ｫ繧医▲縺ｦBody縲：ace縲？ead縺ｪ縺ｩ驕輔≧</li>
+                <li>Record荳ｭ縺ｯ蛟､縺慶lip縺ｸ險倬鹸縺輔ｌ繧九・縺ｧ縲∽ｽ懈･ｭ蠕後・蠢・★Record繧貞・繧・/li>
               </ul>
             </section>
 
             <section class="article-body-section" id="add-fx">
-              <h2>1. 表情用FXをアバターへ入れる</h2>
-              <p>商品フォルダ内の <strong>SexyPose → Anim → ○○_FX</strong> のような表情用Controllerまたはanimを、Hierarchy上のアバターへドラッグ＆ドロップします。フォルダ名やファイル名は商品によって変わるので、画像はあくまで例です。</p>
+              <h2>1. 陦ｨ諠・畑FX繧偵い繝舌ち繝ｼ縺ｸ蜈･繧後ｋ</h2>
+              <p>蝠・刀繝輔か繝ｫ繝蜀・・ <strong>SexyPose 竊・Anim 竊・笳銀雷_FX</strong> 縺ｮ繧医≧縺ｪ陦ｨ諠・畑Controller縺ｾ縺溘・anim繧偵？ierarchy荳翫・繧｢繝舌ち繝ｼ縺ｸ繝峨Λ繝・げ・・ラ繝ｭ繝・・縺励∪縺吶ゅヵ繧ｩ繝ｫ繝蜷阪ｄ繝輔ぃ繧､繝ｫ蜷阪・蝠・刀縺ｫ繧医▲縺ｦ螟峨ｏ繧九・縺ｧ縲∫判蜒上・縺ゅ￥縺ｾ縺ｧ萓九〒縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-01-800.webp?v=1" alt="SexyPoseのAnimフォルダ内にある表情用FXをHierarchyのアバターへドラッグするUnity画面" srcset="../images/tips/face-fix-step-01-600.webp?v=1 600w, ../images/tips/face-fix-step-01-800.webp?v=1 800w, ../images/tips/face-fix-step-01.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-01-800.webp?v=1" alt="SexyPose縺ｮAnim繝輔か繝ｫ繝蜀・↓縺ゅｋ陦ｨ諠・畑FX繧辿ierarchy縺ｮ繧｢繝舌ち繝ｼ縺ｸ繝峨Λ繝・げ縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-01-600.webp?v=1 600w, ../images/tips/face-fix-step-01-800.webp?v=1 800w, ../images/tips/face-fix-step-01.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
               <div class="article-note">
-                <p>ここでアバター本体ではなく、髪や服の子オブジェクトへ入れてしまうと確認がややこしくなります。まずはHierarchy上でアバター全体をまとめている親を選ぶのが安全です。</p>
+                <p>縺薙％縺ｧ繧｢繝舌ち繝ｼ譛ｬ菴薙〒縺ｯ縺ｪ縺上・ｫｪ繧・恪縺ｮ蟄舌が繝悶ず繧ｧ繧ｯ繝医∈蜈･繧後※縺励∪縺・→遒ｺ隱阪′繧・ｄ縺薙＠縺上↑繧翫∪縺吶ゅ∪縺壹・Hierarchy荳翫〒繧｢繝舌ち繝ｼ蜈ｨ菴薙ｒ縺ｾ縺ｨ繧√※縺・ｋ隕ｪ繧帝∈縺ｶ縺ｮ縺悟ｮ牙・縺ｧ縺吶・/p>
               </div>
             </section>
 
             <section class="article-body-section" id="default-face">
-              <h2>2. DefaultFaceを開く</h2>
-              <p>まずは編集する基準の表情clipまで辿ります。Hierarchyでアバター本体を選択し、Assets内のAnimファイルをダブルクリックしてAnimationタブを表示します。</p>
-              <p>Animationタブが開いたら、Previewの下にあるclip選択から <strong>DefaultFace</strong> を選びます。ここではまだRecordは押さず、「これからDefaultFaceを編集する状態になっているか」だけを確認します。</p>
+              <h2>2. DefaultFace繧帝幕縺・/h2>
+              <p>縺ｾ縺壹・邱ｨ髮・☆繧句渕貅悶・陦ｨ諠・lip縺ｾ縺ｧ霎ｿ繧翫∪縺吶・ierarchy縺ｧ繧｢繝舌ち繝ｼ譛ｬ菴薙ｒ驕ｸ謚槭＠縲、ssets蜀・・Anim繝輔ぃ繧､繝ｫ繧偵ム繝悶Ν繧ｯ繝ｪ繝・け縺励※Animation繧ｿ繝悶ｒ陦ｨ遉ｺ縺励∪縺吶・/p>
+              <p>Animation繧ｿ繝悶′髢九＞縺溘ｉ縲￣review縺ｮ荳九↓縺ゅｋclip驕ｸ謚槭°繧・<strong>DefaultFace</strong> 繧帝∈縺ｳ縺ｾ縺吶ゅ％縺薙〒縺ｯ縺ｾ縺Record縺ｯ謚ｼ縺輔★縲√後％繧後°繧吋efaultFace繧堤ｷｨ髮・☆繧狗憾諷九↓縺ｪ縺｣縺ｦ縺・ｋ縺九阪□縺代ｒ遒ｺ隱阪＠縺ｾ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-02-800.webp?v=1" alt="Hierarchyのアバターを選択しAnimationタブでDefaultFaceを選択するUnity画面" srcset="../images/tips/face-fix-step-02-600.webp?v=1 600w, ../images/tips/face-fix-step-02-800.webp?v=1 800w, ../images/tips/face-fix-step-02.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-02-800.webp?v=1" alt="Hierarchy縺ｮ繧｢繝舌ち繝ｼ繧帝∈謚槭＠Animation繧ｿ繝悶〒DefaultFace繧帝∈謚槭☆繧偽nity逕ｻ髱｢" srcset="../images/tips/face-fix-step-02-600.webp?v=1 600w, ../images/tips/face-fix-step-02-800.webp?v=1 800w, ../images/tips/face-fix-step-02.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>DefaultFaceは、表情を戻す時の基準になる顔です。ここが改変後の顔と合っていないと、他の表情も全部ズレて見えやすいので、最初に開いておきます。</p>
+              <p>DefaultFace縺ｯ縲∬｡ｨ諠・ｒ謌ｻ縺呎凾縺ｮ蝓ｺ貅悶↓縺ｪ繧矩｡斐〒縺吶ゅ％縺薙′謾ｹ螟牙ｾ後・鬘斐→蜷医▲縺ｦ縺・↑縺・→縲∽ｻ悶・陦ｨ諠・ｂ蜈ｨ驛ｨ繧ｺ繝ｬ縺ｦ隕九∴繧・☆縺・・縺ｧ縲∵怙蛻昴↓髢九＞縺ｦ縺翫″縺ｾ縺吶・/p>
             </section>
 
             <section class="article-body-section" id="record">
-              <h2>3. BodyまたはFaceを選んでRecordする</h2>
-              <p>DefaultFaceを選べたら、顔のBlendShapeが入っているオブジェクトを選びます。画像では <strong>Body</strong> を選択していますが、アバターによってはFace、Head、Body_001など別名の場合があります。</p>
-              <p>対象のメッシュを選んだら、Animationタブの赤いRecordボタンを押します。ここから先に変更したBlendShape値が、DefaultFaceへキーとして記録されます。</p>
+              <h2>3. Body縺ｾ縺溘・Face繧帝∈繧薙〒Record縺吶ｋ</h2>
+              <p>DefaultFace繧帝∈縺ｹ縺溘ｉ縲・｡斐・BlendShape縺悟・縺｣縺ｦ縺・ｋ繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ驕ｸ縺ｳ縺ｾ縺吶ら判蜒上〒縺ｯ <strong>Body</strong> 繧帝∈謚槭＠縺ｦ縺・∪縺吶′縲√い繝舌ち繝ｼ縺ｫ繧医▲縺ｦ縺ｯFace縲？ead縲。ody_001縺ｪ縺ｩ蛻･蜷阪・蝣ｴ蜷医′縺ゅｊ縺ｾ縺吶・/p>
+              <p>蟇ｾ雎｡縺ｮ繝｡繝・す繝･繧帝∈繧薙□繧峨、nimation繧ｿ繝悶・襍､縺Сecord繝懊ち繝ｳ繧呈款縺励∪縺吶ゅ％縺薙°繧牙・縺ｫ螟画峩縺励◆BlendShape蛟､縺後．efaultFace縺ｸ繧ｭ繝ｼ縺ｨ縺励※險倬鹸縺輔ｌ縺ｾ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-03-800.webp?v=1" alt="顔のBlendShapeがあるBodyを選択してAnimationタブのRecordボタンを押すUnity画面" srcset="../images/tips/face-fix-step-03-600.webp?v=1 600w, ../images/tips/face-fix-step-03-800.webp?v=1 800w, ../images/tips/face-fix-step-03.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-03-800.webp?v=1" alt="鬘斐・BlendShape縺後≠繧毅ody繧帝∈謚槭＠縺ｦAnimation繧ｿ繝悶・Record繝懊ち繝ｳ繧呈款縺儷nity逕ｻ髱｢" srcset="../images/tips/face-fix-step-03-600.webp?v=1 600w, ../images/tips/face-fix-step-03-800.webp?v=1 800w, ../images/tips/face-fix-step-03.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>この段階でBodyまたはFaceを選ぶ理由は、InspectorにBlendShapeの数値を出すためです。アバター本体を選んだままだと、顔のシェイプキー一覧が見えないことがあります。</p>
+              <p>縺薙・谿ｵ髫弱〒Body縺ｾ縺溘・Face繧帝∈縺ｶ逅・罰縺ｯ縲！nspector縺ｫBlendShape縺ｮ謨ｰ蛟､繧貞・縺吶◆繧√〒縺吶ゅい繝舌ち繝ｼ譛ｬ菴薙ｒ驕ｸ繧薙□縺ｾ縺ｾ縺縺ｨ縲・｡斐・繧ｷ繧ｧ繧､繝励く繝ｼ荳隕ｧ縺瑚ｦ九∴縺ｪ縺・％縺ｨ縺後≠繧翫∪縺吶・/p>
             </section>
 
             <section class="article-body-section" id="value">
-              <h2>4. BlendShape値を手入力してDefaultFaceに記録する</h2>
-              <p>改変済みアバターで崩れている表情は、元のanimに入っているBlendShape値が今の顔に合っていないことが多いです。右側のInspectorで該当するシェイプキーを探し、改変後の顔に合う数値を手打ちで入力します。</p>
-              <p>Record中に数値を入力すると、その値にキーが打たれてDefaultFaceへ記録されます。今回の作業でやりたいのは、元のDefaultFaceを改変後のアバターに合う基準顔として保存し直すことです。</p>
+              <h2>4. BlendShape蛟､繧呈焔蜈･蜉帙＠縺ｦDefaultFace縺ｫ險倬鹸縺吶ｋ</h2>
+              <p>謾ｹ螟画ｸ医∩繧｢繝舌ち繝ｼ縺ｧ蟠ｩ繧後※縺・ｋ陦ｨ諠・・縲∝・縺ｮanim縺ｫ蜈･縺｣縺ｦ縺・ｋBlendShape蛟､縺御ｻ翫・鬘斐↓蜷医▲縺ｦ縺・↑縺・％縺ｨ縺悟､壹＞縺ｧ縺吶ょ承蛛ｴ縺ｮInspector縺ｧ隧ｲ蠖薙☆繧九す繧ｧ繧､繝励く繝ｼ繧呈爾縺励∵隼螟牙ｾ後・鬘斐↓蜷医≧謨ｰ蛟､繧呈焔謇薙■縺ｧ蜈･蜉帙＠縺ｾ縺吶・/p>
+              <p>Record荳ｭ縺ｫ謨ｰ蛟､繧貞・蜉帙☆繧九→縲√◎縺ｮ蛟､縺ｫ繧ｭ繝ｼ縺梧遠縺溘ｌ縺ｦDefaultFace縺ｸ險倬鹸縺輔ｌ縺ｾ縺吶ゆｻ雁屓縺ｮ菴懈･ｭ縺ｧ繧・ｊ縺溘＞縺ｮ縺ｯ縲∝・縺ｮDefaultFace繧呈隼螟牙ｾ後・繧｢繝舌ち繝ｼ縺ｫ蜷医≧蝓ｺ貅夜｡斐→縺励※菫晏ｭ倥＠逶ｴ縺吶％縺ｨ縺ｧ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-04-800.webp?v=1" alt="Inspectorで改変済みシェイプキーの数値を手入力してDefaultFaceへ記録するUnity画面" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-04-800.webp?v=1" alt="Inspector縺ｧ謾ｹ螟画ｸ医∩繧ｷ繧ｧ繧､繝励く繝ｼ縺ｮ謨ｰ蛟､繧呈焔蜈･蜉帙＠縺ｦDefaultFace縺ｸ險倬鹸縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-04-600.webp?v=1 600w, ../images/tips/face-fix-step-04-800.webp?v=1 800w, ../images/tips/face-fix-step-04.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>一気に全部直そうとすると、どの値で崩れたのか分かりにくくなります。まず目、次に口、最後に眉や頬、くらいに分けて少しずつ合わせると追いやすいです。</p>
+              <p>荳豌励↓蜈ｨ驛ｨ逶ｴ縺昴≧縺ｨ縺吶ｋ縺ｨ縲√←縺ｮ蛟､縺ｧ蟠ｩ繧後◆縺ｮ縺句・縺九ｊ縺ｫ縺上￥縺ｪ繧翫∪縺吶ゅ∪縺夂岼縲∵ｬ｡縺ｫ蜿｣縲∵怙蠕後↓逵峨ｄ鬆ｬ縲√￥繧峨＞縺ｫ蛻・￠縺ｦ蟆代＠縺壹▽蜷医ｏ縺帙ｋ縺ｨ霑ｽ縺・ｄ縺吶＞縺ｧ縺吶・/p>
             </section>
 
             <section class="article-body-section" id="preview">
-              <h2>5. Recordを終了してPreviewで確認する</h2>
-              <p>必要なキーを打ち終えたら、まずRecordを終了します。そのあとAnimationタブのリストから表情clipを順番に選び、Previewで破綻が残っていないか確認します。</p>
+              <h2>5. Record繧堤ｵゆｺ・＠縺ｦPreview縺ｧ遒ｺ隱阪☆繧・/h2>
+              <p>蠢・ｦ√↑繧ｭ繝ｼ繧呈遠縺｡邨ゅ∴縺溘ｉ縲√∪縺啌ecord繧堤ｵゆｺ・＠縺ｾ縺吶ゅ◎縺ｮ縺ゅ→Animation繧ｿ繝悶・繝ｪ繧ｹ繝医°繧芽｡ｨ諠・lip繧帝・分縺ｫ驕ｸ縺ｳ縲￣review縺ｧ遐ｴ邯ｻ縺梧ｮ九▲縺ｦ縺・↑縺・°遒ｺ隱阪＠縺ｾ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-05-800.webp?v=1" alt="Recordを終了して表情アニメーションを順番にPreview確認するUnity画面" srcset="../images/tips/face-fix-step-05-600.webp?v=1 600w, ../images/tips/face-fix-step-05-800.webp?v=1 800w, ../images/tips/face-fix-step-05.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-05-800.webp?v=1" alt="Record繧堤ｵゆｺ・＠縺ｦ陦ｨ諠・い繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧帝・分縺ｫPreview遒ｺ隱阪☆繧偽nity逕ｻ髱｢" srcset="../images/tips/face-fix-step-05-600.webp?v=1 600w, ../images/tips/face-fix-step-05-800.webp?v=1 800w, ../images/tips/face-fix-step-05.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
               <div class="article-warning">
-                <p>Recordを入れたまま関係ない値を触ると、その値もclipへ記録されます。触った場所が分からなくなった時は、無理に続けず複製前のclipからやり直した方が早いことがあります。</p>
+                <p>Record繧貞・繧後◆縺ｾ縺ｾ髢｢菫ゅ↑縺・､繧定ｧｦ繧九→縲√◎縺ｮ蛟､繧Ｄlip縺ｸ險倬鹸縺輔ｌ縺ｾ縺吶りｧｦ縺｣縺溷ｴ謇縺悟・縺九ｉ縺ｪ縺上↑縺｣縺滓凾縺ｯ縲∫┌逅・↓邯壹￠縺夊､・｣ｽ蜑阪・clip縺九ｉ繧・ｊ逶ｴ縺励◆譁ｹ縺梧掠縺・％縺ｨ縺後≠繧翫∪縺吶・/p>
               </div>
             </section>
 
             <section class="article-body-section" id="adjust">
-              <h2>6. 破綻箇所をSceneビューで見ながら調整する</h2>
-              <p>Previewで破綻を見つけたら、Animationの縦線を右へスライドしながら、どのタイミングでどのシェイプキーが効いているか確認します。Sceneビューの顔を見つつ、該当するBlendShape値を少しずつ調整します。</p>
-              <p>画像では目が破綻しているので、<code>eye_close</code> のような目に関係するシェイプキー名と数値を見ながら直しています。目なら目、口なら口、眉なら眉、というように、見た目で崩れている場所とシェイプキー名を対応させると迷いにくいです。</p>
+              <h2>6. 遐ｴ邯ｻ邂・園繧担cene繝薙Η繝ｼ縺ｧ隕九↑縺後ｉ隱ｿ謨ｴ縺吶ｋ</h2>
+              <p>Preview縺ｧ遐ｴ邯ｻ繧定ｦ九▽縺代◆繧峨、nimation縺ｮ邵ｦ邱壹ｒ蜿ｳ縺ｸ繧ｹ繝ｩ繧､繝峨＠縺ｪ縺後ｉ縲√←縺ｮ繧ｿ繧､繝溘Φ繧ｰ縺ｧ縺ｩ縺ｮ繧ｷ繧ｧ繧､繝励く繝ｼ縺悟柑縺・※縺・ｋ縺狗｢ｺ隱阪＠縺ｾ縺吶４cene繝薙Η繝ｼ縺ｮ鬘斐ｒ隕九▽縺､縲∬ｩｲ蠖薙☆繧毅lendShape蛟､繧貞ｰ代＠縺壹▽隱ｿ謨ｴ縺励∪縺吶・/p>
+              <p>逕ｻ蜒上〒縺ｯ逶ｮ縺檎ｴ邯ｻ縺励※縺・ｋ縺ｮ縺ｧ縲・code>eye_close</code> 縺ｮ繧医≧縺ｪ逶ｮ縺ｫ髢｢菫ゅ☆繧九す繧ｧ繧､繝励く繝ｼ蜷阪→謨ｰ蛟､繧定ｦ九↑縺後ｉ逶ｴ縺励※縺・∪縺吶ら岼縺ｪ繧臥岼縲∝哨縺ｪ繧牙哨縲∫怏縺ｪ繧臥怏縲√→縺・≧繧医≧縺ｫ縲∬ｦ九◆逶ｮ縺ｧ蟠ｩ繧後※縺・ｋ蝣ｴ謇縺ｨ繧ｷ繧ｧ繧､繝励く繝ｼ蜷阪ｒ蟇ｾ蠢懊＆縺帙ｋ縺ｨ霑ｷ縺・↓縺上＞縺ｧ縺吶・/p>
               <figure class="article-image-frame">
-                <img src="../images/tips/face-fix-step-06-800.webp?v=1" alt="Animationの時間位置を動かし、目に関係するBlendShape値をSceneビューで見ながら調整するUnity画面" srcset="../images/tips/face-fix-step-06-600.webp?v=1 600w, ../images/tips/face-fix-step-06-800.webp?v=1 800w, ../images/tips/face-fix-step-06.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
+                <img src="../images/tips/face-fix-step-06-800.webp?v=1" alt="Animation縺ｮ譎る俣菴咲ｽｮ繧貞虚縺九＠縲∫岼縺ｫ髢｢菫ゅ☆繧毅lendShape蛟､繧担cene繝薙Η繝ｼ縺ｧ隕九↑縺後ｉ隱ｿ謨ｴ縺吶ｋUnity逕ｻ髱｢" srcset="../images/tips/face-fix-step-06-600.webp?v=1 600w, ../images/tips/face-fix-step-06-800.webp?v=1 800w, ../images/tips/face-fix-step-06.webp?v=1 1000w" sizes="(max-width: 820px) 100vw, 760px" width="800" height="800" loading="lazy" decoding="async">
               </figure>
-              <p>違和感がある表情を見つけたら、Recordを入れ直さず、Animation上の該当するBlendShape値をSceneビューで見ながら直接調整します。まずは目立つ破綻を消して、あとから細かい表情差を詰めるくらいが進めやすいです。</p>
+              <p>驕募柱諢溘′縺ゅｋ陦ｨ諠・ｒ隕九▽縺代◆繧峨ヽecord繧貞・繧檎峩縺輔★縲、nimation荳翫・隧ｲ蠖薙☆繧毅lendShape蛟､繧担cene繝薙Η繝ｼ縺ｧ隕九↑縺後ｉ逶ｴ謗･隱ｿ謨ｴ縺励∪縺吶ゅ∪縺壹・逶ｮ遶九▽遐ｴ邯ｻ繧呈ｶ医＠縺ｦ縲√≠縺ｨ縺九ｉ邏ｰ縺九＞陦ｨ諠・ｷｮ繧定ｩｰ繧√ｋ縺上ｉ縺・′騾ｲ繧√ｄ縺吶＞縺ｧ縺吶・/p>
             </section>
 
             <section class="article-body-section" id="trouble">
-              <h2>つまずきやすいところ</h2>
-              <h3>BlendShapeが見つからない</h3>
-              <p>顔のメッシュを選べていない可能性があります。Body、Face、Headなど、SkinnedMeshRendererが付いていてBlendShape一覧が出るオブジェクトを探してください。</p>
-              <h3>Recordしても値が残らない</h3>
-              <p>Animationタブで対象clipを選べていない、またはアバター本体ではなく別オブジェクトを選んでいることがあります。Hierarchyで対象アバター、Animationタブで編集したいclip、この2つを確認します。</p>
-              <h3>表情を直したら別の表情が崩れた</h3>
-              <p>同じシェイプキーを複数clipで使っていることがあります。DefaultFaceだけでなく、よく使う表情clipを数個まとめてPreview確認してください。</p>
+              <h2>縺､縺ｾ縺壹″繧・☆縺・→縺薙ｍ</h2>
+              <h3>BlendShape縺瑚ｦ九▽縺九ｉ縺ｪ縺・/h3>
+              <p>鬘斐・繝｡繝・す繝･繧帝∈縺ｹ縺ｦ縺・↑縺・庄閭ｽ諤ｧ縺後≠繧翫∪縺吶・ody縲：ace縲？ead縺ｪ縺ｩ縲ヾkinnedMeshRenderer縺御ｻ倥＞縺ｦ縺・※BlendShape荳隕ｧ縺悟・繧九が繝悶ず繧ｧ繧ｯ繝医ｒ謗｢縺励※縺上□縺輔＞縲・/p>
+              <h3>Record縺励※繧ょ､縺梧ｮ九ｉ縺ｪ縺・/h3>
+              <p>Animation繧ｿ繝悶〒蟇ｾ雎｡clip繧帝∈縺ｹ縺ｦ縺・↑縺・√∪縺溘・繧｢繝舌ち繝ｼ譛ｬ菴薙〒縺ｯ縺ｪ縺丞挨繧ｪ繝悶ず繧ｧ繧ｯ繝医ｒ驕ｸ繧薙〒縺・ｋ縺薙→縺後≠繧翫∪縺吶・ierarchy縺ｧ蟇ｾ雎｡繧｢繝舌ち繝ｼ縲、nimation繧ｿ繝悶〒邱ｨ髮・＠縺溘＞clip縲√％縺ｮ2縺､繧堤｢ｺ隱阪＠縺ｾ縺吶・/p>
+              <h3>陦ｨ諠・ｒ逶ｴ縺励◆繧牙挨縺ｮ陦ｨ諠・′蟠ｩ繧後◆</h3>
+              <p>蜷後§繧ｷ繧ｧ繧､繝励く繝ｼ繧定､・焚clip縺ｧ菴ｿ縺｣縺ｦ縺・ｋ縺薙→縺後≠繧翫∪縺吶・efaultFace縺縺代〒縺ｪ縺上√ｈ縺丈ｽｿ縺・｡ｨ諠・lip繧呈焚蛟九∪縺ｨ繧√※Preview遒ｺ隱阪＠縺ｦ縺上□縺輔＞縲・/p>
             </section>
 
             <section class="article-body-section" id="references">
-              <h2>参考元</h2>
+              <h2>蜿り・・</h2>
               <ul>
-                <li><a href="https://docs.unity3d.com/ja/2018.3/Manual/BlendShapes.html" target="_blank" rel="noopener noreferrer">Unity マニュアル: ブレンドシェイプ</a></li>
+                <li><a href="https://docs.unity3d.com/ja/2018.3/Manual/BlendShapes.html" target="_blank" rel="noopener noreferrer">Unity 繝槭ル繝･繧｢繝ｫ: 繝悶Ξ繝ｳ繝峨す繧ｧ繧､繝・/a></li>
                 <li><a href="https://docs.unity3d.com/es/2018.4/Manual/animeditor-AnimatingAGameObject.html" target="_blank" rel="noopener noreferrer">Unity Manual: Animating a GameObject</a></li>
                 <li><a href="https://docs.unity3d.com/ru/2019.4/Manual/animeditor-AnimationCurves.html" target="_blank" rel="noopener noreferrer">Unity Manual: Using Animation Curves</a></li>
               </ul>
             </section>
 
-            <nav class="article-next-prev" aria-label="前後の使い方記事">
+            <nav class="article-next-prev" aria-label="蜑榊ｾ後・菴ｿ縺・婿險倅ｺ・>
               <a class="article-nav-card article-nav-card-prev" href="tips-prefab-setup.html">
                 <span class="article-nav-label">PREV</span>
-                <span class="article-nav-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
-                <span class="article-nav-title">導入に必要なPrefabについて</span>
+                <span class="article-nav-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity縺ｧ蠢・ｦ√↑Prefab繧辿ierarchy縺ｸ霑ｽ蜉縺吶ｋ逕ｻ髱｢" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">蟆主・縺ｫ蠢・ｦ√↑Prefab縺ｫ縺､縺・※</span>
               </a>
               <a class="article-nav-card article-nav-card-next" href="tips-anim-import.html">
                 <span class="article-nav-label">NEXT</span>
-                <span class="article-nav-title">Unityでanimファイルを入れる時の基本</span>
-                <span class="article-nav-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-nav-title">Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</span>
+                <span class="article-nav-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity縺ｧAnimator Controller繧剃ｽ懈・縺吶ｋ謇矩・判髱｢" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
               </a>
             </nav>
 
             <section class="article-related" aria-labelledby="related-tips-title">
-              <h2 id="related-tips-title">関連記事</h2>
+              <h2 id="related-tips-title">髢｢騾｣險倅ｺ・/h2>
               <div class="article-related-list">
               <a class="article-related-item" href="tips-anim-import.html">
-                <span class="article-related-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/anim-step-03-600.webp?v=2" alt="Unity縺ｧAnimator Controller繧剃ｽ懈・縺吶ｋ謇矩・判髱｢" srcset="../images/tips/anim-step-03-600.webp?v=2 600w, ../images/tips/anim-step-03-800.webp?v=2 800w, ../images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>Unityでanimファイルを入れる時の基本</strong>
+                  <strong>Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ</strong>
                   <small>UNITY / 2026.05.08</small>
                 </span>
               </a>
               <a class="article-related-item" href="tips-commercial-use.html">
-                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/game-use-step-03-600.webp?v=1" alt="Unity縺ｮGame繝薙Η繝ｼ縺ｧanim繝昴・繧ｺ繧貞・逕溽｢ｺ隱阪☆繧狗判髱｢" srcset="../images/tips/game-use-step-03-600.webp?v=1 600w, ../images/tips/game-use-step-03-800.webp?v=1 800w, ../images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>ゲーム開発時にanimを再生する手順</strong>
+                  <strong>繧ｲ繝ｼ繝髢狗匱譎ゅ↓anim繧貞・逕溘☆繧区焔鬆・/strong>
                   <small>GAME USE / 2026.05.09</small>
                 </span>
               </a>
               <a class="article-related-item" href="tips-prefab-setup.html">
-                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
+                <span class="article-related-thumb"><img src="../images/tips/prefab-required-600.webp?v=2" alt="Unity縺ｧ蠢・ｦ√↑Prefab繧辿ierarchy縺ｸ霑ｽ蜉縺吶ｋ逕ｻ髱｢" srcset="../images/tips/prefab-required-600.webp?v=2 600w, ../images/tips/prefab-required-800.webp?v=2 800w, ../images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
-                  <strong>導入に必要なPrefabについて</strong>
+                  <strong>蟆主・縺ｫ蠢・ｦ√↑Prefab縺ｫ縺､縺・※</strong>
                   <small>PREFAB / 2026.05.08</small>
                 </span>
               </a>
@@ -285,7 +285,7 @@
             </section>
 
             <div class="text-actions article-actions">
-              <a class="button secondary" href="tips.html">使い方一覧へ戻る</a>
+              <a class="button secondary" href="tips.html">菴ｿ縺・婿荳隕ｧ縺ｸ謌ｻ繧・/a>
             </div>
           </article>
         </div>
@@ -293,9 +293,9 @@
     </main>
 
     <footer class="site-footer">
-      <a class="footer-brand" href="index.html" aria-label="トップへ">
-        <img src="../images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" decoding="async">
-        <span>R18 ３Dポーズ素材無料配布サイト</span>
+      <a class="footer-brand" href="index.html" aria-label="繝医ャ繝励∈">
+        <img src="../images/macaroni-logo.webp" alt="繝槭き繝ｭ繝・ width="720" height="209" loading="lazy" decoding="async">
+        <span>R18 ・泥繝昴・繧ｺ邏譚千┌譁咎・蟶・し繧､繝・/span>
       </a>
       <div class="footer-links">
         <a class="footer-pill" href="https://macaronin.booth.pm/" target="_blank" rel="noopener noreferrer">
