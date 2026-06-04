@@ -8,6 +8,8 @@ export default defineConfig([
   globalIgnores([
     ".next/**",
     ".next-dev*/**",
+    ".open-next/**",
+    ".wrangler/**",
     "out/**",
     "build/**",
     "public/**",

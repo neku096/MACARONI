@@ -1,5 +1,4 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
+import topCardsData from "@/data/top-cards.json";
 
 export type TopCard = {
   title: string;
@@ -14,9 +13,8 @@ export type TopCard = {
   sourceProductSlug?: string;
 };
 
-const topCardsPath = path.join(process.cwd(), "data", "top-cards.json");
+const topCards = topCardsData as TopCard[];
 
 export function getAllTopCards() {
-  const topCards = JSON.parse(readFileSync(topCardsPath, "utf8")) as TopCard[];
   return [...topCards].sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title, "ja"));
 }
