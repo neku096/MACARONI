@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <SiteHeader />
         {children}
         <SiteFooter />
-        <Script src="/script.js?v=22" strategy="afterInteractive" />
+        <Script src="/script.js?v=25" strategy="afterInteractive" />
       </body>
     </html>
   );

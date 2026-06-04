@@ -55,13 +55,13 @@ if (enterButton && gate) {
 }
 
 const setupShareButtons = () => {
-  const isEnglish = document.documentElement.lang === "en";
-  const copyText = isEnglish ? "Copy URL" : "URLをコピー";
-  const copiedText = isEnglish ? "Copied" : "コピー済み";
-  const modalTitle = isEnglish ? "Share this page" : "現在のページを共有";
-  const xText = isEnglish ? "Share on X" : "Xでシェア";
-  const lineText = isEnglish ? "Share on LINE" : "LINEでシェア";
-  const closeText = isEnglish ? "Close" : "閉じる";
+  const getShareText = (jaText, enText) => (getDisplayLanguage() === "en" ? enText : jaText);
+  const getCopyText = () => getShareText("URLをコピー", "Copy URL");
+  const getCopiedText = () => getShareText("コピー済み", "Copied");
+  const modalTitle = getShareText("現在のページを共有", "Share this page");
+  const xText = getShareText("Xでシェア", "Share on X");
+  const lineText = getShareText("LINEでシェア", "Share on LINE");
+  const closeText = getShareText("閉じる", "Close");
 
   const getShareData = () => ({
     title: document.title,
@@ -92,7 +92,7 @@ const setupShareButtons = () => {
           <span class="share-action-icon share-action-copy">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.9-3.9a3 3 0 0 1 4.2 4.2l-3 3a3 3 0 0 1-4.25 0 1 1 0 1 1 1.42-1.42 1 1 0 0 0 1.41 0l3-3a1 1 0 0 0-1.41-1.41L12 13.4a1 1 0 0 1-1.4 0Zm2.8-2.8a1 1 0 0 1 0 1.4l-3.9 3.9a3 3 0 1 1-4.2-4.2l3-3a3 3 0 0 1 4.25 0 1 1 0 0 1-1.42 1.42 1 1 0 0 0-1.41 0l-3 3a1 1 0 1 0 1.41 1.41L12 10.6a1 1 0 0 1 1.4 0Z"></path></svg>
           </span>
-          <span data-share-copy-label>${copyText}</span>
+          <span data-share-copy-label>${getCopyText()}</span>
         </button>
       </div>
     </div>
@@ -111,7 +111,7 @@ const setupShareButtons = () => {
   const closeModal = () => {
     modal.hidden = true;
     document.body.classList.remove("share-modal-open");
-    copyLabel.textContent = copyText;
+    copyLabel.textContent = getCopyText();
     copyButton.classList.remove("is-copied");
     if (lastTrigger) {
       lastTrigger.focus();
@@ -142,7 +142,7 @@ const setupShareButtons = () => {
     try {
       await navigator.clipboard.writeText(getShareData().url);
       copyButton.classList.add("is-copied");
-      copyLabel.textContent = copiedText;
+      copyLabel.textContent = getCopiedText();
     } catch (error) {
       copyButton.classList.remove("is-copied");
     }
@@ -184,6 +184,7 @@ const characterNameTranslations = {
   ルルネ: "Rurune",
   セレスティア: "Selestia",
   しなの: "Shinano",
+  まよ: "Mayo",
   マカロニ: "Macaroni",
 };
 
@@ -197,21 +198,364 @@ const textTranslations = {
   "退場する": "Leave",
   "R18 ３Dポーズ素材無料配布サイト": "R18 Free 3D Pose Materials",
   "R18 ３Dポーズ素材無料配布サイト | マカロニ": "R18 Free 3D Pose Materials | Macaroni",
-  対応キャラ: "Characters",
+  対応キャラ: "Supported Avatars",
   BOOTH作品: "BOOTH Works",
   BOOTH作品一覧: "BOOTH Works",
-  使い方: "How to Use",
-  利用規約: "Terms",
+  使い方: "Usage Guide",
+  利用規約: "Terms of Use",
   商品詳細: "Product Details",
   導入方法: "Setup",
-  同梱内容: "Included Files",
+  同梱内容: "Included Contents",
+  よくある質問: "FAQ",
+  注意事項: "Notes",
+  商品説明: "Product Description",
+  更新履歴: "Update History",
+  ダウンロード: "Download",
   関連商品: "Related Products",
   通常タグ: "Tags",
   サブタグ: "Sub Tags",
-  対応アバター: "Supported Avatar",
+  対応アバター: "Supported Avatars",
   内容: "Contents",
-  用途: "Use",
+  用途: "Usage",
   価格: "Price",
+  種類: "Type",
+  すべて: "All",
+  ポーズ: "Pose",
+  汎用: "General",
+  一人用: "Solo",
+  素材: "Asset",
+  モーション: "Motion",
+  マテリアル: "Material",
+  "一人用モーション": "Solo Motion",
+  "対応アバターあり": "Supported Avatars",
+  "無料配布": "Free",
+  "無料版あり": "Free version available",
+  "表情付き": "Expressions Included",
+  "音付き": "Audio Included",
+  "音声付き": "Voice Included",
+  "パーティクル": "Particles",
+  "パーティクル付き": "Particles Included",
+  "セクシーポーズ": "Sexy Pose",
+  "挿入モーション": "Motion Animation",
+  "汎用モーション": "General Motion",
+  "セクシーモーション": "Sexy Motion",
+  "アタックモーション": "Attack Motion",
+  "エロツイポーズ": "Adult Photo Pose",
+  "R18ポーズ": "R18 Pose",
+  "R18モーション": "R18 Motion",
+  "アバター撮影向け": "For Avatar Photos",
+  "サムネイル向け": "For Thumbnails",
+  "セルフタッチ": "Self Touch",
+  "オナニー": "Solo Play",
+  "肌マテリアル": "Skin Material",
+  "商品画像ギャラリー": "Product Image Gallery",
+  "商品情報": "Product Info",
+  "作品カテゴリ": "Work Category",
+  "商品キーワード": "Product Keywords",
+  "この商品のタグ": "Product Tags",
+  "前のサムネイルへ": "Previous Thumbnail",
+  "次のサムネイルへ": "Next Thumbnail",
+  サムネイル: "Thumbnails",
+  "クリックして拡大できます。": "Click to enlarge.",
+  "前の画像": "Previous Image",
+  "次の画像": "Next Image",
+  "BOOTHで購入する": "Buy on BOOTH",
+  "BOOTH作品一覧へ": "BOOTH Works",
+  "このページを共有": "Share this page",
+  共有: "Share",
+  "外部リンク": "External links",
+  "現在のページを共有": "Share this page",
+  "URLをコピー": "Copy URL",
+  コピー済み: "Copied",
+  "Xでシェア": "Share on X",
+  "LINEでシェア": "Share on LINE",
+  閉じる: "Close",
+  前へ: "Previous",
+  次へ: "Next",
+  "もっと見る ▼": "More ▼",
+  "閉じる ▲": "Close ▲",
+  "対応キャラ検索": "Avatar Search",
+  "対応キャラ検索を閉じる": "Close Avatar Search",
+  "対応キャラ検索を開く": "Open Avatar Search",
+  "対応キャラを検索 ▼": "Search Avatars ▼",
+  "対応キャラを検索 ▲": "Search Avatars ▲",
+  "対応キャラを選ぶ": "Select Avatar",
+  "キャラ名で検索…": "Search by avatar...",
+  "検索文字列をクリア": "Clear Search",
+  "該当するキャラがありません": "No matching avatar",
+  通常順: "Default",
+  人気順: "Popular",
+  "BOOTH作品タグ絞り込み": "BOOTH work tag filter",
+  "BOOTH作品表示順": "BOOTH work display order",
+  "対応キャラ絞り込み": "Supported avatar filter",
+  "BOOTH作品ページ切り替え": "BOOTH work pagination",
+  "スライド位置": "Slide position",
+  "VRChat・Unity向けのR18無料ポーズ素材を、対応アバター別に配布しています。":
+    "Free R18 pose materials for VRChat and Unity are available by supported avatar.",
+  "無料素材の利用条件": "Free Asset Usage Terms",
+  "無料配布素材は個人・同人・商用作品、ゲーム制作、VRChat、動画制作に利用できます":
+    "Free assets may be used in personal, doujin, commercial works, game production, VRChat, and video production.",
+  "加工・調整・作品への組み込みは自由です。クレジット表記は必要です。":
+    "Editing, adjustment, and inclusion in your works are allowed. Credit is required.",
+  "素材データそのものの再配布・販売、AI学習への利用は禁止です":
+    "Redistributing, selling, or using the asset data itself for AI training is prohibited.",
+  "BOOTH / DLsite作品は各商品ページの条件を優先します":
+    "For BOOTH / DLsite works, the terms on each product page take priority.",
+  "詳しい条件は": "For details, see",
+  "をご確認ください": ".",
+  "ポーズ・モーション・マテリアル素材をサムネイルから確認できます。":
+    "Browse pose, motion, and material assets from thumbnails.",
+  "購入前に、対応アバター、同梱ファイル、価格、利用条件、注意事項をBOOTHの商品ページでご確認ください。":
+    "Before purchasing, check the supported avatars, included files, price, license, and notes on the BOOTH product page.",
+  "同梱ファイル": "Included Files",
+  "利用条件": "License Terms",
+  "アバター撮影": "Avatar Photography",
+  "動画制作": "Video Production",
+  "3Dゲーム制作向け": "For 3D Game Production",
+  "3Dシーン作成向け": "For 3D Scene Creation",
+  "商品名": "Product Name",
+  "フェラ": "Oral",
+  "攻め": "Attack",
+  "舌モデル付": "Tongue Model Included",
+  "ローター": "Rotor",
+  "バイブ": "Vibrator",
+  "玩具": "Toy",
+  "フルパック": "Full Pack",
+  "ボイス音声": "Voice Audio",
+  "舌モデル": "Tongue Model",
+  "13アバター対応": "Supports 13 Avatars",
+  "20アバター対応": "Supports 20 Avatars",
+  "VRChatアバター撮影、Unityでの動画制作、3Dシーン作成向け":
+    "For VRChat avatar photography, Unity video production, and 3D scene creation",
+  "VRChat、Unity 2022、Modular Avatar、アバター撮影、動画制作、3Dゲーム制作向け":
+    "For VRChat, Unity 2022, Modular Avatar, avatar photography, video production, and 3D game production",
+  "VRChatアバター撮影、Unity 2022での動画制作、R18シーン確認、3Dゲーム制作向け":
+    "For VRChat avatar photography, Unity 2022 video production, R18 scene checks, and 3D game production",
+  "VRChatアバター撮影、Unity 2022での動画制作、改変アバターの見え方確認、3Dゲーム制作向け":
+    "For VRChat avatar photography, Unity 2022 video production, modified-avatar appearance checks, and 3D game production",
+  "セクシーポーズ15種、表情5種": "15 sexy poses, 5 expressions",
+  "セクシーポーズ20種、挿入モーション5種(音付)、表情11種": "20 sexy poses, 5 motion animations with audio, 11 expressions",
+  "セクシーポーズ15種、表情7種": "15 sexy poses, 7 expressions",
+  "モーション2種類、音、パーティクル、玩具、表情付き": "2 motions, audio, particles, toy, and expressions",
+  "モーション3種類、音、パーティクル、玩具、表情付き": "3 motions, audio, particles, toy, and expressions",
+  "一人用R18モーション、表情、音素材、パーティクル、玩具ギミック、対応アバター向けPrefab":
+    "Solo R18 motion, expressions, audio assets, particles, toy gimmick, and supported-avatar Prefab",
+  "Motion2種類、音、Particles、玩具、Expressions Included": "2 motions, audio, particles, toy, and expressions",
+  "R18 3Dポーズ素材無料配布サイト": "R18 Free 3D Pose Materials",
+  "R18 3DPoseAsset無料配布サイト": "R18 Free 3D Pose Materials",
+  "VRChat・Unity向けR18無料3Dポーズ素材": "R18 Free 3D Pose Materials for VRChat and Unity",
+  "VRChat・Unity向け": "For VRChat / Unity",
+  "VRChat・Unity向けR18無料3Dポーズ素材 | マカロニ": "R18 Free 3D Pose Materials for VRChat and Unity | Macaroni",
+  "VRChat・Unity向けR18 3D素材一覧": "R18 3D Asset List for VRChat and Unity",
+  "VRChat・Unity向けR18 3D素材一覧 | マカロニ": "R18 3D Asset List for VRChat and Unity | Macaroni",
+  "R18 3D素材一覧": "R18 3D Asset List",
+  "利用規約・ライセンス": "Terms of Use / License",
+  "利用規約・ライセンス | マカロニ": "Terms of Use / License | Macaroni",
+  "サイトの規約": "Site Terms",
+  "BOOTHの規約": "BOOTH Terms",
+  "利用できる範囲": "Allowed Usage",
+  "禁止事項": "Prohibited Uses",
+  "使用元アバターについて": "Source Avatars",
+  "プライバシー": "Privacy",
+  "アクセス解析について": "Analytics",
+  "免責": "Disclaimer",
+  "BOOTH商品の個別規約": "BOOTH Product Terms",
+  "BOOTH規約の言語": "BOOTH terms language",
+  "利用規約の分類": "Terms category",
+  "日本語BOOTH規約PDF": "Japanese BOOTH terms PDF",
+  "英語BOOTH規約PDF": "English BOOTH terms PDF",
+  "韓国語BOOTH規約PDF": "Korean BOOTH terms PDF",
+  "中国語BOOTH規約PDF": "Chinese BOOTH terms PDF",
+  "利用規約 1ページ目": "Terms of Use page 1",
+  "利用規約 2ページ目": "Terms of Use page 2",
+  "利用規約 3ページ目": "Terms of Use page 3",
+  "利用規約 4ページ目": "Terms of Use page 4",
+  "利用規約 5ページ目": "Terms of Use page 5",
+  "利用規約 6ページ目": "Terms of Use page 6",
+  "利用規約 7ページ目": "Terms of Use page 7",
+  "利用規約 8ページ目": "Terms of Use page 8",
+  "利用規約 9ページ目": "Terms of Use page 9",
+  "利用規約 10ページ目": "Terms of Use page 10",
+  "このページは、マカロニの素材を利用する際の基本ルールと、BOOTHで配布・販売している作品の個別規約を分けて確認できます。":
+    "This page separates the basic rules for using Macaroni assets from the individual terms for works distributed or sold on BOOTH.",
+  "無料配布素材は、下記の範囲で個人・同人・法人・商用・非商用を問わず利用できます。":
+    "Free assets may be used by individuals, doujin circles, companies, commercial projects, and non-commercial projects within the scope below.",
+  "VRChat、Unityプロジェクト、アバター撮影、動画制作、3Dゲーム制作への使用。":
+    "Use in VRChat, Unity projects, avatar photography, video production, and 3D game production.",
+  "ゲーム、映像、配信、SNS、同人作品、販売作品への組み込み。":
+    "Inclusion in games, videos, streams, social media, doujin works, and commercial works.",
+  "ポーズやモーションの調整、トリミング、形式変換など、制作に必要な範囲での編集。":
+    "Editing required for production, such as pose or motion adjustment, trimming, and format conversion.",
+  "クレジット表記は任意です。表記する場合は「マカロニ」を記載してください。":
+    "Credit is optional. If you credit the work, please write Macaroni.",
+  "素材データの再配布、再販売、無断アップロード、自作発言。":
+    "Redistribution, resale, unauthorized upload, or claiming the asset data as your own.",
+  "書面で許可されていないAI学習、データセット化、LoRA学習などへの利用。":
+    "Use for AI training, dataset creation, LoRA training, or similar purposes without written permission.",
+  "違法な表現、未成年または未成年に見えるキャラクターを含む表現、利用地域の法律や各プラットフォーム規約に反する利用。":
+    "Illegal content, content involving minors or minor-looking characters, or uses that violate local laws or platform terms.",
+  "配布ファイルに対応アバター本体は含まれません。各対応アバターは公式の販売・配布ページから入手してください。キャラ別ページのクレジットリンクは使用元アバターの案内です。":
+    "Supported avatar models are not included in distributed files. Please obtain each supported avatar from its official sales or distribution page. Credit links on character pages point to the source avatars.",
+  "この静的サイトでは、決済、アカウント、問い合わせフォームを扱いません。年齢確認と言語設定はブラウザのlocalStorageに保存される場合があります。":
+    "This static site does not handle payments, accounts, or contact forms. Age confirmation and language settings may be saved in your browser localStorage.",
+  "当サイトでは、サイト改善や閲覧状況の把握のために、アクセス解析ツールを利用する場合があります。アクセス解析により、閲覧ページ、利用環境、アクセス日時などの情報が収集される場合があります。":
+    "This site may use analytics tools to improve the site and understand browsing activity. Analytics may collect information such as viewed pages, device environment, and access time.",
+  "これらの情報は、個人を特定する目的では使用しません。Google Analytics等の解析ツールを利用する場合、収集された情報は各提供元のプライバシーポリシーに基づいて管理されます。":
+    "This information is not used to identify individuals. If tools such as Google Analytics are used, collected information is managed according to each provider's privacy policy.",
+  "素材の利用によって発生した損害、トラブル、各プラットフォームでの制限について、マカロニは責任を負いません。必要に応じて規約内容を変更する場合があります。":
+    "Macaroni is not responsible for damages, trouble, or platform restrictions caused by using the assets. These terms may be changed when necessary.",
+  "BOOTHで配布・販売している個別作品は、各BOOTH商品ページの説明と同梱PDFも確認してください。商品ページや同梱PDFに個別条件がある場合は、そちらを優先してください。":
+    "For individual works distributed or sold on BOOTH, also check each BOOTH product page and included PDF. If the product page or PDF has individual terms, those terms take priority.",
+  "対応キャラを見る": "View Supported Avatars",
+  "VRChat・Unityポーズ素材の使い方": "Usage Guide for VRChat and Unity Pose Assets",
+  "VRChat・UnityPoseAssetの使い方": "Usage Guide for VRChat and Unity Pose Assets",
+  "使い方記事": "Usage Article",
+  "使い方記事一覧": "Usage Article List",
+  "使い方ページ切り替え": "Usage page navigation",
+  "前の使い方ページ": "Previous usage page",
+  "次の使い方ページ": "Next usage page",
+  "Unityでanimファイルを再生する手順": "How to play an anim file in Unity",
+  "UnityでAnimator Controllerを作成する手順画面": "Screen for creating an Animator Controller in Unity",
+  "UnityのGameビューでanimポーズを再生確認する画面": "Screen for checking anim pose playback in Unity Game view",
+  "UnityのGameビューでanimPoseを再生確認する画面": "Screen for checking anim pose playback in Unity Game view",
+  "Unityで必要なPrefabをHierarchyへ追加する画面": "Screen for adding required Prefabs to the Unity Hierarchy",
+  "Animationタブで表情をPreview確認しているUnity画面": "Unity screen checking expressions in Preview in the Animation tab",
+  "Animator ControllerとAnimationタブで再生を確認": "Check playback with Animator Controller and the Animation tab",
+  "ゲーム開発時にanimを再生する手順": "How to play anim files in game development",
+  "スクリプトからAnimatorのStateを呼び出す方法": "How to call an Animator State from a script",
+  "導入に必要なPrefabについて": "Required Prefabs for Setup",
+  "必要Prefabの入れ方と配置確認": "How to place and check required Prefabs",
+  "改変済みアバターの表情破綻を直す手順": "How to fix expression issues on modified avatars",
+  "BlendShape値を今の顔に合わせる方法": "How to adjust BlendShape values to the current face",
+  "BOOTH購入者向けFAQ": "BOOTH Buyer FAQ",
+  "サポートFAQ": "Support FAQ",
+  "利用規約、不具合、問い合わせ前チェック": "Terms, common issues, and pre-contact checklist",
+  "VRChatアバターのポーズ導入、Unityのanimファイル、ゲーム制作で使う時に詰まりやすいポイントを確認できます。":
+    "Check common sticking points for VRChat avatar pose setup, Unity anim files, and game production usage.",
+  "Animator Controllerの作成、対象オブジェクトへの設定、animの登録、Animationタブでの確認までを順番に確認できます。":
+    "Follow the flow from creating an Animator Controller to assigning it, registering anim files, and checking them in the Animation tab.",
+  "Gameビューでポーズを確認したい時に、スクリプト、空オブジェクト、Animator、State名の設定手順を追えます。":
+    "Follow the setup for scripts, empty objects, Animator, and State names when checking poses in the Game view.",
+  "SexyPose_○○○ と MAMST_Controller をHierarchyへ入れる時の配置と確認ポイントを見られます。":
+    "Review placement and checks for adding SexyPose_○○○ and MAMST_Controller to the Hierarchy.",
+  "表情用animで目や口が崩れる時に、Animationタブでシェイプキー値を記録し直す手順を確認できます。":
+    "Review how to re-record shape key values in the Animation tab when expression anim files break eyes or mouth shapes.",
+  "BOOTH商品の利用規約、EXMenuやPhysBoneの不具合、問い合わせ前に確認したい項目を見られます。":
+    "Review BOOTH product terms, EXMenu or PhysBone issues, and checks to do before contacting support.",
+  "ホーム": "Home",
+  "マカロニのBOOTH商品について、利用規約や導入時に迷いやすい確認ポイントをまとめています。":
+    "This page summarizes license terms and setup checks that can be confusing for Macaroni BOOTH products.",
+  "問い合わせ前の確認に使うページです": "Use this page as a checklist before contacting support.",
+  "利用規約、Unity導入時の不具合、問い合わせ前チェックをまとめています。":
+    "It covers license terms, Unity setup issues, and pre-contact checks.",
+  "利用規約と商用利用": "License and Commercial Use",
+  "よくある不具合": "Common Issues",
+  "問い合わせ前チェック": "Pre-contact Checklist",
+  "利用規約はどこを見ればいいですか？": "Where can I check the license terms?",
+  "商用利用はできますか？": "Can I use the assets commercially?",
+  "アップロード後、EXMenuが正常に動きません": "EXMenu does not work correctly after upload",
+  "モーション再生中に、髪やアクセサリーが大きく跳ねたり、浮いたりします":
+    "Hair or accessories jump or float during motion playback",
+  "Motion再生中に、髪やアクセサリーが大きく跳ねたり、浮いたりします":
+    "Hair or accessories jump or float during motion playback",
+  "同梱テキストと利用規約を確認した": "I checked the included text and license terms.",
+  "Unityのバージョン、アバター名、商品名、困っている画面を説明できる":
+    "I can explain the Unity version, avatar name, product name, and the screen where the issue occurs.",
+  "問い合わせ時は、商品名、使用アバター、Unityのバージョン、発生している症状、可能ならスクリーンショットを添えてください。個人情報が写る場合は、不要な情報を隠してください。":
+    "When contacting support, include the product name, avatar, Unity version, symptoms, and screenshots if possible. Hide unnecessary information if personal details are visible.",
+  "利用規約を見る": "View Terms of Use",
+  "BOOTH作品一覧を見る": "View BOOTH Works",
+  "BOOTH作品一覧へ戻る": "Back to BOOTH Works",
+  "BOOTHへ": "Go to BOOTH",
+  "パンくずリスト": "Breadcrumb",
+  "記事目次": "Article contents",
+  "関連ページ": "Related pages",
+  "髪やアクセサリーが跳ねる場合の確認画像": "Reference image for hair or accessories jumping",
+  "髪やアクセサリーが跳ねる場合の確認画像 1": "Reference image for hair or accessories jumping 1",
+  "髪やアクセサリーが跳ねる場合の確認画像 2": "Reference image for hair or accessories jumping 2",
+  "他の対応キャラを見る": "View Other Supported Avatars",
+  "まとめて無料ダウンロード": "Download All Free",
+  "もっと見る": "Show More",
+  "対応キャラ一覧": "Supported Avatar List",
+  "画像を確認して、ショコラ用FreePoseをまとめてダウンロードできます。":
+    "Check the images and download the Chocolat Free Pose set together.",
+  "ChocolatのBOOTH作品へ": "BOOTH Works for Chocolat",
+  "ショコラのBOOTH作品へ": "BOOTH Works for Chocolat",
+  "利用規約・": "Terms of Use /",
+  ライセンス: "License",
+  "使用条款 第1页": "Chinese Terms page 1",
+  "使用条款 第2页": "Chinese Terms page 2",
+  "使用条款 第3页": "Chinese Terms page 3",
+  "使用条款 第4页": "Chinese Terms page 4",
+  "【13アバター対応】フ〇ラモーション(ボイス音声＋汎用舌モデル＋表情付き)":
+    "Oral Motion for 13 Avatars (Voice Audio + General Tongue Model + Expressions)",
+  "Motion Animation付き": "Motion Animation Included",
+  "挿入モーション付き": "Motion Animation Included",
+  "動画制作向け": "For Video Production",
+  受け: "Receiver",
+  "セクシーアタック": "Sexy Attack",
+  "Prefab対応": "Prefab Supported",
+  "足コキ": "Foot Motion",
+  "手コキ": "Hand Motion",
+  "ディルド": "Dildo",
+  "電マ": "Electric Massager",
+  "Preset付き": "Preset Included",
+  形式: "Format",
+  環境: "Environment",
+  "liltoon用プリセットを含むスキンマテリアル": "Skin material including liltoon preset",
+  "Unity 2022、liltoon導入済みプロジェクト向け": "For Unity 2022 projects with liltoon installed",
+  "¥1,000円": "¥1,000",
+  "Price: ¥1,000円": "Price: ¥1,000",
+  "5種類のセクシーモーションと音付き": "5 sexy motions with audio",
+  "5種類のセクシーアタックモーションと音付き": "5 sexy attack motions with audio",
+  "Prefab置くだけ導入のSexyMotion / Attack vol.2、音付き": "Prefab-based SexyMotion / Attack vol.2 with audio",
+  "6種類の足○キモーションと音付き": "6 foot motion animations with audio",
+  "15種類の手○キモーションと音付き": "15 hand motion animations with audio",
+  "【汎用】セクシーモーション5種類(音付)": "5 General Sexy Motions (Audio Included)",
+  "【汎用】セクシーアタックモーション5種類(音付)": "5 General Sexy Attack Motions (Audio Included)",
+  "【Prefab置くだけ導入】SexyMotion / Attack vol.2 (音付)": "Prefab-based SexyMotion / Attack vol.2 (Audio Included)",
+  "【Prefab置くだけ導入】SexyMotion / Attack vol.2  (音付)": "Prefab-based SexyMotion / Attack vol.2 (Audio Included)",
+  "汎用で使いやすいセクシーモーション5種類を収録した、VRChat・Unity向けR18モーション素材です。":
+    "A general-use R18 motion asset for VRChat and Unity, including 5 easy-to-use sexy motions.",
+  "汎用のセクシーアタックモーション5種類を収録した、VRChat・Unity向けR18モーション素材です。":
+    "A general-use R18 motion asset for VRChat and Unity, including 5 sexy attack motions.",
+  "Prefab置くだけ導入のSexyMotion / Attack vol.2です。VRChatアバター撮影やUnity動画制作向けの音付きモーション素材です。":
+    "Prefab-based SexyMotion / Attack vol.2 with audio, made for VRChat avatar photography and Unity video production.",
+  "汎用の足○キモーション6種類を収録した、VRChat・Unity向けR18モーション素材です。":
+    "A general-use R18 motion asset for VRChat and Unity, including 6 foot motion animations.",
+  "汎用の手○キモーション15種類を収録した、VRChat・Unity向けR18モーション素材です。":
+    "A general-use R18 motion asset for VRChat and Unity, including 15 hand motion animations.",
+  "13アバター対応のフ〇ラモーション素材です。ボイス音声、汎用舌モデル、表情付きで、VRChatやUnityでの撮影・動画制作に使えます。":
+    "Oral motion asset for 13 avatars, including voice audio, a general tongue model, and expressions for VRChat and Unity photography or video production.",
+  "20アバター対応の一人用R18モーション素材です。モーション2種類、音、パーティクル、玩具、表情を収録しています。":
+    "Solo R18 motion asset for 20 avatars, including 2 motions, audio, particles, toy props, and expressions.",
+  "対応アバター向けの一人用R18モーション素材です。モーション3種類、音、パーティクル、玩具、表情を収録しています。":
+    "Solo R18 motion asset for supported avatars, including 3 motions, audio, particles, toy props, and expressions.",
+  "対応アバター向けの一人用R18モーション素材です。モーション2種類、音、パーティクル、玩具、表情を収録しています。":
+    "Solo R18 motion asset for supported avatars, including 2 motions, audio, particles, toy props, and expressions.",
+  "対応アバター向けの一人用R18モーション素材です。表情、音素材、パーティクル、玩具ギミック、対応アバター向けPrefabを収録しています。":
+    "Solo R18 motion asset for supported avatars, including expressions, audio assets, particles, toy gimmicks, and supported-avatar Prefabs.",
+  "liltoon用プリセットを含むスキンマテリアル素材です。Unity 2022、liltoon導入済みプロジェクト向けに利用できます。":
+    "Skin material asset including liltoon presets, made for Unity 2022 projects with liltoon installed.",
+  "【汎用】足○キモーション6種類(音付)": "6 General Foot Motion Animations (Audio Included)",
+  "【汎用】手○キモーション15種類(音付)": "15 General Hand Motion Animations (Audio Included)",
+  "MacaroniSoft 公式リンク集": "MacaroniSoft Official Links",
+  "初めまして、まかろにです！アニメーション・3Dモデリング・ゲーム制作が中心の個人クリエイターです！":
+    "Nice to meet you, I am Macaroni. I am an individual creator focused on animation, 3D modeling, and game production.",
+  "VRChat・Unity向け素材の販売ページ": "Sales page for VRChat and Unity assets",
+  "成人向け同人作品の一覧": "Adult doujin works list",
+  "サークルプロフィールと配信作品": "Circle profile and published works",
+  "お知らせ・活動更新": "News and activity updates",
+  "告知・SNS更新": "Announcements and social updates",
+  "サイト内で探す": "Search within the site",
+  "無料素材をキャラ別に探す": "Find free assets by character",
+  "サムネイルから作品を探す": "Find works from thumbnails",
+  "導入方法や使い方を見る": "View setup and usage guides",
+  "購入者FAQ": "Buyer FAQ",
+  "BOOTH購入後の確認を見る": "Check after BOOTH purchase",
+  "使用条件を確認する": "Check usage terms",
+  "公式リンク集": "Official Links",
+  "公式外部リンク": "Official external links",
   "VRChat・Unity向けR18無料3Dポーズ素材": "R18 Free 3D Pose Materials for VRChat and Unity",
   "VRChat・Unity向けR18無料3Dポーズ素材 | マカロニ": "R18 Free 3D Pose Materials for VRChat and Unity | Macaroni",
   "VRChat対応アバター別 無料3Dポーズ素材一覧": "Free 3D Pose Materials by VRChat Avatar",
@@ -248,6 +592,13 @@ const textTranslations = {
   "〖汎用〗足○キモーション6種類": "6 Universal Foot Motion Animations",
   "〖汎用〗手○キモーション15種類": "15 Universal Hand Motion Animations",
   "〖13アバター対応〗フ〇ラモーション": "Oral Motion for 13 Avatars",
+  セクシーモーション: "Sexy Motion",
+  "セクシーモーション vol.1": "Sexy Motion vol.1",
+  セクシーアタックモーション: "Sexy Attack Motion",
+  "セクシーアタックモーション vol.1": "Sexy Attack Motion vol.1",
+  "足○キモーション": "Foot Motion",
+  "手○キモーション": "Hand Motion",
+  "フ〇ラモーション": "Oral Motion",
   "一人エッチモーション vol.1": "Solo Motion vol.1",
   "一人エッチモーション vol.2": "Solo Motion vol.2",
   "一人エッチモーション vol.3": "Solo Motion vol.3",
@@ -256,6 +607,9 @@ const textTranslations = {
   トップへ: "Back to top",
   メインナビゲーション: "Main navigation",
   無料素材スライド位置: "Free material slide position",
+  "商品が見つかりません": "Product not found",
+  "商品が非公開、またはURLが変更された可能性があります。": "This product may be unpublished, or its URL may have changed.",
+  "商品一覧へ戻る": "Back to Products",
 };
 
 Object.entries(characterNameTranslations).forEach(([jaName, enName]) => {
@@ -264,9 +618,157 @@ Object.entries(characterNameTranslations).forEach(([jaName, enName]) => {
 
 const translateCharacterName = (name) => characterNameTranslations[name] || name;
 
+const shortLabelTranslations = [
+  ["プラム・ショコラ", "Plum / Chocolat"],
+  ...Object.entries(characterNameTranslations),
+  ["一人用モーション", "Solo Motion"],
+  ["汎用モーション", "General Motion"],
+  ["セクシーモーション", "Sexy Motion"],
+  ["アタックモーション", "Attack Motion"],
+  ["セクシーポーズ", "Sexy Pose"],
+  ["挿入モーション", "Motion Animation"],
+  ["音声付き", "Voice Included"],
+  ["音付き", "Audio Included"],
+  ["表情付き", "Expressions Included"],
+  ["表情", "Expressions"],
+  ["無料版あり", "Free version available"],
+  ["パーティクル付き", "Particles Included"],
+  ["パーティクル", "Particles"],
+  ["アバター対応", "Avatar Support"],
+  ["対応アバター", "Supported Avatars"],
+  ["ボイス音声", "Voice Audio"],
+  ["舌モデル付", "Tongue Model Included"],
+  ["舌モデル", "Tongue Model"],
+  ["フルパック", "Full Pack"],
+  ["玩具", "Toy"],
+  ["マテリアル", "Material"],
+  ["素材", "Asset"],
+  ["ポーズ", "Pose"],
+  ["汎用", "General"],
+  ["一人用", "Solo"],
+  ["モーション", "Motion"],
+  ["R18ポーズ", "R18 Pose"],
+  ["R18モーション", "R18 Motion"],
+  ["商品名", "Product Name"],
+  ["アバター撮影向け", "For Avatar Photos"],
+  ["サムネイル向け", "For Thumbnails"],
+  ["エロツイポーズ", "Adult Photo Pose"],
+  ["オナニー", "Solo Play"],
+  ["セルフタッチ", "Self Touch"],
+  ["肌マテリアル", "Skin Material"],
+  ["ドスケベマテリアル", "Adult Material"],
+  ["種類", "types"],
+];
+
+const translateShortLabelText = (text) => {
+  if (text.length > 80 || /[。！？]/.test(text)) {
+    return text;
+  }
+
+  return shortLabelTranslations.reduce(
+    (result, [jaText, enText]) => result.replaceAll(jaText, enText),
+    text,
+  );
+};
+
 const translateText = (text) => {
   if (textTranslations[text]) {
     return textTranslations[text];
+  }
+
+  const homeDescription =
+    "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
+  if (text === homeDescription) {
+    return "Macaroni is a product site for browsing R18 3D pose, motion, and material assets for VRChat and Unity.";
+  }
+
+  const productsDescription =
+    "VRChatアバターやUnity向けのR18 3Dポーズ、モーション、マテリアル素材をカテゴリ・タグ・対応アバターで絞り込めます。";
+  if (text === productsDescription) {
+    return "Filter R18 3D pose, motion, and material assets for VRChat avatars and Unity by category, tag, and supported avatar.";
+  }
+
+  const termsDescription =
+    "マカロニの3Dポーズ・モーション素材に関する利用規約です。サイトの基本規約とBOOTH商品の個別規約を確認できます。";
+  if (text === termsDescription) {
+    return "Terms of use for Macaroni 3D pose and motion assets, including the site terms and BOOTH product-specific terms.";
+  }
+
+  const tipsDescription =
+    "VRChat、Unity、3Dゲーム制作で無料3Dポーズ素材を使う時の導入、Prefab、ゲーム活用、表情調整を記事形式でまとめています。";
+  if (text === tipsDescription) {
+    return "Articles about setup, Prefabs, game usage, and expression adjustments for using free 3D pose assets in VRChat, Unity, and 3D game production.";
+  }
+
+  const boothFaqDescription =
+    "マカロニのBOOTH商品について、利用規約、EXMenuやPhysBoneの不具合、問い合わせ前チェックをまとめたFAQです。";
+  if (text === boothFaqDescription) {
+    return "FAQ for Macaroni BOOTH products, covering terms, EXMenu and PhysBone issues, and checks before contacting support.";
+  }
+
+  const boothFaqShortDescription =
+    "BOOTH商品について、利用規約、EXMenuやPhysBoneの不具合、問い合わせ前チェックをまとめています。";
+  if (text === boothFaqShortDescription) {
+    return "A support FAQ covering BOOTH product terms, EXMenu and PhysBone issues, and pre-contact checks.";
+  }
+
+  const linksDescription =
+    "MacaroniSoft / マカロニの公式リンク集です。BOOTH、FANZA、DLsite、Ci-en、Xへの導線をスマホでも見やすくまとめています。";
+  if (text === linksDescription) {
+    return "Official MacaroniSoft / Macaroni links, including BOOTH, FANZA, DLsite, Ci-en, and X in a mobile-friendly layout.";
+  }
+
+  const linksShortDescription =
+    "BOOTH、FANZA、DLsite、Ci-en、Xなど、MacaroniSoft / マカロニの公式リンクをまとめています。";
+  if (text === linksShortDescription) {
+    return "Official MacaroniSoft / Macaroni links, including BOOTH, FANZA, DLsite, Ci-en, and X.";
+  }
+
+  const macaroniTitleSuffix = " | マカロニ";
+  if (text.endsWith(macaroniTitleSuffix)) {
+    return `${translateText(text.slice(0, -macaroniTitleSuffix.length))} | Macaroni`;
+  }
+
+  const countMatch = text.match(/^(\d+)件$/);
+  if (countMatch) {
+    return `${countMatch[1]} ${countMatch[1] === "1" ? "item" : "items"}`;
+  }
+
+  const supportedAvatarsMatch = text.match(/^(\d+)アバター対応$/);
+  if (supportedAvatarsMatch) {
+    return `Supports ${supportedAvatarsMatch[1]} Avatars`;
+  }
+
+  const poseProductDescriptionMatch = text.match(/^(.+?)向けのVRChat・Unity 2022用R18ポーズ素材です。(.+)$/);
+  if (poseProductDescriptionMatch) {
+    const character = translateCharacterName(poseProductDescriptionMatch[1]);
+    const detail = poseProductDescriptionMatch[2];
+
+    if (detail === "セクシーポーズ15種と表情5種を収録し、アバター撮影や動画制作に使えます。") {
+      return `R18 pose asset for ${character}, made for VRChat and Unity 2022. Includes 15 sexy poses and 5 expressions for avatar photography and video production.`;
+    }
+
+    if (detail === "無料版ありのセクシーポーズ15種と表情5種を収録しています。") {
+      return `R18 pose asset for ${character}, made for VRChat and Unity 2022. Includes a free version plus 15 sexy poses and 5 expressions.`;
+    }
+
+    if (detail === "セクシーポーズ15種と表情5種を収録しています。") {
+      return `R18 pose asset for ${character}, made for VRChat and Unity 2022. Includes 15 sexy poses and 5 expressions.`;
+    }
+
+    if (detail === "セクシーポーズ20種、挿入モーション5種、表情11種を収録しています。") {
+      return `R18 pose asset for ${character}, made for VRChat and Unity 2022. Includes 20 sexy poses, 5 motion animations, and 11 expressions.`;
+    }
+
+    if (detail === "セクシーポーズ15種と表情7種を収録しています。") {
+      return `R18 pose asset for ${character}, made for VRChat and Unity 2022. Includes 15 sexy poses and 7 expressions.`;
+    }
+  }
+
+  const characterPageDescriptionMatch =
+    text.match(/^(.+?)対応のVRChat・Unity向け無料3Dポーズ素材ページです。VRCアバター撮影や3Dゲーム制作で使うUnity animファイル配布を想定し、画像付きで確認できます。$/);
+  if (characterPageDescriptionMatch) {
+    return `Free 3D pose materials for ${translateCharacterName(characterPageDescriptionMatch[1])}, made for VRChat and Unity. Preview Unity anim files for VRC avatar photography and 3D game production with images.`;
   }
 
   const boothSuffix = " VRChat・Unity向け3Dポーズ/モーション作品";
@@ -274,9 +776,74 @@ const translateText = (text) => {
     return `${translateText(text.slice(0, -boothSuffix.length))} for VRChat / Unity`;
   }
 
+  const cardImageMatch = text.match(/^(.+)のカード画像$/);
+  if (cardImageMatch) {
+    return `${translateText(cardImageMatch[1])} card image`;
+  }
+
+  const productThumbMatch = text.match(/^(.+)の商品サムネイル$/);
+  if (productThumbMatch) {
+    return `${translateText(productThumbMatch[1])} product thumbnail`;
+  }
+
+  const freeStandingMatch = text.match(/^(.+)対応 VRChat無料3Dポーズ素材の立ち絵$/);
+  if (freeStandingMatch) {
+    return `${translateCharacterName(freeStandingMatch[1])} standing visual for VRChat free 3D pose materials`;
+  }
+
+  const freeUnityStandingMatch = text.match(/^(.+)対応 VRChat・Unity向け無料3Dポーズ素材の立ち絵$/);
+  if (freeUnityStandingMatch) {
+    return `${translateCharacterName(freeUnityStandingMatch[1])} standing visual for VRChat and Unity free 3D pose materials`;
+  }
+
+  const standingImageMatch = text.match(/^(.+)の立ち絵$/);
+  if (standingImageMatch) {
+    return `${translateCharacterName(standingImageMatch[1])} standing image`;
+  }
+
+  const freePosePreviewMatch = text.match(/^(.+)用無料ポーズ(\d+)のプレビュー$/);
+  if (freePosePreviewMatch) {
+    return `${translateCharacterName(freePosePreviewMatch[1])} Free Pose ${freePosePreviewMatch[2]} preview`;
+  }
+
+  const freePoseSetMatch = text.match(/^(.+)用無料ポーズ(\d+)種$/);
+  if (freePoseSetMatch) {
+    return `${freePoseSetMatch[2]} Free Poses for ${translateCharacterName(freePoseSetMatch[1])}`;
+  }
+
+  const freePoseZipMatch = text.match(/^(.+)用無料ポーズ(\d+)種をzipでまとめてダウンロード$/);
+  if (freePoseZipMatch) {
+    return `Download all ${freePoseZipMatch[2]} free poses for ${translateCharacterName(freePoseZipMatch[1])} as a zip`;
+  }
+
+  const productImageAltMatch = text.match(/^(.+) 商品画像 (\d+)$/);
+  if (productImageAltMatch) {
+    return `${translateText(productImageAltMatch[1])} product image ${productImageAltMatch[2]}`;
+  }
+
+  const productLightboxMatch = text.match(/^(.+)の商品画像を拡大表示$/);
+  if (productLightboxMatch) {
+    return `Open ${translateText(productLightboxMatch[1])} product image`;
+  }
+
+  const productImageCountMatch = text.match(/^(.+) 商品画像 (\d+)枚目$/);
+  if (productImageCountMatch) {
+    return `${translateText(productImageCountMatch[1])} product image ${productImageCountMatch[2]}`;
+  }
+
+  const plainProductImageCountMatch = text.match(/^商品画像 (\d+)枚目$/);
+  if (plainProductImageCountMatch) {
+    return `Product image ${plainProductImageCountMatch[1]}`;
+  }
+
   const sexyPoseMatch = text.match(/^〖(.+)用〗セクシーポーズ(\d+)種＋表情(\d+)種$/);
   if (sexyPoseMatch) {
     return `${sexyPoseMatch[2]} Sexy Poses + ${sexyPoseMatch[3]} Expressions for ${translateCharacterName(sexyPoseMatch[1])}`;
+  }
+
+  const sexyPoseWithFreeMatch = text.match(/^【(.+?)用\s*\/\s*無料有】セクシーポーズ(\d+)種＋表情(\d+)種$/);
+  if (sexyPoseWithFreeMatch) {
+    return `${sexyPoseWithFreeMatch[2]} Sexy Poses + ${sexyPoseWithFreeMatch[3]} Expressions for ${translateCharacterName(sexyPoseWithFreeMatch[1])} / Free version available`;
   }
 
   const bracketSexyPoseMatch = text.match(/^【(.+?)用\s*】セクシーポーズ(\d+)種＋表情(\d+)種$/);
@@ -284,9 +851,44 @@ const translateText = (text) => {
     return `${bracketSexyPoseMatch[2]} Sexy Poses + ${bracketSexyPoseMatch[3]} Expressions for ${translateCharacterName(bracketSexyPoseMatch[1])}`;
   }
 
+  const plainSexyPoseMatch = text.match(/^(.+?)用 セクシーポーズ(\d+)種＋表情(\d+)種$/);
+  if (plainSexyPoseMatch) {
+    return `${plainSexyPoseMatch[2]} Sexy Poses + ${plainSexyPoseMatch[3]} Expressions for ${translateCharacterName(plainSexyPoseMatch[1])}`;
+  }
+
   const sexyMotionMatch = text.match(/^〖(.+)用〗セクシーポーズ(\d+)種＋挿入モーション(\d+)種$/);
   if (sexyMotionMatch) {
     return `${sexyMotionMatch[2]} Sexy Poses + ${sexyMotionMatch[3]} Motion Animations for ${translateCharacterName(sexyMotionMatch[1])}`;
+  }
+
+  const bracketSexyMotionMatch = text.match(/^【(.+)用】セクシーポーズ(\d+)種＋挿入モーション(\d+)種\(音付\)＋表情(\d+)種$/);
+  if (bracketSexyMotionMatch) {
+    return `${bracketSexyMotionMatch[2]} Sexy Poses + ${bracketSexyMotionMatch[3]} Motion Animations + ${bracketSexyMotionMatch[4]} Expressions for ${translateCharacterName(bracketSexyMotionMatch[1])}`;
+  }
+
+  const plainSexyMotionMatch = text.match(/^(.+?)用 セクシーポーズ(\d+)種＋挿入モーション(\d+)種$/);
+  if (plainSexyMotionMatch) {
+    return `${plainSexyMotionMatch[2]} Sexy Poses + ${plainSexyMotionMatch[3]} Motion Animations for ${translateCharacterName(plainSexyMotionMatch[1])}`;
+  }
+
+  const supportedWorksMatch = text.match(/^(.+)対応BOOTH作品$/);
+  if (supportedWorksMatch) {
+    return `BOOTH Works for ${translateCharacterName(supportedWorksMatch[1])}`;
+  }
+
+  const characterBoothLinkMatch = text.match(/^(.+)のBOOTH作品へ$/);
+  if (characterBoothLinkMatch) {
+    return `BOOTH Works for ${translateCharacterName(characterBoothLinkMatch[1])}`;
+  }
+
+  const characterFreePoseLeadMatch = text.match(/^画像を確認して、(.+)用FreePoseをまとめてダウンロードできます。$/);
+  if (characterFreePoseLeadMatch) {
+    return `Check the images and download the ${translateCharacterName(characterFreePoseLeadMatch[1])} Free Pose set together.`;
+  }
+
+  const sourceAvatarMatch = text.match(/^使用元アバター:\s*(.+)$/);
+  if (sourceAvatarMatch) {
+    return `Source Avatar: ${translateCharacterName(sourceAvatarMatch[1])}`;
   }
 
   const testPoseMatch = text.match(/^テストポーズ (\d+)$/);
@@ -311,6 +913,10 @@ const translateText = (text) => {
 
     if (text === `${jaName}対応 VRChat・Unity向け無料3Dポーズ素材 | マカロニ`) {
       return `Free 3D Pose Materials for ${enName} / VRChat and Unity | Macaroni`;
+    }
+
+    if (text === `${jaName}対応 VRChat・Unity向け無料3Dポーズ素材`) {
+      return `Free 3D Pose Materials for ${enName} / VRChat and Unity`;
     }
 
     if (text === `${jaName}対応DL可能素材一覧`) {
@@ -345,7 +951,7 @@ const translateText = (text) => {
     }
   }
 
-  return text;
+  return translateShortLabelText(text);
 };
 
 const translatedUiMessages = {
@@ -433,6 +1039,14 @@ const applyLanguage = (language) => {
   }
   document.title = language === "ja" ? document.originalTitleValue : translateText(document.originalTitleValue);
 
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const html = language === "en" ? element.dataset.enHtml : element.dataset.jaHtml;
+
+    if (html && element.innerHTML !== html) {
+      element.innerHTML = html;
+    }
+  });
+
   const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const textNodes = [];
   while (textWalker.nextNode()) {
@@ -440,8 +1054,8 @@ const applyLanguage = (language) => {
   }
   textNodes.forEach((node) => translateTextNode(node, language));
 
-  document.querySelectorAll("[alt], [aria-label], [title]").forEach((element) => {
-    ["alt", "aria-label", "title"].forEach((attributeName) => {
+  document.querySelectorAll("[alt], [aria-label], [title], [placeholder]").forEach((element) => {
+    ["alt", "aria-label", "title", "placeholder"].forEach((attributeName) => {
       if (element.hasAttribute(attributeName)) {
         translateAttribute(element, attributeName, language);
       }
@@ -456,12 +1070,49 @@ const applyLanguage = (language) => {
     const isPressed = button.dataset.langButton === language;
     button.setAttribute("aria-pressed", String(isPressed));
   });
+
+  document.querySelectorAll(".language-option[href]").forEach((link) => {
+    const linkLanguage = getLanguageFromUrl(link.getAttribute("href"));
+
+    if (linkLanguage) {
+      link.setAttribute("aria-pressed", String(linkLanguage === language));
+    }
+  });
+};
+
+const getLanguageFromUrl = (href) => {
+  if (!href) {
+    return "";
+  }
+
+  try {
+    const { pathname } = new URL(href, window.location.href);
+
+    if (pathname.startsWith("/en/")) {
+      return "en";
+    }
+
+    if (pathname.startsWith("/ja/")) {
+      return "ja";
+    }
+  } catch (error) {
+    if (href.includes("/en/") || href.startsWith("en/")) {
+      return "en";
+    }
+
+    if (href.includes("/ja/") || href.startsWith("ja/")) {
+      return "ja";
+    }
+  }
+
+  return "";
 };
 
 const setupLanguageSwitcher = () => {
   const buttons = [...document.querySelectorAll("[data-lang-button]")];
+  const links = [...document.querySelectorAll(".language-option[href]")];
 
-  if (!buttons.length) {
+  if (!buttons.length && !links.length) {
     return;
   }
 
@@ -473,7 +1124,34 @@ const setupLanguageSwitcher = () => {
     });
   });
 
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      const language = getLanguageFromUrl(link.getAttribute("href"));
+
+      if (language) {
+        setDisplayLanguage(language);
+      }
+    });
+  });
+
   applyLanguage(getDisplayLanguage());
+
+  const titleElement = document.querySelector("title");
+  if (titleElement && "MutationObserver" in window) {
+    const titleObserver = new MutationObserver(() => {
+      if (getDisplayLanguage() !== "en" || !document.originalTitleValue) {
+        return;
+      }
+
+      const translatedTitle = translateText(document.originalTitleValue);
+      if (document.title !== translatedTitle) {
+        document.title = translatedTitle;
+      }
+    });
+
+    titleObserver.observe(titleElement, { childList: true });
+    window.setTimeout(() => applyLanguage(getDisplayLanguage()), 120);
+  }
 };
 
 const getVisualRows = (elements) => {
@@ -522,10 +1200,9 @@ const setupProductCollapses = () => {
     return;
   }
 
-  const isEnglish = document.documentElement.lang === "en";
   const mobileQuery = window.matchMedia("(max-width: 640px)");
-  const showTagsText = isEnglish ? "More ▼" : "もっと見る ▼";
-  const closeText = isEnglish ? "Close ▲" : "閉じる ▲";
+  const getShowTagsText = () => (getDisplayLanguage() === "en" ? "More ▼" : "もっと見る ▼");
+  const getCloseText = () => (getDisplayLanguage() === "en" ? "Close ▲" : "閉じる ▲");
 
   const scheduleUpdate = (update) => {
     window.requestAnimationFrame(update);
@@ -571,14 +1248,14 @@ const setupProductCollapses = () => {
         content.classList.remove("is-collapsed");
         content.style.removeProperty("--collapsed-height");
         button.setAttribute("aria-expanded", "false");
-        button.textContent = showTagsText;
+        button.textContent = getShowTagsText();
         return;
       }
 
       content.style.setProperty("--collapsed-height", `${getCollapsedHeight(content, rows, 3)}px`);
       content.classList.toggle("is-collapsed", !isExpanded);
       button.setAttribute("aria-expanded", String(isExpanded));
-      button.textContent = isExpanded ? closeText : showTagsText;
+      button.textContent = isExpanded ? getCloseText() : getShowTagsText();
     };
 
     button.addEventListener("click", () => {
@@ -631,14 +1308,14 @@ const setupProductCollapses = () => {
         content.classList.remove("is-collapsed");
         content.style.removeProperty("--collapsed-height");
         button.setAttribute("aria-expanded", "false");
-        button.textContent = showTagsText;
+        button.textContent = getShowTagsText();
         return;
       }
 
       content.style.setProperty("--collapsed-height", `${getCollapsedHeight(content, rows, 3)}px`);
       content.classList.toggle("is-collapsed", !isExpanded);
       button.setAttribute("aria-expanded", String(isExpanded));
-      button.textContent = isExpanded ? closeText : showTagsText;
+      button.textContent = isExpanded ? getCloseText() : getShowTagsText();
     };
 
     button.addEventListener("click", () => {
@@ -681,14 +1358,14 @@ const setupProductCollapses = () => {
         breadcrumb.classList.remove("is-collapsed");
         breadcrumb.style.removeProperty("--collapsed-height");
         button.setAttribute("aria-expanded", "false");
-        button.textContent = showTagsText;
+        button.textContent = getShowTagsText();
         return;
       }
 
       breadcrumb.style.setProperty("--collapsed-height", `${getCollapsedHeight(breadcrumb, rows, 2)}px`);
       breadcrumb.classList.toggle("is-collapsed", !isExpanded);
       button.setAttribute("aria-expanded", String(isExpanded));
-      button.textContent = isExpanded ? closeText : showTagsText;
+      button.textContent = isExpanded ? getCloseText() : getShowTagsText();
     };
 
     button.addEventListener("click", () => {
@@ -1277,13 +1954,21 @@ const setupBoothFilters = () => {
     const getSubtagSearchText = (button) => normalizeSubtagSearchText(
       `${button.textContent || ""} ${button.dataset.boothSubtagSearchText || ""}`,
     );
+    const getCountText = (count) => {
+      if (getDisplayLanguage() === "en") {
+        return `${count} ${count === 1 ? "item" : "items"}`;
+      }
+
+      return `${count}${count === 1 ? singularSuffix : suffix}`;
+    };
+    const getLanguageAwareLabel = (label) => (getDisplayLanguage() === "en" ? translateText(label) : label);
     const updateSubtagToggleLabel = () => {
       if (!subtagToggle) {
         return;
       }
 
       const defaultLabel = subtagToggle.dataset.defaultLabel || subtagToggle.textContent.trim();
-      subtagToggle.textContent = activeSubtag === "all" ? defaultLabel : getSubtagLabel(activeSubtag);
+      subtagToggle.textContent = getLanguageAwareLabel(activeSubtag === "all" ? defaultLabel : getSubtagLabel(activeSubtag));
       subtagToggle.classList.toggle("is-selected", activeSubtag !== "all");
     };
     const clearSubtagSearch = () => {
@@ -1305,14 +1990,15 @@ const setupBoothFilters = () => {
 
       if (subtagRowToggle) {
         subtagRowToggle.setAttribute("aria-expanded", String(isOpen));
-        subtagRowToggle.textContent = isOpen
+        const rowToggleText = isOpen
           ? (subtagRowToggle.dataset.closeLabel || "閉じる ▲")
           : (subtagRowToggle.dataset.openLabel || "もっと見る ▼");
+        subtagRowToggle.textContent = getLanguageAwareLabel(rowToggleText);
         subtagRowToggle.setAttribute(
           "aria-label",
-          isOpen
+          getLanguageAwareLabel(isOpen
             ? (subtagRowToggle.dataset.closeAriaLabel || subtagRowToggle.textContent)
-            : (subtagRowToggle.dataset.openAriaLabel || subtagRowToggle.textContent),
+            : (subtagRowToggle.dataset.openAriaLabel || subtagRowToggle.textContent)),
         );
       }
 
@@ -1415,7 +2101,7 @@ const setupBoothFilters = () => {
 
       if (status) {
         const matchingCount = sortedMatchingCards.length;
-        status.textContent = `${matchingCount}${matchingCount === 1 ? singularSuffix : suffix}`;
+        status.textContent = getCountText(matchingCount);
       }
 
       if (pagination) {
@@ -1644,11 +2330,12 @@ const setupProductGallery = () => {
   const inlinePrev = gallery.querySelector("[data-gallery-inline-prev]");
   const inlineNext = gallery.querySelector("[data-gallery-inline-next]");
   const mainTrigger = gallery.querySelector("[data-gallery-open]");
-  const isEnglish = document.documentElement.lang === "en";
-  const productName = document.querySelector("#product-title")?.textContent?.trim() || (isEnglish ? "Product" : "商品");
-  const closeText = isEnglish ? "Close" : "閉じる";
-  const previousText = isEnglish ? "Previous image" : "前の画像";
-  const nextText = isEnglish ? "Next image" : "次の画像";
+  const isEnglish = () => getDisplayLanguage() === "en" || document.documentElement.lang === "en";
+  const getGalleryText = (value) => (isEnglish() ? translateText(value) : value);
+  const productName = document.querySelector("#product-title")?.textContent?.trim() || (isEnglish() ? "Product" : "商品");
+  const closeText = isEnglish() ? "Close" : "閉じる";
+  const previousText = isEnglish() ? "Previous image" : "前の画像";
+  const nextText = isEnglish() ? "Next image" : "次の画像";
   const modal = document.createElement("div");
   modal.className = "product-lightbox";
   modal.hidden = true;
@@ -1706,7 +2393,7 @@ const setupProductGallery = () => {
     }
 
     img.src = thumbnailSource;
-    img.alt = image?.alt || productName;
+    img.alt = getGalleryText(image?.alt || productName);
     img.loading = index === 0 ? "eager" : "lazy";
     img.decoding = index === 0 ? "sync" : "async";
 
@@ -1737,7 +2424,7 @@ const setupProductGallery = () => {
       button.type = "button";
       button.dataset.galleryIndex = String(index);
       button.dataset.galleryThumb = "";
-      button.setAttribute("aria-label", isEnglish ? `${productName} product image ${index + 1}` : `${productName} 商品画像 ${index + 1}枚目`);
+      button.setAttribute("aria-label", isEnglish() ? `${getGalleryText(productName)} product image ${index + 1}` : `${productName} 商品画像 ${index + 1}枚目`);
       setThumbnailBackground(button, image);
       button.append(createThumbnailImage(image, index, { width: 96, height: 96 }));
       inlineThumbs.append(button);
@@ -1808,7 +2495,7 @@ const setupProductGallery = () => {
 
       mainImage.src = image.src;
       mainImage.srcset = "";
-      mainImage.alt = image.alt;
+      mainImage.alt = getGalleryText(image.alt);
       hasMainImageSynced = true;
     });
   };
@@ -1831,7 +2518,7 @@ const setupProductGallery = () => {
 
     if (modalImage) {
       modalImage.src = image.src;
-      modalImage.alt = image.alt;
+      modalImage.alt = getGalleryText(image.alt);
     }
 
     if (modalCount) {

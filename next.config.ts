@@ -55,6 +55,13 @@ const staticHtmlPages = [
   "character-sio",
 ];
 
+const servedEnglishStaticHtmlPages = new Set([
+  "tips-anim-import",
+  "tips-commercial-use",
+  "tips-face-emote-fix",
+  "tips-prefab-setup",
+]);
+
 const nextConfig: NextConfig = {
   async redirects() {
     const productRedirects = productSlugs.flatMap((slug) => [
@@ -74,18 +81,25 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
     ]);
-    const staticPageRedirects = staticHtmlPages.flatMap((page) => [
-      {
-        source: `/ja/${page}.html`,
-        destination: `/${page}.html`,
-        permanent: true,
-      },
-      {
-        source: `/en/${page}.html`,
-        destination: `/${page}.html`,
-        permanent: false,
-      },
-    ]);
+    const staticPageRedirects = staticHtmlPages.flatMap((page) => {
+      const redirects = [
+        {
+          source: `/ja/${page}.html`,
+          destination: `/${page}.html`,
+          permanent: true,
+        },
+      ];
+
+      if (!servedEnglishStaticHtmlPages.has(page)) {
+        redirects.push({
+          source: `/en/${page}.html`,
+          destination: `/${page}.html`,
+          permanent: false,
+        });
+      }
+
+      return redirects;
+    });
 
     return [
       { source: "/booth.html", destination: "/products", permanent: true },
