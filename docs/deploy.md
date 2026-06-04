@@ -13,13 +13,13 @@
 Production環境に以下を設定してください。
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://your-production-domain.example
+NEXT_PUBLIC_SITE_URL=https://macaronin.com
 ```
 
 例:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://macaroni.example.com
+NEXT_PUBLIC_SITE_URL=https://macaronin.com
 ```
 
 このURLは以下に使われます。
@@ -70,8 +70,8 @@ MACARONI_ADMIN_ENABLED=1 npm run dev
 
 2026-05-25時点の確認結果です。
 
-- 本番URL: `https://macaroni-wheat.vercel.app`
-- `NEXT_PUBLIC_SITE_URL` は `https://macaroni-wheat.vercel.app` で設定済みです。
+- 本番URL: `https://macaronin.com`
+- `NEXT_PUBLIC_SITE_URL` は `https://macaronin.com` で設定済みです。
 - `/`、`/products`、`/products/sexy-pose-kumaly` は `200 OK` です。
 - `/blog.html` は `/tips.html` へredirectします。
 - `sitemap.xml` と `robots.txt` は本番URL基準です。

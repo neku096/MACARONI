@@ -65,9 +65,8 @@ export type Product = {
 
 function resolveSiteUrl() {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const vercelUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "";
 
-  return (configuredUrl || vercelUrl || "https://macaroni-wheat.vercel.app").replace(/\/$/, "");
+  return (configuredUrl || "https://macaronin.com").replace(/\/$/, "");
 }
 
 export const siteUrl = resolveSiteUrl();

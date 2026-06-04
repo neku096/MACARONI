@@ -45,7 +45,7 @@ Cloudflare Workers + OpenNext は Preview 検証用の構成を追加してい�
 Vercel Productionに必ず以下を設定してください。
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://your-production-domain.example
+NEXT_PUBLIC_SITE_URL=https://macaronin.com
 ```
 
 `NEXT_PUBLIC_SITE_URL` は canonical、OGP URL、sitemap、robots の基準URLになります。Cloudflare WorkersでPreview/Productionを確認する場合も必ず設定してください。
@@ -57,7 +57,7 @@ Cloudflare Workers Buildsを使う場合は、Cloudflare Dashboardで以下の�
 
 ローカルの `npm run preview` では、必要に応じて `.env.production` などのNext.js `.env` ファイルで `NEXT_PUBLIC_SITE_URL` を設定します。`.env` / `.dev.vars` はコミットしません。
 
-未設定時は Vercel の `VERCEL_URL`、それも無い場合は `https://macaroni-wheat.vercel.app` を使います。Cloudflare検証時はこのfallbackに頼らず、Preview URLまたは切替予定ドメインを明示してください。
+未設定時は `https://macaronin.com` を使います。Cloudflare検証時はこのfallbackに頼らず、Preview URLまたは切替予定ドメインを明示してください。
 
 ## Cloudflare Workers Preview
 
