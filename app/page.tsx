@@ -4,7 +4,7 @@ import { getAllTopCards } from "@/lib/top-cards";
 
 const homeTitle = "VRChat・Unity向けR18無料3Dポーズ素材";
 const homeBrand = "MACARONI";
-const homeMetaTitle = `${homeTitle} | ${homeBrand}`;
+const homeMetaTitle = `${homeBrand} | ${homeTitle}`;
 const homeDescription =
   "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
