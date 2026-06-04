@@ -6,6 +6,7 @@ const productsTitle = "VRChat・Unity向けR18 3D素材一覧";
 const productsDescription =
   "VRChatアバターやUnity向けのR18 3Dポーズ、モーション、マテリアル素材をカテゴリ・タグ・対応アバターで絞り込めます。";
 const productsOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
+const siteBrand = "MACARONI";
 
 export const metadata: Metadata = {
   title: productsTitle,
@@ -16,23 +17,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${siteUrl}/products`,
-    title: `${productsTitle} | マカロニ`,
+    title: `${productsTitle} | ${siteBrand}`,
     description: productsDescription,
-    siteName: "マカロニ",
+    siteName: siteBrand,
     locale: "ja_JP",
     images: [
       {
         url: productsOgImage,
         width: 1200,
         height: 630,
-        alt: "マカロニ BOOTH作品一覧",
+        alt: `${siteBrand} BOOTH作品一覧`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${productsTitle} | マカロニ`,
+    title: `${productsTitle} | ${siteBrand}`,
     description: productsDescription,
     images: [productsOgImage],
   },

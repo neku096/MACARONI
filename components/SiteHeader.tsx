@@ -13,7 +13,7 @@ export function SiteHeader() {
         <img
           className="brand-logo"
           src="/images/macaroni-logo.webp"
-          alt="マカロニ"
+          alt="MACARONI"
           width="720"
           height="209"
           decoding="async"

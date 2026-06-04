@@ -3,13 +3,17 @@ import { siteUrl } from "@/lib/products";
 import { getAllTopCards } from "@/lib/top-cards";
 
 const homeTitle = "VRChat・Unity向けR18無料3Dポーズ素材";
+const homeBrand = "MACARONI";
+const homeMetaTitle = `${homeTitle} | ${homeBrand}`;
 const homeDescription =
   "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 
 export const metadata: Metadata = {
-  title: homeTitle,
+  title: {
+    absolute: homeMetaTitle,
+  },
   description: homeDescription,
   alternates: {
     canonical: "/",
@@ -17,23 +21,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${homeTitle} | マカロニ`,
+    title: homeMetaTitle,
     description: homeDescription,
-    siteName: "マカロニ",
+    siteName: homeBrand,
     locale: "ja_JP",
     images: [
       {
         url: siteOgImage,
         width: 1200,
         height: 630,
-        alt: "マカロニ",
+        alt: `${homeBrand} ${homeTitle}`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${homeTitle} | マカロニ`,
+    title: homeMetaTitle,
     description: homeDescription,
     images: [siteOgImage],
   },
@@ -88,7 +92,7 @@ export default function HomePage() {
     <main>
       <section className="section sales-band sales-band-top" id="works" aria-labelledby="works-title">
         <h1 className="visually-hidden" id="works-title">
-          VRChat・Unity向けR18無料3Dポーズ素材
+          {homeTitle}
         </h1>
         <div className="slider-shell">
           <div className="product-slider" data-slider="" data-card-selector=".product-slide" data-loop="true" tabIndex={0}>

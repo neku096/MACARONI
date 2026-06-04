@@ -14,6 +14,8 @@ type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+const siteBrand = "MACARONI";
+
 export function generateStaticParams() {
   return getPublishedProducts().map((product) => ({
     slug: product.slug,
@@ -49,9 +51,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     openGraph: {
       type: "website",
       url: getAbsoluteProductUrl(product),
-      title: `${product.shortTitle} | マカロニ`,
+      title: `${product.shortTitle} | ${siteBrand}`,
       description: product.description,
-      siteName: "マカロニ",
+      siteName: siteBrand,
       locale: "ja_JP",
       images: [
         {
@@ -65,7 +67,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.shortTitle} | マカロニ`,
+      title: `${product.shortTitle} | ${siteBrand}`,
       description: product.description,
       images: [`${siteUrl}${product.ogImage}`],
     },

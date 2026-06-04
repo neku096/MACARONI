@@ -2,7 +2,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <a className="footer-brand" href="/" aria-label="トップへ">
-        <img src="/images/macaroni-logo.webp" alt="マカロニ" width="720" height="209" loading="lazy" />
+        <img src="/images/macaroni-logo.webp" alt="MACARONI" width="720" height="209" loading="lazy" />
         <span>R18 3Dポーズ素材無料配布サイト</span>
       </a>
       <div className="footer-links" aria-label="外部リンク">

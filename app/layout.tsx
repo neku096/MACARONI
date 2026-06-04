@@ -10,12 +10,12 @@ import "../styles.css";
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: {
-    default: "マカロニ | VRChat・Unity向けR18 3D素材",
-    template: "%s | マカロニ",
+    default: "VRChat・Unity向けR18無料3Dポーズ素材 | MACARONI",
+    template: "%s | MACARONI",
   },
   description: "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。",
-  applicationName: "マカロニ",
-  authors: [{ name: "マカロニ" }],
+  applicationName: "MACARONI",
+  authors: [{ name: "MACARONI" }],
   referrer: "no-referrer",
   robots: {
     index: true,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    siteName: "マカロニ",
+    siteName: "MACARONI",
   },
   twitter: {
     card: "summary_large_image",
