@@ -56,52 +56,64 @@ if (enterButton && gate) {
 
 const setupShareButtons = () => {
   const getShareText = (jaText, enText) => (getDisplayLanguage() === "en" ? enText : jaText);
-  const getCopyText = () => getShareText("URLをコピー", "Copy URL");
-  const getCopiedText = () => getShareText("コピー済み", "Copied");
-  const modalTitle = getShareText("現在のページを共有", "Share this page");
-  const xText = getShareText("Xでシェア", "Share on X");
-  const lineText = getShareText("LINEでシェア", "Share on LINE");
-  const closeText = getShareText("閉じる", "Close");
+  const getCopyText = () => getShareText("\u0055\u0052\u004c\u3092\u30b3\u30d4\u30fc", "Copy URL");
+  const getCopiedText = () => getShareText("\u30b3\u30d4\u30fc\u6e08\u307f", "Copied");
+  const modalTitle = getShareText("\u3053\u306e\u30da\u30fc\u30b8\u3092\u5171\u6709", "Share this page");
+  const previewLabel = getShareText("\u30ea\u30f3\u30af\u30d7\u30ec\u30d3\u30e5\u30fc", "Link Preview");
+  const xText = getShareText("X", "X");
+  const lineText = getShareText("LINE", "LINE");
+  const closeText = getShareText("\u9589\u3058\u308b", "Close");
+  const fallbackImage = "/Macaroni_Samune/ogp-v4.png";
+  const getMetaContent = (selector) => document.querySelector(selector)?.content?.trim() || "";
 
   const getShareData = () => ({
-    title: document.title,
-    text: document.querySelector('meta[name="description"]')?.content || document.title,
+    title: getMetaContent('meta[property="og:title"]') || document.title,
+    text:
+      getMetaContent('meta[property="og:description"]') ||
+      getMetaContent('meta[name="description"]') ||
+      document.title,
     url: document.querySelector('link[rel="canonical"]')?.href || window.location.href,
+    image:
+      getMetaContent('meta[property="og:image:secure_url"]') ||
+      getMetaContent('meta[property="og:image"]') ||
+      getMetaContent('meta[name="twitter:image"]') ||
+      fallbackImage,
   });
 
   const modal = document.createElement("div");
   modal.className = "share-modal";
   modal.hidden = true;
-  modal.innerHTML = `
-    <div class="share-modal-backdrop" data-share-close></div>
-    <div class="share-dialog" role="dialog" aria-modal="true" aria-labelledby="share-dialog-title" tabindex="-1">
-      <button class="share-close" type="button" data-share-close aria-label="${closeText}">×</button>
-      <h2 id="share-dialog-title">${modalTitle}</h2>
-      <p class="share-dialog-title" data-share-title></p>
-      <p class="share-dialog-url" data-share-url></p>
-      <div class="share-actions">
-        <a class="share-action" data-share-x target="_blank" rel="noopener noreferrer">
-          <span class="share-action-icon share-action-x">X</span>
-          <span>${xText}</span>
-        </a>
-        <a class="share-action" data-share-line target="_blank" rel="noopener noreferrer">
-          <span class="share-action-icon share-action-line">LINE</span>
-          <span>${lineText}</span>
-        </a>
-        <button class="share-action" type="button" data-share-copy>
-          <span class="share-action-icon share-action-copy">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.9-3.9a3 3 0 0 1 4.2 4.2l-3 3a3 3 0 0 1-4.25 0 1 1 0 1 1 1.42-1.42 1 1 0 0 0 1.41 0l3-3a1 1 0 0 0-1.41-1.41L12 13.4a1 1 0 0 1-1.4 0Zm2.8-2.8a1 1 0 0 1 0 1.4l-3.9 3.9a3 3 0 1 1-4.2-4.2l3-3a3 3 0 0 1 4.25 0 1 1 0 0 1-1.42 1.42 1 1 0 0 0-1.41 0l-3 3a1 1 0 1 0 1.41 1.41L12 10.6a1 1 0 0 1 1.4 0Z"></path></svg>
-          </span>
-          <span data-share-copy-label>${getCopyText()}</span>
-        </button>
-      </div>
-    </div>
-  `;
+  modal.innerHTML = [
+    '<div class="share-modal-backdrop" data-share-close></div>',
+    '<div class="share-dialog" role="dialog" aria-modal="true" aria-labelledby="share-dialog-title" tabindex="-1">',
+    '<button class="share-close" type="button" data-share-close aria-label="' + closeText + '">\u00d7</button>',
+    '<h2 id="share-dialog-title">' + modalTitle + '</h2>',
+    '<div class="share-preview">',
+    '<div class="share-preview-media"><img src="' + fallbackImage + '" alt="" loading="lazy" data-share-image></div>',
+    '<div class="share-preview-body">',
+    '<p class="share-preview-kicker">' + previewLabel + '</p>',
+    '<p class="share-dialog-title" data-share-title></p>',
+    '<p class="share-dialog-description" data-share-description></p>',
+    '<p class="share-dialog-url" data-share-url></p>',
+    '</div>',
+    '</div>',
+    '<div class="share-actions">',
+    '<button class="share-action share-action-primary" type="button" data-share-copy>',
+    '<span class="share-action-icon share-action-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.9-3.9a3 3 0 0 1 4.2 4.2l-3 3a3 3 0 0 1-4.25 0 1 1 0 1 1 1.42-1.42 1 1 0 0 0 1.41 0l3-3a1 1 0 0 0-1.41-1.41L12 13.4a1 1 0 0 1-1.4 0Zm2.8-2.8a1 1 0 0 1 0 1.4l-3.9 3.9a3 3 0 1 1-4.2-4.2l3-3a3 3 0 0 1 4.25 0 1 1 0 0 1-1.42 1.42 1 1 0 0 0-1.41 0l-3 3a1 1 0 1 0 1.41 1.41L12 10.6a1 1 0 0 1 1.4 0Z"></path></svg></span>',
+    '<span data-share-copy-label>' + getCopyText() + '</span>',
+    '</button>',
+    '<a class="share-action share-action-secondary" data-share-x target="_blank" rel="noopener noreferrer"><span class="share-action-icon share-action-x">X</span><span>' + xText + '</span></a>',
+    '<a class="share-action share-action-secondary" data-share-line target="_blank" rel="noopener noreferrer"><span class="share-action-icon share-action-line">LINE</span><span>' + lineText + '</span></a>',
+    '</div>',
+    '</div>',
+  ].join("");
   document.body.append(modal);
 
   const dialog = modal.querySelector(".share-dialog");
   const titleElement = modal.querySelector("[data-share-title]");
+  const descriptionElement = modal.querySelector("[data-share-description]");
   const urlElement = modal.querySelector("[data-share-url]");
+  const imageElement = modal.querySelector("[data-share-image]");
   const xLink = modal.querySelector("[data-share-x]");
   const lineLink = modal.querySelector("[data-share-line]");
   const copyButton = modal.querySelector("[data-share-copy]");
@@ -122,9 +134,12 @@ const setupShareButtons = () => {
     const shareData = getShareData();
     lastTrigger = trigger;
     titleElement.textContent = shareData.title;
+    descriptionElement.textContent = shareData.text;
     urlElement.textContent = shareData.url;
-    xLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.title)}&url=${encodeURIComponent(shareData.url)}`;
-    lineLink.href = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareData.url)}`;
+    imageElement.src = shareData.image;
+    imageElement.alt = shareData.title;
+    xLink.href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareData.title) + "&url=" + encodeURIComponent(shareData.url);
+    lineLink.href = "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(shareData.url);
     modal.hidden = false;
     document.body.classList.add("share-modal-open");
     dialog.focus();
