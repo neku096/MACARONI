@@ -67,8 +67,7 @@ type SliderEntry = {
   image: string;
   alt: string;
   title: string;
-  description: string;
-  label: string;
+  tag: string;
   openInNewTab: boolean;
 };
 
@@ -80,8 +79,7 @@ export default function HomePage() {
       image: getTopCardImage(card.thumbnail),
       alt: `${card.title}のカード画像`,
       title: card.title,
-      description: card.description,
-      label: getTopCardLabel(card.category, card.tags),
+      tag: getTopCardTag(card.category),
       openInNewTab: card.openInNewTab,
     }));
   const slides = chunk(entries, 5);
@@ -98,7 +96,7 @@ export default function HomePage() {
               <div className="product-slide" key={slideIndex}>
                 {slide.map((entry, entryIndex) => (
                   <a
-                    aria-label={`${entry.title}: ${entry.description}`}
+                    aria-label={entry.title}
                     className="product-card"
                     href={entry.href}
                     key={`${entry.href}-${entry.image}`}
@@ -117,11 +115,7 @@ export default function HomePage() {
                       fetchPriority={slideIndex === 0 && entryIndex === 0 ? "high" : undefined}
                     />
                     <strong>{entry.title}</strong>
-                    <small>
-                      {entry.description}
-                      <br />
-                      <span>{entry.label}</span>
-                    </small>
+                    <span className="product-card-tag">{entry.tag}</span>
                   </a>
                 ))}
               </div>
@@ -180,7 +174,7 @@ export default function HomePage() {
         </div>
         <ul className="rule-list">
           <li>無料配布素材は個人・同人・商用作品、ゲーム制作、VRChat、動画制作に利用できます</li>
-          <li>加工・調整・作品への組み込みは自由、クレジット表記は任意です</li>
+          <li>加工・調整・作品への組み込みは自由です。クレジット表記は必要です。</li>
           <li>素材データそのものの再配布・販売、AI学習への利用は禁止です</li>
           <li>BOOTH / DLsite作品は各商品ページの条件を優先します</li>
           <li>
@@ -200,8 +194,16 @@ function getTopCardImage(thumbnail: string) {
   return thumbnail.trim() || topCardFallbackImage;
 }
 
-function getTopCardLabel(category: string, tags: string[]) {
-  return [category, ...tags].filter(Boolean).join(" / ");
+function getTopCardTag(category: string) {
+  const labels: Record<string, string> = {
+    Others: "素材",
+    SexyMotion: "汎用",
+    SexyPose: "ポーズ",
+    Solo_H: "一人用",
+  };
+  const normalizedCategory = category.trim();
+
+  return labels[normalizedCategory] ?? normalizedCategory;
 }
 
 function chunk<T>(items: T[], size: number) {

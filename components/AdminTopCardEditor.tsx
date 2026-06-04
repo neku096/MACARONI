@@ -221,15 +221,6 @@ export function AdminTopCardEditor({ topCards: initialTopCards }: AdminTopCardEd
               <p className="admin-help">数字が小さいカードから順に表示します。</p>
             </label>
             <label className="admin-field admin-field-wide">
-              <span>説明文</span>
-              <textarea
-                rows={4}
-                value={selectedItem.description}
-                onChange={(event) => updateField("description", event.target.value)}
-              />
-              <p className="admin-help">カード内に表示する短い説明です。</p>
-            </label>
-            <label className="admin-field admin-field-wide">
               <span>リンク先URL</span>
               <input value={selectedItem.url} onChange={(event) => updateField("url", event.target.value)} />
               <p className="admin-help">BOOTH商品URLまたは /products/ から始まる商品LPを指定します。SNSリンクは使いません。</p>
@@ -289,7 +280,6 @@ export function AdminTopCardEditor({ topCards: initialTopCards }: AdminTopCardEd
           <h3>プレビュー</h3>
           <div className="admin-preview-panel">
             <h4>{selectedItem.title}</h4>
-            <p>{selectedItem.description}</p>
             <dl>
               <div>
                 <dt>URL</dt>
@@ -384,7 +374,6 @@ function createDraftTopCard(items: EditableTopCard[]): EditableTopCard {
 
   return {
     title: "新規トップカード",
-    description: "トップページ表示カードの説明を入力してください。",
     url: `https://example.com/top-card-${nextOrder}`,
     thumbnail: "/images/link-icons/booth.webp",
     category: "下書き",

@@ -2,7 +2,6 @@ import topCardsData from "@/data/top-cards.json";
 
 export type TopCard = {
   title: string;
-  description: string;
   url: string;
   thumbnail: string;
   category: string;

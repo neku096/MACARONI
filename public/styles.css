@@ -10,6 +10,7 @@
   --accent-2: #ff9ad6;
   --accent-3: #ffd166;
   --shadow: 0 20px 56px rgba(0, 0, 0, 0.44);
+  --product-content-width: 1336px;
 }
 
 * {
@@ -2619,8 +2620,10 @@ p {
 
 .product-detail-section,
 .product-related-section {
-  max-width: 1480px;
+  width: min(var(--product-content-width), calc(100% - clamp(36px, 10vw, 144px)));
+  max-width: var(--product-content-width);
   margin: 0 auto;
+  padding-inline: 0;
 }
 
 .product-lightbox[hidden] {
@@ -3024,7 +3027,7 @@ p {
 
 @media (min-width: 1024px) {
   .product-detail-section {
-    padding-inline: 14px;
+    padding-inline: 0;
   }
 
   .product-detail-grid {
@@ -3047,8 +3050,8 @@ p {
 }
 
 .product-tag-section {
-  width: min(1336px, calc(100% - clamp(36px, 10vw, 144px)));
-  max-width: 1336px;
+  width: min(var(--product-content-width), calc(100% - clamp(36px, 10vw, 144px)));
+  max-width: var(--product-content-width);
   margin: 0 auto;
   border: 1px solid rgba(255, 111, 189, 0.24);
   border-radius: 8px;
@@ -3110,16 +3113,20 @@ p {
 .product-related-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(14px, 2.2vw, 22px);
+  gap: clamp(16px, 2.2vw, 24px);
   align-items: start;
 }
 
 .product-related-grid .product-card {
-  display: flex;
+  --related-card-title-row: 92px;
+  --related-card-tag-row: 46px;
+  display: grid;
+  grid-template-rows: auto var(--related-card-title-row) var(--related-card-tag-row);
   width: 100%;
   min-width: 0;
   height: 100%;
-  flex-direction: column;
+  gap: 0;
+  padding: 0;
 }
 
 .product-related-grid .product-cover {
@@ -3132,8 +3139,34 @@ p {
   object-position: center;
 }
 
+.product-related-section .section-heading {
+  margin-bottom: clamp(24px, 2.6vw, 36px);
+}
+
+.product-related-grid .product-card strong {
+  display: -webkit-box;
+  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+  padding: 15px 16px 4px;
+  font-size: clamp(16px, 1vw, 18px);
+  font-weight: 900;
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .product-related-grid .product-card small {
-  margin-top: auto;
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+  min-height: 0;
+  margin-top: 0;
+  padding: 0 16px 18px;
+  color: rgba(255, 220, 239, 0.82);
+  font-size: clamp(14px, 0.9vw, 15px);
+  font-weight: 900;
+  line-height: 1.35;
 }
 
 .text-page {
@@ -6313,15 +6346,18 @@ p {
 
   .product-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 12px;
+    gap: 16px 12px;
     align-items: start;
   }
 
   .product-related-grid .product-card {
+    --related-card-title-row: 82px;
+    --related-card-tag-row: 44px;
     width: 100%;
     min-height: 0;
     height: auto;
-    flex: none;
+    gap: 0;
+    padding: 0;
   }
 
   .product-related-grid .product-cover {
@@ -6332,20 +6368,23 @@ p {
 
   .product-related-grid .product-card strong,
   .product-related-grid .product-card small {
-    padding-inline: 10px;
+    padding-inline: 12px;
   }
 
   .product-related-grid .product-card strong {
-    min-height: 4.2em;
-    font-size: 13px;
-    line-height: 1.4;
+    min-height: 0;
+    padding-top: 12px;
+    font-size: 14.5px;
+    line-height: 1.38;
   }
 
   .product-related-grid .product-card small {
-    min-height: 3.8em;
-    padding-bottom: 10px;
-    font-size: 12px;
-    line-height: 1.45;
+    min-height: 0;
+    margin-top: 0;
+    padding-bottom: 12px;
+    color: rgba(255, 220, 239, 0.84);
+    font-size: 13.5px;
+    line-height: 1.35;
   }
 
   .site-footer {
@@ -6853,8 +6892,13 @@ p {
     padding: 10px 12px;
   }
 
+  .product-detail-section,
+  .product-related-section {
+    padding-inline: 0;
+  }
+
   .product-tag-section {
-    width: calc(100% - 28px);
+    width: min(var(--product-content-width), calc(100% - clamp(36px, 10vw, 144px)));
     padding: 14px;
   }
 
@@ -7160,16 +7204,23 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .product-related-grid .product-card {
+    --related-card-title-row: 80px;
+    --related-card-tag-row: 42px;
+  }
+
   .product-related-grid .product-card strong {
-    min-height: 4em;
-    padding-inline: 8px;
-    font-size: 12.5px;
+    min-height: 0;
+    padding-inline: 12px;
+    font-size: 14px;
+    line-height: 1.38;
   }
 
   .product-related-grid .product-card small {
-    min-height: 3.2em;
-    padding-inline: 8px;
-    font-size: 11.5px;
+    min-height: 0;
+    padding-inline: 12px;
+    font-size: 13.5px;
+    line-height: 1.35;
   }
 
   .tips-list-page .text-panel {

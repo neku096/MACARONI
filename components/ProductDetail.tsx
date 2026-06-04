@@ -1,6 +1,5 @@
 import type { Product } from "@/lib/products";
 import { getGalleryImages, getLegacyCategoryTag, getRelatedProducts } from "@/lib/products";
-import { ProductCard } from "@/components/ProductCard";
 
 type ProductDetailProps = {
   product: Product;
@@ -159,12 +158,42 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </a>
           </div>
           <div className="product-related-grid">
-            {relatedProducts.map((related) => (
-              <ProductCard key={related.id} product={related} />
-            ))}
+            {relatedProducts.map((related) => {
+              const cover = related.coverImage.replace("-800.webp", "-600.webp");
+              const srcSet = `${cover} 600w, ${related.coverImage} 800w, ${related.ogImage} 1000w`;
+
+              return (
+                <a className="product-card" href={`/products/${related.slug}`} key={related.id}>
+                  <img
+                    className="product-cover"
+                    src={cover}
+                    alt={related.shortTitle}
+                    srcSet={srcSet}
+                    sizes="(max-width: 720px) 52vw, 260px"
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <strong>{related.shortTitle}</strong>
+                  <small>{getRelatedProductTag(related)}</small>
+                </a>
+              );
+            })}
           </div>
         </section>
       ) : null}
     </main>
   );
+}
+
+function getRelatedProductTag(product: Product) {
+  const labels: Record<Product["category"], string> = {
+    material: "素材",
+    motion: "汎用",
+    pose: "ポーズ",
+    "solo-motion": "一人用",
+  };
+
+  return labels[product.category];
 }

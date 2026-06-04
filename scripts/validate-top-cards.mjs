@@ -39,7 +39,6 @@ async function validateTopCards(items) {
     }
 
     checkRequiredString(item, "title", label);
-    checkRequiredString(item, "description", label);
     checkRequiredString(item, "url", label);
     checkRequiredString(item, "thumbnail", label);
     checkRequiredString(item, "category", label);

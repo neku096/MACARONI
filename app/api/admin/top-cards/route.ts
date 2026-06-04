@@ -117,7 +117,6 @@ function validatePayload(payload: SavePayload) {
   }
 
   if (!isNonEmptyString(item.title)) return "Missing title.";
-  if (!isNonEmptyString(item.description)) return "Missing description.";
   if (!isProductDestinationUrl(item.url)) return "url must be a product LP path (/products/<slug>) or a BOOTH item URL.";
   if (!isLocalPath(item.thumbnail)) return "thumbnail must be a local public path.";
   if (!isNonEmptyString(item.category)) return "Missing category.";
@@ -149,7 +148,6 @@ function normalizeTopCard(item: TopCard): TopCard {
   return {
     ...item,
     title: item.title.trim(),
-    description: item.description.trim(),
     url: item.url.trim(),
     thumbnail: item.thumbnail.trim(),
     category: item.category.trim(),
