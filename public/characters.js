@@ -386,31 +386,36 @@ const setupLanguageSwitcher = () => {
   applyLanguage(getDisplayLanguage());
 };
 
-const preloadCharacterCardImage = (card) => {
+const loadCharacterCardImage = (card, { eager = false } = {}) => {
   const image = card?.querySelector(".character-list-image img");
 
-  if (!image || image.dataset.characterPreloaded === "true") {
+  if (!image || image.dataset.characterLoaded === "true") {
     return;
   }
 
-  image.dataset.characterPreloaded = "true";
-  image.loading = "eager";
+  const deferredSrc = image.dataset.src;
+  const deferredSrcset = image.dataset.srcset;
 
-  const preloader = new Image();
-  preloader.decoding = "async";
-
-  if (image.sizes) {
-    preloader.sizes = image.sizes;
+  if (!deferredSrc && !deferredSrcset) {
+    image.dataset.characterLoaded = "true";
+    if (eager && image.loading === "lazy") {
+      image.loading = "eager";
+    }
+    return;
   }
 
-  if (image.srcset) {
-    preloader.srcset = image.srcset;
+  image.dataset.characterLoaded = "true";
+  image.loading = eager ? "eager" : "lazy";
+  image.decoding = "async";
+
+  if (deferredSrcset) {
+    image.srcset = deferredSrcset;
+    image.removeAttribute("data-srcset");
   }
 
-  preloader.src = image.currentSrc || image.src;
-
-  if (typeof preloader.decode === "function") {
-    preloader.decode().catch(() => {});
+  if (deferredSrc) {
+    image.src = deferredSrc;
+    image.removeAttribute("data-src");
   }
 };
 
@@ -423,39 +428,39 @@ const setupCharacterImageLoading = (list, visibleCards) => {
     list.characterImageObserver.disconnect();
   }
 
-  const triggerCards = visibleCards.slice(3, 6);
-  const nextCards = visibleCards.slice(6, 9);
+  const immediateCount = window.matchMedia("(max-width: 720px)").matches ? 2 : 6;
+  const immediateCards = visibleCards.slice(0, immediateCount);
+  const deferredCards = visibleCards.slice(immediateCount);
 
-  if (!triggerCards.length || !nextCards.length) {
+  immediateCards.forEach((card) => loadCharacterCardImage(card, { eager: true }));
+
+  if (!deferredCards.length) {
     return;
   }
 
-  const preloadNextCards = () => {
-    nextCards.forEach(preloadCharacterCardImage);
-    list.characterImageObserver?.disconnect();
-    list.characterImageObserver = null;
-  };
-
   if (!("IntersectionObserver" in window)) {
-    preloadNextCards();
+    deferredCards.forEach((card) => loadCharacterCardImage(card));
     return;
   }
 
   list.characterImageObserver = new IntersectionObserver(
     (entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) {
-        return;
-      }
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-      preloadNextCards();
+        loadCharacterCardImage(entry.target);
+        list.characterImageObserver?.unobserve(entry.target);
+      });
     },
     {
-      rootMargin: "160px 0px 160px 0px",
-      threshold: 0.1,
+      rootMargin: "120px 0px 120px 0px",
+      threshold: 0.01,
     }
   );
 
-  triggerCards.forEach((card) => list.characterImageObserver.observe(card));
+  deferredCards.forEach((card) => list.characterImageObserver.observe(card));
 };
 
 const setupCharacterPagination = () => {
