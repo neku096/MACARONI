@@ -882,7 +882,8 @@ document.querySelectorAll("a[download][href]").forEach(setupSaveDialogDownload);
 const setupSlider = (slider) => {
   const cardSelector = slider.dataset.cardSelector || ".product-card";
   const cards = [...slider.querySelectorAll(cardSelector)];
-  const slideItems = slider.classList.contains("product-slider") ? [...slider.querySelectorAll(".product-card")] : cards;
+  const isProductSlider = slider.classList.contains("product-slider");
+  const slideItems = isProductSlider ? [...slider.querySelectorAll(".product-card")] : cards;
   const dots = slider.parentElement.querySelector("[data-slider-dots]");
   const rows = Math.max(1, Number.parseInt(slider.dataset.sliderRows || "1", 10));
   const isLooping = slider.dataset.loop === "true";
@@ -892,7 +893,7 @@ const setupSlider = (slider) => {
     return;
   }
 
-  if (slider.classList.contains("product-slider")) {
+  if (isProductSlider) {
     slider.style.scrollSnapType = "none";
   }
 
@@ -971,11 +972,11 @@ const setupSlider = (slider) => {
   };
 
   let isDragging = false;
+  let isPointerDown = false;
   let hasDragged = false;
   let dragStartX = 0;
+  let dragStartY = 0;
   let dragStartScrollLeft = 0;
-  let pressedLink = null;
-  let suppressNextClick = false;
   let autoSlideTimer = window.setInterval(() => slideByCard(1), 3600);
 
   const restartAutoSlide = () => {
@@ -1048,6 +1049,52 @@ const setupSlider = (slider) => {
     }, 180);
   });
 
+  if (isProductSlider) {
+    slider.addEventListener(
+      "wheel",
+      (event) => {
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+          return;
+        }
+
+        const wheelDeltaY = event.deltaY;
+        const scrollYBeforeWheel = window.scrollY;
+        window.requestAnimationFrame(() => {
+          const scrolledY = window.scrollY - scrollYBeforeWheel;
+          const minimumScrollY = Math.max(12, Math.abs(wheelDeltaY) * 0.5);
+          const hasEnoughVerticalScroll = Math.sign(scrolledY) === Math.sign(wheelDeltaY) && Math.abs(scrolledY) >= minimumScrollY;
+
+          if (hasEnoughVerticalScroll) {
+            return;
+          }
+
+          const scrollRoot = document.scrollingElement || document.documentElement;
+          const originalScrollBehavior = scrollRoot.style.scrollBehavior;
+          scrollRoot.style.scrollBehavior = "auto";
+          scrollRoot.scrollTop += wheelDeltaY - scrolledY;
+          window.requestAnimationFrame(() => {
+            scrollRoot.style.scrollBehavior = originalScrollBehavior;
+          });
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  const releaseSliderPointer = (event) => {
+    if (slider.hasPointerCapture(event.pointerId)) {
+      slider.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  const cancelPointerDrag = (event) => {
+    isPointerDown = false;
+    isDragging = false;
+    slider.classList.remove("is-dragging");
+    releaseSliderPointer(event);
+    restartAutoSlide();
+  };
+
   slider.addEventListener("pointerdown", (event) => {
     if (event.button !== 0) {
       return;
@@ -1058,13 +1105,12 @@ const setupSlider = (slider) => {
       return;
     }
 
-    event.preventDefault();
-    isDragging = true;
+    isPointerDown = true;
+    isDragging = false;
     hasDragged = false;
     dragStartX = event.clientX;
+    dragStartY = event.clientY;
     dragStartScrollLeft = slider.scrollLeft;
-    pressedLink = event.target.closest("a[href]");
-    slider.setPointerCapture(event.pointerId);
     window.clearInterval(autoSlideTimer);
   });
 
@@ -1073,19 +1119,32 @@ const setupSlider = (slider) => {
   });
 
   slider.addEventListener("pointermove", (event) => {
-    if (!isDragging) {
+    if (!isPointerDown) {
       return;
     }
 
     const movedX = event.clientX - dragStartX;
+    const movedY = event.clientY - dragStartY;
+    const absX = Math.abs(movedX);
+    const absY = Math.abs(movedY);
 
-    if (Math.abs(movedX) < 8) {
-      return;
+    if (!isDragging) {
+      if (absY > absX + 8) {
+        cancelPointerDrag(event);
+        return;
+      }
+
+      if (absX <= absY + 8) {
+        return;
+      }
+
+      isDragging = true;
+      hasDragged = true;
+      slider.classList.add("is-dragging");
+      slider.setPointerCapture(event.pointerId);
     }
 
     hasDragged = true;
-    pressedLink = null;
-    slider.classList.add("is-dragging");
     event.preventDefault();
     slider.scrollLeft = dragStartScrollLeft - movedX;
   });
@@ -1093,13 +1152,6 @@ const setupSlider = (slider) => {
   slider.addEventListener(
     "click",
     (event) => {
-      if (suppressNextClick) {
-        event.preventDefault();
-        event.stopPropagation();
-        suppressNextClick = false;
-        return;
-      }
-
       if (!hasDragged) {
         return;
       }
@@ -1114,30 +1166,15 @@ const setupSlider = (slider) => {
   );
 
   const stopDragging = (event) => {
-    if (!isDragging) {
+    if (!isPointerDown && !isDragging) {
       return;
     }
 
+    isPointerDown = false;
     isDragging = false;
     slider.classList.remove("is-dragging");
     restartAutoSlide();
-
-    if (slider.hasPointerCapture(event.pointerId)) {
-      slider.releasePointerCapture(event.pointerId);
-    }
-
-    const totalMovedX = Math.abs(event.clientX - dragStartX);
-
-    if (!hasDragged && totalMovedX < 8 && pressedLink && pressedLink.getAttribute("href") !== "#") {
-      suppressNextClick = true;
-      if (pressedLink.target === "_blank") {
-        window.open(pressedLink.href, "_blank", "noopener,noreferrer");
-      } else {
-        window.location.href = pressedLink.href;
-      }
-    }
-
-    pressedLink = null;
+    releaseSliderPointer(event);
   };
 
   slider.addEventListener("pointerup", stopDragging);
@@ -1145,6 +1182,7 @@ const setupSlider = (slider) => {
   slider.addEventListener("touchend", restartAutoSlide, { passive: true });
   slider.addEventListener("touchcancel", restartAutoSlide, { passive: true });
   slider.addEventListener("lostpointercapture", () => {
+    isPointerDown = false;
     isDragging = false;
     slider.classList.remove("is-dragging");
     restartAutoSlide();
@@ -2252,7 +2290,64 @@ const setupProductGallery = () => {
   setImage(0, false);
 };
 
-document.querySelectorAll("[data-slider]").forEach(setupSlider);
+const runAfterInitialScrollWindow = (callback) => {
+  let isScheduled = false;
+  let hasRun = false;
+
+  const run = () => {
+    if (hasRun) {
+      return;
+    }
+
+    hasRun = true;
+    callback();
+  };
+
+  const schedule = () => {
+    if (isScheduled || hasRun) {
+      return;
+    }
+
+    isScheduled = true;
+
+    const requestRun = () => {
+      if (hasRun) {
+        return;
+      }
+
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(run, { timeout: 900 });
+        return;
+      }
+
+      window.setTimeout(run, 0);
+    };
+
+    window.setTimeout(requestRun, 300);
+  };
+
+  const scheduleFallback = () => {
+    if (hasRun) {
+      return;
+    }
+
+    schedule();
+  };
+
+  window.addEventListener("scroll", schedule, { once: true, passive: true });
+  window.addEventListener("pointerdown", schedule, { once: true, passive: true });
+  window.addEventListener("keydown", schedule, { once: true });
+  window.requestAnimationFrame(() => window.setTimeout(scheduleFallback, 1400));
+};
+
+document.querySelectorAll("[data-slider]").forEach((slider) => {
+  if (slider.classList.contains("material-slider")) {
+    runAfterInitialScrollWindow(() => setupSlider(slider));
+    return;
+  }
+
+  setupSlider(slider);
+});
 setupTipsPagination();
 setupBoothFilters();
 setupCardReveal();

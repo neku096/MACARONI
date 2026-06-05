@@ -145,27 +145,32 @@ export default function HomePage() {
               data-slider-rows="2"
               tabIndex={0}
             >
-              {characters.map(([slug, name, image]) => (
-                <a className="material-card" href={`/character-${slug}.html`} key={slug}>
-                  <div className="thumb has-image standing-thumb">
-                    <img
-                      src={`/images/standing/${image}-600.webp`}
-                      alt={`${name}の立ち絵`}
-                      srcSet={`/images/standing/${image}-600.webp 600w, /images/standing/${image}-800.webp 800w, /images/standing/${image}.webp 1000w`}
-                      sizes="(max-width: 720px) 46vw, 260px"
-                      width="600"
-                      height="600"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="card-body">
-                    <p className="tag">{name} / Standing</p>
-                    <h3>{name}</h3>
-                    <p>{name}対応の無料配布素材ページへ移動します。</p>
-                  </div>
-                </a>
-              ))}
+              {characters.map(([slug, name, image], index) => {
+                const shouldLoadEarly = index === 0;
+
+                return (
+                  <a className="material-card" href={`/character-${slug}.html`} key={slug}>
+                    <div className="thumb has-image standing-thumb">
+                      <img
+                        src={`/images/standing/${image}-600.webp`}
+                        alt={`${name}の立ち絵`}
+                        srcSet={`/images/standing/${image}-600.webp 600w, /images/standing/${image}-800.webp 800w, /images/standing/${image}.webp 1000w`}
+                        sizes="(max-width: 720px) 46vw, 260px"
+                        width="600"
+                        height="600"
+                        loading={shouldLoadEarly ? undefined : "lazy"}
+                        decoding="async"
+                        fetchPriority={shouldLoadEarly ? "high" : "low"}
+                      />
+                    </div>
+                    <div className="card-body">
+                      <p className="tag">{name} / Standing</p>
+                      <h3>{name}</h3>
+                      <p>{name}対応の無料配布素材ページへ移動します。</p>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
             <div className="slider-dots" data-slider-dots="" aria-label="無料素材スライド位置" />
           </div>

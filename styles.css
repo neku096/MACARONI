@@ -698,6 +698,10 @@ p {
   margin-bottom: 28px;
 }
 
+.free-section .section-heading {
+  margin-bottom: 18px;
+}
+
 .free-section .section-heading h2 {
   font-size: clamp(24px, 3.2vw, 36px);
 }
@@ -712,7 +716,7 @@ p {
 }
 
 .free-section {
-  padding-top: clamp(10px, 1.8vw, 22px);
+  padding-top: clamp(0px, 0.8vw, 10px);
   padding-bottom: clamp(42px, 6vw, 72px);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(255, 240, 246, 0.72)),
@@ -729,7 +733,7 @@ p {
 }
 
 .free-section .free-panel {
-  padding-top: clamp(16px, 2.4vw, 28px);
+  padding-top: clamp(12px, 1.8vw, 20px);
 }
 
 .character-free-compact {
@@ -942,8 +946,8 @@ p {
 }
 
 .sales-band-top {
-  padding-top: clamp(14px, 2vw, 24px);
-  padding-bottom: clamp(6px, 1.4vw, 14px);
+  padding-top: clamp(8px, 1.4vw, 16px);
+  padding-bottom: 0;
 }
 
 .sales-band-top h1 {
@@ -984,6 +988,17 @@ p {
   cursor: grab;
   touch-action: pan-y;
   user-select: none;
+}
+
+.sales-band-top .product-slider {
+  padding-bottom: 8px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sales-band-top .product-slider {
+    overscroll-behavior-inline: auto;
+    scroll-snap-type: none;
+  }
 }
 
 .product-slide {
@@ -1083,6 +1098,7 @@ p {
   justify-content: center;
   gap: 9px;
   margin-top: 10px;
+  min-height: 8px;
 }
 
 .sales-band-top .slider-dots {
@@ -2474,12 +2490,14 @@ p {
   grid-template-columns: 38px minmax(0, 1fr) 38px;
   gap: 10px;
   align-items: center;
+  min-height: 100px;
 }
 
 .product-thumbnails {
   display: flex;
   gap: 10px;
   min-width: 0;
+  min-height: 100px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   padding: 0 2px 6px;
@@ -7978,11 +7996,13 @@ p {
   .product-thumbnail-slider {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
+    min-height: 78px;
   }
 
   .product-thumbnails {
     display: flex;
     gap: 6px;
+    min-height: 78px;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
     padding: 0 2px 6px;
