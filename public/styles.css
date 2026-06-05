@@ -243,8 +243,8 @@ a {
 
 .share-close {
   position: absolute;
-  top: 16px;
-  right: 18px;
+  top: 22px;
+  right: 22px;
   display: grid;
   width: 36px;
   height: 36px;
@@ -255,8 +255,15 @@ a {
   color: rgba(255, 232, 246, 0.78);
   cursor: pointer;
   font: inherit;
+  font-size: 0;
+  line-height: 1;
+}
+
+.share-close::before {
+  content: "×";
   font-size: 28px;
   line-height: 1;
+  transform: translate(-3px, 2px);
 }
 
 .share-close:hover {
@@ -441,8 +448,8 @@ a {
   }
 
   .share-close {
-    top: 12px;
-    right: 12px;
+    top: 16px;
+    right: 16px;
   }
 
   .share-preview {
