@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
 import { getProductBySlug } from "@/lib/products";
@@ -68,6 +69,7 @@ export async function PUT(request: Request) {
     items.push(item);
   }
   await writeTopCards(items);
+  revalidatePath("/");
 
   return NextResponse.json({ item, items: sortItems(items) });
 }
@@ -97,6 +99,7 @@ export async function DELETE(request: Request) {
   }
 
   await writeTopCards(nextItems);
+  revalidatePath("/");
 
   return NextResponse.json({ items: sortItems(nextItems) });
 }

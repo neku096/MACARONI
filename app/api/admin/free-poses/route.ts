@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
 import { getAdminAccessError, getAdminWriteError } from "@/lib/admin";
+import { syncFreePoseCharacterPages } from "@/lib/free-pose-page-sync";
 import { freePoseCharacterOptions, type FreePose } from "@/lib/free-poses";
 
 export const runtime = "nodejs";
@@ -52,6 +53,7 @@ export async function PUT(request: Request) {
   const item = normalizeFreePose(payload.item as FreePose);
   const originalSlug = payload.originalSlug?.trim() || "";
   const targetIndex = originalSlug ? items.findIndex((currentItem) => currentItem.slug === originalSlug) : -1;
+  const previousCharacter = targetIndex >= 0 ? items[targetIndex].character : "";
 
   if (originalSlug && targetIndex < 0) {
     return NextResponse.json({ message: `Free pose not found: ${originalSlug}` }, { status: 404 });
@@ -68,6 +70,7 @@ export async function PUT(request: Request) {
     items.push(item);
   }
   await writeFreePoses(items);
+  await syncFreePoseCharacterPages(items, [previousCharacter, item.character]);
 
   return NextResponse.json({ item, items: sortItems(items) });
 }
@@ -97,6 +100,7 @@ export async function DELETE(request: Request) {
   }
 
   await writeFreePoses(nextItems);
+  await syncFreePoseCharacterPages(nextItems, [items.find((item) => item.slug === slug)?.character ?? ""]);
 
   return NextResponse.json({ items: sortItems(nextItems) });
 }

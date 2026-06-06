@@ -202,7 +202,7 @@ export function AdminFreePoseEditor({ freePoses: initialFreePoses }: AdminFreePo
 
         <div className="admin-card">
           <h3>基本情報</h3>
-          <div className="admin-form-grid">
+          <div className="admin-form-grid admin-free-pose-basics">
             <label className="admin-field">
               <span>ポーズ名</span>
               <input value={selectedItem.title} onChange={(event) => updateField("title", event.target.value)} />

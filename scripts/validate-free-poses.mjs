@@ -143,11 +143,8 @@ async function validatePublishedCharacterPages(items) {
     const buttons = section.match(/free-pose-full-download/g)?.length ?? 0;
     const compactButtons = section.match(/button compact/g)?.length ?? 0;
 
-    if (group.length !== 10) {
-      error(label, `expected 10 published free pose entries for ${character.name}, found ${group.length}.`);
-    }
-    if (cards !== 10) {
-      error(label, `expected 10 free pose cards, found ${cards}.`);
+    if (cards !== group.length) {
+      error(label, `expected ${group.length} free pose cards, found ${cards}.`);
     }
     if (buttons !== 1) {
       error(label, `expected 1 full download button, found ${buttons}.`);

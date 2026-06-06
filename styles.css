@@ -3710,6 +3710,19 @@ p {
   gap: 7px;
 }
 
+.admin-free-pose-basics {
+  align-items: start;
+}
+
+.admin-free-pose-basics .admin-field {
+  align-content: start;
+}
+
+.admin-free-pose-basics .admin-field input,
+.admin-free-pose-basics .admin-field select {
+  min-height: 46px;
+}
+
 .admin-field span {
   color: var(--accent-2);
   font-size: 13px;
