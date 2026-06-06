@@ -56,6 +56,7 @@ const staticHtmlPages = [
 ];
 
 const servedEnglishStaticHtmlPages = new Set([
+  "terms",
   "tips-anim-import",
   "tips-commercial-use",
   "tips-face-emote-fix",
