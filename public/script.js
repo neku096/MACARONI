@@ -310,8 +310,8 @@ const textTranslations = {
   "無料素材の利用条件": "Free Asset Usage Terms",
   "無料配布素材は個人・同人・商用作品、ゲーム制作、VRChat、動画制作に利用できます":
     "Free assets may be used in personal, doujin, commercial works, game production, VRChat, and video production.",
-  "改変・調整・作品への組み込みは自由です。ただし、クレジット表記をお願いします":
-    "Modification, adjustment, and incorporation into your works are allowed. Please provide credit.",
+  "改変・調整・作品への組み込みは自由です。クレジット表記は必須です。表記名は「macaronin」としてください。可能であれば https://macaronin.com へのリンクもお願いします":
+    "Modification, adjustment, and incorporation into your works are allowed. Credit is required. Please credit as \"macaronin\". If possible, we would appreciate a link to https://macaronin.com.",
   "素材データそのものの再配布・販売、AI学習への利用は禁止です":
     "Redistributing, selling, or using the asset data itself for AI training is prohibited.",
   "BOOTH / DLsite作品は各商品ページの条件を優先します":
@@ -401,8 +401,8 @@ const textTranslations = {
     "Inclusion in games, videos, streams, social media, doujin works, and commercial works.",
   "ポーズやモーションの調整、トリミング、形式変換など、制作に必要な範囲での編集。":
     "Editing required for production, such as pose or motion adjustment, trimming, and format conversion.",
-  "クレジット表記は必須です。表記する場合は「macaronin」と記載してください。":
-    "Credit is required. If you credit the materials, please use the name \"macaronin\".",
+  "クレジット表記は必須です。表記名は「macaronin」としてください。可能であれば https://macaronin.com へのリンクもお願いします。":
+    "Credit is required. Please credit as \"macaronin\". If possible, we would appreciate a link to https://macaronin.com.",
   "素材データの再配布、再販売、無断アップロード、自作発言。":
     "Redistribution, resale, unauthorized upload, or claiming the asset data as your own.",
   "書面で許可されていないAI学習、データセット化、LoRA学習などへの利用。":

@@ -183,7 +183,7 @@ export default function HomePage() {
         </div>
         <ul className="rule-list">
           <li>無料配布素材は個人・同人・商用作品、ゲーム制作、VRChat、動画制作に利用できます</li>
-          <li>改変・調整・作品への組み込みは自由です。ただし、クレジット表記をお願いします</li>
+          <li>改変・調整・作品への組み込みは自由です。クレジット表記は必須です。表記名は「macaronin」としてください。可能であれば https://macaronin.com へのリンクもお願いします</li>
           <li>素材データそのものの再配布・販売、AI学習への利用は禁止です</li>
           <li>BOOTH / DLsite作品は各商品ページの条件を優先します</li>
           <li>
