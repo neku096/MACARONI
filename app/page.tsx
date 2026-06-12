@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/products";
 import { getAllTopCards } from "@/lib/top-cards";
 
-const homeTitle = "VRChat・Unity向けR18無料3Dポーズ素材";
+const homeTitle = "R18無料3Dポーズ素材・モーション集 | VRChat・Unity向け";
 const homeBrand = "MACARONI";
-const homeMetaTitle = `${homeBrand} | ${homeTitle}`;
+const homeMetaTitle =  "R18無料3Dポーズ素材 | MACARONI";
 const homeDescription =
-  "VRChat・Unity向けのR18 3Dポーズ、モーション、マテリアル素材を一覧で確認できるマカロニの商品サイトです。";
+  "const homeDescription =
+  "VRChat・Unity向けのR18無料3Dポーズ素材、モーション、マテリアル素材を配布。アバター別に利用できる素材を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 

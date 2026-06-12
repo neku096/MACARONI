@@ -10,10 +10,11 @@ import "../styles.css";
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: {
-    default: "R18無料3Dポーズ素材 | VRChat・Unity向けポーズ集 - MACARONI",
+    default: "MACARONI",
     template: "%s | MACARONI",
   },
-  description: "VRChat・Unity向けのR18無料3Dポーズ素材を配布。成人向けイラスト制作、ゲーム制作、動画制作に利用できるポーズ・モーション素材を掲載しています。",
+  description: "const homeDescription =
+  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。ポーズ集、モーション、マテリアル素材をアバター別に掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";",
   applicationName: "MACARONI",
   authors: [{ name: "MACARONI" }],
   referrer: "no-referrer",
