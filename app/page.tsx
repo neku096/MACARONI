@@ -6,7 +6,7 @@ const homeTitle = "R18無料3Dポーズ素材・モーション集 | VRChat・Un
 const homeBrand = "MACARONI";
 const homeMetaTitle = "R18無料3Dポーズ素材 | MACARONI";
 const homeDescription =
-  "VRChat・Unity向けのR18無料3Dポーズ素材、モーション、マテリアル素材を配布。アバター別に利用できる素材を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";
+  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。対応アバター別のポーズ素材や、有料モーション・マテリアル作品を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 
