@@ -21,12 +21,12 @@ export function SiteHeader() {
         <span className="brand-subtitle">R18 ３Dポーズ素材無料配布サイト</span>
       </a>
       <nav className="nav" aria-label="メインナビゲーション">
-        <a href="/characters.html">対応キャラ</a>
+        <a href="/characters">対応キャラ</a>
         <a href="/products" aria-current={isProducts ? "page" : undefined}>
           BOOTH作品
         </a>
-        <a href="/tips.html">使い方</a>
-        <a href="/terms.html">利用規約</a>
+        <a href="/tips">使い方</a>
+        <a href="/terms">利用規約</a>
       </nav>
       <div className="header-actions">
         <div className="language-switch" role="group" aria-label="Language">

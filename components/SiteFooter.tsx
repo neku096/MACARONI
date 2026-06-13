@@ -18,7 +18,7 @@ export function SiteFooter() {
           </span>
           <span>X</span>
         </a>
-        <a className="footer-pill" href="/links.html">
+        <a className="footer-pill" href="/links">
           <span className="footer-pill-icon" aria-hidden="true">
             L
           </span>

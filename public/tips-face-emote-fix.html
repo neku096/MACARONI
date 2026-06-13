@@ -9,6 +9,7 @@
     <meta name="description" content="改変済みアバターに表情用animを入れた時、目や口のBlendShapeが崩れる場合に、Animationタブでシェイプキー値を記録し直して直す手順です。">
     <meta name="author" content="MACARONI">
     <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="rating" content="adult">
     <meta name="theme-color" content="#07070b">
     <meta name="application-name" content="MACARONI">
     <meta name="apple-mobile-web-app-title" content="MACARONI">
@@ -79,20 +80,20 @@
     </div>
 
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="トップへ">
+      <a class="brand" href="/" aria-label="トップへ">
         <img class="brand-logo" src="images/macaroni-logo.webp" alt="MACARONI" width="720" height="209" decoding="async">
         <span class="brand-subtitle">R18 ３Dポーズ素材無料配布サイト</span>
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
-        <a href="characters.html">対応キャラ</a>
-        <a href="booth.html" aria-label="BOOTH">BOOTH作品</a>
-        <a href="tips.html" aria-current="page">使い方</a>
-        <a href="terms.html">利用規約</a>
+        <a href="/characters">対応キャラ</a>
+        <a href="/products" aria-label="BOOTH">BOOTH作品</a>
+        <a href="/tips" aria-current="page">使い方</a>
+        <a href="/terms">利用規約</a>
       </nav>
       <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Language">
-        <a class="language-option" href="ja/tips-face-emote-fix.html" aria-pressed="true">JP</a>
-        <a class="language-option" href="en/tips-face-emote-fix.html" aria-pressed="false">EN</a>
+        <a class="language-option" href="/tips-face-emote-fix" aria-pressed="true">JP</a>
+        <a class="language-option" href="/en/tips-face-emote-fix" aria-pressed="false">EN</a>
       </div>
       <button class="share-button" type="button" data-share-button aria-label="このページを共有" title="このページを共有">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -107,9 +108,9 @@
       <section class="section article-section" aria-labelledby="article-title">
         <div class="article-shell">
           <nav class="article-breadcrumb" aria-label="パンくずリスト">
-            <a href="index.html">ホーム</a>
+            <a href="/">ホーム</a>
             <span aria-hidden="true">›</span>
-            <a href="tips.html">使い方</a>
+            <a href="/tips">使い方</a>
             <span aria-hidden="true">›</span>
             <span>改変済みアバターの表情破綻を直す手順</span>
           </nav>
@@ -151,7 +152,7 @@
 
             <section class="article-body-section" id="before">
               <h2>先に確認しておくこと</h2>
-              <p>この手順は、アバターの顔や表情シェイプキーを改変済みで、配布されている表情用animをそのまま使うと顔が崩れる時の直し方です。まだanimの基本操作が不安な場合は、先に <a href="tips-anim-import.html">Unityでanimファイルを入れる時の基本</a> を見ておくと流れがつかみやすいです。</p>
+              <p>この手順は、アバターの顔や表情シェイプキーを改変済みで、配布されている表情用animをそのまま使うと顔が崩れる時の直し方です。まだanimの基本操作が不安な場合は、先に <a href="/tips-anim-import">Unityでanimファイルを入れる時の基本</a> を見ておくと流れがつかみやすいです。</p>
               <p>UnityのBlendShapeはSkinnedMeshRenderer側に表示され、0は影響なし、100は最大の影響として扱われます。表情animはこの数値をAnimation Clip内に記録して動かしているので、改変後の顔に合わない値だけを直していきます。</p>
               <ul class="article-summary-list">
                 <li>元の表情clipはできれば複製してから作業する</li>
@@ -242,12 +243,12 @@
             </section>
 
             <nav class="article-next-prev" aria-label="前後の使い方記事">
-              <a class="article-nav-card article-nav-card-prev" href="tips-prefab-setup.html">
+              <a class="article-nav-card article-nav-card-prev" href="/tips-prefab-setup">
                 <span class="article-nav-label">PREV</span>
                 <span class="article-nav-thumb"><img src="images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="images/tips/prefab-required-600.webp?v=2 600w, images/tips/prefab-required-800.webp?v=2 800w, images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-nav-title">導入に必要なPrefabについて</span>
               </a>
-              <a class="article-nav-card article-nav-card-next" href="tips-anim-import.html">
+              <a class="article-nav-card article-nav-card-next" href="/tips-anim-import">
                 <span class="article-nav-label">NEXT</span>
                 <span class="article-nav-title">Unityでanimファイルを入れる時の基本</span>
                 <span class="article-nav-thumb"><img src="images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="images/tips/anim-step-03-600.webp?v=2 600w, images/tips/anim-step-03-800.webp?v=2 800w, images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
@@ -257,21 +258,21 @@
             <section class="article-related" aria-labelledby="related-tips-title">
               <h2 id="related-tips-title">関連記事</h2>
               <div class="article-related-list">
-              <a class="article-related-item" href="tips-anim-import.html">
+              <a class="article-related-item" href="/tips-anim-import">
                 <span class="article-related-thumb"><img src="images/tips/anim-step-03-600.webp?v=2" alt="UnityでAnimator Controllerを作成する手順画面" srcset="images/tips/anim-step-03-600.webp?v=2 600w, images/tips/anim-step-03-800.webp?v=2 800w, images/tips/anim-step-03.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
                   <strong>Unityでanimファイルを入れる時の基本</strong>
                   <small>UNITY / 2026.05.08</small>
                 </span>
               </a>
-              <a class="article-related-item" href="tips-commercial-use.html">
+              <a class="article-related-item" href="/tips-commercial-use">
                 <span class="article-related-thumb"><img src="images/tips/game-use-step-03-600.webp?v=1" alt="UnityのGameビューでanimポーズを再生確認する画面" srcset="images/tips/game-use-step-03-600.webp?v=1 600w, images/tips/game-use-step-03-800.webp?v=1 800w, images/tips/game-use-step-03.webp?v=1 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
                   <strong>ゲーム開発時にanimを再生する手順</strong>
                   <small>GAME USE / 2026.05.09</small>
                 </span>
               </a>
-              <a class="article-related-item" href="tips-prefab-setup.html">
+              <a class="article-related-item" href="/tips-prefab-setup">
                 <span class="article-related-thumb"><img src="images/tips/prefab-required-600.webp?v=2" alt="Unityで必要なPrefabをHierarchyへ追加する画面" srcset="images/tips/prefab-required-600.webp?v=2 600w, images/tips/prefab-required-800.webp?v=2 800w, images/tips/prefab-required.webp?v=2 1000w" sizes="(max-width: 720px) 100vw, 180px" width="600" height="600" loading="lazy" decoding="async"></span>
                 <span class="article-related-copy">
                   <strong>導入に必要なPrefabについて</strong>
@@ -282,7 +283,7 @@
             </section>
 
             <div class="text-actions article-actions">
-              <a class="button secondary" href="tips.html">使い方一覧へ戻る</a>
+              <a class="button secondary" href="/tips">使い方一覧へ戻る</a>
             </div>
           </article>
         </div>
@@ -290,7 +291,7 @@
     </main>
 
     <footer class="site-footer">
-      <a class="footer-brand" href="index.html" aria-label="トップへ">
+      <a class="footer-brand" href="/" aria-label="トップへ">
         <img src="images/macaroni-logo.webp" alt="MACARONI" width="720" height="209" loading="lazy" decoding="async">
         <span>R18 ３Dポーズ素材無料配布サイト</span>
       </a>
@@ -303,7 +304,7 @@
           <span class="footer-pill-icon" aria-hidden="true"><img src="images/link-icons/x_logo-white_footer.webp" alt="" width="38" height="38" loading="lazy" decoding="async"></span>
           <span>X</span>
         </a>
-        <a class="footer-pill" href="links.html">
+        <a class="footer-pill" href="/links">
           <span class="footer-pill-icon" aria-hidden="true">L</span>
           <span>Links</span>
         </a>

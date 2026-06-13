@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     default: "MACARONI",
     template: "%s | MACARONI",
   },
-  description: "const homeDescription =
-  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。ポーズ集、モーション、マテリアル素材をアバター別に掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";",
+  description:
+    "VRChat・Unity向けのR18無料3Dポーズ素材を配布。ポーズ集、モーション、マテリアル素材をアバター別に掲載。ゲーム制作・動画制作・イラスト制作に利用できます。",
   applicationName: "MACARONI",
   authors: [{ name: "MACARONI" }],
   referrer: "no-referrer",
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
       follow: true,
       "max-image-preview": "large",
     },
+  },
+  other: {
+    rating: "adult",
   },
   icons: {
     icon: [

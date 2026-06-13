@@ -4,10 +4,9 @@ import { getAllTopCards } from "@/lib/top-cards";
 
 const homeTitle = "R18無料3Dポーズ素材・モーション集 | VRChat・Unity向け";
 const homeBrand = "MACARONI";
-const homeMetaTitle =  "R18無料3Dポーズ素材 | MACARONI";
+const homeMetaTitle = "R18無料3Dポーズ素材 | MACARONI";
 const homeDescription =
-  "const homeDescription =
-  "VRChat・Unity向けのR18無料3Dポーズ素材、モーション、マテリアル素材を配布。アバター別に利用できる素材を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";";
+  "VRChat・Unity向けのR18無料3Dポーズ素材、モーション、マテリアル素材を配布。アバター別に利用できる素材を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 
@@ -150,7 +149,7 @@ export default function HomePage() {
                 const shouldLoadEarly = index === 0;
 
                 return (
-                  <a className="material-card" href={`/character-${slug}.html`} key={slug}>
+                  <a className="material-card" href={`/character-${slug}`} key={slug}>
                     <div className="thumb has-image standing-thumb">
                       <img
                         src={`/images/standing/${image}-600.webp`}
@@ -189,7 +188,7 @@ export default function HomePage() {
           <li>BOOTH / DLsite作品は各商品ページの条件を優先します</li>
           <li>
             詳しい条件は
-            <a className="text-link" href="/terms.html">
+            <a className="text-link" href="/terms">
               利用規約
             </a>
             をご確認ください

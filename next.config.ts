@@ -64,6 +64,18 @@ const servedEnglishStaticHtmlPages = new Set([
 ]);
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    const staticPageRewrites = staticHtmlPages.map((page) => ({
+      source: `/${page}`,
+      destination: `/${page}.html`,
+    }));
+    const englishStaticPageRewrites = Array.from(servedEnglishStaticHtmlPages).map((page) => ({
+      source: `/en/${page}`,
+      destination: `/en/${page}.html`,
+    }));
+
+    return [...staticPageRewrites, ...englishStaticPageRewrites];
+  },
   async redirects() {
     const productRedirects = productSlugs.flatMap((slug) => [
       {
@@ -85,19 +97,22 @@ const nextConfig: NextConfig = {
     const staticPageRedirects = staticHtmlPages.flatMap((page) => {
       const redirects = [
         {
+          source: `/${page}.html`,
+          destination: `/${page}`,
+          permanent: true,
+        },
+        {
           source: `/ja/${page}.html`,
-          destination: `/${page}.html`,
+          destination: `/${page}`,
           permanent: true,
         },
       ];
 
-      if (!servedEnglishStaticHtmlPages.has(page)) {
-        redirects.push({
-          source: `/en/${page}.html`,
-          destination: `/${page}.html`,
-          permanent: false,
-        });
-      }
+      redirects.push({
+        source: `/en/${page}.html`,
+        destination: servedEnglishStaticHtmlPages.has(page) ? `/en/${page}` : `/${page}`,
+        permanent: false,
+      });
 
       return redirects;
     });
@@ -109,9 +124,9 @@ const nextConfig: NextConfig = {
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/ja/index.html", destination: "/", permanent: true },
       { source: "/en/index.html", destination: "/", permanent: false },
-      { source: "/blog.html", destination: "/tips.html", permanent: true },
-      { source: "/ja/blog.html", destination: "/tips.html", permanent: true },
-      { source: "/en/blog.html", destination: "/tips.html", permanent: false },
+      { source: "/blog.html", destination: "/tips", permanent: true },
+      { source: "/ja/blog.html", destination: "/tips", permanent: true },
+      { source: "/en/blog.html", destination: "/tips", permanent: false },
       ...staticPageRedirects,
       ...productRedirects,
     ];

@@ -6128,11 +6128,13 @@ p {
     white-space: nowrap;
   }
 
-  .nav a[href="booth.html"] {
+  .nav a[href="booth.html"],
+  .nav a[href="/products"] {
     font-size: 0;
   }
 
-  .nav a[href="booth.html"]::before {
+  .nav a[href="booth.html"]::before,
+  .nav a[href="/products"]::before {
     content: "BOOTH";
     font-size: 15px;
   }
@@ -6656,7 +6658,8 @@ p {
     font-size: 13px;
   }
 
-  .nav a[href="booth.html"]::before {
+  .nav a[href="booth.html"]::before,
+  .nav a[href="/products"]::before {
     font-size: 13px;
   }
 

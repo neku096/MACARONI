@@ -156,6 +156,8 @@ export function getFilterOptions() {
 }
 
 export function productJsonLd(product: Product) {
+  const price = getStructuredPrice(product.price);
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -168,13 +170,41 @@ export function productJsonLd(product: Product) {
     },
     category: product.categoryLabel,
     isFamilyFriendly: false,
-    offers: product.salesLinks.map((link) => ({
-      "@type": "Offer",
-      url: link.url,
-      priceCurrency: "JPY",
-      availability: "https://schema.org/InStock",
-    })),
+    offers: product.salesLinks.map((link) => {
+      const offer: Record<string, string | number> = {
+        "@type": "Offer",
+        url: link.url,
+        priceCurrency: "JPY",
+        availability: "https://schema.org/InStock",
+      };
+
+      if (price !== null) {
+        offer.price = price;
+      }
+
+      return offer;
+    }),
   };
+}
+
+export function getStructuredPrice(priceText: string) {
+  const normalizedPrice = priceText.trim();
+
+  if (!normalizedPrice) {
+    return null;
+  }
+
+  if (/無料|free|¥0|￥0|0円/i.test(normalizedPrice)) {
+    return 0;
+  }
+
+  const match = normalizedPrice.match(/[¥￥]?\s*([0-9][0-9,]*)\s*円?/);
+
+  if (!match) {
+    return null;
+  }
+
+  return Number(match[1].replace(/,/g, ""));
 }
 
 function uniqueBy<T>(items: T[], key: (item: T) => string) {
