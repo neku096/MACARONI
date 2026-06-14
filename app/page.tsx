@@ -4,9 +4,9 @@ import { getAllTopCards } from "@/lib/top-cards";
 
 const homeTitle = "R18無料3Dポーズ素材・モーション集 | VRChat・Unity向け";
 const homeBrand = "MACARONI";
-const homeMetaTitle = "R18無料3Dポーズ素材 | MACARONI";
+const homeMetaTitle = "R18無料3Dポーズ素材 | VRChat・Unity向け | MACARONI";
 const homeDescription =
-  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。対応アバター別のポーズ素材や、有料モーション・マテリアル作品を掲載。ゲーム制作・動画制作・イラスト制作に利用できます。";
+  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。対応アバター別に無料ポーズを掲載。ゲーム制作・動画制作・イラスト制作で利用できます。";
 const siteOgImage = `${siteUrl}/Macaroni_Samune/ogp-v4.png`;
 const topCardFallbackImage = "/Macaroni_Samune/ogp-v4.png";
 

@@ -7,14 +7,17 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { siteUrl } from "@/lib/products";
 import "../styles.css";
 
+const defaultTitle = "R18無料3Dポーズ素材 | VRChat・Unity向け | MACARONI";
+const defaultDescription =
+  "VRChat・Unity向けのR18無料3Dポーズ素材を配布。対応アバター別に無料ポーズを掲載。ゲーム制作・動画制作・イラスト制作で利用できます。";
+
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}/`),
   title: {
-    default: "MACARONI",
+    default: defaultTitle,
     template: "%s | MACARONI",
   },
-  description:
-    "VRChat・Unity向けのR18無料3Dポーズ素材を配布。ポーズ集、モーション、マテリアル素材をアバター別に掲載。ゲーム制作・動画制作・イラスト制作に利用できます。",
+  description: defaultDescription,
   applicationName: "MACARONI",
   authors: [{ name: "MACARONI" }],
   referrer: "no-referrer",
@@ -43,9 +46,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     siteName: "MACARONI",
+    title: defaultTitle,
+    description: defaultDescription,
   },
   twitter: {
     card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
   },
 };
 
