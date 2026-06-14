@@ -151,6 +151,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.65,
     },
     {
+      url: `${siteUrl}/booth-faq`,
+      lastModified: getSourceLastModified("public/booth-faq.html"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${siteUrl}/tips-anim-import`,
+      lastModified: getSourceLastModified("public/tips-anim-import.html"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${siteUrl}/tips-commercial-use`,
+      lastModified: getSourceLastModified("public/tips-commercial-use.html"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${siteUrl}/tips-face-emote-fix`,
+      lastModified: getSourceLastModified("public/tips-face-emote-fix.html"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${siteUrl}/tips-prefab-setup`,
+      lastModified: getSourceLastModified("public/tips-prefab-setup.html"),
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
       url: `${siteUrl}/terms`,
       lastModified: getSourceLastModified("public/terms.html"),
       changeFrequency: "yearly",
