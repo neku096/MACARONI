@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' /_vercel/insights/ /_vercel/speed-insights/; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
     <title>Unity縺ｧanim繝輔ぃ繧､繝ｫ繧貞・繧後ｋ譎ゅ・蝓ｺ譛ｬ | 菴ｿ縺・婿險倅ｺ・| 繝槭き繝ｭ繝・/title>
     <meta name="description" content="Unity縺ｧ繝繧ｦ繝ｳ繝ｭ繝ｼ繝峨＠縺・anim繝輔ぃ繧､繝ｫ繧定ｪｭ縺ｿ霎ｼ縺ｿ縲？umanPrefab縺ｸAnimator Controller繧定ｨｭ螳壹＠縲、nimator縺ｨAnimation繧ｿ繝悶〒繝昴・繧ｺ繝ｻ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ繧貞・逕溽｢ｺ隱阪☆繧区焔鬆・ｒ縺ｾ縺ｨ繧√∪縺吶・>
@@ -72,6 +72,10 @@
 
     <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">

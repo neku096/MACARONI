@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' /_vercel/insights/ /_vercel/speed-insights/; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
     <title>Solo Motion vol.3 | VRChat, Unity, and Modular Avatar R18 Motion Asset | MACARONI</title>
     <meta name="description" content="Solo Motion vol.3 is an R18 solo motion asset for VRChat and Unity 2022. It includes Modular Avatar prefab setup, 2 motions, sound, particles, toy objects, and facial expressions for avatar photography and video production.">
@@ -64,6 +64,10 @@
 
     <script src="../age-gate-boot.js"></script>
     <link rel="stylesheet" href="../styles.css">
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog" aria-labelledby="ageGateTitle" aria-describedby="ageGateDescription">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' /_vercel/insights/ /_vercel/speed-insights/; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com; media-src 'self'; frame-src 'none'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
     <title>VRChat・Unity向けR18 3Dポーズ/モーション素材一覧 | BOOTH作品 | MACARONI</title>
     <meta name="description" content="VRChatアバターやUnity向けのR18 3Dポーズ、セクシーモーション、一人用モーション、マテリアル素材を一覧で確認できます。BOOTH購入前に画像、対応内容、関連商品を見比べられる作品ページです。">
@@ -203,6 +203,10 @@
 
     <script src="age-gate-boot.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <div class="age-gate" id="ageGate" aria-modal="true" role="dialog">
